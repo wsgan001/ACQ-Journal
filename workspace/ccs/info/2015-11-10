@@ -1,0 +1,711 @@
+Nov 7, 2015 4:25:19 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph effectiveness test
+Nov 7, 2015 4:42:10 PM	AQJSim:0.0060760433137917935 0.05844173621362805 0.057996120706637934
+Nov 7, 2015 4:42:10 PM	APJSim:0.004051915265185851 0.01462461666852264 0.06164334796504842
+Nov 7, 2015 4:42:10 PM	AWFreq:7.226311054487075E-4 0.003918836713330458 0.004946323386320823
+Nov 7, 2015 4:42:10 PM	AWEntropy:13.770098742899345 9.89545011014516 10.53860031691477
+Nov 7, 2015 4:42:10 PM	ADFreq:0.012585600906865977 0.07862195287945868 0.13392775902115509
+Nov 7, 2015 4:42:10 PM	
+
+Nov 7, 2015 4:42:15 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph Config.k=4
+Nov 7, 2015 4:42:55 PM	count:100 Inc-S:200.50971753000002 Inc-T:167.15602907000002 Dec:40.285557680000004
+Nov 7, 2015 4:43:29 PM	count:200 Inc-S:184.86247012 Inc-T:148.223739305 Dec:40.610466695
+Nov 7, 2015 4:44:03 PM	count:300 Inc-S:177.23420064333334 Inc-T:144.37111715333333 Dec:41.040472306666665
+Nov 7, 2015 4:44:03 PM	
+
+Nov 7, 2015 4:44:08 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph Config.k=5
+Nov 7, 2015 4:44:44 PM	count:100 Inc-S:170.24303461 Inc-T:138.88468138 Dec:60.537725810000005
+Nov 7, 2015 4:45:17 PM	count:200 Inc-S:163.09138323 Inc-T:131.00634654499999 Dec:53.011403245000004
+Nov 7, 2015 4:45:50 PM	count:300 Inc-S:157.27855150000002 Inc-T:130.10736628 Dec:53.44541461666666
+Nov 7, 2015 4:45:50 PM	
+
+Nov 7, 2015 4:45:55 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph Config.k=6
+Nov 7, 2015 4:46:28 PM	count:100 Inc-S:157.9638101 Inc-T:133.44407184 Dec:41.2467987
+Nov 7, 2015 4:47:00 PM	count:200 Inc-S:154.15045781 Inc-T:126.04674708 Dec:43.39495818
+Nov 7, 2015 4:47:30 PM	count:300 Inc-S:148.56320226333335 Inc-T:125.37936877666667 Dec:43.27066925333333
+Nov 7, 2015 4:47:30 PM	
+
+Nov 7, 2015 4:47:34 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph Config.k=7
+Nov 7, 2015 4:48:07 PM	count:100 Inc-S:145.51451007 Inc-T:128.44414897000001 Dec:52.03675283
+Nov 7, 2015 4:48:37 PM	count:200 Inc-S:138.842048315 Inc-T:121.25050182499999 Dec:54.910395234999996
+Nov 7, 2015 4:49:07 PM	count:300 Inc-S:136.79559617666666 Inc-T:121.30319114666668 Dec:50.24148862
+Nov 7, 2015 4:49:07 PM	
+
+Nov 7, 2015 4:49:11 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph Config.k=8
+Nov 7, 2015 4:49:43 PM	count:100 Inc-S:138.37765656 Inc-T:139.04166572 Dec:39.26226068
+Nov 7, 2015 4:50:11 PM	count:200 Inc-S:133.3434009 Inc-T:124.76757163500001 Dec:43.036029035
+Nov 7, 2015 4:50:40 PM	count:300 Inc-S:131.67998331333334 Inc-T:122.71358441333332 Dec:43.11265322333333
+Nov 7, 2015 4:50:40 PM	
+
+Nov 7, 2015 4:50:43 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-node-only-20 Config.k=6
+Nov 7, 2015 4:50:44 PM	count:100 Inc-S:5.41228929 Inc-T:5.24909066 Dec:1.83255888
+Nov 7, 2015 4:50:45 PM	count:200 Inc-S:4.78893984 Inc-T:4.6038893000000005 Dec:1.783585965
+Nov 7, 2015 4:50:46 PM	count:300 Inc-S:4.585161336666666 Inc-T:4.413492793333333 Dec:1.7718642566666665
+Nov 7, 2015 4:50:46 PM	
+
+Nov 7, 2015 4:50:49 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-node-only-40 Config.k=6
+Nov 7, 2015 4:50:54 PM	count:100 Inc-S:20.24923232 Inc-T:16.70609674 Dec:4.53003142
+Nov 7, 2015 4:50:58 PM	count:200 Inc-S:19.56341418 Inc-T:15.34139733 Dec:5.148648475
+Nov 7, 2015 4:51:02 PM	count:300 Inc-S:19.102580789999998 Inc-T:15.27316075 Dec:5.682363426666667
+Nov 7, 2015 4:51:02 PM	
+
+Nov 7, 2015 4:51:05 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-node-only-60 Config.k=6
+Nov 7, 2015 4:51:13 PM	count:100 Inc-S:38.22801702 Inc-T:32.61377238 Dec:8.80089944
+Nov 7, 2015 4:51:21 PM	count:200 Inc-S:37.583103525 Inc-T:30.229308879999998 Dec:14.322715085
+Nov 7, 2015 4:51:29 PM	count:300 Inc-S:35.88057625 Inc-T:29.376376133333338 Dec:13.267792426666666
+Nov 7, 2015 4:51:29 PM	
+
+Nov 7, 2015 4:51:32 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-node-only-80 Config.k=6
+Nov 7, 2015 4:51:46 PM	count:100 Inc-S:62.77550594 Inc-T:51.997104099999994 Dec:19.86670623
+Nov 7, 2015 4:51:59 PM	count:200 Inc-S:58.929648995 Inc-T:49.050186215000004 Dec:25.81274651
+Nov 7, 2015 4:52:10 PM	count:300 Inc-S:56.33248724 Inc-T:47.51991252 Dec:23.17063211
+Nov 7, 2015 4:52:10 PM	
+
+Nov 7, 2015 4:52:11 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-20 Config.k=6
+Nov 7, 2015 4:52:11 PM	count:100 Inc-S:1.3106976000000001 Inc-T:1.23128032 Dec:0.3937191
+Nov 7, 2015 4:52:11 PM	count:200 Inc-S:1.24308932 Inc-T:1.1690908 Dec:0.28311936
+Nov 7, 2015 4:52:12 PM	count:300 Inc-S:1.2307410833333334 Inc-T:1.1590574266666667 Dec:0.21748122333333333
+Nov 7, 2015 4:52:12 PM	
+
+Nov 7, 2015 4:52:13 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-40 Config.k=6
+Nov 7, 2015 4:52:14 PM	count:100 Inc-S:9.01580013 Inc-T:7.48636794 Dec:1.4228917
+Nov 7, 2015 4:52:16 PM	count:200 Inc-S:8.47634977 Inc-T:7.452609795 Dec:2.20402268
+Nov 7, 2015 4:52:18 PM	count:300 Inc-S:8.427457916666667 Inc-T:7.455501460000001 Dec:1.9984607633333333
+Nov 7, 2015 4:52:18 PM	
+
+Nov 7, 2015 4:52:20 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-60 Config.k=6
+Nov 7, 2015 4:52:25 PM	count:100 Inc-S:23.984203859999997 Inc-T:21.84648177 Dec:6.5220027300000005
+Nov 7, 2015 4:52:31 PM	count:200 Inc-S:25.05132008 Inc-T:21.78606552 Dec:7.16421138
+Nov 7, 2015 4:52:36 PM	count:300 Inc-S:23.975317046666667 Inc-T:21.939893316666666 Dec:7.1269669
+Nov 7, 2015 4:52:36 PM	
+
+Nov 7, 2015 4:52:38 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-80 Config.k=6
+Nov 7, 2015 4:52:49 PM	count:100 Inc-S:53.24559676 Inc-T:45.64793909 Dec:12.31024708
+Nov 7, 2015 4:52:59 PM	count:200 Inc-S:49.32152035 Inc-T:40.72510308 Dec:14.700365535000001
+Nov 7, 2015 4:53:10 PM	count:300 Inc-S:48.58388048333334 Inc-T:41.89010997 Dec:15.929136060000001
+Nov 7, 2015 4:53:10 PM	
+
+Nov 7, 2015 4:53:11 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-20 # of shared keywords are as follows:
+Nov 7, 2015 4:53:11 PM	shareLen:1 vertexNum:1117.32
+Nov 7, 2015 4:53:11 PM	shareLen:2 vertexNum:240.70666666666668
+Nov 7, 2015 4:53:11 PM	shareLen:3 vertexNum:55.166666666666664
+Nov 7, 2015 4:53:11 PM	shareLen:4 vertexNum:15.186666666666667
+Nov 7, 2015 4:53:11 PM	shareLen:5 vertexNum:26.033333333333335
+Nov 7, 2015 4:53:11 PM	shareLen:6 vertexNum:5.04
+Nov 7, 2015 4:53:11 PM	shareLen:7 vertexNum:2.0233333333333334
+Nov 7, 2015 4:53:11 PM	shareLen:8 vertexNum:0.9666666666666667
+Nov 7, 2015 4:53:11 PM	shareLen:9 vertexNum:0.29
+Nov 7, 2015 4:53:11 PM	shareLen:10 vertexNum:0.12
+Nov 7, 2015 4:53:11 PM	shareLen:11 vertexNum:0.05333333333333334
+Nov 7, 2015 4:53:11 PM	shareLen:12 vertexNum:0.06
+Nov 7, 2015 4:53:11 PM	shareLen:13 vertexNum:0.02
+Nov 7, 2015 4:53:11 PM	shareLen:14 vertexNum:0.023333333333333334
+Nov 7, 2015 4:53:11 PM	shareLen:15 vertexNum:0.01
+Nov 7, 2015 4:53:11 PM	shareLen:16 vertexNum:0.013333333333333334
+Nov 7, 2015 4:53:11 PM	shareLen:17 vertexNum:0.006666666666666667
+Nov 7, 2015 4:53:11 PM	shareLen:18 vertexNum:0.02
+Nov 7, 2015 4:53:11 PM	shareLen:19 vertexNum:0.013333333333333334
+Nov 7, 2015 4:53:11 PM	shareLen:20 vertexNum:0.5466666666666666
+Nov 7, 2015 4:53:11 PM	
+
+
+Nov 7, 2015 4:53:12 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-40 # of shared keywords are as follows:
+Nov 7, 2015 4:53:12 PM	shareLen:1 vertexNum:3696.7966666666666
+Nov 7, 2015 4:53:12 PM	shareLen:2 vertexNum:769.9433333333334
+Nov 7, 2015 4:53:12 PM	shareLen:3 vertexNum:174.44666666666666
+Nov 7, 2015 4:53:12 PM	shareLen:4 vertexNum:47.846666666666664
+Nov 7, 2015 4:53:12 PM	shareLen:5 vertexNum:89.24
+Nov 7, 2015 4:53:12 PM	shareLen:6 vertexNum:16.71
+Nov 7, 2015 4:53:12 PM	shareLen:7 vertexNum:6.663333333333333
+Nov 7, 2015 4:53:12 PM	shareLen:8 vertexNum:2.8666666666666667
+Nov 7, 2015 4:53:12 PM	shareLen:9 vertexNum:0.9866666666666667
+Nov 7, 2015 4:53:12 PM	shareLen:10 vertexNum:0.31666666666666665
+Nov 7, 2015 4:53:12 PM	shareLen:11 vertexNum:0.15333333333333332
+Nov 7, 2015 4:53:12 PM	shareLen:12 vertexNum:0.11333333333333333
+Nov 7, 2015 4:53:12 PM	shareLen:13 vertexNum:0.05333333333333334
+Nov 7, 2015 4:53:12 PM	shareLen:14 vertexNum:0.043333333333333335
+Nov 7, 2015 4:53:12 PM	shareLen:15 vertexNum:0.013333333333333334
+Nov 7, 2015 4:53:12 PM	shareLen:16 vertexNum:0.016666666666666666
+Nov 7, 2015 4:53:12 PM	shareLen:17 vertexNum:0.006666666666666667
+Nov 7, 2015 4:53:12 PM	shareLen:18 vertexNum:0.02
+Nov 7, 2015 4:53:12 PM	shareLen:19 vertexNum:0.013333333333333334
+Nov 7, 2015 4:53:12 PM	shareLen:20 vertexNum:0.5466666666666666
+Nov 7, 2015 4:53:12 PM	
+
+
+Nov 7, 2015 4:53:14 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-60 # of shared keywords are as follows:
+Nov 7, 2015 4:53:14 PM	shareLen:1 vertexNum:6945.43
+Nov 7, 2015 4:53:14 PM	shareLen:2 vertexNum:1423.32
+Nov 7, 2015 4:53:14 PM	shareLen:3 vertexNum:322.6166666666667
+Nov 7, 2015 4:53:14 PM	shareLen:4 vertexNum:87.55333333333333
+Nov 7, 2015 4:53:14 PM	shareLen:5 vertexNum:170.24333333333334
+Nov 7, 2015 4:53:14 PM	shareLen:6 vertexNum:31.696666666666665
+Nov 7, 2015 4:53:14 PM	shareLen:7 vertexNum:12.593333333333334
+Nov 7, 2015 4:53:14 PM	shareLen:8 vertexNum:5.496666666666667
+Nov 7, 2015 4:53:14 PM	shareLen:9 vertexNum:1.9266666666666667
+Nov 7, 2015 4:53:14 PM	shareLen:10 vertexNum:0.5933333333333334
+Nov 7, 2015 4:53:14 PM	shareLen:11 vertexNum:0.3
+Nov 7, 2015 4:53:14 PM	shareLen:12 vertexNum:0.20333333333333334
+Nov 7, 2015 4:53:14 PM	shareLen:13 vertexNum:0.10333333333333333
+Nov 7, 2015 4:53:14 PM	shareLen:14 vertexNum:0.08
+Nov 7, 2015 4:53:14 PM	shareLen:15 vertexNum:0.016666666666666666
+Nov 7, 2015 4:53:14 PM	shareLen:16 vertexNum:0.02
+Nov 7, 2015 4:53:14 PM	shareLen:17 vertexNum:0.01
+Nov 7, 2015 4:53:14 PM	shareLen:18 vertexNum:0.02
+Nov 7, 2015 4:53:14 PM	shareLen:19 vertexNum:0.013333333333333334
+Nov 7, 2015 4:53:14 PM	shareLen:20 vertexNum:0.5466666666666666
+Nov 7, 2015 4:53:14 PM	
+
+
+Nov 7, 2015 4:53:17 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-80 # of shared keywords are as follows:
+Nov 7, 2015 4:53:17 PM	shareLen:1 vertexNum:10482.366666666667
+Nov 7, 2015 4:53:17 PM	shareLen:2 vertexNum:2119.766666666667
+Nov 7, 2015 4:53:17 PM	shareLen:3 vertexNum:479.04
+Nov 7, 2015 4:53:17 PM	shareLen:4 vertexNum:128.79
+Nov 7, 2015 4:53:17 PM	shareLen:5 vertexNum:257.30333333333334
+Nov 7, 2015 4:53:17 PM	shareLen:6 vertexNum:47.2
+Nov 7, 2015 4:53:17 PM	shareLen:7 vertexNum:18.656666666666666
+Nov 7, 2015 4:53:17 PM	shareLen:8 vertexNum:7.923333333333333
+Nov 7, 2015 4:53:17 PM	shareLen:9 vertexNum:2.93
+Nov 7, 2015 4:53:17 PM	shareLen:10 vertexNum:0.92
+Nov 7, 2015 4:53:17 PM	shareLen:11 vertexNum:0.45666666666666667
+Nov 7, 2015 4:53:17 PM	shareLen:12 vertexNum:0.2733333333333333
+Nov 7, 2015 4:53:17 PM	shareLen:13 vertexNum:0.15666666666666668
+Nov 7, 2015 4:53:17 PM	shareLen:14 vertexNum:0.10333333333333333
+Nov 7, 2015 4:53:17 PM	shareLen:15 vertexNum:0.023333333333333334
+Nov 7, 2015 4:53:17 PM	shareLen:16 vertexNum:0.02666666666666667
+Nov 7, 2015 4:53:17 PM	shareLen:17 vertexNum:0.01
+Nov 7, 2015 4:53:17 PM	shareLen:18 vertexNum:0.02
+Nov 7, 2015 4:53:17 PM	shareLen:19 vertexNum:0.013333333333333334
+Nov 7, 2015 4:53:17 PM	shareLen:20 vertexNum:0.5466666666666666
+Nov 7, 2015 4:53:17 PM	
+
+
+Nov 7, 2015 4:53:23 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph # of shared keywords are as follows:
+Nov 7, 2015 4:53:23 PM	shareLen:1 vertexNum:18460.713333333333
+Nov 7, 2015 4:53:23 PM	shareLen:2 vertexNum:5229.316666666667
+Nov 7, 2015 4:53:23 PM	shareLen:3 vertexNum:1669.98
+Nov 7, 2015 4:53:23 PM	shareLen:4 vertexNum:588.0666666666667
+Nov 7, 2015 4:53:23 PM	shareLen:5 vertexNum:507.57
+Nov 7, 2015 4:53:23 PM	shareLen:6 vertexNum:175.25666666666666
+Nov 7, 2015 4:53:23 PM	shareLen:7 vertexNum:69.69666666666667
+Nov 7, 2015 4:53:23 PM	shareLen:8 vertexNum:32.82333333333333
+Nov 7, 2015 4:53:23 PM	shareLen:9 vertexNum:15.076666666666666
+Nov 7, 2015 4:53:23 PM	shareLen:10 vertexNum:7.35
+Nov 7, 2015 4:53:23 PM	shareLen:11 vertexNum:3.35
+Nov 7, 2015 4:53:23 PM	shareLen:12 vertexNum:1.84
+Nov 7, 2015 4:53:23 PM	shareLen:13 vertexNum:0.91
+Nov 7, 2015 4:53:23 PM	shareLen:14 vertexNum:0.5666666666666667
+Nov 7, 2015 4:53:23 PM	shareLen:15 vertexNum:0.36
+Nov 7, 2015 4:53:23 PM	shareLen:16 vertexNum:0.24333333333333335
+Nov 7, 2015 4:53:23 PM	shareLen:17 vertexNum:0.15
+Nov 7, 2015 4:53:23 PM	shareLen:18 vertexNum:0.16666666666666666
+Nov 7, 2015 4:53:23 PM	shareLen:19 vertexNum:0.11
+Nov 7, 2015 4:53:23 PM	shareLen:20 vertexNum:0.06
+Nov 7, 2015 4:53:23 PM	shareLen:21 vertexNum:0.03666666666666667
+Nov 7, 2015 4:53:23 PM	shareLen:22 vertexNum:0.02
+Nov 7, 2015 4:53:23 PM	shareLen:23 vertexNum:0.006666666666666667
+Nov 7, 2015 4:53:23 PM	shareLen:24 vertexNum:0.013333333333333334
+Nov 7, 2015 4:53:23 PM	shareLen:26 vertexNum:0.0033333333333333335
+Nov 7, 2015 4:53:23 PM	shareLen:27 vertexNum:0.006666666666666667
+Nov 7, 2015 4:53:23 PM	shareLen:28 vertexNum:0.016666666666666666
+Nov 7, 2015 4:53:23 PM	shareLen:29 vertexNum:0.01
+Nov 7, 2015 4:53:23 PM	shareLen:30 vertexNum:0.4666666666666667
+Nov 7, 2015 4:53:23 PM	
+
+
+Nov 7, 2015 4:53:29 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph comparison Config.k=4
+Nov 7, 2015 4:54:56 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 SIGKDD2010:507.19670591 SIGMOD2014:340.05259981 CAC:41.646077809999994
+Nov 7, 2015 4:56:22 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 SIGKDD2010:505.03852928 SIGMOD2014:325.804148935 CAC:41.054262055
+Nov 7, 2015 4:57:49 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 SIGKDD2010:503.1899768266667 SIGMOD2014:328.1385691333333 CAC:41.00219395333333
+Nov 7, 2015 4:57:49 PM	
+
+Nov 7, 2015 4:57:55 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph comparison Config.k=5
+Nov 7, 2015 4:59:36 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 SIGKDD2010:497.60010781999995 SIGMOD2014:478.55442495000005 CAC:44.50803691
+Nov 7, 2015 5:01:17 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 SIGKDD2010:495.96538699999996 SIGMOD2014:476.80980349500004 CAC:43.392566785
+Nov 7, 2015 5:02:54 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 SIGKDD2010:495.38030867000003 SIGMOD2014:458.99278544000003 CAC:45.99570553
+Nov 7, 2015 5:02:54 PM	
+
+Nov 7, 2015 5:03:00 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph comparison Config.k=6
+Nov 7, 2015 5:04:51 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 SIGKDD2010:481.57224828 SIGMOD2014:603.75101707 CAC:44.64893838
+Nov 7, 2015 5:06:43 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 SIGKDD2010:482.932339655 SIGMOD2014:592.521262205 CAC:46.814167115000004
+Nov 7, 2015 5:08:27 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 SIGKDD2010:482.7968535933333 SIGMOD2014:565.5143750566667 CAC:46.64237573
+Nov 7, 2015 5:08:27 PM	
+
+Nov 7, 2015 5:08:34 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph comparison Config.k=7
+Nov 7, 2015 5:10:33 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 SIGKDD2010:481.38127122 SIGMOD2014:690.06835083 CAC:49.795848
+Nov 7, 2015 5:12:30 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 SIGKDD2010:472.61564016999995 SIGMOD2014:670.0543013949999 CAC:53.82704536
+Nov 7, 2015 5:14:17 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 SIGKDD2010:470.8279883533333 SIGMOD2014:633.9547484366667 CAC:49.49322666
+Nov 7, 2015 5:14:17 PM	
+
+Nov 7, 2015 5:14:24 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph comparison Config.k=8
+Nov 7, 2015 5:16:25 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 SIGKDD2010:459.69385932 SIGMOD2014:734.6544826799999 CAC:37.77754516
+Nov 7, 2015 5:18:22 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 SIGKDD2010:459.21427538000006 SIGMOD2014:701.9141064250001 CAC:40.7477795
+Nov 7, 2015 5:20:13 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 SIGKDD2010:459.2902934733333 SIGMOD2014:669.61633759 CAC:40.924475826666665
+Nov 7, 2015 5:20:13 PM	
+
+Nov 7, 2015 5:20:18 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant1 Config.k=6 kws-len:1
+Nov 7, 2015 5:21:37 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:73 BasicGV1:730.1801265068493 BasicWV1:361.0644839041096 SW:7.782188534246576
+Nov 7, 2015 5:22:54 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:144 BasicGV1:728.9125188333333 BasicWV1:358.55855280555556 SW:7.485899979166667
+Nov 7, 2015 5:24:03 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:206 BasicGV1:730.8262387087378 BasicWV1:359.0015205 SW:7.313898106796117
+Nov 7, 2015 5:24:03 PM	
+
+Nov 7, 2015 5:24:04 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant1 Config.k=6 kws-len:3
+Nov 7, 2015 5:25:22 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:73 BasicGV1:724.5505941643836 BasicWV1:359.00103631506846 SW:1.5329216849315068
+Nov 7, 2015 5:26:39 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:144 BasicGV1:723.4774529583333 BasicWV1:357.92118825 SW:1.3086454305555555
+Nov 7, 2015 5:27:46 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:206 BasicGV1:722.88007942233 BasicWV1:357.8978078932039 SW:1.1167057766990292
+Nov 7, 2015 5:27:46 PM	
+
+Nov 7, 2015 5:27:47 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant1 Config.k=6 kws-len:5
+Nov 7, 2015 5:29:06 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:73 BasicGV1:730.2240738082191 BasicWV1:367.902775 SW:1.57839498630137
+Nov 7, 2015 5:30:24 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:144 BasicGV1:730.6915320208333 BasicWV1:367.16987331944443 SW:1.3493572361111112
+Nov 7, 2015 5:31:31 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:206 BasicGV1:729.028045223301 BasicWV1:366.03034839805827 SW:1.1627235194174756
+Nov 7, 2015 5:31:31 PM	
+
+Nov 7, 2015 5:31:33 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant1 Config.k=6 kws-len:7
+Nov 7, 2015 5:32:53 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:73 BasicGV1:735.3415063150685 BasicWV1:375.48453341095893 SW:0.8914053972602739
+Nov 7, 2015 5:34:11 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:144 BasicGV1:733.5588636180555 BasicWV1:375.07200175 SW:0.8315062986111111
+Nov 7, 2015 5:35:20 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:206 BasicGV1:735.2842744271845 BasicWV1:375.50349614563106 SW:0.8249457621359223
+Nov 7, 2015 5:35:20 PM	
+
+Nov 7, 2015 5:35:22 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant1 Config.k=6 kws-len:9
+Nov 7, 2015 5:36:43 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:73 BasicGV1:743.9076244246576 BasicWV1:387.11590009589037 SW:0.9291523698630137
+Nov 7, 2015 5:38:03 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:144 BasicGV1:742.4301980486111 BasicWV1:385.6290309305556 SW:0.8696512430555555
+Nov 7, 2015 5:39:13 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:206 BasicGV1:741.265622893204 BasicWV1:385.2523784029126 SW:0.8614991359223301
+Nov 7, 2015 5:39:13 PM	
+
+Nov 7, 2015 5:39:20 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant2 Config.k=6 kws-threshold:0.2
+Nov 7, 2015 5:41:13 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 BasicGV2:760.22586779 BasicWV2:392.81496846000005 SWT:9.43766661
+Nov 7, 2015 5:43:07 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 BasicGV2:751.610443115 BasicWV2:390.88318885 SWT:8.7868833
+Nov 7, 2015 5:45:01 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 BasicGV2:747.8632651833333 BasicWV2:389.89533828 SWT:9.235292826666667
+Nov 7, 2015 5:45:01 PM	
+
+Nov 7, 2015 5:45:02 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant2 Config.k=6 kws-threshold:0.4
+Nov 7, 2015 5:46:55 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 BasicGV2:742.10860101 BasicWV2:390.28772796 SWT:3.50581197
+Nov 7, 2015 5:48:48 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 BasicGV2:740.841468685 BasicWV2:389.911918785 SWT:3.2600693
+Nov 7, 2015 5:50:41 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 BasicGV2:741.45234639 BasicWV2:389.5482968266667 SWT:3.2335250033333334
+Nov 7, 2015 5:50:41 PM	
+
+Nov 7, 2015 5:50:42 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant2 Config.k=6 kws-threshold:0.6
+Nov 7, 2015 5:52:35 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 BasicGV2:747.79937205 BasicWV2:391.85193372000003 SWT:1.93441462
+Nov 7, 2015 5:54:29 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 BasicGV2:746.086690465 BasicWV2:391.34465130999996 SWT:1.835365305
+Nov 7, 2015 5:56:23 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 BasicGV2:745.5350629433334 BasicWV2:390.5056811 SWT:1.9642912833333332
+Nov 7, 2015 5:56:23 PM	
+
+Nov 7, 2015 5:56:24 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant2 Config.k=6 kws-threshold:0.8
+Nov 7, 2015 5:58:16 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 BasicGV2:742.46476668 BasicWV2:389.20235032 SWT:1.5701810800000002
+Nov 7, 2015 6:00:09 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 BasicGV2:743.278528315 BasicWV2:388.88229113 SWT:1.53752843
+Nov 7, 2015 6:02:03 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 BasicGV2:743.7789358866667 BasicWV2:388.70219167 SWT:1.5612146733333332
+Nov 7, 2015 6:02:03 PM	
+
+Nov 7, 2015 6:02:04 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph variant2 Config.k=6 kws-threshold:1.0
+Nov 7, 2015 6:03:57 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:100 BasicGV2:747.56389234 BasicWV2:389.606657 SWT:1.13464663
+Nov 7, 2015 6:05:50 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:200 BasicGV2:743.8633791450001 BasicWV2:388.70318667 SWT:1.09953916
+Nov 7, 2015 6:07:43 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 BasicGV2:744.3814908633334 BasicWV2:388.23712907666663 SWT:1.11668729
+Nov 7, 2015 6:07:43 PM	
+
+Nov 7, 2015 6:28:48 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 Config.k:4 basic-g:2037.9606127333334 basic-w:2173.9521615833337
+Nov 7, 2015 6:28:48 PM	
+
+Nov 7, 2015 6:46:17 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 Config.k:5 basic-g:1725.7271120933333 basic-w:1765.417831433333
+Nov 7, 2015 6:46:17 PM	
+
+Nov 7, 2015 7:01:44 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 Config.k:6 basic-g:1524.4322425433334 basic-w:1560.0291762033335
+Nov 7, 2015 7:01:44 PM	
+
+Nov 7, 2015 7:16:02 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 Config.k:7 basic-g:1405.55140411 basic-w:1449.4896073766665
+Nov 7, 2015 7:16:02 PM	
+
+Nov 7, 2015 7:29:37 PM	/home/fangyixiang/Desktop/CCS/flickr/flickr-graph count:300 Config.k:8 basic-g:1322.06929975 basic-w:1387.22245002
+Nov 7, 2015 7:29:37 PM	
+
+Nov 7, 2015 7:29:59 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph effectiveness test
+Nov 7, 2015 7:39:15 PM	AQJSim:0.010468778481818746 0.07975329422406333 0.10123388674474347
+Nov 7, 2015 7:39:15 PM	APJSim:0.009232709572154885 0.020324126200407484 0.1369583693719784
+Nov 7, 2015 7:39:15 PM	AWFreq:0.002542475329731372 0.005498719571254969 0.01698353385174553
+Nov 7, 2015 7:39:15 PM	AWEntropy:11.085986115403331 8.161161628827948 9.420807339702542
+Nov 7, 2015 7:39:15 PM	ADFreq:0.018923539707362245 0.1025005560677065 0.2923953489027588
+Nov 7, 2015 7:39:15 PM	
+
+Nov 7, 2015 7:39:38 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph Config.k=4
+Nov 7, 2015 7:40:39 PM	count:100 Inc-S:254.98995426000002 Inc-T:240.00777508 Dec:118.64698667
+Nov 7, 2015 7:41:28 PM	count:200 Inc-S:239.24379408500002 Inc-T:229.589434415 Dec:81.54660274
+Nov 7, 2015 8:08:13 PM	count:300 Inc-S:4730.251826243333 Inc-T:886.37291624 Dec:98.94095436333333
+Nov 7, 2015 8:08:13 PM	
+
+Nov 7, 2015 8:08:35 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph Config.k=5
+Nov 7, 2015 8:09:35 PM	count:100 Inc-S:247.65200756 Inc-T:260.95814726000003 Dec:90.2828348
+Nov 7, 2015 8:10:22 PM	count:200 Inc-S:232.55006255 Inc-T:238.10467399 Dec:60.070973925
+Nov 7, 2015 8:21:32 PM	count:300 Inc-S:2008.8245233 Inc-T:496.06536071 Dec:82.56903040333333
+Nov 7, 2015 8:21:32 PM	
+
+Nov 7, 2015 8:21:55 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph Config.k=6
+Nov 7, 2015 8:22:50 PM	count:100 Inc-S:243.21281369 Inc-T:226.44037862000002 Dec:78.22657164
+Nov 7, 2015 8:23:35 PM	count:200 Inc-S:228.24330956000003 Inc-T:219.15592155 Dec:52.56573688
+Nov 7, 2015 8:30:02 PM	count:300 Inc-S:1195.0586037566666 Inc-T:354.13463862333333 Dec:73.99750415333334
+Nov 7, 2015 8:30:02 PM	
+
+Nov 7, 2015 8:30:27 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph Config.k=7
+Nov 7, 2015 8:31:21 PM	count:100 Inc-S:241.49903147 Inc-T:229.51030228 Dec:69.86507732
+Nov 7, 2015 8:32:05 PM	count:200 Inc-S:226.081240295 Inc-T:219.897816885 Dec:46.54292775
+Nov 7, 2015 8:37:06 PM	count:300 Inc-S:941.3049825066668 Inc-T:321.58471989333333 Dec:66.71113796
+Nov 7, 2015 8:37:06 PM	
+
+Nov 7, 2015 8:37:29 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph Config.k=8
+Nov 7, 2015 8:38:19 PM	count:100 Inc-S:222.09374692 Inc-T:220.69706010000002 Dec:60.7214739
+Nov 7, 2015 8:39:03 PM	count:200 Inc-S:215.022182195 Inc-T:214.07725559 Dec:41.389837385
+Nov 7, 2015 8:42:44 PM	count:300 Inc-S:707.06017224 Inc-T:287.22465195666666 Dec:57.52652354999999
+Nov 7, 2015 8:42:44 PM	
+
+Nov 7, 2015 8:43:06 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-node-only-20 Config.k=6
+Nov 7, 2015 8:43:07 PM	count:100 Inc-S:4.21349804 Inc-T:6.04617851 Dec:0.03607974
+Nov 7, 2015 8:43:08 PM	count:200 Inc-S:6.012768305 Inc-T:6.902662295 Dec:0.76744568
+Nov 7, 2015 8:43:10 PM	count:300 Inc-S:6.559644326666667 Inc-T:7.119646353333333 Dec:1.1093368433333335
+Nov 7, 2015 8:43:10 PM	
+
+Nov 7, 2015 8:43:32 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-node-only-40 Config.k=6
+Nov 7, 2015 8:43:38 PM	count:100 Inc-S:29.3528069 Inc-T:29.30268544 Dec:0.49675221
+Nov 7, 2015 8:43:44 PM	count:200 Inc-S:29.78109881 Inc-T:28.90656418 Dec:2.299531725
+Nov 7, 2015 8:43:52 PM	count:300 Inc-S:32.53973818 Inc-T:30.48476156666667 Dec:2.5312842233333335
+Nov 7, 2015 8:43:52 PM	
+
+Nov 7, 2015 8:44:14 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-node-only-60 Config.k=6
+Nov 7, 2015 8:44:32 PM	count:100 Inc-S:103.66637941 Inc-T:73.16430457 Dec:9.12572996
+Nov 7, 2015 8:44:49 PM	count:200 Inc-S:90.07548043999999 Inc-T:74.59931653 Dec:8.530885105
+Nov 7, 2015 8:45:14 PM	count:300 Inc-S:102.77519248 Inc-T:82.35707311 Dec:14.827190896666668
+Nov 7, 2015 8:45:14 PM	
+
+Nov 7, 2015 8:45:36 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-node-only-80 Config.k=6
+Nov 7, 2015 8:46:05 PM	count:100 Inc-S:139.12998245 Inc-T:127.43430264 Dec:23.57454779
+Nov 7, 2015 8:46:33 PM	count:200 Inc-S:134.976424895 Inc-T:129.05628945 Dec:20.156866925
+Nov 7, 2015 8:47:42 PM	count:300 Inc-S:229.21784723333334 Inc-T:155.88266988666666 Dec:34.83470489333333
+Nov 7, 2015 8:47:42 PM	
+
+Nov 7, 2015 8:47:44 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph-20 Config.k=6
+Nov 7, 2015 8:47:44 PM	count:100 Inc-S:1.00583348 Inc-T:0.9664748299999999 Dec:0.00654355
+Nov 7, 2015 8:47:45 PM	count:200 Inc-S:1.56588288 Inc-T:1.52550396 Dec:0.006562535
+Nov 7, 2015 8:47:45 PM	count:300 Inc-S:1.88677041 Inc-T:1.8377465233333332 Dec:0.33086621
+Nov 7, 2015 8:47:45 PM	
+
+Nov 7, 2015 8:47:50 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph-40 Config.k=6
+Nov 7, 2015 8:47:55 PM	count:100 Inc-S:21.32980574 Inc-T:23.42089046 Dec:1.3993497400000001
+Nov 7, 2015 8:47:59 PM	count:200 Inc-S:20.590671725000004 Inc-T:20.994245725 Dec:2.534746125
+Nov 7, 2015 8:48:14 PM	count:300 Inc-S:24.301400450000003 Inc-T:23.31338597 Dec:31.355368673333334
+Nov 7, 2015 8:48:14 PM	
+
+Nov 7, 2015 8:48:24 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph-60 Config.k=6
+Nov 7, 2015 8:48:38 PM	count:100 Inc-S:67.50027312 Inc-T:68.6489541 Dec:7.00243734
+Nov 7, 2015 8:48:53 PM	count:200 Inc-S:69.42051914 Inc-T:69.14916446000001 Dec:9.733806175
+Nov 7, 2015 8:50:04 PM	count:300 Inc-S:226.27745912666666 Inc-T:91.45658807 Dec:15.816850943333332
+Nov 7, 2015 8:50:04 PM	
+
+Nov 7, 2015 8:50:22 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph-80 Config.k=6
+Nov 7, 2015 8:50:55 PM	count:100 Inc-S:146.1615343 Inc-T:150.62688494 Dec:31.469460180000002
+Nov 7, 2015 8:51:16 PM	count:200 Inc-S:123.95787767 Inc-T:125.655001235 Dec:21.291890924999997
+Nov 7, 2015 8:55:04 PM	count:300 Inc-S:700.1241730066666 Inc-T:208.48100011333332 Dec:31.765363323333332
+Nov 7, 2015 8:55:04 PM	
+
+Nov 7, 2015 8:55:06 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph-20 # of shared keywords are as follows:
+Nov 7, 2015 8:55:06 PM	shareLen:1 vertexNum:5429.096666666666
+Nov 7, 2015 8:55:06 PM	shareLen:2 vertexNum:1101.37
+Nov 7, 2015 8:55:06 PM	shareLen:3 vertexNum:477.43333333333334
+Nov 7, 2015 8:55:06 PM	shareLen:4 vertexNum:298.0966666666667
+Nov 7, 2015 8:55:06 PM	shareLen:5 vertexNum:147.21
+Nov 7, 2015 8:55:06 PM	shareLen:6 vertexNum:75.06333333333333
+Nov 7, 2015 8:55:06 PM	shareLen:7 vertexNum:41.18666666666667
+Nov 7, 2015 8:55:06 PM	shareLen:8 vertexNum:36.77
+Nov 7, 2015 8:55:06 PM	shareLen:9 vertexNum:23.433333333333334
+Nov 7, 2015 8:55:06 PM	shareLen:10 vertexNum:27.683333333333334
+Nov 7, 2015 8:55:06 PM	shareLen:11 vertexNum:54.7
+Nov 7, 2015 8:55:06 PM	shareLen:12 vertexNum:43.75333333333333
+Nov 7, 2015 8:55:06 PM	shareLen:13 vertexNum:27.933333333333334
+Nov 7, 2015 8:55:06 PM	shareLen:14 vertexNum:21.203333333333333
+Nov 7, 2015 8:55:06 PM	shareLen:15 vertexNum:26.063333333333333
+Nov 7, 2015 8:55:06 PM	shareLen:16 vertexNum:6.6866666666666665
+Nov 7, 2015 8:55:06 PM	shareLen:17 vertexNum:3.0233333333333334
+Nov 7, 2015 8:55:06 PM	shareLen:18 vertexNum:2.28
+Nov 7, 2015 8:55:06 PM	shareLen:19 vertexNum:0.88
+Nov 7, 2015 8:55:06 PM	shareLen:20 vertexNum:0.19
+Nov 7, 2015 8:55:06 PM	shareLen:21 vertexNum:0.12333333333333334
+Nov 7, 2015 8:55:06 PM	shareLen:22 vertexNum:0.02
+Nov 7, 2015 8:55:06 PM	shareLen:23 vertexNum:0.013333333333333334
+Nov 7, 2015 8:55:06 PM	shareLen:24 vertexNum:0.006666666666666667
+Nov 7, 2015 8:55:06 PM	shareLen:25 vertexNum:0.01
+Nov 7, 2015 8:55:06 PM	shareLen:26 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:06 PM	shareLen:28 vertexNum:0.01
+Nov 7, 2015 8:55:06 PM	shareLen:29 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:06 PM	shareLen:30 vertexNum:0.006666666666666667
+Nov 7, 2015 8:55:06 PM	shareLen:31 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:06 PM	shareLen:32 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:06 PM	shareLen:35 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:06 PM	shareLen:36 vertexNum:0.01
+Nov 7, 2015 8:55:06 PM	shareLen:39 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:06 PM	shareLen:42 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:06 PM	shareLen:44 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:06 PM	
+
+
+Nov 7, 2015 8:55:12 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph-40 # of shared keywords are as follows:
+Nov 7, 2015 8:55:12 PM	shareLen:1 vertexNum:21009.326666666668
+Nov 7, 2015 8:55:12 PM	shareLen:2 vertexNum:4249.633333333333
+Nov 7, 2015 8:55:12 PM	shareLen:3 vertexNum:1822.3933333333334
+Nov 7, 2015 8:55:12 PM	shareLen:4 vertexNum:1155.83
+Nov 7, 2015 8:55:12 PM	shareLen:5 vertexNum:549.5133333333333
+Nov 7, 2015 8:55:12 PM	shareLen:6 vertexNum:279.85333333333335
+Nov 7, 2015 8:55:12 PM	shareLen:7 vertexNum:153.83
+Nov 7, 2015 8:55:12 PM	shareLen:8 vertexNum:132.76333333333332
+Nov 7, 2015 8:55:12 PM	shareLen:9 vertexNum:84.64666666666666
+Nov 7, 2015 8:55:12 PM	shareLen:10 vertexNum:102.56666666666666
+Nov 7, 2015 8:55:12 PM	shareLen:11 vertexNum:200.38666666666666
+Nov 7, 2015 8:55:12 PM	shareLen:12 vertexNum:156.50666666666666
+Nov 7, 2015 8:55:12 PM	shareLen:13 vertexNum:99.94666666666667
+Nov 7, 2015 8:55:12 PM	shareLen:14 vertexNum:75.40333333333334
+Nov 7, 2015 8:55:12 PM	shareLen:15 vertexNum:90.99
+Nov 7, 2015 8:55:12 PM	shareLen:16 vertexNum:23.516666666666666
+Nov 7, 2015 8:55:12 PM	shareLen:17 vertexNum:10.293333333333333
+Nov 7, 2015 8:55:12 PM	shareLen:18 vertexNum:8.286666666666667
+Nov 7, 2015 8:55:12 PM	shareLen:19 vertexNum:3.2266666666666666
+Nov 7, 2015 8:55:12 PM	shareLen:20 vertexNum:0.6333333333333333
+Nov 7, 2015 8:55:12 PM	shareLen:21 vertexNum:0.4066666666666667
+Nov 7, 2015 8:55:12 PM	shareLen:22 vertexNum:0.04666666666666667
+Nov 7, 2015 8:55:12 PM	shareLen:23 vertexNum:0.013333333333333334
+Nov 7, 2015 8:55:12 PM	shareLen:24 vertexNum:0.006666666666666667
+Nov 7, 2015 8:55:12 PM	shareLen:25 vertexNum:0.01
+Nov 7, 2015 8:55:12 PM	shareLen:26 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:12 PM	shareLen:28 vertexNum:0.01
+Nov 7, 2015 8:55:12 PM	shareLen:29 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:12 PM	shareLen:30 vertexNum:0.006666666666666667
+Nov 7, 2015 8:55:12 PM	shareLen:31 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:12 PM	shareLen:32 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:12 PM	shareLen:35 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:12 PM	shareLen:36 vertexNum:0.01
+Nov 7, 2015 8:55:12 PM	shareLen:39 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:12 PM	shareLen:42 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:12 PM	shareLen:44 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:12 PM	
+
+
+Nov 7, 2015 8:55:24 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph-60 # of shared keywords are as follows:
+Nov 7, 2015 8:55:24 PM	shareLen:1 vertexNum:41174.73
+Nov 7, 2015 8:55:24 PM	shareLen:2 vertexNum:8241.043333333333
+Nov 7, 2015 8:55:24 PM	shareLen:3 vertexNum:3525.73
+Nov 7, 2015 8:55:24 PM	shareLen:4 vertexNum:2254.0233333333335
+Nov 7, 2015 8:55:24 PM	shareLen:5 vertexNum:1050.4566666666667
+Nov 7, 2015 8:55:24 PM	shareLen:6 vertexNum:532.9666666666667
+Nov 7, 2015 8:55:24 PM	shareLen:7 vertexNum:292.73333333333335
+Nov 7, 2015 8:55:24 PM	shareLen:8 vertexNum:253.48
+Nov 7, 2015 8:55:24 PM	shareLen:9 vertexNum:161.76
+Nov 7, 2015 8:55:24 PM	shareLen:10 vertexNum:193.42
+Nov 7, 2015 8:55:24 PM	shareLen:11 vertexNum:383.7133333333333
+Nov 7, 2015 8:55:24 PM	shareLen:12 vertexNum:297.87333333333333
+Nov 7, 2015 8:55:24 PM	shareLen:13 vertexNum:190.22333333333333
+Nov 7, 2015 8:55:24 PM	shareLen:14 vertexNum:142.14666666666668
+Nov 7, 2015 8:55:24 PM	shareLen:15 vertexNum:173.24
+Nov 7, 2015 8:55:24 PM	shareLen:16 vertexNum:45.08
+Nov 7, 2015 8:55:24 PM	shareLen:17 vertexNum:19.69333333333333
+Nov 7, 2015 8:55:24 PM	shareLen:18 vertexNum:15.973333333333333
+Nov 7, 2015 8:55:24 PM	shareLen:19 vertexNum:6.076666666666667
+Nov 7, 2015 8:55:24 PM	shareLen:20 vertexNum:1.29
+Nov 7, 2015 8:55:24 PM	shareLen:21 vertexNum:0.76
+Nov 7, 2015 8:55:24 PM	shareLen:22 vertexNum:0.07
+Nov 7, 2015 8:55:24 PM	shareLen:23 vertexNum:0.013333333333333334
+Nov 7, 2015 8:55:24 PM	shareLen:24 vertexNum:0.006666666666666667
+Nov 7, 2015 8:55:24 PM	shareLen:25 vertexNum:0.01
+Nov 7, 2015 8:55:24 PM	shareLen:26 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:24 PM	shareLen:28 vertexNum:0.01
+Nov 7, 2015 8:55:24 PM	shareLen:29 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:24 PM	shareLen:30 vertexNum:0.006666666666666667
+Nov 7, 2015 8:55:24 PM	shareLen:31 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:24 PM	shareLen:32 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:24 PM	shareLen:35 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:24 PM	shareLen:36 vertexNum:0.01
+Nov 7, 2015 8:55:24 PM	shareLen:39 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:24 PM	shareLen:42 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:24 PM	shareLen:44 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:24 PM	
+
+
+Nov 7, 2015 8:55:46 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph-80 # of shared keywords are as follows:
+Nov 7, 2015 8:55:46 PM	shareLen:1 vertexNum:62855.53666666667
+Nov 7, 2015 8:55:46 PM	shareLen:2 vertexNum:12519.033333333333
+Nov 7, 2015 8:55:46 PM	shareLen:3 vertexNum:5353.683333333333
+Nov 7, 2015 8:55:46 PM	shareLen:4 vertexNum:3430.66
+Nov 7, 2015 8:55:46 PM	shareLen:5 vertexNum:1589.3366666666666
+Nov 7, 2015 8:55:46 PM	shareLen:6 vertexNum:805.5566666666666
+Nov 7, 2015 8:55:46 PM	shareLen:7 vertexNum:443.57
+Nov 7, 2015 8:55:46 PM	shareLen:8 vertexNum:381.72
+Nov 7, 2015 8:55:46 PM	shareLen:9 vertexNum:244.84333333333333
+Nov 7, 2015 8:55:46 PM	shareLen:10 vertexNum:294.08666666666664
+Nov 7, 2015 8:55:46 PM	shareLen:11 vertexNum:586.4033333333333
+Nov 7, 2015 8:55:46 PM	shareLen:12 vertexNum:454.3066666666667
+Nov 7, 2015 8:55:46 PM	shareLen:13 vertexNum:291.36333333333334
+Nov 7, 2015 8:55:46 PM	shareLen:14 vertexNum:219.05666666666667
+Nov 7, 2015 8:55:46 PM	shareLen:15 vertexNum:265.2633333333333
+Nov 7, 2015 8:55:46 PM	shareLen:16 vertexNum:69.13
+Nov 7, 2015 8:55:46 PM	shareLen:17 vertexNum:29.776666666666667
+Nov 7, 2015 8:55:46 PM	shareLen:18 vertexNum:24.493333333333332
+Nov 7, 2015 8:55:46 PM	shareLen:19 vertexNum:9.51
+Nov 7, 2015 8:55:46 PM	shareLen:20 vertexNum:1.9966666666666666
+Nov 7, 2015 8:55:46 PM	shareLen:21 vertexNum:1.11
+Nov 7, 2015 8:55:46 PM	shareLen:22 vertexNum:0.09333333333333334
+Nov 7, 2015 8:55:46 PM	shareLen:23 vertexNum:0.013333333333333334
+Nov 7, 2015 8:55:46 PM	shareLen:24 vertexNum:0.006666666666666667
+Nov 7, 2015 8:55:46 PM	shareLen:25 vertexNum:0.01
+Nov 7, 2015 8:55:46 PM	shareLen:26 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:46 PM	shareLen:28 vertexNum:0.01
+Nov 7, 2015 8:55:46 PM	shareLen:29 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:46 PM	shareLen:30 vertexNum:0.006666666666666667
+Nov 7, 2015 8:55:46 PM	shareLen:31 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:46 PM	shareLen:32 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:46 PM	shareLen:35 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:46 PM	shareLen:36 vertexNum:0.01
+Nov 7, 2015 8:55:46 PM	shareLen:39 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:46 PM	shareLen:42 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:46 PM	shareLen:44 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:55:46 PM	
+
+
+Nov 7, 2015 8:56:20 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph # of shared keywords are as follows:
+Nov 7, 2015 8:56:20 PM	shareLen:1 vertexNum:84451.36333333333
+Nov 7, 2015 8:56:20 PM	shareLen:2 vertexNum:16756.093333333334
+Nov 7, 2015 8:56:20 PM	shareLen:3 vertexNum:7165.01
+Nov 7, 2015 8:56:20 PM	shareLen:4 vertexNum:4592.376666666667
+Nov 7, 2015 8:56:20 PM	shareLen:5 vertexNum:2127.62
+Nov 7, 2015 8:56:20 PM	shareLen:6 vertexNum:1075.7633333333333
+Nov 7, 2015 8:56:20 PM	shareLen:7 vertexNum:595.9133333333333
+Nov 7, 2015 8:56:20 PM	shareLen:8 vertexNum:510.31666666666666
+Nov 7, 2015 8:56:20 PM	shareLen:9 vertexNum:327.7866666666667
+Nov 7, 2015 8:56:20 PM	shareLen:10 vertexNum:393.4166666666667
+Nov 7, 2015 8:56:20 PM	shareLen:11 vertexNum:787.6733333333333
+Nov 7, 2015 8:56:20 PM	shareLen:12 vertexNum:609.5
+Nov 7, 2015 8:56:20 PM	shareLen:13 vertexNum:391.16333333333336
+Nov 7, 2015 8:56:20 PM	shareLen:14 vertexNum:294.0733333333333
+Nov 7, 2015 8:56:20 PM	shareLen:15 vertexNum:354.81
+Nov 7, 2015 8:56:20 PM	shareLen:16 vertexNum:93.04
+Nov 7, 2015 8:56:20 PM	shareLen:17 vertexNum:40.10333333333333
+Nov 7, 2015 8:56:20 PM	shareLen:18 vertexNum:33.16
+Nov 7, 2015 8:56:20 PM	shareLen:19 vertexNum:12.876666666666667
+Nov 7, 2015 8:56:20 PM	shareLen:20 vertexNum:2.67
+Nov 7, 2015 8:56:20 PM	shareLen:21 vertexNum:1.4666666666666666
+Nov 7, 2015 8:56:20 PM	shareLen:22 vertexNum:0.13
+Nov 7, 2015 8:56:20 PM	shareLen:23 vertexNum:0.013333333333333334
+Nov 7, 2015 8:56:20 PM	shareLen:24 vertexNum:0.006666666666666667
+Nov 7, 2015 8:56:20 PM	shareLen:25 vertexNum:0.01
+Nov 7, 2015 8:56:20 PM	shareLen:26 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:56:20 PM	shareLen:28 vertexNum:0.01
+Nov 7, 2015 8:56:20 PM	shareLen:29 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:56:20 PM	shareLen:30 vertexNum:0.006666666666666667
+Nov 7, 2015 8:56:20 PM	shareLen:31 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:56:20 PM	shareLen:32 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:56:20 PM	shareLen:35 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:56:20 PM	shareLen:36 vertexNum:0.01
+Nov 7, 2015 8:56:20 PM	shareLen:39 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:56:20 PM	shareLen:42 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:56:20 PM	shareLen:44 vertexNum:0.0033333333333333335
+Nov 7, 2015 8:56:20 PM	
+
+
+Nov 7, 2015 8:56:50 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph comparison Config.k=4
+Nov 7, 2015 9:07:44 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 SIGKDD2010:4878.80529699 SIGMOD2014:1601.74147669 CAC:120.90735553
+Nov 7, 2015 9:18:12 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 SIGKDD2010:4874.519046625001 SIGMOD2014:1481.7754478699999 CAC:83.42370935499999
+Nov 7, 2015 9:29:42 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 SIGKDD2010:4873.517382116667 SIGMOD2014:1618.7495532733335 CAC:101.35298499333334
+Nov 7, 2015 9:29:42 PM	
+
+Nov 7, 2015 9:30:14 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph comparison Config.k=5
+Nov 7, 2015 9:41:51 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 SIGKDD2010:4810.86593181 SIGMOD2014:2134.24818912 CAC:87.65957084
+Nov 7, 2015 9:53:16 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 SIGKDD2010:4807.32647134 SIGMOD2014:2077.062792905 CAC:58.260723614999996
+Nov 7, 2015 10:06:21 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 SIGKDD2010:4809.1972101500005 SIGMOD2014:2356.0907340666668 CAC:80.19072220666666
+Nov 7, 2015 10:06:21 PM	
+
+Nov 7, 2015 10:06:51 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph comparison Config.k=6
+Nov 7, 2015 10:19:19 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 SIGKDD2010:4789.6540241 SIGMOD2014:2674.12805346 CAC:79.74055687
+Nov 7, 2015 10:32:02 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 SIGKDD2010:4782.28492567 SIGMOD2014:2751.61686259 CAC:53.326530745
+Nov 7, 2015 10:46:25 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 SIGKDD2010:4765.277747896666 SIGMOD2014:3095.26390072 CAC:74.2130343
+Nov 7, 2015 10:46:25 PM	
+
+Nov 7, 2015 10:46:58 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph comparison Config.k=7
+Nov 7, 2015 10:59:42 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 SIGKDD2010:4742.01779039 SIGMOD2014:2930.44654188 CAC:68.12338601
+Nov 7, 2015 11:13:41 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 SIGKDD2010:4723.79197073 SIGMOD2014:3292.7160497450004 CAC:45.59386281
+Nov 7, 2015 11:29:30 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 SIGKDD2010:4728.81608287 SIGMOD2014:3744.299735363333 CAC:65.82280355333333
+Nov 7, 2015 11:29:30 PM	
+
+Nov 7, 2015 11:30:02 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph comparison Config.k=8
+Nov 7, 2015 11:44:11 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 SIGKDD2010:4707.23507215 SIGMOD2014:3786.6088091 CAC:58.44075604
+Nov 7, 2015 11:59:30 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 SIGKDD2010:4692.37211555 SIGMOD2014:4139.88667274 CAC:40.03201138
+Nov 8, 2015 12:17:31 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 SIGKDD2010:4708.95873982 SIGMOD2014:4753.358212746666 CAC:56.42281337
+Nov 8, 2015 12:17:31 AM	
+
+Nov 8, 2015 12:17:54 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant1 Config.k=6 kws-len:1
+Nov 8, 2015 12:22:25 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:33 BasicGV1:6342.883788909091 BasicWV1:1838.4686386969697 SW:37.16935684848485
+Nov 8, 2015 12:27:16 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:68 BasicGV1:6339.7933525 BasicWV1:1865.5091530147058 SW:54.01862475
+Nov 8, 2015 12:31:16 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:97 BasicGV1:6345.5948368865975 BasicWV1:1862.917959659794 SW:52.85884505154639
+Nov 8, 2015 12:31:16 AM	
+
+Nov 8, 2015 12:31:16 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant1 Config.k=6 kws-len:3
+Nov 8, 2015 12:35:46 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:33 BasicGV1:6341.382126121212 BasicWV1:1840.032515181818 SW:8.565252969696969
+Nov 8, 2015 12:40:30 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:68 BasicGV1:6302.280144544118 BasicWV1:1838.9484750882352 SW:13.521381073529412
+Nov 8, 2015 12:44:25 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:97 BasicGV1:6295.385806319587 BasicWV1:1833.8295324226804 SW:10.930505804123712
+Nov 8, 2015 12:44:25 AM	
+
+Nov 8, 2015 12:44:25 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant1 Config.k=6 kws-len:5
+Nov 8, 2015 12:48:55 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:33 BasicGV1:6301.577429181819 BasicWV1:1857.4980257575758 SW:9.598906696969696
+Nov 8, 2015 12:53:41 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:68 BasicGV1:6300.106431691176 BasicWV1:1856.0190434264707 SW:10.381253235294118
+Nov 8, 2015 12:57:37 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:97 BasicGV1:6297.167738773196 BasicWV1:1852.526712876289 SW:9.036052154639176
+Nov 8, 2015 12:57:37 AM	
+
+Nov 8, 2015 12:57:37 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant1 Config.k=6 kws-len:7
+Nov 8, 2015 1:02:06 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:33 BasicGV1:6287.616335424243 BasicWV1:1877.3908875757577 SW:9.086711484848484
+Nov 8, 2015 1:06:53 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:68 BasicGV1:6294.681786779412 BasicWV1:1881.1030101470587 SW:10.470089970588235
+Nov 8, 2015 1:10:51 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:97 BasicGV1:6298.863082051546 BasicWV1:1880.9602230309279 SW:9.174377639175258
+Nov 8, 2015 1:10:51 AM	
+
+Nov 8, 2015 1:10:51 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant1 Config.k=6 kws-len:9
+Nov 8, 2015 1:15:23 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:33 BasicGV1:6315.023152787879 BasicWV1:1912.4654249999999 SW:8.273186757575758
+Nov 8, 2015 1:20:12 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:68 BasicGV1:6333.871642264706 BasicWV1:1906.7161095 SW:9.817249264705882
+Nov 8, 2015 1:24:10 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:97 BasicGV1:6324.9592831237105 BasicWV1:1902.6048908865978 SW:9.227167432989692
+Nov 8, 2015 1:24:10 AM	
+
+Nov 8, 2015 1:24:45 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant2 Config.k=6 kws-threshold:0.2
+Nov 8, 2015 1:38:35 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 BasicGV2:6403.25106718 BasicWV2:1918.36386434 SWT:103.02584087
+Nov 8, 2015 1:52:38 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 BasicGV2:6391.04752186 BasicWV2:1926.695342205 SWT:109.47252187
+Nov 8, 2015 2:06:36 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 BasicGV2:6374.938626203334 BasicWV2:1924.147078056667 SWT:111.43672579000001
+Nov 8, 2015 2:06:36 AM	
+
+Nov 8, 2015 2:06:45 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant2 Config.k=6 kws-threshold:0.4
+Nov 8, 2015 2:20:29 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 BasicGV2:6384.89314802 BasicWV2:1900.45833442 SWT:47.68544874
+Nov 8, 2015 2:34:25 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 BasicGV2:6380.056440065 BasicWV2:1906.38633108 SWT:57.340222315
+Nov 8, 2015 2:48:14 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 BasicGV2:6362.021614493334 BasicWV2:1904.4335137633336 SWT:61.2468668
+Nov 8, 2015 2:48:14 AM	
+
+Nov 8, 2015 2:48:23 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant2 Config.k=6 kws-threshold:0.6
+Nov 8, 2015 3:02:00 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 BasicGV2:6342.05160686 BasicWV2:1886.51858365 SWT:31.53066228
+Nov 8, 2015 3:15:53 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 BasicGV2:6361.010051825 BasicWV2:1891.2751098449999 SWT:38.29947298
+Nov 8, 2015 3:29:43 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 BasicGV2:6365.9164179399995 BasicWV2:1889.8305152066664 SWT:39.416950666666665
+Nov 8, 2015 3:29:43 AM	
+
+Nov 8, 2015 3:29:51 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant2 Config.k=6 kws-threshold:0.8
+Nov 8, 2015 3:43:26 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 BasicGV2:6327.76221823 BasicWV2:1883.0433043100002 SWT:23.881232530000002
+Nov 8, 2015 3:57:11 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 BasicGV2:6328.737317135 BasicWV2:1884.9773317600002 SWT:25.028289165
+Nov 8, 2015 4:10:55 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 BasicGV2:6329.06619248 BasicWV2:1885.0884387633332 SWT:26.07831291
+Nov 8, 2015 4:10:55 AM	
+
+Nov 8, 2015 4:11:03 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph variant2 Config.k=6 kws-threshold:1.0
+Nov 8, 2015 4:24:38 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:100 BasicGV2:6327.0647907 BasicWV2:1882.8175468499999 SWT:18.44733459
+Nov 8, 2015 4:38:24 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:200 BasicGV2:6341.93241494 BasicWV2:1884.6329048 SWT:20.25403767
+Nov 8, 2015 4:52:04 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 BasicGV2:6329.027748706667 BasicWV2:1880.4642281833333 SWT:21.565297386666668
+Nov 8, 2015 4:52:04 AM	
+
+Nov 8, 2015 7:49:41 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 Config.k:4 basic-g:19114.15504360667 basic-w:16369.804083983334
+Nov 8, 2015 7:49:41 AM	
+
+Nov 8, 2015 9:25:06 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 Config.k:5 basic-g:11780.65641236 basic-w:7260.53800987
+Nov 8, 2015 9:25:06 AM	
+
+Nov 8, 2015 10:38:20 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 Config.k:6 basic-g:9754.625181413334 basic-w:4854.064372153333
+Nov 8, 2015 10:38:20 AM	
+
+Nov 8, 2015 11:44:49 AM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 Config.k:7 basic-g:9084.066547526665 basic-w:4171.970779663334
+Nov 8, 2015 11:44:49 AM	
+
+Nov 8, 2015 12:44:44 PM	/home/fangyixiang/Desktop/CCS/tencent/tencent-graph count:300 Config.k:8 basic-g:8443.987267323333 basic-w:3497.86271675
+Nov 8, 2015 12:44:44 PM	
+

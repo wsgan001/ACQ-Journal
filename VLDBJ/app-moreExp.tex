@@ -1,0 +1,10 @@
+\section{More Experimental Results}
+\label{app:moreExp}
+
+\subsection{Effect of Using InvertedList}
+Figure~\ref{fig:exp-more-inverted} shows the efficiency of {\tt Inc-S} ({\tt Inc-T}) and {\tt Inc-S*} ({\tt Inc-T*}) on Flickr, DBLP and Tencent datasets. We see that {\tt Inc-S} ({\tt Inc-T}) is 1 to 2 order of magnitude faster than {\tt Inc-S*} ({\tt Inc-T*}) on all the four datasets. These results are similar with that on DBpedia dataset, which is presented in Section~\ref{efficiency}.
+
+\subsection{Comparison Between {\tt Dec} and {\tt Local} on Non-attributed Graphs}
+We have tested {\tt Dec} and {\tt Local} on non-attributed graphs. This is done by running these algorithms on our datasets, without using any of their associated keyword sets. The experimental results on Flickr, Tencent and DBpedia are shown in Figure~\ref{fig:exp-more-decComp}. We can see that the results are similar with that on DBpedia (presented in Section~\ref{efficiency}), except when $k$=4 on DBLP. In DBLP, a paper often has few (around 3 to 5) co-authors. Since an author may be closely related to a few co-authors, finding a 4-$\widehat {core}$ in {\tt Local} can be done efficiently through local expansion. From these experiments, we conclude that {\tt Dec} can also be efficiently executed on non-attributed graphs.
+
+

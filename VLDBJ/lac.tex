@@ -1,0 +1,86 @@
+\documentclass{vldb}
+\usepackage{graphicx}
+\usepackage{balance}
+
+\usepackage{color}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+\usepackage{varwidth}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{mathtools}
+\usepackage{amsmath,bm}
+\usepackage{hyperref}
+
+\usepackage{times}
+
+\renewcommand{\arraystretch}{1.18}
+
+\newtheorem{definition}{Definition}
+\newtheorem{variant}{Variant}
+\newtheorem{problem}{Problem}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+
+\newcommand{\fang}[1]{{\color{red}[\textbf{Yixiang:} #1]}}
+\newcommand{\rey}[1]{{\color{blue}[\textbf{Reynold:} #1]}}
+\newcommand{\luo}[1]{{\color{purple}[\textbf{Siqiang:} #1]}}
+\newcommand{\hu}[1]{{\color{green}[\textbf{Jiafeng:} #1]}}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+\begin{document}
+
+%\title{Label-Aware Community Search on Attributed Graphs}
+
+\title{Effective Community Search for Large Attributed Graphs}
+\numberofauthors{1}
+\author{
+\alignauthor \text{ } Authors\\
+       \affaddr{Department of Computer Science, The University of Hong Kong, Pokfulam Road, Hong Kong}\\
+       \email{\{authors\}@cs.hku.hk}
+}
+
+\maketitle
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+%\category{H.2.8}{Database Management}{Database Applications}[Data mining]
+%\category{G.2.2}{Discrete Mathematics}{Graph Theory}[Graph algorithms]
+
+\input{intro}
+
+\input{related}
+
+\input{problem}
+
+\input{basic}
+
+\input{index}
+
+\input{query}
+
+\input{experiment}
+
+\input{conclude}
+
+\section*{Acknowledgments}
+Reynold Cheng, Yixiang Fang, Siqaing Luo, and Jiafeng Hu were supported by the Research Grants Council of Hong Kong (RGC Project HKU 17205115) and HKU (Project 104004129).
+%We would like to thank the reviewers for their insightful comments.
+
+\bibliographystyle{abbrv}
+\vspace{0.99em}
+\small{\bibliography{lac}}
+%\bibliography{lac}
+
+%\bibliographystyle{abbrv}
+%{\scriptsize
+%\bibliography{lac}
+%}
+
+%\include{appendix}
+
+\end{document}

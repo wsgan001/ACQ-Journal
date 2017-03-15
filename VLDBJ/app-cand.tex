@@ -1,0 +1,39 @@
+\section{Candidate Generation}
+\label{app:geneCand}
+
+Given a set $\Phi$ of qualified keyword sets,
+Algorithm~\ref{alg:geneCand} generates new candidate keyword sets incrementally
+by linking each pair of keyword sets.
+We first initialize $\Psi$ as an empty set (line 2).
+Then for each pair, $S_i$ and $S_j$, of keyword sets in $\Phi$,
+we sort their keywords.
+If they differ only at the last keyword,
+then we generate a new keyword set $S'$=$S_i\cup S_j$,
+by a union operation (lines 3-6).
+According to Lemma~\ref{lemma:apriori},
+if any subset of $S'$ does not appear in $\Phi$, we prune $S'$;
+otherwise, we regard it as a candidate and add it into $\Psi$ (lines 7-8).
+Finally, we return $\Psi$ as the results (line 9).
+
+\begin{algorithm}[h]
+\caption{Generate candidate keyword sets}
+\label{alg:geneCand}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{geneCand($\Phi$)}{}
+        \State $\Psi\gets \emptyset$;
+        \For {each $S_i$ $\in \Phi$}
+            \For {each $S_j$ $\in \Phi$}
+                \If {$S_i$ and $S_j$ differs at the last keyword}
+                    \State initialize $S'$=$S_i\cup S_j$;
+                    \If {$S'$ cannot be pruned by Lemma~\ref{lemma:apriori}}
+                        \State $\Psi$.add($S'$);
+                    \EndIf
+                \EndIf
+            \EndFor
+        \EndFor
+        \State \Return $\Psi$;
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}

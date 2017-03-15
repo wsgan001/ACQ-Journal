@@ -1,0 +1,30 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2013.3.9)  8 FEB 2017 09:23
+entering extended mode
+**C:/Users/Admin/Desktop/ACQ/VLDBJ/lac.tex
+(C:/Users/Admin/Desktop/ACQ/VLDBJ/lac.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for loaded.
+
+! LaTeX Error: File `vldb.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.2 \usepackage
+               {graphicx}
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 12 strings out of 495362
+ 211 string characters out of 3184024
+ 44825 words of memory out of 3000000
+ 3275 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 10i,0n,7p,78b,8s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

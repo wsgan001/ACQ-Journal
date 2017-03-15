@@ -1,0 +1,180 @@
+line 8 column 1 - Warning: unknown attribute "xmlns:fb"
+line 16 column 1 - Warning: unknown attribute "property"
+line 31 column 1 - Warning: unknown attribute "sizes"
+line 32 column 1 - Warning: unknown attribute "sizes"
+line 33 column 1 - Warning: unknown attribute "sizes"
+line 66 column 1 - Warning: <script> lacks "type" attribute
+line 198 column 92 - Warning: Warning: unescaped & or unknown entity "&answer"
+line 205 column 21 - Warning: trimming empty <div>
+line 217 column 26 - Warning: trimming empty <div>
+line 218 column -3 - Warning: trimming empty <div>
+line 223 column 2 - Warning: unknown attribute "data-validate"
+line 227 column 2 - Warning: unknown attribute "data-validate"
+line 238 column 75 - Warning: Warning: unescaped & or unknown entity "&redirect_uri"
+line 238 column 137 - Warning: Warning: unescaped & or unknown entity "&scope"
+line 238 column 250 - Warning: trimming empty <i>
+line 243 column 29 - Warning: trimming empty <i>
+line 249 column 19 - Warning: trimming empty <i>
+line 260 column 128 - Warning: Warning: unescaped & or unknown entity "&redirect_uri"
+line 260 column 190 - Warning: Warning: unescaped & or unknown entity "&scope"
+line 261 column 37 - Warning: trimming empty <i>
+line 267 column 26 - Warning: trimming empty <div>
+line 268 column -3 - Warning: trimming empty <div>
+line 274 column 2 - Warning: unknown attribute "data-validate"
+line 278 column 2 - Warning: unknown attribute "data-validate"
+line 283 column 2 - Warning: unknown attribute "data-validate"
+line 287 column 2 - Warning: unknown attribute "data-validate"
+line 291 column 1 - Warning: unknown attribute "data-validate"
+line 296 column 27 - Warning: trimming empty <i>
+line 297 column 16 - Warning: trimming empty <div>
+line 298 column -3 - Warning: trimming empty <div>
+line 301 column 1 - Warning: unknown attribute "data-dismiss"
+line 301 column 40 - Warning: trimming empty <i>
+line 318 column -3 - Warning: trimming empty <div>
+line 320 column 1 - Error: <header> is not recognized!
+line 320 column 1 - Warning: discarding unexpected <header>
+line 322 column 64 - Warning: trimming empty <i>
+line 323 column 33 - Warning: trimming empty <i>
+line 325 column 2 - Error: <nav> is not recognized!
+line 325 column 2 - Warning: discarding unexpected <nav>
+line 327 column 28 - Warning: trimming empty <i>
+line 331 column 29 - Warning: trimming empty <i>
+line 335 column 26 - Warning: trimming empty <i>
+line 336 column 2 - Warning: missing </a> before <div>
+line 336 column 15 - Warning: trimming empty <div>
+line 337 column -3 - Warning: discarding unexpected </a>
+line 343 column 1 - Warning: unknown attribute "data-index"
+line 343 column 120 - Warning: trimming empty <i>
+line 344 column 2 - Warning: unknown attribute "data-index"
+line 344 column 117 - Warning: trimming empty <i>
+line 345 column 2 - Warning: unknown attribute "data-index"
+line 345 column 92 - Warning: trimming empty <i>
+line 346 column 2 - Warning: unknown attribute "data-index"
+line 346 column 104 - Warning: trimming empty <i>
+line 347 column 2 - Warning: unknown attribute "data-index"
+line 347 column 100 - Warning: trimming empty <i>
+line 353 column 1 - Warning: unknown attribute "data-index"
+line 353 column 78 - Warning: trimming empty <i>
+line 354 column 2 - Warning: unknown attribute "data-index"
+line 354 column 106 - Warning: trimming empty <i>
+line 355 column 2 - Warning: unknown attribute "data-index"
+line 355 column 86 - Warning: trimming empty <i>
+line 356 column 2 - Warning: unknown attribute "data-index"
+line 356 column 86 - Warning: trimming empty <i>
+line 357 column 2 - Warning: unknown attribute "data-index"
+line 357 column 110 - Warning: trimming empty <i>
+line 358 column 2 - Warning: unknown attribute "data-index"
+line 358 column 95 - Warning: trimming empty <i>
+line 359 column 2 - Warning: unknown attribute "data-index"
+line 359 column 89 - Warning: trimming empty <i>
+line 366 column 1 - Warning: unknown attribute "data-index"
+line 366 column 108 - Warning: trimming empty <i>
+line 367 column 2 - Warning: unknown attribute "data-index"
+line 367 column 107 - Warning: trimming empty <i>
+line 368 column 2 - Warning: unknown attribute "data-index"
+line 368 column 107 - Warning: trimming empty <i>
+line 369 column 2 - Warning: unknown attribute "data-index"
+line 369 column 92 - Warning: trimming empty <i>
+line 370 column 2 - Warning: unknown attribute "data-index"
+line 370 column 113 - Warning: trimming empty <i>
+line 371 column 2 - Warning: unknown attribute "data-index"
+line 371 column 107 - Warning: trimming empty <i>
+line 378 column 1 - Warning: unknown attribute "data-index"
+line 378 column 90 - Warning: trimming empty <i>
+line 379 column 2 - Warning: unknown attribute "data-index"
+line 379 column 90 - Warning: trimming empty <i>
+line 380 column 2 - Warning: unknown attribute "data-index"
+line 380 column 92 - Warning: trimming empty <i>
+line 381 column 2 - Warning: unknown attribute "data-index"
+line 381 column 101 - Warning: trimming empty <i>
+line 382 column 2 - Warning: unknown attribute "data-index"
+line 382 column 100 - Warning: trimming empty <i>
+line 383 column 2 - Warning: unknown attribute "data-index"
+line 383 column 99 - Warning: trimming empty <i>
+line 384 column 2 - Warning: unknown attribute "data-index"
+line 384 column 106 - Warning: trimming empty <i>
+line 389 column 1 - Warning: unknown attribute "data-name"
+line 390 column 1 - Warning: missing </a> before <div>
+line 398 column 14 - Warning: trimming empty <div>
+line 399 column -3 - Warning: trimming empty <div>
+line 400 column -3 - Warning: discarding unexpected </a>
+line 404 column -3 - Warning: discarding unexpected </nav>
+line 410 column 34 - Warning: trimming empty <i>
+line 411 column 2 - Warning: unknown attribute "placeholder"
+line 411 column 2 - Warning: unknown attribute "autocomplete"
+line 413 column 18 - Warning: trimming empty <div>
+line 423 column 75 - Warning: Warning: unescaped & or unknown entity "&redirect_uri"
+line 423 column 137 - Warning: Warning: unescaped & or unknown entity "&scope"
+line 424 column 37 - Warning: trimming empty <i>
+line 433 column 26 - Warning: trimming empty <div>
+line 434 column -3 - Warning: trimming empty <div>
+line 456 column -3 - Warning: discarding unexpected </header>
+line 465 column 1 - Warning: <img> lacks "alt" attribute
+line 477 column 48 - Warning: trimming empty <i>
+line 481 column 12 - Warning: trimming empty <p>
+line 485 column -3 - Warning: trimming empty <div>
+line 500 column 1 - Error: <article> is not recognized!
+line 500 column 1 - Warning: discarding unexpected <article>
+line 521 column 1 - Error: <section> is not recognized!
+line 521 column 1 - Warning: discarding unexpected <section>
+line 527 column 1 - Error: <section> is not recognized!
+line 527 column 1 - Warning: discarding unexpected <section>
+line 536 column 1 - Warning: <img> lacks "alt" attribute
+line 545 column 1 - Warning: unknown attribute "data-id"
+line 552 column 1 - Warning: <img> lacks "alt" attribute
+line 564 column 1 - Warning: <img> lacks "alt" attribute
+line 573 column 1 - Warning: unknown attribute "data-id"
+line 574 column 22 - Error: missing quotemark for attribute value
+line 574 column 22 - Warning: unknown attribute "data-content"
+line 593 column 1 - Warning: <img> lacks "alt" attribute
+line 602 column 1 - Warning: unknown attribute "data-id"
+line 609 column 1 - Warning: <img> lacks "alt" attribute
+line 621 column 1 - Warning: <img> lacks "alt" attribute
+line 630 column 1 - Warning: unknown attribute "data-id"
+line 637 column 1 - Warning: <img> lacks "alt" attribute
+line 649 column 1 - Warning: <img> lacks "alt" attribute
+line 658 column 1 - Warning: unknown attribute "data-id"
+line 665 column 1 - Warning: <img> lacks "alt" attribute
+line 680 column 1 - Warning: unknown attribute "data-page"
+line 682 column 32 - Warning: trimming empty <i>
+line 684 column -3 - Warning: discarding unexpected </section>
+InputStream: Doctype given is ""
+InputStream: Document content looks like HTML 4.01 Transitional
+223 warnings, 8 errors were found!
+It is unlikely that vendor-specific, system-dependent encodings
+work widely enough on the World Wide Web; you should avoid using the 
+specified character encoding, instead you are recommended to
+use named entities, e.g. &trade;.
+Character codes 128 to 159 (U+0080 to U+009F) are not allowed in HTML;
+even if they were, they would likely be unprintable control characters.
+Tidy assumed you wanted to refer to a character with the same byte value in the 
+specified encoding and replaced that reference with the Unicode equivalent.
+Character codes for UTF-8 must be in the range: U+0000 to U+10FFFF.
+The definition of UTF-8 in Annex D of ISO/IEC 10646-1:2000 also
+allows for the use of five- and six-byte sequences to encode
+characters that are outside the range of the Unicode character set;
+those five- and six-byte sequences are illegal for the use of
+UTF-8 as a transformation of Unicode characters. ISO/IEC 10646
+does not allow mapping of unpaired surrogates, nor U+FFFE and U+FFFF
+(but it does allow other noncharacters). For more information please refer to
+http://www.unicode.org/unicode and http://www.cl.cam.ac.uk/~mgk25/unicode.html
+Character codes for UTF-16 must be in the range: U+0000 to U+10FFFF.
+The definition of UTF-16 in Annex C of ISO/IEC 10646-1:2000 does not allow the
+mapping of unpaired surrogates. For more information please refer to
+http://www.unicode.org/unicode and http://www.cl.cam.ac.uk/~mgk25/unicode.html
+URIs must be properly escaped, they must not contain unescaped
+characters below U+0021 including the space character and not
+above U+007E. Tidy escapes the URI for you as recommended by
+HTML 4.01 section B.2.1 and XML 1.0 section 4.2.2. Some user agents
+use another algorithm to escape such URIs and some server-sided
+scripts depend on that. If you want to depend on that, you must
+escape the URI by your own. For more information please refer to
+http://www.w3.org/International/O-URL-and-ident.html
+The alt attribute should be used to give a short description
+of an image; longer descriptions should be given with the
+longdesc attribute which takes a URL linked to the description.
+These measures are needed for people using non-graphical browsers.
+For further advice on how to make your pages accessible
+see "http://www.w3.org/WAI/GL". You may also want to try
+"http://www.cast.org/bobby/" which is a free Web-based
+service for checking URLs for accessibility.

@@ -1,0 +1,31 @@
+/home/fangyixiang/Desktop/CCS/dblp/dblp-node the # of nodes in G:977288
+/home/fangyixiang/Desktop/CCS/dblp/dblp-graph the # of edges in G:6864546
+the average degree:7.024076833031819
+the avg # of keywords in each node:11.835294201913868
+|S|:1 star-6 %:0.94
+|S|:1 star-8 %:0.94
+|S|:1 star-10 %:0.94
+
+|S|:2 star-6 %:0.76
+|S|:2 star-8 %:0.74
+|S|:2 star-10 %:0.73
+
+|S|:3 star-6 %:0.39
+|S|:3 star-8 %:0.35
+|S|:3 star-10 %:0.33
+
+|S|:4 star-6 %:0.12
+|S|:4 star-8 %:0.08
+|S|:4 star-10 %:0.07
+
+|S|:5 star-6 %:0.02
+|S|:5 star-8 %:0.02
+|S|:5 star-10 %:0.01
+
+k-core decomposition finished (maxCore= 118).
+index construction finished !
+ACQ |S|=1 %:0.88
+ACQ |S|=2 %:0.98
+ACQ |S|=3 %:1.0
+ACQ |S|=4 %:1.0
+ACQ |S|=5 %:1.0

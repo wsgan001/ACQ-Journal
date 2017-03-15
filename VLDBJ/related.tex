@@ -1,0 +1,32 @@
+\section{Related Work}
+\label{related}
+
+%We now discuss two main classes of community retrieval solutions. We also summarize the graph keyword search solutions for attributed graphs.
+
+\textbf{Community detection (CD).} A large class of studies aim to discover or {\it detect} all the communities from an entire graph. Table~\ref{tab:method} summarises these works. Earlier solutions, such as \cite{community-phy2004,community-phy2010}, employ link-based analysis to obtain these communities. However, they do not consider the textual information associated with graphs. Recent works focus on attributed graphs, and use clustering techniques to identify communities.
+%Clustering is a typical way to discover communities.
+For instance, Zhou et al.~\cite{attr-vldb2009} considered both links and keywords of vertices to compute the vertices' pairwise similarities, and then clustered the graph.
+Ruan et al.~\cite{attr-www2013} proposed a method called {\tt CODICIL}. This solution augments the original graphs by creating new edges based on content similarity, and then uses an effective graph sampling to boost the efficiency of clustering. We will compare ACQ with this method experimentally.
+
+Another common approach is based on topic models. In~\cite{attr-topic-kdd2008,attr-topic-icml2009}, the {\tt Link-PLSA-LDA} and {\tt Topic-Link LDA} models jointly model vertices' content and links based on the {\tt LDA} model. In~\cite{attr-topic-sigmod2012}, the attributed graph is clustered based on probabilistic inference. In~\cite{attr-topic-www2012}, the topics, interaction types and the social connections are considered for discovering communities. {\tt CESNA}~\cite{attr-icdm2013} detects overlapping communities by assuming communities ``generate'' both the link and content. A discriminative approach~\cite{attr-kdd2009} has also been considered for community detection. As discussed before, CD algorithms are generally slow, as they often consider the pairwise distance/similarity among vertices.
+Also, it is not clear how they can be adapted to perform online ACQ. In this paper, we propose online algorithms for finding communities on attributed graphs.
+
+\textbf{Community search (CS).}  Another class of solutions aims to obtain communities in an ``online'' manner, based on a query request. For example, given a vertex $q$, several existing works~\cite{KDD2010,local2014,vldb2015,online-sigmod2013,k-truss2014} have developed fast algorithms to obtain a community for $q$.
+To measure the structure cohesiveness of a community, the {\it minimum degree} is often used~\cite{KDD2010,local2014,vldb2015}. Sozio et al.~\cite{KDD2010} proposed the first algorithm {\tt Global} to find the $k$-$\widehat{core}$ containing $q$.
+Cui et al.~\cite{local2014} proposed {\tt Local}, which uses local expansion techniques to enhance the performance of {\tt Global}. We will compare these two solutions in our experiments.
+Other definitions, including $k$-clique~\cite{online-sigmod2013} and $k$-truss~\cite{k-truss2014}, have also been considered for searching communities. A recent work~\cite{vldb2015} finds communities with high influence.  These works assume non-attributed graphs, and overlook the rich information of vertices that come with attributed graphs. As we will see, performing CS on attributed graphs is better than on non-attributed graphs.
+
+\textbf{Graph keyword search.}  Given an attributed graph $G$ and a set $Q$ of keywords, graph keyword search solutions output a tree structure, whose nodes are vertices of $G$, and the union of these vertices' keyword sets is a superset of $Q$~\cite{keyword-icde2002,keyword-icde2007,keyword-vldb2005}. Recent work studies the use of a subgraph of $G$ as the query output~\cite{keyword-vldb2011}. These works are substantially different from the ACQ problem. First, they do not specify query vertices as required by the ACQ problem. Second, the tree or subgraph produced do not guarantee structure cohesiveness. Third, keyword cohesiveness is not ensured; there is no mechanism that enforces query keywords to be shared among the keyword sets of all query output's vertices. Thus, graph keyword search solutions are not designed to find ACs.
+
+%{\color{red}
+%\textbf{Graph pattern matching (GPM).}  Given a {\it pattern} $P$, the goal of GPM is to extract a set $R$ of subgraphs of $G$, where for every $r \in R$, $r$ is highly similar to $P$.
+%Tong et al.~\cite{GPM-KDD2007} studied the use of lines, loops and stars; Fan et al.~\cite{GPM-VLDB2010,GPM-SIGMOD2011} proposed bounded simulation techniques for GPM queries;
+%in \cite{GPM-PVLDB2015}, GPM has been studied for finding association rules from graphs.
+%However, there is no detailed study about how to use GPM for community search.
+%}
+
+%Older version: July 12, 2016
+%\textbf{Graph pattern matching (GPM).}  Given a {\it pattern} $P$, the goal of GPM is to extract a set $R$ of subgraphs of $G$, where for every $r \in R$, $r$ is highly similar to $P$.
+%Tong et al.~\cite{GPM-KDD2007} studied the use of lines, loops and stars; Fan et al.~\cite{GPM-VLDB2010,GPM-SIGMOD2011} proposed bounded simulation techniques for GPM queries;
+%in \cite{GPM-PVLDB2015}, GPM has been studied for finding association rules from graphs.
+%However, there is no detailed study about how to use GPM for community search.  To do this, a user has to define $P$, but this is not trivial: there are many possible topologies for $P$, and numerous ways of placing keywords on the vertices in $P$.  Moreover, current GPM solutions focus on small patterns that generate small communities, and it is not clear whether they can support large and complex ones. Answering ACQ with GPM can also be expensive, since it involves enumerating many patterns and finding an AC with the largest number of shared keywords.  For the ACQ problem, there is no need to specify $P$.

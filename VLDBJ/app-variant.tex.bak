@@ -1,0 +1,281 @@
+\section{Variants of ACQ Problem}
+\label{app:variant}
+
+In this section, we formally define two typical variants in Section~\ref{app:varDef}.
+Then we present the algorithms for these variants in Section~\ref{app:varAlgo},
+and show the experimental results finally in Section~\ref{app:varExp}.
+
+\begin{figure*}[]
+\hspace*{-.7cm}
+\centering
+\begin{tabular}{c c c c}
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/flickr-v1}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dblp-v1}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/tencent-v1}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dbpedia-v1}
+  \end{minipage}
+  \\
+  \small (a) Flickr (Variant 1)
+  &
+  \small (b) DBLP (Variant 1)
+  &
+  \small (c) Tencent (Variant 1)
+  &
+  \small (d) DBpedia (Variant 1)
+      \\
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/flickr-v2}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dblp-v2}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/tencent-v2}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dbpedia-v2}
+  \end{minipage}
+  \\
+  \small (e) Flickr (Variant 2)
+  &
+  \small (f) DBLP (Variant 2)
+  &
+  \small (g) Tencent (Variant 2)
+  &
+  \small (h) DBpedia (Variant 2)
+\end{tabular}
+\caption{Efficiency results of Variants of ACQ problem.}
+\label{fig:exp-variant}
+\end{figure*}
+
+\subsection{Variant Definitions}
+\label{app:varDef}
+
+\begin{variant}
+\label{variant1}
+Given a graph $G$, a positive integer $k$, a vertex $q \in V$ and a predefined keyword set $S$,
+return a subgraph $G_q$, the following properties hold:
+  \begin{enumerate}
+    \item \textbf{Connectivity}. $G_q \subseteq G$ is connected and contains $q$;
+    \item \textbf{Structure cohesiveness}. $\forall v\in G_q$, $deg_{G_q}(v)\geq k$;
+    \item \textbf{Keyword cohesiveness}. $\forall v\in G_q$, $S\subseteq W(v)$.
+  \end{enumerate}
+\end{variant}
+
+
+
+Variant~\ref{variant1} can be applied to applications,
+which need communities having specific keyword constraints.
+
+\begin{variant}
+\label{variant2}
+Given a graph $G$, a positive integer $k$, a vertex $q \in V$, a predefined keyword set $S$,
+and a threshold $\theta\in$[0,1], return a subgraph $G_q$, the following properties hold:
+  \begin{enumerate}
+    \item \textbf{Connectivity}. $G_q \subseteq G$ is connected and contains $q$;
+    \item \textbf{Structure cohesiveness}. $\forall v\in G_q$, $deg_{G_q}(v)\geq k$;
+    \item \textbf{Keyword cohesiveness}. $\forall v\in G_q$, it has at least $|S|\times \theta$ keywords in $S$.
+  \end{enumerate}
+\end{variant}
+
+In Variant~\ref{variant2}, the keyword cohesiveness is relaxed.
+This can be applied for cases when the keyword information is weak.
+We illustrate all the variants in Example~\ref{eg:variant}.
+
+\begin{example}
+\label{eg:variant}
+Consider Figure~\ref{fig:kcoreGraph}. Let $q$=$A$ and $k$=2.
+For Variant~\ref{variant1}, if the predefined keyword set is $\{x\}$,
+then the vertex set $\{A,B,C,D\}$ forms the target AC.
+For Variant~\ref{variant2}, if the predefined keyword set is $\{x,y\}$
+and the threshold is $50\%$,
+then the vertex set $\{A,B,C,D,E\}$ forms the target AC.
+\end{example}
+
+
+\subsection{Algorithms of Variants}
+\label{app:varAlgo}
+
+\textbf{1. Variant~\ref{variant1}.}
+In line with Problem~\ref{problem1}, we first introduce the basic solutions without index,
+which are extended naturally from {\tt basic-g} and {\tt basic-w},
+and are denoted by {\tt basic-g-v1} and {\tt basic-w-v1} respectively.
+Their details pseudocodes are presented in Algorithms~\ref{alg:basic-g-v1} and~\ref{alg:basic-w-v1}.
+
+\begin{algorithm}[h]
+\caption{Query algorithm: {\tt basic-g-v1}}
+\label{alg:basic-g-v1}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $q$, $k$, $S$)}{}
+        \State find the $k$-$\widehat {core}$, ${\mathcal C}_k$, containing $q$ from $G$;
+        \State collect a set $V'$ of vertices containing $S$ from ${\mathcal C}_k$;
+        \State find $G[S]$ from the subgraph induced by $V'$;
+        \State find $G_k[S]$ from $G[S]$;
+        \State output $G_k[S]$ as the target AC.
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+\begin{algorithm}[h]
+\caption{Query algorithm: {\tt basic-w-v1}}
+\label{alg:basic-w-v1}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $q$, $k$, $S$)}{}
+        \State collect a set $V'$ of vertices containing $S$ from $G$;
+        \State find $G[S]$ from the subgraph induced by $V'$;
+        \State find $G_k[S]$ from $G[S]$;
+        \State output $G_k[S]$ as the target AC.
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+Algorithm~\ref{alg:sw} presents the index based algorithm, {\tt SW}, for Variant~\ref{variant1}.
+We first apply {\tt core-locating} to find node $r_k$, whose corresponding $k$-$\widehat {core}$ contains $q$, from CL-tree (line 1).
+Then we traverse the subtree rooted at $r_k$, and collect a set $V'$ of vertices containing $S$ by applying {\tt keyword-checking}.
+Next, we find $G[S]$ from the subgraph induced by vertices in $V'$ (line 3),
+and find $G_k[S]$ from $G[S]$ (line 4).
+Finally, we output $G_k[S]$ as the target AC, if it exists (line 5).
+
+\begin{algorithm}[h]
+\caption{Query algorithm: {\tt SW}}
+\label{alg:sw}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $root$, $q$, $k$, $S$)}{}
+        \State find the node $r_k$ from the CL-tree index;
+        \State traverse the subtree rooted at $r_k$ and
+               collect a set $V'$ of vertices containing $S$ by intersecting the inverted lists;
+        \State find $G[S]$ from the subgraph induced by $V'$;
+        \State find $G_k[S]$ from $G[S]$;
+        \State output $G_k[S]$ as the target AC.
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+
+\textbf{2. Variant~\ref{variant2}.}
+We adapt the three algorithms of Variant~\ref{variant1} for answering the query of Variant~\ref{variant2}.
+We denote the adapted algorithms by {\tt basic-g-v2}, {\tt basic-w-v2}
+and {\tt SWT} (search by keywords with threshold constraint) respectively.
+The main adaptation is that,
+for the lines of codes on collecting vertices containing $S$,
+\textit{i.e.}, line 3 in Algorithm~\ref{alg:basic-g-v1},
+line 2 in Algorithm~\ref{alg:basic-w-v1},
+and line 3 in Algorithm~\ref{alg:sw},
+we relax the constraint such that
+each collected vertex only needs to share at least $|S|\times \theta$ keywords in $S$.
+Then we find the target AC from the subgraph induced by these vertices.
+
+\subsection{Experiments on Variants}
+\label{app:varExp}
+
+\begin{figure*}[]
+\hspace*{-.6cm}
+\centering
+\begin{tabular}{c c c}
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/flickrInverted}
+  \end{minipage}
+  &
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/dblpInverted}
+  \end{minipage}
+  &
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/tencentInverted}
+  \end{minipage}
+  \\
+  \small (a) Flickr
+  &
+  \small (b) DBLP
+  &
+  \small (c) Tencent
+\end{tabular}
+\caption{Effect of InvertedList for {\tt Inc-S} and {\tt Inc-T}.}
+\label{fig:exp-more-inverted}
+\end{figure*}
+
+\begin{figure*}[ht]
+\centering
+\begin{tabular}{c c c}
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/flickrDecComp}
+  \end{minipage}
+  &
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/dblpDecComp}
+  \end{minipage}
+  &
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/tencentDecComp}
+  \end{minipage}
+  \\
+  \small (a) Flickr
+  &
+  \small (b) DBLP
+  &
+  \small (c) Tencent
+\end{tabular}
+\caption{Results on non-attributed graphs.}
+\label{fig:exp-more-decComp}
+\end{figure*}
+
+\textbf{1. Case study of Variants~\ref{variant1} and~\ref{variant2}.}
+We search Jiawei Han's communities with explicit AC-label constraints in Variants~\ref{variant1} and~\ref{variant2}.
+We consider two keyword sets, \textit{i.e.}, $S_1$=$\{$stream, classification$\}$ and $S_2$=$\{$cube, information, cluster$\}$.
+For Variant~\ref{variant1}, we can only obtain a community for $S_1$ (see Figure~\ref{fig:jiawei-v1}(a)),
+and no communities for $S_2$.
+Note that the captions indicate the shared keywords of the communities.
+While for Variant~\ref{variant2} ($\theta$=0.6), we can obtain two communities (see Figures~\ref{fig:jiawei-v1}(a) and~\ref{fig:jiawei-v1}(b)). This implies that, for Variant~\ref{variant2}, although we cannot find a community with AC-label being exactly $S_2$, we still can find a community, in which each member contains at least 60\% percentage of keywords of the input query keyword set.
+
+
+\begin{figure}[ht]
+    \centering
+    \mbox{
+        \subfigure[$\{$stream, classification$\}$]{
+            \includegraphics[width=.42\columnwidth]{figures/jiawei-v1-1}
+            \label{fig:jiawei-v1-1}
+        }
+        \hspace{1ex}
+        \subfigure[$\{$cube, information$\}$]{
+            \includegraphics[width=.415\columnwidth]{figures/jiawei-v1-2}
+            \label{fig:jiawei-v1-2}
+        }
+    }
+    \caption{Jiawei Han's communities on Variants~\ref{variant1} and~\ref{variant2}.}\label{fig:jiawei-v1}
+\end{figure}
+
+\textbf{2. Effect of $|S|$ in Variant~\ref{variant1}.}
+We consider query vertices having at least 9 keywords.
+For each of them, we randomly select 1, 3, 5, 7 and 9 keywords to form the query keyword sets,
+and answer the query of Variant~\ref{variant1} using {\tt basic-g-v1}, {\tt basic-w-v1} and {\tt SW}.
+Figures~\ref{fig:exp-variant}(a)-\ref{fig:exp-variant}(d) show their efficiency.
+We can see that {\tt SW} outperforms the basic solutions consistently.
+Also, the performance gap increases between {\tt SW} and basic solutions as $|S|$ increases.
+This is because it uses the CL-tree index.
+
+
+\textbf{3. Effect of $\theta$ in Variant~\ref{variant2}.}
+For each query vertex, we randomly select 10 keywords to form set $S$, set $\theta$ as 0.2, 0.4 0.6, 0.8 and 1.0,
+and answer the query of Variant~\ref{variant2} using {\tt basic-g-v2}, {\tt basic-w-v2} and {\tt SWT}.
+Figures~\ref{fig:exp-variant}(e)-\ref{fig:exp-variant}(h) show their efficiency.
+Similar with Variant~\ref{variant1}, we can see that {\tt SWT} performs the best,
+as it uses the CL-tree index. 

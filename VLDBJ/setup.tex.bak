@@ -1,0 +1,35 @@
+\subsection{Setup}
+\label{setup}
+
+We consider four real datasets. For {\it Flickr}~\footnote{\url{https://www.flickr.com/}}~\cite{thomee2015new}, a vertex represents a user, and an edge denotes a ``follow'' relationship between two users. For each vertex, we use the 30 most frequent tags of its associated photos as its keywords.
+For {\it DBLP}~\footnote{\url{http://dblp.uni-trier.de/xml/}}, a vertex denotes an author, and an edge is a co-authorship relationship between two authors.
+For each author, we use the 20 most frequent keywords from the titles of her publications as her keywords.
+In the {\it Tencent} graph provided by the KDD contest 2012~\footnote{\url{http://www.kddcup2012.org/c/kddcup2012-track1}}, a vertex is a person, an organization, or a microblog group. Each edge denotes the friendship between two users. The keyword set of each vertex is extracted from a user's profile. For the {\it DBpedia}~\footnote{\url{http://dbpedia.org/datasets}}, each vertex is an entity, and each edge is the relationship between two entities. The keywords of each entity are extracted by the Stanford Analyzer and Lemmatizer.
+Table~\ref{tab:dataset} shows the number of vertices and edges, the $k_{max}$ value, a vertex's average degree $\widehat d$, and its keyword set size $\widehat l$.
+
+\begin{table}[h]
+  \centering \footnotesize \caption {Datasets used in our experiments.}\label{tab:dataset}
+  \begin{tabular}{c|r|r|c|c|c}
+     \hline
+          {\bf Dataset}  & \multicolumn{1}{c|}{\textbf{Vertices}}
+                         & \multicolumn{1}{c|}{\textbf{Edges}}
+                         & $\bm{k_{max}}$
+                         & \textbf{\emph{{$\widehat d$}}}
+                         & \textbf{\emph{{$\widehat l$}}}\\
+     \hline\hline
+          Flickr         &  581,099      &  9,944,548   &   152   & 17.11  &  9.90 \\
+     \hline
+          DBLP           &  977,288      &  3,432,273   &   118   &  7.02  &  11.8 \\
+     \hline
+          Tencent        &  2,320,895    &  50,133,369  &   405   &  43.2  &  6.96 \\
+     \hline
+          DBpedia        &  8,099,955    &  71,527,515  &    95   &  17.66  &  15.03 \\
+     \hline
+  \end{tabular}
+\end{table}
+
+To evaluate ACQs, we set the default value of $k$ to 6. The input keyword set $S$ is set to the whole set of keywords contained by the query vertex. For each dataset, we randomly select 300 query vertices with core numbers of 6 or more, which ensures that there is a $k$-core containing each query vertex.
+Each data point is the average result for these 300 queries.
+We implement all the algorithms in Java, and run experiments on a machine having a quad-core Intel i7-3770 processor, and 32GB of memory, with Ubuntu installed.
+%We implement all the algorithms in Java, and run experiments on a machine having a quad-core Intel i7-3770 3.40GHz processor, and 32GB of memory, with Ubuntu installed.
+%We present the effectiveness and efficiency results in Sections~\ref{effectiveness} and~\ref{efficiency}. 

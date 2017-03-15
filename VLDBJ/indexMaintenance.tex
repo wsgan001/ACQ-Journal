@@ -1,0 +1,21 @@
+\chen{
+
+\section{Index Maintenance}
+\label{indexMaintenance}
+We now discuss an index maintenance algorithm which can handle the insertion or deletion of keywords and graph edges, without rebuilding the CL-tree from scratch. To insert (or remove) a keyword of a vertex, we just need to update the $invertedList$ of the CL-tree node containing the vertex. To insert (or remove) a graph edge, we can first borrow the results from \cite{kcoreUpdate}, which discusses how to maintain a $k$-core. Then we update our CL-tree index.
+
+
+
+\subsection{Keyword Update}
+Recall in the {\tt Advanced} index construction method(Sec 5.2.2), we have built a vertex-node map, where each vertex is mapped to a CL-tree node. And the keyword update process mainly relies on this data structure. Note that in the {\tt basic} index construction method, we can construct the map by traversing the CL-tree once. 
+
+Keyword update can be done in an online manner. In detail, to insert a new keyword for a vertex $v$, we can first locate the CL-tree node which contains $v$ using the vertex-node map, and then insert the keyword and vertex ID into the associated $invertedList$. To remove a keyword of a vertex, we can do the process in the similar way. 
+
+Note that only the node that contains $v$ needs to be considered. Since the CL-tree is compressed, only the $invertedList$ of a single CL-tree node containing $v$ needs to be updated. 
+
+
+\input{insertEdge}
+\input{deleteEdge}
+
+
+}

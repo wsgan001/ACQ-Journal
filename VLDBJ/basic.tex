@@ -1,0 +1,47 @@
+\section{Basic Solutions}
+\label{basic}
+
+For ease of presentation, we say that $v$ contains a set $S'$ of keywords, if $S'\subseteq W(v)$.
+We use $G[S']$ to denote the largest connected subgraph of $G$,
+where each vertex contains $S'$ and $q\in G[S]$.
+We use $G_k[S']$ to denote the largest connected subgraph of $G[S']$,
+in which every vertex has degree being at least $k$ in $G_k[S']$.
+We call $S'$ a qualified keyword set for the query vertex $q$ on the graph $G$, if $G_k[S']$ exists.
+%We call $G_k[S']$ a target AC, if $S'$ is the largest subset of $S$ and $G_k[S']$ satisfies all the cohesiveness of ACQ problem.
+
+Given a query vertex $q$, a straightforward method to answer ACQ performs three steps.
+First, all non-empty subsets of $S$, $S_1,S_2,\cdots$, $S_{2^l-1}$ ($l$=$|S|$), are enumerated.
+Then, for each subset $S_i$(1$\leq i\leq2^l-$1), we verify the existence of $G_k[S_i]$ and compute it when it exists (We postpone to discuss the details). Finally, we output the subgraphs having the most shared keywords among all $G_k[S_i]$.
+
+One major drawback of the straightforward method is that we need to compute $2^l-1$ subgraphs (\textit{i.e.}, $G_k[S_i]$).
+For large values of $l$, the computation overhead renders the method impractical, and we do not further consider this method in the paper. To alleviate this issue, we propose the following two-step framework.
+
+\subsection{Two-Step Framework}
+The two-step framework is mainly based on the following \emph{anti-monotonicity} property.
+\begin{lemma}[Anti-monotonicity]
+  \label{lemma:apriori}
+  Given a graph $G$, a vertex $q\in G$ and a set $S$ of keywords, if there exists a subgraph $G_k[S]$,
+  then there exists a subgraph $G_k[S']$ for any subset $S'\subseteq S$.
+\end{lemma}
+
+All the proofs of lemmas studied in this paper can be found in Appendix~\ref{app:proof}.
+The anti-monotonicity property allows us to stop examining all the super sets of $S' (S'\subseteq S)$, once have verified that $G_k[S']$ does not exist.
+The basic solution begins with examining the set, $\Psi_1$, of size-$1$ candidate keyword sets,
+\textit{i.e.}, each candidate contains a single keyword of $S$.
+It then repeatedly executes the following two key steps,
+to retrieve the size-$2$ (size-$3$, \ldots) qualified keyword subsets until no qualified keyword sets are found.
+
+$\bullet$ {\bf Verification.} For each candidate $S'$ in $\Psi_c$ (initially $c$=1),
+mark $S'$ as a qualified set if $G_k[S']$ exists.
+
+$\bullet$ {\bf Candidate generation.} For any two current size-$c$ qualified keyword sets which only differ in one keyword, union them as a new expanded candidate with size-($c$+$1$), and put it into set $\Psi_{c+1}$, if all its subsets are qualified, by Lemma~\ref{lemma:apriori}.
+
+Among the above steps, the key issue is how to compute $G_k[S']$.
+Since $G_k[S']$ should satisfy the~\emph{structure cohesiveness} (\textit{i.e.}, minimum degree at least $k$)
+and~\emph{keyword cohesiveness} (\textit{i.e.}, every vertex contains keyword set $S'$).
+Intuitively, we have two approaches to compute $G_k[S']$:
+either searching the subgraph satisfying degree constraint first,
+followed by further refining with keyword constraints (called {\tt basic-g});
+or vise versa (called {\tt basic-w}).
+These two algorithms form our baseline solutions.
+Their pseudocodes are presented in Appendix~\ref{app:basic}. 

@@ -1,0 +1,183 @@
+\begin{thebibliography}{10}
+
+\bibitem{unionFind}
+https://en.wikipedia.org/wiki/Disjoint-set\_data\_structure.
+
+\bibitem{kcore2003}
+V.~Batagelj and M.~Zaversnik.
+\newblock An o(m) algorithm for cores decomposition of networks.
+\newblock {\em arXiv}, 2003.
+
+\bibitem{keyword-icde2002}
+G.~Bhalotia~et al.
+\newblock Keyword searching and browsing in databases using banks.
+\newblock In {\em ICDE}, 2002.
+
+\bibitem{online-sigmod2013}
+W.~Cui, Y.~Xiao, H.~Wang, Y.~Lu, and W.~Wang.
+\newblock Online search of overlapping communities.
+\newblock In {\em SIGMOD}, 2013.
+
+\bibitem{local2014}
+W.~Cui, Y.~Xiao, H.~Wang, and W.~Wang.
+\newblock Local search of communities in large graphs.
+\newblock In {\em SIGMOD}, 2014.
+
+\bibitem{keyword-icde2007}
+B.~Ding, J.~X. Yu, S.~Wang, L.~Qin, X.~Zhang, and X.~Lin.
+\newblock Finding top-k min-cost connected trees in databases.
+\newblock In {\em ICDE}, 2007.
+
+\bibitem{kcore2006}
+S.~N. Dorogovtsev~et al.
+\newblock K-core organization of complex networks.
+\newblock {\em Physical review letters}, 2006.
+
+\bibitem{GPM-VLDB2010}
+W.~Fan, J.~Li, S.~Ma, N.~Tang, Y.~Wu, and Y.~Wu.
+\newblock Graph pattern matching: from intractable to polynomial time.
+\newblock {\em PVLDB}, 2010.
+
+\bibitem{GPM-PVLDB2015}
+W.~Fan, X.~Wang, Y.~Wu, and J.~Xu.
+\newblock Association rules with graph patterns.
+\newblock {\em PVLDB}, 8(12):1502--1513, 2015.
+
+\bibitem{fang2014}
+Y.~Fang, H.~Zhang, Y.~Ye, and X.~Li.
+\newblock Detecting hot topics from twitter: A multiview approach.
+\newblock {\em Journal of Information Science}, 40(5):578--593, 2014.
+
+\bibitem{community-phy2010}
+S.~Fortunato.
+\newblock Community detection in graphs.
+\newblock {\em Physics Reports}, 486(3):75--174, 2010.
+
+\bibitem{han2011data}
+J.~Han, M.~Kamber, and J.~Pei.
+\newblock {\em Data mining: concepts and techniques}.
+\newblock Elsevier, 2011.
+
+\bibitem{han2000mining}
+J.~Han, J.~Pei, and Y.~Yin.
+\newblock Mining frequent patterns without candidate generation.
+\newblock In {\em SIGMOD}, 2000.
+
+\bibitem{keyword-sigmod2007}
+H.~He, H.~Wang, J.~Yang, and P.~S. Yu.
+\newblock Blinks: ranked keyword searches on graphs.
+\newblock In {\em SIGMOD}, 2007.
+
+\bibitem{k-truss2014}
+X.~Huang, H.~Cheng, L.~Qin, W.~Tian, and J.~X. Yu.
+\newblock Querying k-truss community in large and dynamic graphs.
+\newblock In {\em SIGMOD}, 2014.
+
+\bibitem{keyword-vldb2005}
+V.~Kacholia~et al.
+\newblock Bidirectional expansion for keyword search on graph databases.
+\newblock In {\em VLDB}, 2005.
+
+\bibitem{keyword-vldb2011}
+M.~Kargar and A.~An.
+\newblock Keyword search in graphs: Finding r-cliques.
+\newblock {\em PVLDB}, 4(10):681--692, 2011.
+
+\bibitem{vldb2015}
+R.-H. Li, L.~Qin, J.~X. Yu, and R.~Mao.
+\newblock Influential community search in large networks.
+\newblock In {\em PVLDB}, 2015.
+
+\bibitem{kcoreUpdate}
+R.-H. Li, J.~X. Yu, and R.~Mao.
+\newblock Efficient core maintenance in large dynamic graphs.
+\newblock {\em TKDE}, 2014.
+
+\bibitem{attr-topic-icml2009}
+Y.~Liu, A.~Niculescu-Mizil, and W.~Gryc.
+\newblock Topic-link lda: joint models of topic and author community.
+\newblock In {\em ICML}, 2009.
+
+\bibitem{mislove-2009-socialnetworksthesis}
+A.~Mislove.
+\newblock {\em Online Social Networks: Measurement, Analysis, and Applications
+  to Distributed Information Systems}.
+\newblock PhD thesis, Rice University, Department of Computer Science, May
+  2009.
+
+\bibitem{mislove-2008-flickr}
+A.~Mislove, H.~S. Koppula, K.~P. Gummadi, P.~Druschel, and B.~Bhattacharjee.
+\newblock Growth of the flickr social network.
+\newblock In {\em Proceedings of the 1st ACM SIGCOMM Workshop on Social
+  Networks (WOSN'08)}, August 2008.
+
+\bibitem{attr-topic-kdd2008}
+R.~M. Nallapati, A.~Ahmed, E.~P. Xing, and W.~W. Cohen.
+\newblock Joint latent topic models for text and citations.
+\newblock In {\em KDD}, 2008.
+
+\bibitem{community-phy2004}
+M.~Newman~et al.
+\newblock Finding and evaluating community structure in networks.
+\newblock {\em Physical review E}, 2004.
+
+\bibitem{attr-www2013}
+Y.~Ruan, D.~Fuhry, and S.~Parthasarathy.
+\newblock Efficient community detection in large networks using content and
+  links.
+\newblock In {\em WWW}, 2013.
+
+\bibitem{attr-topic-www2012}
+M.~Sachan~et al.
+\newblock Using content and interactions for discovering communities in social
+  networks.
+\newblock In {\em WWW}, 2012.
+
+\bibitem{md1983}
+S.~B. Seidman.
+\newblock Network structure and minimum degree.
+\newblock {\em Social networks}, 5(3):269--287, 1983.
+
+\bibitem{KDD2010}
+M.~Sozio and A.~Gionis.
+\newblock The community-search problem and how to plan a successful cocktail
+  party.
+\newblock In {\em KDD}, 2010.
+
+\bibitem{thomee2015new}
+B.~Thomee~et al.
+\newblock The new data and new challenges in multimedia research.
+\newblock {\em arXiv:1503.01817}, 2015.
+
+\bibitem{GPM-KDD2007}
+H.~Tong, C.~Faloutsos, B.~Gallagher, and T.~Eliassi-Rad.
+\newblock Fast best-effort pattern matching in large attributed graphs.
+\newblock In {\em KDD}, 2007.
+
+\bibitem{attr-topic-sigmod2012}
+Z.~Xu, Y.~Ke, Y.~Wang, H.~Cheng, and J.~Cheng.
+\newblock A model-based approach to attributed graph clustering.
+\newblock In {\em SIGMOD}, 2012.
+
+\bibitem{attr-icdm2013}
+J.~Yang, J.~McAuley, and J.~Leskovec.
+\newblock Community detection in networks with node attributes.
+\newblock In {\em ICDM}, 2013.
+
+\bibitem{attr-kdd2009}
+T.~Yang, R.~Jin, Y.~Chi, and S.~Zhu.
+\newblock Combining link and content for community detection: a discriminative
+  approach.
+\newblock In {\em KDD}, 2009.
+
+\bibitem{keyword-yu-2009}
+J.~X. Yu, L.~Qin, and L.~Chang.
+\newblock Keyword search in databases.
+\newblock {\em Synthesis Lectures on Data Management}, 2009.
+
+\bibitem{attr-vldb2009}
+Y.~Zhou, H.~Cheng, and J.~X. Yu.
+\newblock Graph clustering based on structural/attribute similarities.
+\newblock {\em VLDB}, 2009.
+
+\end{thebibliography}

@@ -1,0 +1,117 @@
+package hku.algo.index.edgeUpdate;
+
+import java.io.*;
+import java.util.*;
+
+import hku.algo.DataReader;
+
+public class EvolvingGprah {
+
+	private int[][] graph=null;
+	private String[][] nodes=null;
+	
+	public void readData(String infile,String outfile,String nodefile){
+		Map<Integer, Set<Integer>> map=new HashMap<Integer, Set<Integer>>();
+		int size=-1;
+		try {
+			BufferedReader brReader=new BufferedReader(new FileReader(infile));
+			String line=null;
+			while((line=brReader.readLine())!=null){
+				line=line.trim();
+				String[] s=line.split("\\|");
+				int u=Integer.parseInt(s[0]);
+				int v=Integer.parseInt(s[1]);
+				size=u;
+				if(map.containsKey(u))	map.get(u).add(v);
+				else{
+					Set<Integer> list=new HashSet<Integer>();
+					list.add(v);
+					map.put(u, list);
+				}
+				
+				if(map.containsKey(v))	map.get(v).add(u);
+				else{
+					Set<Integer> list=new HashSet<Integer>();
+					list.add(u);
+					map.put(v, list);
+				}
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(!map.isEmpty()){
+			try {
+				BufferedWriter brWriter=new BufferedWriter(new FileWriter(outfile));
+				BufferedWriter brWriter1=new BufferedWriter(new FileWriter(nodefile));
+				Set<Integer> set=map.keySet();
+				
+				for(int x=1;x<size+1;x++){
+					String line=x+" ";
+					if(map.containsKey(x)){
+						Set<Integer> list=map.get(x);
+						for(int y:list) line=line+y+" ";
+					}
+					brWriter.write(line);
+					brWriter.newLine();
+					
+					String str=x+"\t"+x+"\t";
+					brWriter1.write(str);
+					brWriter1.newLine();
+				}
+			brWriter.flush();
+			brWriter.close();
+			brWriter1.flush();
+			brWriter1.close();
+			
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void getHistory(String file1,String file2,String nodefile1,String nodefile2){
+		DataReader d1Reader=new DataReader(file1, nodefile1);
+		DataReader d2Reader=new DataReader(file2, nodefile2);
+		int[][] graph1=d1Reader.readGraph();
+		int[][] graph2=d2Reader.readGraph();
+		try {
+			BufferedWriter bw=new BufferedWriter(new FileWriter(file1,true));
+			BufferedWriter bw1=new BufferedWriter(new FileWriter(nodefile1,true));
+			for(int i=graph1.length;i<graph2.length;i++){
+				bw.write(i+" ");
+				bw.newLine();
+				bw1.write(i+"\t"+i+"\t");
+				bw1.newLine();
+			}
+			bw.flush();
+			bw.close();
+			bw1.flush();
+			bw1.close();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public static void main(String[] a){
+		String inpath1="/Users/chenyankai/Desktop/info/20161201.as-rel.txt";
+		String outpath1="/Users/chenyankai/Desktop/info/initial.txt";
+		String nodefile1="/Users/chenyankai/Desktop/info/node.txt";
+		EvolvingGprah eg=new EvolvingGprah();
+//		eg.readData(inpath1, outpath1,nodefile1);
+		
+		String inpath2="/Users/chenyankai/Desktop/info/20170201.as-rel.txt";
+		String outpath2="/Users/chenyankai/Desktop/info/initial1.txt";
+		String nodefile2="/Users/chenyankai/Desktop/info/node2.txt";
+		eg.getHistory(outpath1, outpath2, nodefile1,nodefile2);
+//		eg.readData(inpath2, outpath2,nodefile2);
+	}
+	
+}

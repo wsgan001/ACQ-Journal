@@ -1,0 +1,412 @@
+\subsection{Results on Efficiency}
+\label{efficiency}
+
+\begin{figure*}[htp]
+\hspace*{-.4cm}
+\centering
+\begin{tabular}{c c c c}
+  \begin{minipage}{3.76cm}
+	\includegraphics[width=3.725cm]{figures/flickr-index}
+  \end{minipage}
+  &
+  \begin{minipage}{3.76cm}
+	\includegraphics[width=3.725cm]{figures/dblp-index}
+  \end{minipage}
+  &
+  \begin{minipage}{3.76cm}
+	\includegraphics[width=3.725cm]{figures/tencent-index}
+  \end{minipage}
+  &
+  \begin{minipage}{3.76cm}
+	\includegraphics[width=3.725cm]{figures/dbpedia-index}
+  \end{minipage}
+  \\
+  \small (a) Flickr (index scalability)
+  &
+  \small (b) DBLP (index scalability)
+  &
+  \small (c) Tencent (index scalability)
+  &
+  \small (d) DBpedia (index scalability)
+\end{tabular}
+\caption{Efficiency results of index construction.}
+\label{fig:exp-index}
+\end{figure*}
+
+\begin{figure*}[htp]
+\hspace*{-.4cm}
+\centering
+\begin{tabular}{c c c c}
+      \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/flickr-comp}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dblp-comp}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/tencent-comp}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dbpedia-comp}
+  \end{minipage}
+  \\
+  \small (a) Flickr (efficiency)
+  &
+  \small (b) DBLP (efficiency)
+  &
+  \small (c) Tencent (efficiency)
+  &
+  \small (d) DBpedia (efficiency)
+  \\
+
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/flickr-k}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dblp-k}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/tencent-k}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dbpedia-k}
+  \end{minipage}
+  \\
+  \small (e) Flickr (effect of $k$)
+  &
+  \small (f) DBLP (effect of $k$)
+  &
+  \small (g) Tencent (effect of $k$)
+  &
+  \small (h) DBpedia (effect of $k$)
+  \\
+
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/flickr-keyword}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dblp-keyword}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/tencent-keyword}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dbpedia-keyword}
+  \end{minipage}
+  \\
+  \small (i) Flickr (keyword scalability)
+  &
+  \small (j) DBLP (keyword scalability)
+  &
+  \small (k) Tencent (keyword scalability)
+  &
+  \small (l) DBpedia (keyword scalability)
+  \\
+
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/flickr-keyword}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dblp-keyword}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/tencent-keyword}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dbpedia-keyword}
+  \end{minipage}
+  \\
+  \small (m) Flickr (vertex scalability)
+  &
+  \small (n) DBLP (vertex scalability)
+  &
+  \small (o) Tencent (vertex scalability)
+  &
+  \small (p) DBpedia (vertex scalability)
+  \\
+
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/flickr-s}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dblp-s}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/tencent-s}
+  \end{minipage}
+  &
+  \begin{minipage}{3.725cm}
+	\includegraphics[width=3.725cm]{figures/dbpedia-s}
+  \end{minipage}
+  \\
+  \small (q) Flickr (set $S$)
+  &
+  \small (r) DBLP (set $S$)
+  &
+  \small (s) Tencent (set $S$)
+  &
+  \small (t) DBpedia (set $S$)
+
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/dbpedia-graph}
+%  \end{minipage}
+%  &
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/dbpedia-s}
+%  \end{minipage}
+%  &
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/dbpediaInverted}
+%  \end{minipage}
+%  &
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/dbpediaDecComp}
+%  \end{minipage}
+%  \\
+%  \small (m) DBPedia (vertex scalability)
+%  &
+%  \small (n) DBPedia (set $S$)
+%  &
+%  \small (o) DBPedia (invertedList)
+%  &
+%  \small (p) DBpedia ({\tt Dec} vs {\tt Local})
+ \end{tabular}
+\caption{Efficiency results of community search.}
+\label{fig:exp-problem1}
+\end{figure*}
+
+For each dataset, we randomly select 20\%, 40\%, 60\% and 80\%
+of its vertices, and obtain four subgraphs induced by these vertex sets.
+For each vertex, we randomly select 20\%, 40\%, 60\% and 80\%
+of its keywords, and obtain four keyword sets.
+%The results of index construction and ACQ evaluation are reported in Figures~\ref{fig:exp-index} and~\ref{fig:exp-problem1} respectively.
+
+\textbf{1. Index construction.}
+Figures~\ref{fig:exp-index}(a)-\ref{fig:exp-index}(d)
+compare the efficiency of {\tt Basic} and {\tt Advanced}.
+%Since their main difference is the part of building the tree structure, we also compare the parts of only building the tree without keywords.
+We study their main parts, which build the tree without considering keywords.
+We denote them by {\tt Basic-} and {\tt Advanced-}.
+Notice that {\tt Advanced} performs consistently faster, and scales better, than {\tt Basic}.
+When the subgraph size increases, the performance gap between {\tt Advanced} and {\tt Basic} is enlarged.
+Similar results can be observed between {\tt Advanced-} and {\tt Basic-}.
+In addition, we also run the CD method {\tt CODICIL}, which takes 32 mins, 2 mins, 1 day, and 3+ days (we stop it after runing 3 days) to cluster the vertices of Flickr, DBLP, Tencent and DBpedia offline respectively.
+
+\textbf{2. Efficiency of CS methods.}
+Figures~\ref{fig:exp-problem1}(a)-\ref{fig:exp-problem1}(d) compares our best algorithm {\tt Dec} with existing CS methods. We see that {\tt Local} performs faster than {\tt Global} for most cases. Also, {\tt Dec}, which uses the CL-tree index, is the fastest.
+
+\textbf{3. Effect of $k$.}
+Figures~\ref{fig:exp-problem1}(e)-\ref{fig:exp-problem1}(h)
+compare the query efficiency under different $k$.
+A lower $k$ renders a larger subgraph, so as the time costs, for all the algorithms.
+Note that {\tt basic-g} performs faster than {\tt basic-w}, but are slower than index-based algorithms.
+{\tt Inc-T} performs better than {\tt Inc-S}, and {\tt Dec} performs the best.
+The performance gaps decrease as $k$ increases.
+
+\textbf{4. ACQ scalability w.r.t. keyword.}
+Figures~\ref{fig:exp-problem1}(i)-\ref{fig:exp-problem1}(l) examine scalability over the fraction of keywords for each vertex. All the vertices are considered. The running times of the algorithms increase as more keywords are involved. {\tt Dec} performs the best.
+
+\textbf{5. ACQ scalability w.r.t. vertex.}
+Figures~\ref{fig:exp-problem1}(m)-\ref{fig:exp-problem1}(p) report the scalability over different fraction of vertices.
+All the keywords of each vertex are considered. Again, {\tt Dec} scales the best.
+
+\textbf{6. Effect of size of $S$.}
+For each query vertex, we randomly select 1, 3, 5, 7 and 9 keywords to form the query keyword set $S$.
+As {\tt Dec} performs better than {\tt Inc-S} and {\tt Inc-T}, we mainly compare {\tt Dec} with the baseline solutions. Figures~\ref{fig:exp-problem1}(q)-\ref{fig:exp-problem1}(t) show that the cost of all algorithms increase with the $|S|$. Also, {\tt Dec} is 1 to 3 order-of-magnitude faster than {\tt basic-g} and {\tt basic-w}.
+
+\begin{figure}[htp]
+\centering
+    \begin{tabular}{c c c c}
+      \begin{minipage}{3.66cm}
+    	\includegraphics[width=3.65cm]{figures/dbpediaInverted}
+      \end{minipage}
+      &
+      \begin{minipage}{3.66cm}
+    	\includegraphics[width=3.65cm]{figures/dbpediaDecComp}
+      \end{minipage}
+      \\
+      \small (a) InvertedList
+      &
+      \small (b) {\tt Dec} vs. {\tt Local}
+    \end{tabular}
+    \caption{More experimental results on DBpedia.}
+    \label{fig:exp-dbpedia}
+
+\end{figure}
+
+\begin{figure*}[]
+\hspace*{-.6cm}
+\centering
+\begin{tabular}{c c c}
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/flickrInverted}
+  \end{minipage}
+  &
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/flickrInverted}
+  \end{minipage}
+  &
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/dblpInverted}
+  \end{minipage}
+  &
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/tencentInverted}
+  \end{minipage}
+  \\
+  \small (a) Flickr
+  &
+  \small (b) DBLP
+  &
+  \small (c) Tencent
+\end{tabular}
+\caption{Effect of InvertedList for {\tt Inc-S} and {\tt Inc-T}.}
+\label{fig:exp-more-inverted}
+\end{figure*}
+
+\begin{figure*}[ht]
+\centering
+\begin{tabular}{c c c}
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/flickrDecComp}
+  \end{minipage}
+  &
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/dblpDecComp}
+  \end{minipage}
+  &
+  \begin{minipage}{3.36cm}
+	\includegraphics[width=3.325cm]{figures/tencentDecComp}
+  \end{minipage}
+  \\
+  \small (a) Flickr
+  &
+  \small (b) DBLP
+  &
+  \small (c) Tencent
+\end{tabular}
+\caption{Results on non-attributed graphs.}
+\label{fig:exp-more-decComp}
+\end{figure*}
+
+Next, we present additional results about DBpedia, the largest dataset used in our experiments. Results for other datasets are similar, and are reported in our report~\cite{TR} due to space constraints.
+
+\textbf{7. Effect of invertedList.}
+We implement {\tt Inc-S*} and {\tt Inc-T*}, which are respective variants of {\tt Inc-S} and {Inc-T}, without the invertedList on each CL-tree node. Figure~\ref{fig:exp-dbpedia}(a) shows that {\tt Inc-S} ({\tt Inc-T}) is 2 orders of magnitude faster than {\tt Inc-S*} ({\tt Inc-T*}).
+The keyword-checking operation, which uses the invertedList, is frequently performed. The use of invertedList thus improves the performance of our algorithms significantly.
+
+\textbf{8. Non-attributed graphs.}
+We also test {\tt Dec} and {\tt Local} on non-attributed graphs, by ignoring the keywords of the graph dataset. Figure~\ref{fig:exp-dbpedia}(b) shows that {\tt Dec} is always faster than {\tt Local}. In {\tt Dec}, the cores are organized into the CL-tree, and since its height is limited, the core-locating operation is efficient.
+
+
+%%%%%% [Before removing graphs except DBPedia to save space]
+
+%\textbf{5. ACQ scalability w.r.t. vertex.}
+%Figures~\ref{fig:exp-problem1}(m) reports the scalability over different fraction of vertices.
+%All the keywords of each vertex are considered. Again, {\tt Dec} scales the best.
+
+%\textbf{6. Effect of size of $S$.}
+%For each query vertex, we randomly select 1, 3, 5, 7 and 9 keywords to form the query keyword set $S$.
+%As {\tt Dec} performs better than {\tt Inc-S} and {\tt Inc-T}, we mainly compare {\tt Dec} with the baseline solutions. Figures~\ref{fig:exp-problem1}(q)-\ref{fig:exp-problem1}(t) show their efficiency.
+%Clearly, {\tt Dec} performs 1 to 3 order-of-magnitude faster than {\tt basic-g} and {\tt basic-w} on all the datasets.
+%Besides, the more keywords in $S$, the more time cost for all the algorithms.
+
+%{\color{red}
+%\textbf{7. Effect of invertedList.}
+%We implement {\tt Inc-S*} and {\tt Inc-T*}, which are respective variants of {\tt Inc-S} and {Inc-T}, without the invertedList on each CL-tree node. Figure~\ref{fig:dbpedia-invert} shows the results on DBpedia (Results for other datasets are in~\cite{TR}). We see that {\tt Inc-S} ({\tt Inc-T}) is 1 to 2 order of magnitude faster than {\tt Inc-S*} ({\tt Inc-T*}).
+%The keyword-checking operation, which uses the invertedList, is frequently performed. The use of invertedList thus improves the performance of our algorithms significantly.
+%
+%\textbf{8. Non-attributed graphs.}
+%We also test {\tt Dec} and {\tt Local} on non-attributed graphs, by ignoring the keywords of the graph datasets. Figure~\ref{fig:dbpedia-dec-comp} shows the results on DBpedia (Results for other datasets are in~\cite{TR}). We can see that {\tt Dec} is always faster than {\tt Local}. In {\tt Dec}, the cores are organized into the CL-tree, and since its height is limited, the core-locating operation is efficient.
+%}
+
+% \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/flickr-graph}
+%  \end{minipage}
+%  &
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/dblp-graph}
+%  \end{minipage}
+%  &
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/tencent-graph}
+%  \end{minipage}
+%  &
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/dbpedia-graph}
+%  \end{minipage}
+%  \\
+%  \small (m) Flickr (vertex scalability)
+%  &
+%  \small (n) DBLP (vertex scalability)
+%  &
+%  \small (o) Tencent (vertex scalability)
+%  &
+%  \small (p) DBpedia (vertex scalability)
+%    \\
+%
+%
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/flickr-s}
+%  \end{minipage}
+%  &
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/dblp-s}
+%  \end{minipage}
+%  &
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/tencent-s}
+%  \end{minipage}
+%  &
+%  \begin{minipage}{3.725cm}
+%	\includegraphics[width=3.725cm]{figures/dbpedia-s}
+%  \end{minipage}
+%  \\
+%  \small (q) Flickr (set $S$)
+%  &
+%  \small (r) DBLP (set $S$)
+%  &
+%  \small (s) Tencent (set $S$)
+%  &
+%  \small (t) DBpedia (set $S$)
+
+%\begin{figure}[ht]
+%   \centering
+%   \begin{minipage}[t]{0.40\linewidth}
+%      \centering
+%      \includegraphics[width=\columnwidth]{figures/dbpediaInverted}
+%      \caption{invertedList}
+%      \label{fig:dbpedia-invert}
+%   \end{minipage}
+%   \hspace{0.3in}
+%   \begin{minipage}[t]{0.41\linewidth}
+%      \centering
+%      \includegraphics[width=\columnwidth]{figures/dbpediaDecComp}
+%      \caption{{\tt Dec} vs {\tt Local}}
+%      \label{fig:dbpedia-dec-comp}
+%   \end{minipage}
+%\end{figure}
+
+%%%%%% [Before removing graphs except DBPedia to save space]
+
+
+%\textbf{6. analysis of {\tt Dec}.}
+%To analyze why {\tt Dec} performs the best, in Figures~\ref{fig:exp-problem1}(q)-\ref{fig:exp-problem1}(t), we plot the average number of vertices, that share different numbers of keywords with the query vertices. Note that for each dataset,  we vary the percentage of vertices from 20\% to 100\% (all the keywords of each vertex are kept). Recall that, {\tt Dec} verifies candidate keyword sets in a decremental manner, \textit{i.e.}, larger keyword sets are examined before smaller ones. We can see that, the number of vertices decreases very fast as the number of shared keywords increases. So if we verify larger keyword sets first,
+%we can find the LACs from the subgraph induced by a smaller number of vertices. Hence, {\tt Dec} performs fast.
+
+
+

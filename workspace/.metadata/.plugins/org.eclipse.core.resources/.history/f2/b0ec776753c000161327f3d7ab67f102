@@ -1,0 +1,123 @@
+package hku.variant.variant4;
+
+import java.util.*;
+
+import hku.Config;
+import hku.algo.KCore;
+import hku.algo.TNode;
+
+public class SW_V2 {
+	private String nodes[][]=null;
+	private int graph[][]=null;
+	private TNode root;
+	private int core[]=null;
+	private int[] querySet=null;
+	
+	//output set
+	private Set<String> kwOutput= null;
+	Set<Integer> ACNode=null;
+	
+	public SW_V2(String[][] nodes,int graph[][],TNode root){
+		this.nodes=nodes;
+		this.graph=graph;
+		this.root=root;
+		
+		KCore kcore=new KCore(graph);
+		core=kcore.decompose();
+	}
+
+	public String getValidKW(){
+		return kwOutput.toString();
+	}
+	public String getACNode(){
+		return ACNode.toString();
+	}
+	public void testOutput(){
+		if(!kwOutput.isEmpty()&&!ACNode.isEmpty()){
+		System.out.println(kwOutput.toString());
+		System.out.println(ACNode.toString());
+		}
+		else{
+			System.out.println("No such AC!");
+		}
+	}
+	
+	//do keyword intersection 
+	private Set<String> kwIntersection(String kws[]){
+
+		Set<String> kwSet=new HashSet<String>();
+		kwSet.addAll(Arrays.asList(kws));
+		for(int queryId:querySet){
+			Set<String> tempSet= new HashSet<String>();
+			tempSet.addAll(Arrays.asList( nodes[queryId]));
+			tempSet.remove(nodes[queryId][0]);
+			kwSet.retainAll(tempSet);
+		}
+		return kwSet;
+	}
+	
+	public void query(int[] vertices ,String[] kws){
+		this.querySet=vertices;
+		int q0=vertices[0];
+		TNode tNode=locateAllCK(root,q0);
+		
+		if(tNode!=null){
+			// do search
+			findCKCore(tNode);
+		}else{
+			ACNode.clear();
+			return ;
+		}
+		
+	}
+	
+	private void findCKCore(TNode node){
+		for(int id:node.getNodeSet()) ACNode.add(id);
+		for(TNode tNode:node.getChildList()) findCKCore(tNode);
+	}
+	
+	
+	private TNode locateAllCK(TNode rootNode,int queryId){
+		//step 1: locate nodes with corenumber=config.k using BFS
+		List<TNode> canList=new ArrayList<TNode>();
+		Queue<TNode> queue=new LinkedList<TNode>();
+		queue.add(rootNode);
+	
+		while(queue.size()>0){
+			TNode curNode=queue.poll();
+			for(TNode node:curNode.getChildList()){
+				if(node.getCore()<Config.k) queue.add(node);
+				else canList.add(node);// core number of this node must be at least k 
+			}
+		}
+		
+		//step2: locate a list of CKCore
+		for(TNode node:canList){
+			if(findCK(node,queryId)) return node;
+		}
+		return null;
+		
+	}
+	
+	private boolean findCK(TNode node,int queryId){
+		if(node.getCore()<=core[queryId]){
+			boolean rs=false;
+			if(node.getNodeSet().contains(queryId)){
+				rs=true;
+			}else {
+				for(TNode tnode:node.getChildList()){
+					if(findCK(tnode, queryId)){
+						rs=true;
+						break;
+					}
+				}
+			}
+			return rs;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	
+}

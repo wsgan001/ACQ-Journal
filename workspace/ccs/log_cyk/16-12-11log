@@ -1,0 +1,30 @@
+16-12-11 cyk
+
+fixed:
+ (1) 
+ 	(ref 16-12-5)
+ 	Src/algo/index/AttachKw.java line39 
+	 recorrect back, corresponding to the Flickr(dblp) data format: [0] is name,[1] is attributes.
+ 	
+ 	(ref 16-12-7) 
+ 	 hku/variant1/BasicGV1.java line60
+	 hku/variant1/BasicWV1.java line49
+	 hku/rarinat2/BasicGV2.java line65
+	 hku/rainant2/BasicWV2.java line57  
+	 
+	 similar question:  [0] is name,[1] is attributes. 
+ 
+ 
+	 
+ 
+ 
+ (3) src/algo/DataReader.java line63-line68 
+	new version 
+	if there is no keyword, the users[] should be {name}
+	if there are some keywords, the users[] should be like{name,k1,k2,k3, ...}
+	
+	old version:
+ 	if there is no keyword, the users[] was like {name,name}
+	if there are some keywords, the users[] was like{name,k1,k2,k3, ...}
+	
+	

@@ -1,0 +1,13 @@
+\section{Query Algorithms}
+\label{query}
+
+In this section, we present three query algorithms based on the CL-tree index.
+Based on how we verify the candidate keyword sets, we divide our algorithms into incremental algorithms (from examining smaller candidate sets to larger ones) and decremental algorithm (from examining larger candidate sets to smaller ones).
+We propose two incremental algorithms called \textbf{{\tt Inc-S}} (\underline{Inc}remental \underline{S}pace efficient) and \textbf{{\tt Inc-T}} (\underline{Inc}remental \underline{T}ime efficient), to trade off between the memory consumption and the computational overhead.
+The decremental algorithm is called \textbf{{\tt Dec}} (\underline{Dec}remental).
+Our interesting finding is that, while {\tt Dec} seems not intuitive, it ranks as the most efficient one.
+{\tt Inc-S} and {\tt Inc-T} are presented in Section~\ref{inc}.
+{\tt Dec} is introduced in Section~\ref{dec}.
+
+\input{query1}
+\input{query2} 

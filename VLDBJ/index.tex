@@ -1,0 +1,17 @@
+\section{CL-tree Index}
+\label{index}
+The major limitation of {\tt basic-g} and {\tt basic-w} is that
+they need to find the $k$-$\widehat {core}$s and do keyword filtering repeatedly.
+This makes the community search very inefficient.
+To achieve higher query efficiency, we propose a novel index,
+called \textbf{CL-tree} (\underline{C}ore \underline{L}abel tree),
+which organizes both the $k$-$\widehat {core}$s and keywords into a tree structure.
+Based on the index, the efficiency of answering ACQ and its variants
+can be improved significantly.
+We first introduce the index in Section~\ref{indexIntro},
+and then propose two index construction methods in Section~\ref{indexConstruction}.
+
+\input{indexIntro}
+\input{indexBuild}
+\input{indexMaintenance}
+

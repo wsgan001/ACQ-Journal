@@ -1,0 +1,192 @@
+\subsection{The Incremental Algorithms}
+\label{inc}
+
+While the high-level idea of incremental algorithms resembles the basic solutions (see Section~\ref{basic}),
+{\tt Inc-S} and {\tt Inc-T} advance them with the exploitation of the CL-tree.
+Specifically, they can always verify the existence of $G_k[S']$ within a subgraph of $G$ instead of the entire graph $G$. More interestingly, the subgraph for such verifications shrinks when the candidate set $S'$ expands. Therefore, a large sum of redundant computation is cut off during the verification. We present {\tt Inc-S} and {\tt Inc-T} in Sections~\ref{inc-S} and~\ref{inc-T}.
+
+
+\subsubsection{Inc-S Algorithm}
+\label{inc-S}
+We first introduce a new concept, called \textbf{subgraph core number},
+which is geared to the main idea of {\tt Inc-S}.
+
+\begin{definition}[Subgraph core number]
+\label{def:ccscore}
+  The core number of a subgraph $G'$ of $G$, $core_G[G']$,
+  is defined as $min\{core_G[v]|$ $v\in G'\}$.
+\end{definition}
+
+
+{\tt Inc-S} follows the two-step framework (\emph{verification} and \emph{candidate generation})
+introduced in Section~\ref{basic}. With the CL-tree, we improve the verification step as follows.
+\begin{itemize}
+\item {\bf Core-based verification.} For each newly generated size-($c$+1) candidate keyword set $S'$ expanded from size-$c$ sets $S_1$ and $S_2$, mark $S'$ as a qualified set if $G_k[S']$ exists \textit{in a subgraph of core number} $max\{core_G[G_k[S_1]]$, $core_G[G_k[S_2]]\}$.
+\end{itemize}
+
+The core-based verification guarantees that, with the expansion of the candidate keyword sets, the verification becomes faster as it only needs to examine the existence of $G_k[S']$ in a smaller $k$-$\widehat {core}$ (Recall that cores with large core numbers are nested in the cores with small core numbers). The correctness of such shrunk verification range is guaranteed by the following lemma.
+\begin{lemma}
+\label{lemma:coreDown}
+  Given two subgraphs $G_k[S_1]$ and $G_k[S_2]$ of a graph $G$,
+  for a new keyword set $S'$ generated from $S_1$ and $S_2$ (\textit{i.e.}, $S'=S_1\cup S_2$),
+  if $G_k[S']$ exists, then it must appear in a $k$-$\widehat {core}$ with core number at least
+  \begin{equation}
+    max\{core_G[G_k[S_1]], core_G[G_k[S_2]]\}.
+  \end{equation}
+\end{lemma}
+
+The verification process can be further accelerated by checking the numbers of vertices and edges,
+as indicated by Lemma~\ref{lemma:coreExist}.
+\begin{lemma}
+\label{lemma:coreExist}
+  Given a connected graph $G(V,E)$ with $n$=$|V|$ and $m$=$|E|$,
+  if $m - n < \frac{{{k^2} - k}}{2} - 1$, there is no $k$-$\widehat {core}$ in $G$.
+\end{lemma}
+
+This lemma implies that, for a connected subgraph $G'$, whose edge and vertex numbers are $m$ and $n$,
+if $m - n < \frac{{{k^2} - k}}{2} - 1$, then we cannot find $G_k[S']$ from $G'$.
+
+We present {\tt Inc-S} in Algorithm~\ref{alg:incS}.
+The input is a CL-tree rooted at $root$, a query vertex $q$, a positive integer $k$ and a keyword set $S$.
+We apply {\tt core-locating} on the CL-tree to locate the internal nodes whose corresponding $k$-$\widehat {core}$s contain $q$ (line 2).
+Note that their core numbers are in the range of $[k,core_G[q]]$, as required by the structure cohesiveness.
+Then, we set $l$=0, indicating the sizes of current keyword sets, and initialize a set $\Psi$ of $\textless S',c\textgreater$ pairs,
+where $S'$ is a set containing a keyword from $S$ and $c$ is the initial core number $k$ (line 3).
+Note that we skip those keywords, which are in $S$, but not in $W(q)$.
+In the while loop (lines 4-18), for each $\textless S',c\textgreater$ pair,
+we first perform {\tt keyword-checking} to find $G[S']$ using the keyword inverted lists of the subtree rooted at node $r_c$.
+If we cannot ensure that $G[S']$ does not contain a $k$-$\widehat {core}$ by Lemma~\ref{lemma:coreExist},
+we then find $G_k[S']$ from $G[S']$ (lines 8-9).
+If $G_k[S']$ exists, we put $S'$ with its core number into the set $\Phi_l$ (lines 10-11).
+Next, if $\Phi_l$ is nonempty, we generate new candidates by calling \textsc{geneCand($\Phi_{l}$)},
+which is detailed in Appendix~\ref{app:geneCand}.
+For each candidate $S'$ in $\Psi$, we compute the core number using Lemma~\ref{lemma:coreDown}
+and update it as a pair in $\Psi$ (lines 12-17);
+otherwise, we stop (line 18).
+Finally, we output the communities of the latest verified keyword sets (line 19).
+
+\begin{algorithm}[h]
+\caption{Query algorithm: {\tt Inc-S}}
+\label{alg:incS}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $root$, $q$, $k$, $S$)}{}
+        \State find subtree root nodes $r_k,r_{k+1},\cdots,r_{core_G[q]}$;
+        \State initialize $l$=0, $\Psi$ using $S$;
+        \While{$true$}
+            \State $l\gets l+1$; $\Phi_{l} \gets \emptyset$;
+            \For {each $\textless S',c \textgreater$ $\in \Psi$}
+                \State find $G[S']$ under the root $r_c$;
+                \If {$G[S']$ is not pruned by Lemma~\ref{lemma:coreExist}}
+                    \State find $G_k[S']$ from $G[S']$;
+                    \If {$G_k[S']$ exists}
+                        \State $\Phi_{l}$.add($\textless S', core_G[G_k[S']]\textgreater$);
+                    \EndIf
+                \EndIf
+            \EndFor
+
+            \If{$\Phi_{l} \ne \emptyset$}
+                \State $\Psi \gets$ \Call{geneCand($\Phi_{l}$)}{};
+                \For {each $S'$ in $\Psi$}
+                    \If {$S'$ is generated from $S_1$ and $S_2$}
+                        \State $c\gets max\{core_G[G_k[S_1]],core_G[G_k[S_2]]\}$;
+                        \State $\Psi$.update($S'$, $\textless S',c\textgreater$);
+                    \EndIf
+                \EndFor
+            \Else {} break;
+            \EndIf
+        \EndWhile
+        \State output the communities of keyword sets in $\Phi_{l-1}$;
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+\begin{example}
+\label{eg:inc-S}
+Consider the graph in Figure~\ref{fig:kcoreGraph}
+and its index in Figure~\ref{fig:cktree}.
+Let $q$=$A$, $k$=1 and $S$=$\{w,x,y\}$.
+By Algorithm~\ref{alg:incS}, we first find 3 root nodes $r_1$, $r_2$ and $r_3$.
+In the first while loop, we find 2 qualified keyword sets $\{x\}and \{y\}$ with core numbers being 3 and 1.
+By Lemma~\ref{lemma:coreDown}, we only need to verify the new candidate keyword set $\{x,y\}$ under node $r_3$.
+\end{example}
+
+\subsubsection{Inc-T Algorithm}
+\label{inc-T}
+We begin with a lemma which inspires the design of {\tt Inc-T}.
+\begin{lemma}
+\label{lemma:kcoreIntersect}
+  Given two keyword sets $S_1$ and $S_2$, if $G_k[S_1]$ and $G_k[S_2]$ exist, we have
+  \begin{equation}
+    %{G_k}[{S_1} \cup {S_2},q] \subseteq {G_k}[{S_1},q] \cap {G_k}[{S_2},q].
+    G_k[S_1\cup S_2] \subseteq G_k[S_1]\cap G_k[S_2].
+  \end{equation}
+\end{lemma}
+
+This lemma implies, if $S'$ is generated from $S_1$ and $S_2$,
+we can find $G_k[S']$ from $G_k[S_1]\cap G_k[S_2]$ directly.
+Since every vertex in $G_k[S_1]\cap G_k[S_2]$ contains both $S_1$ and $S_2$,
+we do not need to consider the keyword constraint again when finding $G_k[S']$.
+
+Based on Lemma~\ref{lemma:kcoreIntersect}, we introduce a new algorithm \textbf{{\tt Inc-T}}. Different from {\tt Inc-S}, {\tt Inc-T} maintains $G_k[S']$ rather than $core_G[$ $G_k[S']]$ for each qualified keyword set $S'$. As we will demonstrate later, {\tt Inc-T} is more effective for shrinking the subgraphs containing the ACs, and thus more efficient. As a trade-off for better efficiency, {\tt Inc-T} consumes more memory as it needs to store a list of subgraph $G_k[S']$ in memory.
+%The detailed algorithm pseudocodes are listed in the technical report~\cite{TR}.
+
+Algorithm~\ref{alg:incT} presents the steps of {\tt Inc-T}.
+We first apply {\tt core-locating} to find the $k$-$\widehat{core}$ containing $q$ from the CL-tree (line 2).
+Then, we set $l$=0, indicating the sizes of current keyword sets,
+and initialize a set $\Psi$ of $<S',\widehat G>$ pairs,
+where $S'$ is a set containing a keyword from $S$ and $\widehat G$ is the $k$-$\widehat {core}$.
+The while loop (lines 4-18) is similar with that of {\tt Inc-S}.
+The main differences are that:
+(1) for each qualified keyword set $S'$, {\tt Inc-T} keeps $G_k[S']$ in memory (line 11);
+and (2) for each candidate keyword set $S'$ generated from $S_1$ and $S_2$,
+{\tt Inc-T} finds $G_k[S']$ from $G_k[S_1]\cap G_k[S_2]$ directly without further keyword verification (lines 6-9, 16).
+
+\begin{algorithm}[h]
+\caption{Query algorithm: {\tt Inc-T}}
+\label{alg:incT}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $root$, $q$, $k$, $S$)}{}
+        \State find the $k$-$\widehat {core}$, which contains $q$;
+        \State initialize $l$=0, $\Psi$ using $S$;
+        \While{$true$}
+            \State $l\gets l+1$; $\Phi_{l} \gets \emptyset$;
+            \For {each $<S',\widehat{G}>$ $\in \Psi$}
+                \State find $G[S']$ from $\widehat{G}$;
+                \If {$G[S']$ is not pruned by Lemma~\ref{lemma:coreExist}}
+                    \State find $G_k[S']$ from $G[S']$;
+                    \If {$G_k[S']$ exists}
+                        \State $\Phi_{l}$.add($<S', G_k[S']>$);
+                    \EndIf
+                \EndIf
+            \EndFor
+            \If {$\Phi_{l} \ne \emptyset$}
+                \State $\Psi \gets$ \Call{geneCand($\Phi_{l}$)}{};
+                \For {each $S' \in \Psi$}
+                    \If {$S'$ is generated from $S_1$ and $S_2$}
+                        \State $\widehat G \gets G_k[S_1]\cap G_k[S_2]$;
+                        \State $\Psi_{l}$.update($S'$,$<S',\widehat G>$);
+                   \EndIf
+                \EndFor
+            \Else {} break;
+            \EndIf
+        \EndWhile
+        \State output the communities of keyword sets in $\Phi_{l-1}$;
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+\begin{example}
+\label{eg:inc-T}
+Continue the graph and query ($q$=$A$, $k$=1, $S$=$\{w$, $x,y\}$) in Example~\ref{eg:inc-S}.
+By {\tt Inc-T}, we first find $G_1[\{x\}]$ and $G_1[\{y\}]$,
+whose vertex sets are $\{A,B,C,D\}$ and $\{A,C,D$, $E,F,G\}$.
+Then to find $G_1[\{x,y\}]$, we only need to search it from the subgraph,
+induced by the vertex set $\{A,C,D\}$.
+\end{example}
+
+
+

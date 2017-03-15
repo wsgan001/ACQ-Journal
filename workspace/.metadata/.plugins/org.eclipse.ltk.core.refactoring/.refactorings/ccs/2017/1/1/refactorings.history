@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;hku.algo.index.CoreUpdate&apos; to &apos;TKDEalgo&apos;&#x0A;- Original project: &apos;ccs&apos;&#x0A;- Original element: &apos;hku.algo.index.CoreUpdate&apos;&#x0A;- Renamed element: &apos;hku.algo.index.TKDEalgo&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CoreUpdate&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;hku.algo.index{CoreUpdate.java[CoreUpdate" matchStrategy="1" name="TKDEalgo" qualified="false" references="true" similarDeclarations="false" stamp="1483751438751" textual="false" version="1.0"/>
+</session>

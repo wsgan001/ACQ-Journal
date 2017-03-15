@@ -1,0 +1,63 @@
+\section{Anchored Union-find}
+\label{app:auf}
+
+Algorithm~\ref{alg:unionFindAppendix} presents
+the four functions of the anchored union-find (AUF) data structure.
+\begin{algorithm}[h]
+\caption{Functions on the AUF data structure}
+\label{alg:unionFindAppendix}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{makeSet($x$)}{}
+        \State $x.parent\gets x$;
+        \State $x.rank\gets 0$;
+        \State $x.anchor\gets x$;
+    \EndFunction
+    \Function{find($x$)}{}
+        \If {$x.parent$=$x$}
+            \State $x.parent\gets$ \Call{find($x.parent$)}{};
+        \EndIf
+        \State \Return $x.parent$;
+    \EndFunction
+    \Function{union($x$, $y$)}{}
+        \State $xRoot\gets$  \Call{find($x$)}{};
+        \State $yRoot\gets$  \Call{find($y$)}{};
+        \If {$xRoot$=$yRoot$}
+            \Return;
+        \EndIf
+        \If {$xRoot.rank<yRoot.rank$}
+            \State $xRoot.parent\gets yRoot$;
+        \ElsIf {$xRoot.rank>yRoot.rank$}
+            \State $yRoot.parent\gets xRoot$;
+        \Else
+            \State $yRoot.parent\gets xRoot$;
+            \State $xRoot.rank\gets xRoot.rank$ + 1;
+        \EndIf
+    \EndFunction
+    \Function{updateAnchor($x$, $core_G[\text{ }]$, $y$)}{}
+        \State $xRoot\gets$ \Call{find($x$)}{};
+        \If {$core_G[xRoot.anchor]>core_G[y]$}
+            \State $xRoot.anchor\gets y$;
+        \EndIf
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+The functions \textsc{find} and \textsc{union} are exactly the same
+as that of the classical union-find data structure~\cite{unionFind}.
+For function \textsc{makeSet}, the only change made on the classical \textsc{makeSet}
+is that, it adds a line of code for initializing $x.anchor$ as $x$ (line 4).
+The function \textsc{updateAnchor} is used to update the anchor vertex of $x$'s representative vertex.
+It first finds $x$'s representative vertex by calling \textsc{find} (line 21).
+Then, if the core number of $x$' representative vertex is larger than that of the current input vertex $y$,
+it updates the anchor vertex of $x$'s representative vertex as $y$.
+
+\textbf{Complexity analysis.}
+The time complexities of functions \textsc{find} and \textsc{union} are $O(\alpha(n))$~\cite{unionFind},
+where $\alpha(n)$ is less than 5 for all practical values of $n$.
+In function \textsc{makeSet}, since initializing $x.anchor$ can be done in $O(1)$,
+the time complexity of \textsc{makeSet} is still $O(1)$.
+In function \textsc{updateAnchor}, as \textsc{find} can be completed in $O(\alpha(n))$
+and updating anchor can be completed in $O(1)$,
+the total time cost of function \textsc{updateAnchor} is $O(\alpha(n))$. 

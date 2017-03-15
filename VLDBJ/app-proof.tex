@@ -1,0 +1,93 @@
+\section{Proofs of Lemmas}
+\label{app:proof}
+
+% go back to the original orders
+\addtocounter{lemma}{-1}
+\addtocounter{lemma}{-1}
+\addtocounter{lemma}{-1}
+\addtocounter{lemma}{-1}
+\addtocounter{equation}{-1}
+\addtocounter{equation}{-1}
+
+\begin{lemma}[Anti-monotonicity]
+  \label{lemma:apriori-app}
+  Given a graph $G$, a vertex $q\in G$ and a set $S$ of keywords, if there exists a subgraph $G_k[S]$,
+  then there exists a subgraph $G_k[S']$ for any subset $S'\subseteq S$.
+\end{lemma}
+
+\begin{proof}
+Based on the definition of $G_k[S]$, each vertex of $G_k[S]$ contains $S$.
+Consider a new keyword set $S'\subseteq S$.
+We can easily conclude that,
+each vertex of $G_k[S]$ contains $S'$ as well.
+Also, note that $q\in G_k[S]$.
+These two properties imply that there exists one subgraph of $G$,
+namely $G_k[S]$, with core number at least $k$,
+such that it contains $q$ and every vertex of it contains keyword set $S'$.
+It follows that there exists such a subgraph with maximal size (\textit{i.e.}, $G_k[S']$).
+\end{proof}
+
+\begin{proposition}\label{prop:pre-app}
+  For any keyword set $S$, and vertex $q$,
+  if $G_k[S]$ exists, then $G_k[S]\subseteq G_k[S']$ for any subset $S'\subseteq S$.
+\end{proposition}
+
+\begin{proof}
+Since $G_k[S]$ contains vertex $q$ and every vertex in $G_k[S]$ contains $S'$ (due to $S'\subseteq S$), then $G_k[S]\cup G_k[S']$ also contains vertex $q$ and every vertex in it contains $S'$. In addition, the core numbers of $G_k[S]$ and $G_k[S']$ are at least $k$, it follows that the core number of $G_k[S]\cup G_k[S']$ is at least $k$.
+Based on the definition of $G_k[S']$, we have $G_k[S]\cup G_k[S']\subseteq G_k[S']$. It follows that $G_k[S]\subseteq G_k[S']$.
+\end{proof}
+
+
+\begin{lemma}
+\label{lemma:coreDown-app}
+  Given two subgraphs $G_k[S_1]$ and $G_k[S_2]$ of a graph $G$,
+  for a new keyword set $S'$ generated from $S_1$ and $S_2$ (\textit{i.e.}, $S'=S_1\cup S_2$),
+  if $G_k[S']$ exists, then it must appear in a $k$-$\widehat {core}$ with core number at least
+  \begin{equation}
+    max\{core_G[G_k[S_1]], core_G[G_k[S_2]]\}.
+  \end{equation}
+\end{lemma}
+
+\begin{proof}
+Since $S'$ is generated from $S_1$ and $S_2$, then $S_1\subseteq S'$ and $S_2 \subseteq S'$. Based on Proposition~\ref{prop:pre-app}, we have $G_k[S']\subseteq G_k[S_1]$. With such a containment relationship, it follows that $min\{core_G[v]|$ $v\in G_k[S_1]\}\leq min\{core_G[v]|v\in G_k[S']\}$. Hence, the core number of $G_k[S']$ is at least the core number of $G_k[S_1]$. Formally, $core_G[G_k[S_1]]$ $\leq core_G[G_k[S']]$. For the same reason, $core_G[G_k[S_2]]\leq core_G[G_k[S']]$. It directly follows the lemma.
+\end{proof}
+
+
+
+\begin{lemma}
+\label{lemma:coreExist-app}
+  Given a connected graph $G(V,E)$ with $n$=$|V|$ and $m$=$|E|$,
+  if $m - n < \frac{{{k^2} - k}}{2} - 1$, there is no $k$-$\widehat {core}$ in $G$.
+\end{lemma}
+
+\begin{proof}
+From Definition~\ref{def:kcore}, we can easily conclude that,
+for any specific $k$, a $k$-$\widehat {core}$ has at least $k$+1 vertices.
+Since each vertex in a specific $k$-$\widehat {core}$ has at least $k$ edges,
+the minimum number of edges in a $k$-$\widehat {core}$ is $\frac{{(k + 1)k}}{2}$.
+
+Consider a connected graph, which contains a $k$-$\widehat {core}$ and has the minimum number of edges,
+where the $k$-core contains only $k+1$ vertices and
+all the rest $n-(k+1)$ vertices are connected with this $k$-$\widehat {core}$.
+The total number of edges is
+\begin{equation}
+\frac{{(k + 1)k}}{2} + \left[ {n - (k + 1)} \right] = m
+\end{equation}
+
+By simple transformation, we can conclude that,
+if $m - n < \frac{{{k^2} - k}}{2} - 1$, there is no $k$-$\widehat {core}$ in $G$.
+\end{proof}
+
+
+
+\begin{lemma}
+\label{lemma:kcoreIntersect-app}
+  Given two keyword sets $S_1$ and $S_2$, if $G_k[S_1]$ and $G_k[S_2]$ exist, we have
+  \begin{equation}
+    G_k[S_1\cup S_2] \subseteq G_k[S_1]\cap G_k[S_2].
+  \end{equation}
+\end{lemma}
+
+\begin{proof}
+Based on Proposition~\ref{prop:pre-app} and $S_1\subseteq {S_1} \cup {S_2}$, we have ${G_k}[{S_1} \cup {S_2}]\subseteq {G_k}[{S_1}]$. For the same reason we have ${G_k}[{S_1} \cup {S_2}]\subseteq {G_k}[{S_2}]$. It directly follows the lemma.
+\end{proof}

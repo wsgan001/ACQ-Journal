@@ -1,0 +1,127 @@
+\begin{filecontents*}{example.eps}
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 19 19 221 221
+%%CreationDate: Mon Sep 29 1997
+%%Creator: programmed by hand (JK)
+%%EndComments
+gsave
+newpath
+  20 20 moveto
+  20 220 lineto
+  220 220 lineto
+  220 20 lineto
+closepath
+2 setlinewidth
+gsave
+  .4 setgray fill
+grestore
+stroke
+grestore
+\end{filecontents*}
+%
+\RequirePackage{fix-cm}
+%
+%\documentclass{svjour3}                     % onecolumn (standard format)
+%\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
+%\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\usepackage{graphicx}
+\usepackage{balance}
+
+\usepackage{color}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+\usepackage{varwidth}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{mathtools}
+\usepackage{amsmath,bm}
+\usepackage{hyperref}
+
+\renewcommand{\arraystretch}{1.18}
+
+%\newtheorem{definition}{Definition}
+\newtheorem{variant}{Variant}
+%\newtheorem{problem}{Problem}
+%\newtheorem{example}{Example}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{proposition}{Proposition}
+
+\newcommand{\fang}[1]{{\color{red}[\textbf{Yixiang:} #1]}}
+\newcommand{\rey}[1]{{\color{blue}[\textbf{Reynold:} #1]}}
+\newcommand{\luo}[1]{{\color{purple}[\textbf{Siqiang:} #1]}}
+\newcommand{\hu}[1]{{\color{green}[\textbf{Jiafeng:} #1]}}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+\begin{document}
+
+\title{Effective and Efficient Attributed Community Search}
+%\subtitle{Do you have a subtitle?\\ If so, write it here}
+
+%\titlerunning{Short form of title}        % if too long for running head
+
+\author{XXX         \and
+        YYY        \and
+        ZZZ          \and
+        WWW
+}
+
+%\authorrunning{Short form of author list} % if too long for running head
+
+\institute{Y. Yixiang, R. Cheng, S. Luo, J. Hu \at
+              Department of Computer Science, The University of Hong Kong, Pokfulam, Hong Kong \\
+              \email{\{yxfang, ckcheng, sqluo, jhu\}@cs.hku.hk}
+%           \and
+%           S. Author \at
+%              second address
+}
+
+\date{Received: date / Accepted: date}
+% The correct dates will be entered by the editor
+
+
+\maketitle
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+%\category{H.2.8}{Database Management}{Database Applications}[Data mining]
+%\category{G.2.2}{Discrete Mathematics}{Graph Theory}[Graph algorithms]
+
+\input{intro}
+
+\input{related}
+
+\input{problem}
+
+\input{basic}
+
+\input{index}
+
+\input{query}
+
+\input{experiment}
+
+\input{conclude}
+
+
+%\begin{thebibliography}{}
+%\bibitem{RefJ}
+%Author, Article title, Journal, Volume, page numbers (year)
+%\bibitem{RefB}
+%Author, Book title, page numbers. Publisher, place (year)
+%\end{thebibliography}
+
+\bibliographystyle{abbrv}
+\bibliography{lac}
+
+\include{appendix}
+
+\end{document}
+% end of file template.tex
+

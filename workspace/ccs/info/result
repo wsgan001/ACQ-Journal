@@ -1,0 +1,574 @@
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:9.902825508218049
+k-core decomposition finished (maxCore= 152).
+index construction finished !
+we are considering 0-th query point
+we are considering 5-th query point
+we are considering 10-th query point
+we are considering 15-th query point
+we are considering 20-th query point
+we are considering 25-th query point
+we are considering 30-th query point
+we are considering 35-th query point
+we are considering 40-th query point
+we are considering 45-th query point
+we are considering 50-th query point
+we are considering 55-th query point
+we are considering 60-th query point
+we are considering 65-th query point
+we are considering 70-th query point
+we are considering 75-th query point
+we are considering 80-th query point
+we are considering 85-th query point
+we are considering 90-th query point
+we are considering 95-th query point
+we are considering 100-th query point
+we are considering 105-th query point
+we are considering 110-th query point
+we are considering 115-th query point
+we are considering 120-th query point
+we are considering 125-th query point
+we are considering 130-th query point
+we are considering 135-th query point
+we are considering 140-th query point
+we are considering 145-th query point
+we are considering 150-th query point
+we are considering 155-th query point
+we are considering 160-th query point
+we are considering 165-th query point
+we are considering 170-th query point
+we are considering 175-th query point
+we are considering 180-th query point
+we are considering 185-th query point
+we are considering 190-th query point
+we are considering 195-th query point
+we are considering 200-th query point
+we are considering 205-th query point
+we are considering 210-th query point
+we are considering 215-th query point
+we are considering 220-th query point
+we are considering 225-th query point
+we are considering 230-th query point
+we are considering 235-th query point
+we are considering 240-th query point
+we are considering 245-th query point
+we are considering 250-th query point
+we are considering 255-th query point
+we are considering 260-th query point
+we are considering 265-th query point
+we are considering 270-th query point
+we are considering 275-th query point
+we are considering 280-th query point
+we are considering 285-th query point
+we are considering 290-th query point
+we are considering 295-th query point
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:9.902825508218049
+k-core decomposition finished (maxCore= 152).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:9.902825508218049
+k-core decomposition finished (maxCore= 152).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:9.902825508218049
+k-core decomposition finished (maxCore= 152).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:9.902825508218049
+k-core decomposition finished (maxCore= 152).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:9.902825508218049
+k-core decomposition finished (maxCore= 152).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-20 the # of nodes in G:116220
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-20 the # of edges in G:198754
+the average degree:1.7101531578041644
+the avg # of keywords in each node:7.822345551540183
+k-core decomposition finished (maxCore= 32).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-40 the # of nodes in G:232440
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-40 the # of edges in G:792018
+the average degree:3.407408363448632
+the avg # of keywords in each node:7.7934950955085185
+k-core decomposition finished (maxCore= 61).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-60 the # of nodes in G:348660
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-60 the # of edges in G:1810203
+the average degree:5.1918860781276885
+the avg # of keywords in each node:7.806748695003728
+k-core decomposition finished (maxCore= 91).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-80 the # of nodes in G:464880
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-80 the # of edges in G:3206987
+the average degree:6.898526501462743
+the avg # of keywords in each node:7.796820684907933
+k-core decomposition finished (maxCore= 123).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-only-20 the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:1.8527445409474117
+k-core decomposition finished (maxCore= 152).
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-only-40 the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:3.234719040989573
+k-core decomposition finished (maxCore= 152).
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-only-60 the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:4.665249811133731
+k-core decomposition finished (maxCore= 152).
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-only-80 the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:6.149100239374014
+k-core decomposition finished (maxCore= 152).
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-20 the # of nodes in G:116220
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-20 the # of edges in G:198754
+the average degree:1.7101531578041644
+the avg # of keywords in each node:7.822345551540183
+k-core decomposition finished (maxCore= 32).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-40 the # of nodes in G:232440
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-40 the # of edges in G:792018
+the average degree:3.407408363448632
+the avg # of keywords in each node:7.7934950955085185
+k-core decomposition finished (maxCore= 61).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-60 the # of nodes in G:348660
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-60 the # of edges in G:1810203
+the average degree:5.1918860781276885
+the avg # of keywords in each node:7.806748695003728
+k-core decomposition finished (maxCore= 91).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node-80 the # of nodes in G:464880
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph-80 the # of edges in G:3206987
+the average degree:6.898526501462743
+the avg # of keywords in each node:7.796820684907933
+k-core decomposition finished (maxCore= 123).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:9.902825508218049
+k-core decomposition finished (maxCore= 152).
+index construction finished !
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:9.902825508218049
+k-core decomposition finished (maxCore= 152).
+index construction finished !
+count:1 queryId:8564 k:6
+count:2 queryId:11994 k:6
+count:3 queryId:12530 k:6
+count:4 queryId:14083 k:6
+count:5 queryId:15920 k:6
+count:6 queryId:20209 k:6
+count:7 queryId:20590 k:6
+count:8 queryId:22187 k:6
+count:9 queryId:23295 k:6
+count:10 queryId:25780 k:6
+count:11 queryId:26954 k:6
+count:12 queryId:27648 k:6
+count:13 queryId:30252 k:6
+count:14 queryId:32300 k:6
+count:15 queryId:34346 k:6
+count:16 queryId:35396 k:6
+count:17 queryId:43886 k:6
+count:18 queryId:44933 k:6
+count:19 queryId:44973 k:6
+count:20 queryId:45147 k:6
+count:21 queryId:45476 k:6
+count:22 queryId:46361 k:6
+count:23 queryId:48164 k:6
+count:24 queryId:59929 k:6
+count:25 queryId:63625 k:6
+count:26 queryId:67613 k:6
+count:27 queryId:68466 k:6
+count:28 queryId:70214 k:6
+count:29 queryId:72185 k:6
+count:30 queryId:74387 k:6
+count:31 queryId:77209 k:6
+count:32 queryId:78213 k:6
+count:33 queryId:79205 k:6
+count:34 queryId:80915 k:6
+count:35 queryId:81911 k:6
+count:36 queryId:82771 k:6
+count:37 queryId:83467 k:6
+count:38 queryId:83866 k:6
+count:39 queryId:87186 k:6
+count:40 queryId:87627 k:6
+count:41 queryId:89321 k:6
+count:42 queryId:89405 k:6
+count:43 queryId:89782 k:6
+count:44 queryId:90589 k:6
+count:45 queryId:92833 k:6
+count:46 queryId:95202 k:6
+count:47 queryId:95645 k:6
+count:48 queryId:97253 k:6
+count:49 queryId:98841 k:6
+count:50 queryId:99075 k:6
+count:51 queryId:99830 k:6
+count:52 queryId:101296 k:6
+count:53 queryId:108266 k:6
+count:54 queryId:109824 k:6
+count:55 queryId:112315 k:6
+count:56 queryId:113963 k:6
+count:57 queryId:114230 k:6
+count:58 queryId:116471 k:6
+count:59 queryId:116979 k:6
+count:60 queryId:119053 k:6
+count:61 queryId:124236 k:6
+count:62 queryId:128929 k:6
+count:63 queryId:129092 k:6
+count:64 queryId:138638 k:6
+count:65 queryId:141671 k:6
+count:66 queryId:142520 k:6
+count:67 queryId:144301 k:6
+count:68 queryId:146116 k:6
+count:69 queryId:152211 k:6
+count:70 queryId:153335 k:6
+count:71 queryId:154612 k:6
+count:72 queryId:155615 k:6
+count:73 queryId:157490 k:6
+count:74 queryId:157501 k:6
+count:75 queryId:166224 k:6
+count:76 queryId:168018 k:6
+count:77 queryId:170343 k:6
+count:78 queryId:182825 k:6
+count:79 queryId:183611 k:6
+count:80 queryId:185992 k:6
+count:81 queryId:186641 k:6
+count:82 queryId:187069 k:6
+count:83 queryId:187280 k:6
+count:84 queryId:189556 k:6
+count:85 queryId:190744 k:6
+count:86 queryId:191260 k:6
+count:87 queryId:193656 k:6
+count:88 queryId:193857 k:6
+count:89 queryId:194248 k:6
+count:90 queryId:194793 k:6
+count:91 queryId:199774 k:6
+count:92 queryId:202231 k:6
+count:93 queryId:203226 k:6
+count:94 queryId:204363 k:6
+count:95 queryId:204992 k:6
+count:96 queryId:206130 k:6
+count:97 queryId:206248 k:6
+count:98 queryId:206340 k:6
+count:99 queryId:214747 k:6
+count:100 queryId:214783 k:6
+count:101 queryId:215388 k:6
+count:102 queryId:216608 k:6
+count:103 queryId:216976 k:6
+count:104 queryId:217589 k:6
+count:105 queryId:217626 k:6
+count:106 queryId:218336 k:6
+count:107 queryId:218849 k:6
+count:108 queryId:229260 k:6
+count:109 queryId:230182 k:6
+count:110 queryId:233932 k:6
+count:111 queryId:235789 k:6
+count:112 queryId:236131 k:6
+count:113 queryId:238114 k:6
+count:114 queryId:238185 k:6
+count:115 queryId:239056 k:6
+count:116 queryId:239100 k:6
+count:117 queryId:242085 k:6
+count:118 queryId:246920 k:6
+count:119 queryId:247160 k:6
+count:120 queryId:251951 k:6
+count:121 queryId:252005 k:6
+count:122 queryId:253210 k:6
+count:123 queryId:253580 k:6
+count:124 queryId:257275 k:6
+count:125 queryId:257288 k:6
+count:126 queryId:258522 k:6
+count:127 queryId:258953 k:6
+count:128 queryId:261112 k:6
+count:129 queryId:266066 k:6
+count:130 queryId:267767 k:6
+count:131 queryId:271295 k:6
+count:132 queryId:278919 k:6
+count:133 queryId:283814 k:6
+count:134 queryId:287875 k:6
+count:135 queryId:291641 k:6
+count:136 queryId:292267 k:6
+count:137 queryId:293752 k:6
+count:138 queryId:294684 k:6
+count:139 queryId:295783 k:6
+count:140 queryId:302022 k:6
+count:141 queryId:307653 k:6
+count:142 queryId:307688 k:6
+count:143 queryId:308397 k:6
+count:144 queryId:308896 k:6
+count:145 queryId:309665 k:6
+count:146 queryId:310245 k:6
+count:147 queryId:310525 k:6
+count:148 queryId:310742 k:6
+count:149 queryId:314114 k:6
+count:150 queryId:315530 k:6
+count:151 queryId:317687 k:6
+count:152 queryId:319119 k:6
+count:153 queryId:319967 k:6
+count:154 queryId:320652 k:6
+count:155 queryId:321159 k:6
+count:156 queryId:321690 k:6
+count:157 queryId:321962 k:6
+count:158 queryId:322625 k:6
+count:159 queryId:323087 k:6
+count:160 queryId:324408 k:6
+count:161 queryId:325144 k:6
+count:162 queryId:327773 k:6
+count:163 queryId:334999 k:6
+count:164 queryId:335058 k:6
+count:165 queryId:338791 k:6
+count:166 queryId:339796 k:6
+count:167 queryId:340151 k:6
+count:168 queryId:343616 k:6
+count:169 queryId:345242 k:6
+count:170 queryId:345314 k:6
+count:171 queryId:349916 k:6
+count:172 queryId:355838 k:6
+count:173 queryId:358302 k:6
+count:174 queryId:358795 k:6
+count:175 queryId:362574 k:6
+count:176 queryId:363310 k:6
+count:177 queryId:367792 k:6
+count:178 queryId:369507 k:6
+count:179 queryId:376831 k:6
+count:180 queryId:383227 k:6
+count:181 queryId:383300 k:6
+count:182 queryId:384013 k:6
+count:183 queryId:384445 k:6
+count:184 queryId:392337 k:6
+count:185 queryId:392713 k:6
+count:186 queryId:395314 k:6
+count:187 queryId:395793 k:6
+count:188 queryId:399936 k:6
+count:189 queryId:402127 k:6
+count:190 queryId:405163 k:6
+count:191 queryId:407125 k:6
+count:192 queryId:407965 k:6
+count:193 queryId:408635 k:6
+count:194 queryId:416204 k:6
+count:195 queryId:416824 k:6
+count:196 queryId:418387 k:6
+count:197 queryId:420242 k:6
+count:198 queryId:422924 k:6
+count:199 queryId:425637 k:6
+count:200 queryId:427121 k:6
+count:201 queryId:430210 k:6
+count:202 queryId:431682 k:6
+count:203 queryId:434788 k:6
+count:204 queryId:434815 k:6
+count:205 queryId:434935 k:6
+count:206 queryId:435458 k:6
+count:207 queryId:437300 k:6
+count:208 queryId:437814 k:6
+count:209 queryId:438469 k:6
+count:210 queryId:438614 k:6
+count:211 queryId:439417 k:6
+count:212 queryId:439848 k:6
+count:213 queryId:440867 k:6
+count:214 queryId:441608 k:6
+count:215 queryId:442101 k:6
+count:216 queryId:445972 k:6
+count:217 queryId:447385 k:6
+count:218 queryId:452097 k:6
+count:219 queryId:453108 k:6
+count:220 queryId:453191 k:6
+count:221 queryId:453521 k:6
+count:222 queryId:455534 k:6
+count:223 queryId:457774 k:6
+count:224 queryId:460146 k:6
+count:225 queryId:460620 k:6
+count:226 queryId:461452 k:6
+count:227 queryId:462249 k:6
+count:228 queryId:464656 k:6
+count:229 queryId:466273 k:6
+count:230 queryId:467189 k:6
+count:231 queryId:470284 k:6
+count:232 queryId:471434 k:6
+count:233 queryId:472109 k:6
+count:234 queryId:473323 k:6
+count:235 queryId:473388 k:6
+count:236 queryId:474023 k:6
+count:237 queryId:474376 k:6
+count:238 queryId:474715 k:6
+count:239 queryId:474828 k:6
+count:240 queryId:480638 k:6
+count:241 queryId:481058 k:6
+count:242 queryId:482081 k:6
+count:243 queryId:482605 k:6
+count:244 queryId:483772 k:6
+count:245 queryId:486052 k:6
+count:246 queryId:486813 k:6
+count:247 queryId:487032 k:6
+count:248 queryId:487039 k:6
+count:249 queryId:487941 k:6
+count:250 queryId:488195 k:6
+count:251 queryId:493193 k:6
+count:252 queryId:495009 k:6
+count:253 queryId:495117 k:6
+count:254 queryId:496671 k:6
+count:255 queryId:499417 k:6
+count:256 queryId:504565 k:6
+count:257 queryId:505553 k:6
+count:258 queryId:506365 k:6
+count:259 queryId:512071 k:6
+count:260 queryId:512897 k:6
+count:261 queryId:517837 k:6
+count:262 queryId:518330 k:6
+count:263 queryId:520582 k:6
+count:264 queryId:522571 k:6
+count:265 queryId:522893 k:6
+count:266 queryId:522982 k:6
+count:267 queryId:524782 k:6
+count:268 queryId:524858 k:6
+count:269 queryId:530003 k:6
+count:270 queryId:530483 k:6
+count:271 queryId:530819 k:6
+count:272 queryId:531041 k:6
+count:273 queryId:531743 k:6
+count:274 queryId:532349 k:6
+count:275 queryId:533023 k:6
+count:276 queryId:533096 k:6
+count:277 queryId:536500 k:6
+count:278 queryId:538392 k:6
+count:279 queryId:538643 k:6
+count:280 queryId:545375 k:6
+count:281 queryId:546632 k:6
+count:282 queryId:546936 k:6
+count:283 queryId:547231 k:6
+count:284 queryId:548030 k:6
+count:285 queryId:552248 k:6
+count:286 queryId:552648 k:6
+count:287 queryId:555033 k:6
+count:288 queryId:556882 k:6
+count:289 queryId:556912 k:6
+count:290 queryId:558331 k:6
+count:291 queryId:563643 k:6
+count:292 queryId:564050 k:6
+count:293 queryId:568829 k:6
+count:294 queryId:573181 k:6
+count:295 queryId:574170 k:6
+count:296 queryId:577132 k:6
+count:297 queryId:578365 k:6
+count:298 queryId:579546 k:6
+count:299 queryId:580183 k:6
+count:300 queryId:580933 k:6
+/home/fangyixiang/Desktop/CCS/flickr/flickr-node the # of nodes in G:581099
+/home/fangyixiang/Desktop/CCS/flickr/flickr-graph the # of edges in G:4972274
+the average degree:8.556672787253119
+the avg # of keywords in each node:9.902825508218049
+count:1 queryId:225 k:4
+count:1 basic-g:277 basic-w:114
+count:2 queryId:487 k:4
+count:2 basic-g:2467 basic-w:2714
+count:3 queryId:2005 k:4
+count:3 basic-g:273 basic-w:1950
+count:4 queryId:3811 k:4
+count:4 basic-g:302 basic-w:1958
+count:5 queryId:4437 k:4
+count:5 basic-g:272 basic-w:580
+count:6 queryId:5363 k:4
+count:6 basic-g:863 basic-w:130
+count:7 queryId:5647 k:4
+count:7 basic-g:733 basic-w:54
+count:8 queryId:6445 k:4
+count:8 basic-g:2164 basic-w:2260
+count:9 queryId:6767 k:4
+count:9 basic-g:282 basic-w:146
+count:10 queryId:7362 k:4
+count:11 queryId:7850 k:4
+count:12 queryId:7927 k:4
+count:13 queryId:7980 k:4
+count:14 queryId:8372 k:4
+count:15 queryId:8908 k:4
+count:16 queryId:9260 k:4
+count:17 queryId:9401 k:4
+count:18 queryId:9982 k:4
+count:19 queryId:10688 k:4
+count:20 queryId:10893 k:4
+count:21 queryId:11281 k:4
+count:22 queryId:11431 k:4
+count:23 queryId:11965 k:4
+count:24 queryId:12595 k:4
+count:25 queryId:12619 k:4
+count:26 queryId:13004 k:4
+count:27 queryId:14090 k:4
+count:28 queryId:14570 k:4
+count:29 queryId:14578 k:4
+count:30 queryId:14792 k:4
+count:31 queryId:15527 k:4
+count:32 queryId:15583 k:4
+count:33 queryId:16107 k:4
+count:34 queryId:16407 k:4
+count:35 queryId:17202 k:4
+count:36 queryId:18439 k:4
+count:37 queryId:18984 k:4
+count:38 queryId:19134 k:4
+count:39 queryId:19197 k:4
+count:40 queryId:19545 k:4
+count:41 queryId:19714 k:4
+count:42 queryId:19984 k:4
+count:43 queryId:20025 k:4
+count:44 queryId:20160 k:4
+count:45 queryId:20527 k:4
+count:46 queryId:20680 k:4
+count:47 queryId:20959 k:4
+count:48 queryId:21911 k:4
+count:49 queryId:22209 k:4
+count:50 queryId:22809 k:4
+count:51 queryId:22950 k:4
+count:52 queryId:23261 k:4
+count:53 queryId:23381 k:4
+count:54 queryId:23407 k:4
+count:55 queryId:23471 k:4
+count:56 queryId:23728 k:4
+count:57 queryId:24226 k:4
+count:58 queryId:24484 k:4
+count:59 queryId:24532 k:4
+count:60 queryId:25017 k:4
+count:61 queryId:25182 k:4
+count:62 queryId:25312 k:4
+count:63 queryId:25379 k:4
+count:64 queryId:25392 k:4
+count:65 queryId:26081 k:4
+count:66 queryId:26223 k:4
+count:67 queryId:26763 k:4
+count:68 queryId:27019 k:4
+count:69 queryId:27326 k:4
+count:70 queryId:27568 k:4
+count:71 queryId:28017 k:4
+count:72 queryId:28019 k:4
+count:73 queryId:28836 k:4
+count:74 queryId:29153 k:4
+count:75 queryId:29598 k:4
+count:76 queryId:29840 k:4
+count:77 queryId:31893 k:4
+count:78 queryId:33480 k:4
+count:79 queryId:33978 k:4
+count:80 queryId:33997 k:4
+count:81 queryId:35056 k:4
+count:82 queryId:35638 k:4
+count:83 queryId:35658 k:4
+count:84 queryId:35814 k:4
+count:85 queryId:36124 k:4
