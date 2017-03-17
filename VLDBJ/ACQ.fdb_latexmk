@@ -1,5 +1,5 @@
 # Fdb version 3
-["bibtex ACQ"] 1489763535 "ACQ.aux" "ACQ.bbl" "ACQ" 1489763537
+["bibtex ACQ"] 1489763535 "ACQ.aux" "ACQ.bbl" "ACQ" 1489763797
   "/Users/chenyankai/GitDefault/VLDBJ/appendix.aux" 1489763537 4273 69cabc58f4d904e6f3e321f68f1b4f09 ""
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/abbrv.bst" 1292289607 20329 b5fed53e10044d0f8112183785c759b1 ""
   "ACQ.aux" 1489763537 23343 d10db2a5513693bf94ce9d51fb14ad43 ""
@@ -8,7 +8,7 @@
   (generated)
   "ACQ.bbl"
   "ACQ.blg"
-["pdflatex"] 1489763536 "/Users/chenyankai/GitDefault/VLDBJ/ACQ.tex" "/Users/chenyankai/GitDefault/VLDBJ/ACQ.pdf" "ACQ" 1489763537
+["pdflatex"] 1489763536 "/Users/chenyankai/GitDefault/VLDBJ/ACQ.tex" "/Users/chenyankai/GitDefault/VLDBJ/ACQ.pdf" "ACQ" 1489763797
   "/Users/chenyankai/GitDefault/VLDBJ/ACQ.aux" 1489763537 23343 d10db2a5513693bf94ce9d51fb14ad43 ""
   "/Users/chenyankai/GitDefault/VLDBJ/ACQ.tex" 1489754667 3271 5dae595af7258cc2ae6e4fb4884e7659 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -229,10 +229,10 @@
   "svjour3.cls" 1222790400 47679 e70406260d62f66f2e7794a095f721ff ""
   "variant.tex" 1489755344 5466 013fd7241dd9f60da18e10d2d753cad5 ""
   (generated)
-  "appendix.aux"
   "/Users/chenyankai/GitDefault/VLDBJ/ACQ.log"
-  "/Users/chenyankai/GitDefault/VLDBJ/ACQ.pdf"
-  "ACQ.out"
   "ACQ.log"
   "ACQ.aux"
   "ACQ.pdf"
+  "ACQ.out"
+  "/Users/chenyankai/GitDefault/VLDBJ/ACQ.pdf"
+  "appendix.aux"
