@@ -6,7 +6,8 @@ INPUT /Users/chenyankai/GitDefault/VLDBJ/deleteEdge.tex
 OUTPUT /Users/chenyankai/GitDefault/VLDBJ/deleteEdge.log
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 OUTPUT /Users/chenyankai/GitDefault/VLDBJ/deleteEdge.pdf
 INPUT /usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map

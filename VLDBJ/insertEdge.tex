@@ -6,7 +6,7 @@ We illustrate this by Example~\ref{eg:edgeInsertion}.
 
 \begin{example}
 \label{eg:edgeInsertion}
-Consider the graph in Figure~\ref{fig:advancedIndex}. If we insert an edge ($H$, $G$) as shown in Figure~\ref{fig:coreNumber}, the core number of vertex $H$ increases to 2 and we need to move it down to a node in the lower level. If we insert an edge ($G$, $I$), the connectivity of some vertices changes as shown in Figure~\ref{fig:Connectivity} and thus the corresponding subtrees are merged as a new one.
+Consider the graph in Figure~\ref{fig:advancedIndex}. If we insert an edge ($H$, $G$) as shown in Figure~\ref{fig:coreNumber}, the core number of vertex $H$ increases to 2 and we need to move it down to a node in the lower level. If we insert an edge ($G$, $I$), the connectivity of some vertices changes as shown in Figure~\ref{fig:ConnectivityExmp} and thus the corresponding subtrees are merged as a new one.
 \end{example}
 
 \begin{figure}[ht]
@@ -19,17 +19,16 @@ Consider the graph in Figure~\ref{fig:advancedIndex}. If we insert an edge ($H$,
         \hspace{2ex}
         \subfigure[connectivity]{
             \includegraphics[width=.4\columnwidth]{figures/connectiveExmp}
-            \label{fig:Connectivity}
+            \label{fig:ConnectivityExmp}
         }
     }
-
-    \caption{Change in the core number and connectivity.}
+    \caption{The core number and connectivity change.}
     \label{fig:connectivity}
 \end{figure}
 
 To maintain the CL-tree for inserting an edge, we propose an algorithm called {\tt insertEdge}.
 The main idea is that, we first find vertices whose core numbers change, then change their positions in the CL-tree, and merge some subtrees. Let $V^+$ be the set of vertices whose core numbers increase after inserting an edge ($u,v$).
-The main steps of {\tt insertEdge} are as follows.
+We summarize the main steps of {\tt insertEdge} as follows.
 
 $\bullet$ \textbf{Step 1:} Compute $V^+$;
 
@@ -70,7 +69,7 @@ By above theorem and lemma, we can conclude that only a small number of vertices
 In specific, we can first find node $p_u$ ($p_v$) and then compute the vertex set $V^+$ in which vertices's core numbers increase by 1 using the algorithm in~\cite{kcoreUpdate}.
 
 \textbf{Step 2: Move down vertices of $V^+$.}
-Let $p$ be the node containing $V^+$ and $c$=min\{$core_G[u], core_G[v]$\}. Since the core numbers of vertices in $V^+$ increase by 1 (from $c$ to $c$+1), we need move them down to nodes in the lower level.
+Let $p$ be the node containing $V^+$ and $c$=min\{$core_G[u], core_G[v]$\}). Since the core numbers of vertices in $V^+$ increase by 1 (from $c$ to $c$+1), we need move them down to nodes in the lower level.
 During the moving down process, we may also need to reorganize $p$'s child nodes. Let us illustrate this by Example~\ref{eg:goDown}.
 
 \begin{figure}[ht]
@@ -162,7 +161,7 @@ locate $p_b$, trace up from $p_b$ to find $p_b$'s ancestor node $o_b$ which is a
 and put $o_b$ into $P$ (lines 5-9).
 Let the node which has the largest size with core number being $c$+1 in $P$ be $p_{max}$ (line 10).
 Next, if $p_{max}$=$null$, we need to create a new child node of $p$ (lines 11-14);
-otherwise, we merge and reorganize $p$'s child nodes (lines 15-25).
+otherwise, we merge and reorganize $p$'s child nodes (lines 15-22). 
 Finally we return node $p'$ (line 26), which will be used later.
 
 %In Algorithm~\ref{alg:moveDown}, if $V^+$ is not an empty set, we first initialize a node set $P$ and a node $p_{max}$ (line 3). After computing $V^+$, we need to remove $V^+$ from $vertexSet$ of $p$ and update $invertedList$ of $p$ (line 4). For each vertex $a\in V^+$, we locate $a$'s neighbor vertex $b$ whose core number is larger than c in the tree at the node $p_b$, then we trace up from $p_b$ with $fatherNode$ to find $p_b$'s ancestor node which is also the child node of $p$ and add it to $P$. Simultaneously, we mark the child node whose core number is $c$+1 and contains the most vertices as $p_{max}$ (lines 5-9). Next, if $p_{max}$ does not exist, a new node $p'$ will be created (line 11). Vertices in $V^+$ will be added to $vertexSet$ of $p'$ and all child nodes in $P$ will also be linked to $p'$ (lines 12-13). If $p_{max}$ exists, vertices in $V^+$ will be added into $vertexSet$ of $p_{max}$. All the first type of child nodes in $P$ will be merged to $p_{max}$, and the second type of child nodes in $P$ will be linked to $p_{max}$ (line 15-20). Then we update the vertex-node map (line 22). Note that after removing $V^+$, if $p.vertexSet$ is empty, we update the child list of $p.father$ (lines 23-24). Finally the updated node will be returned (line 25).
@@ -171,7 +170,7 @@ Finally we return node $p'$ (line 26), which will be used later.
 
 
 \textbf{Step 3: Merge subtrees.}
-Recall in Figure~\ref{fig:Connectivity}, after inserting ($G$, $I$), the corresponding subtrees, which correspond to the $k$-$\widehat{core}$s containing $G$ and $I$ are merged into one subtree. The process of merging subtrees starts from the tree nodes which contain $G$ and $I$, and ends at their common ancestor node.
+Recall in Figure~\ref{fig:ConnectivityExmp}, after inserting ($G$, $I$), the corresponding subtrees, which correspond to the $k$-$\widehat{core}$s containing $G$ and $I$ are merged into one subtree. The process of merging subtrees starts from the tree nodes which contain $G$ and $I$, and ends at their common ancestor node.
 The merging process is guaranteed by Lemmas~\ref{lemma:mergetree} and \ref{lemma:relevantNode}.
 
 \begin{lemma}
