@@ -1,0 +1,124 @@
+{\color{red}
+\section{Variants of ACQ Problem}
+\label{variant}
+
+In this section, we formally define two typical variants and attach the index based query algorithm afterwards.
+
+
+\subsection{Variant 1}
+\begin{definition}
+\label{df:variant1}
+Given a graph $G$, a positive integer $k$, a vertex $q \in V$, a predefined keyword set $S$,
+and a threshold $\theta\in$[0,1], return a subgraph $G_q$, the following properties hold:
+  \begin{enumerate}
+    \item \textbf{Connectivity}. $G_q \subseteq G$ is connected and $q\in G_q$;
+    \item \textbf{Structure cohesiveness}. $\forall v\in G_q$, $deg_{G_q}(v)\geq k$;
+    \item \textbf{Keyword cohesiveness}. $\forall v\in G_q$, it has at least $|S|\times \theta$ keywords in $S$.
+  \end{enumerate}
+\end{definition}
+
+In Definition~\ref{df:variant1}, the keyword cohesiveness is relaxed.
+This can be applied for cases when the keyword information is weak.
+We illustrate Variant 1 in Example~\ref{eg:variant1}.
+\begin{example}
+\label{eg:variant1}
+Consider Figure~\ref{fig:kcoreGraph}. Let $q$=$A$ and $k$=2.
+For Variant 1, if the predefined keyword set is $\{x,y\}$
+and the threshold is $50\%$,
+then the vertex set $\{A,B,C,D,E\}$ forms the target AC.
+\end{example}
+
+\subsubsection{Query Algorithm}
+In line with Problem~\ref{problem1}, we first introduce the basic solutions without index,
+which are extended naturally from {\tt basic-g} and {\tt basic-w},
+and are denoted by {\tt basic-g-v1} and {\tt basic-w-v1} respectively.
+Their detail pseudocodes are presented as Algorithms~\ref{alg:basic-g-v1} and~\ref{alg:basic-w-v1} in Appendix~\ref{app:algoOfVariant}.
+
+Algorithm~\ref{alg:swt} presents the index based algorithm, {\tt SWT}, for Variant 1.
+We first apply {\tt core-locating} to find node $r_k$, whose corresponding $k$-$\widehat {core}$ contains $q$, from CL-tree (line 1).
+Then we traverse the subtree rooted at $r_k$, and collect a set $V'$ of vertices containing at least $|S|\times \theta$ keywords by applying {\tt keyword-checking}.
+Next, we find $G[S]$ from the subgraph induced by vertices in $V'$ (line 3),
+and find $G_k[S]$ from $G[S]$ (line 4).
+Finally, we output $G_k[S]$ as the target AC, if it exists (line 5).
+
+
+\begin{algorithm}[h]
+\caption{Query algorithm: {\tt SWT}}
+\label{alg:swt}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $root$, $q$, $k$, $S$)}{}
+        \State find the node $r_k$ from the CL-tree index;
+        \State traverse the subtree rooted at $r_k$ and
+               collect a set $V'$ of vertices containing at least $|S|\times \theta$ keywords by intersecting the inverted lists;
+        \State find $G[S]$ from the subgraph induced by $V'$;
+        \State find $G_k[S]$ from $G[S]$;
+        \State output $G_k[S]$ as the target AC.
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+
+\subsection{Variant 2}
+\begin{definition}
+Given a graph $G$, a positive integer $k$, a vertex set $Q \subseteq V$, and a predefined keyword set $S$, return a subgraph $G_Q$ if exists, the following properties hold:
+  \begin{enumerate}
+    \item \textbf{Connectivity}. $G_Q \subseteq G$ is connected and $Q \subseteq G_Q$;
+    \item \textbf{Structure cohesiveness}. $\forall v\in G_Q$, $deg_{G_Q}(v)\geq k$;
+    \item \textbf{Keyword cohesiveness}. The size of $L(G_q, S)$ is maximal, where $L(G_q, S)=\cap_{v \in G_q}(W(v)\cap S)$ is the set of keywords shared in $S$ by all vertices of $G_q$.
+  \end{enumerate}
+\end{definition}
+
+Variant 2 can be applied for cases when querying communities which contain the query set $Q$ and share the maximum keywords.
+We illustrate Variant 2 in Example~\ref{eg:variant2}.
+
+\begin{example}
+\label{eg:variant2}
+Consider Figure~\ref{fig:kcoreGraph}. Let $Q$=$\{A,C\}$ and $k$=2.
+For Variant 2, if the predefined keyword set is $\{w,x,y,z\}$,
+then the vertex set $\{A,C,D\}$ forms the target AC whose shared keyword set is$\{x,y\}$.
+\end{example}
+
+
+
+\subsubsection{Query Algorithm}
+The two algorithms to answer the Variant 2 without index are denoted
+by {\tt basic-g-v2} and {\tt basic-w-v2}, which are extended from {\tt basic-g} and {\tt basic-w}.
+Detailed pseudocodes are attached in Algorithm~\ref{alg:basic-g-v2} and Algorithm~\ref{alg:basic-w-v2} in Appendix~\ref{app:algoOfVariant}. {\tt MDec} is based on the CL-tree index structrure and adapted from the decremental algorithm {\tt Dec}.
+
+The basic idea of three algorithms is: We first get intersection between $S$ and the keyword set of
+every vertex in $Q$. Then, we denote the first vertex of $Q$ by $q$ and take $q$ as the query vertex.
+Next, we conduct the main query part. Finally, we find and output the qualified communities containing $Q$ if they exist.
+\begin{algorithm}[htp]
+\caption{Query algorithm: {\tt MDec}}
+\label{alg:MDec}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $root$, $Q$, $k$, $S$)}{}
+      \State $S$ = $( \bigcap_{i=0}^{n-1}W(q_i))\cap S$;
+      \State $q \gets$ first vertex $q_0$ in $Q$;
+      \State generate $\Psi_1,\Psi_2,\cdots, \Psi_h$ using $S$ and $q$'s neighbors;
+        \State find the subtree root node $r_k$;
+        \State create $R_1,R_2,\cdots,R_{h'}$ by using subtree rooted at $r_k$;
+        \State $l\gets h$; $Q_c\gets \emptyset$;
+        \State ${\widehat R}\gets {R_h} \cup \cdots \cup {R_{h'}}$;
+        \While {$l\geq 1$}
+            \For {each $S'\in \Psi_l$}
+                \State find $G[S']$ from the subgraph induced on $\widehat R$;
+                \State find $G_k[S']$ from $G[S']$;
+                \If {$G_k[S']$ exists}
+                    $Q_c$.add($G_k[S']$);
+                \EndIf
+            \EndFor
+            \If {$Q_c$=$\emptyset$}
+                \State $l\gets l-1$;
+                \State ${\widehat R}\gets {\widehat R}\cup R_l$;
+            \Else {} break;
+            \EndIf
+        \EndWhile
+        \State find target ACs which contains Q from communities in $Q_c$;
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm} 

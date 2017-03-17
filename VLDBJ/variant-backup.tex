@@ -1,0 +1,61 @@
+\section{Variants of LAC Search}
+\label{variant}
+As the context cohesiveness of LACs can be defined in various ways,
+there are many possible variants of LAC search.
+In this paper, we consider \chen{three} typical variants.
+
+\begin{variant}
+\label{variant1}
+Given a graph $G(V,E)$, an integer $k$, a query vertex $q\in V$ and a predefined label $S$,
+return the LAC, which satisfies the first two constraints of Problem~\ref{problem1}
+and its label is exactly $S$.
+\end{variant}
+
+
+\begin{variant}
+\label{variant2}
+Given a graph $G(V,E)$, an integer $k$, a query vertex $q\in V$,
+a predefined label $S$ and a threshold $\theta (0\leq \theta\leq 100)$,
+return the LAC, which satisfies the first two constraints of Problem~\ref{problem1}
+and every community member shares at least $\theta$ percentage of keywords in $S$.
+\end{variant}
+
+Variant~\ref{variant1} can be applied to applications,
+which need communities having specific keyword constraints.
+Note that $S$ does not necessary to be the subset of $W(q)$.
+In Variant~\ref{variant2}, the context cohesiveness is relaxed.
+This can be applied for cases when the context information is weak.
+We illustrate the variants in Example~\ref{eg:variant}.
+
+\begin{example}
+\label{eg:variant}
+Consider Figure~\ref{fig:kcoreGraph}. Let $q$ be $A$ and $k$ be 2.
+For Variant~\ref{variant1}, if the predefined label is $\{$x$\}$,
+then the vertex set $\{A,B,C,D\}$ forms a target LAC.
+For Variant~\ref{variant2}, if the predefined label is $\{$x,y$\}$
+and the threshold is $50\%$,
+then the vertex set $\{A,B,C,D,E\}$ forms a target LAC.
+\end{example}
+
+We first introduce the solutions to Variant~\ref{variant1}.
+In line with Problem~\ref{problem1}, we first introduce the basic solutions without index,
+which are extended naturally from {\tt basic-g} and {\tt basic-w},
+and are denoted by {\tt basic-g-v1} and {\tt basic-w-v1} respectively.
+Their details are presented in Appendix~\ref{app:variant}.
+For the index based algorithm, we denote it by {\tt SW} (search by keywords).
+The main steps are:
+(1) finding node $r_k$, whose corresponding $k$-$\widehat {core}$ contains $q$, from CL-tree;
+(2) collecting vertices containing $S$ by traversing the subtree rooted at $r_k$ and intersecting the inverted lists;
+(3) finding $G[S,q]$ from the subgraph induced by these vertices;
+(4) finding $G_k[S,q]$ from $G[S,q]$;
+and (4) output $G_k[S,q]$ as the target LAC.
+The solutions of Variant~\ref{variant2} can be adapted from all the query algorithms of Variant~\ref{variant1}.
+We denote them by {\tt basic-g-v2}, {\tt basic-w-v2} and {\tt SWT} respectively.
+We present the pseudocodes of solutions to Variant~\ref{variant1}
+and needed adaption for Variant~\ref{variant2} in Appendix~\ref{app:variant}.
+
+In addition, it would be interesting to study the combinations of
+Problem~\ref{problem1} with Variants~\ref{variant1} and~\ref{variant2}.
+The solutions of Problem~\ref{problem1} and Variants~\ref{variant1} and~\ref{variant2}
+can be easily extended to solves these combinations.
+We skip the details due to the space limitation. 

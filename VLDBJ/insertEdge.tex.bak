@@ -1,0 +1,260 @@
+\subsection{Edge Insertion}
+\label{sec:edgeInsertion}
+
+As aforementioned, inserting an edge may trigger the updates of several CL-tree nodes as well as their structures.
+We illustrate this by Example~\ref{eg:edgeInsertion}.
+
+\begin{example}
+\label{eg:edgeInsertion}
+Consider the graph in Figure~\ref{fig:advancedIndex}. If we insert an edge ($H$, $G$) as shown in Figure~\ref{fig:coreNumber}, the core number of vertex $H$ increases to 2 and we need to move it down to a node in the lower level. If we insert an edge ($G$, $I$), the connectivity of some vertices changes as shown in Figure~\ref{fig:ConnectivityExmp} and thus the corresponding subtrees are merged as a new one.
+\end{example}
+
+\begin{figure}[ht]
+    \centering
+    \mbox{
+        \subfigure[core number]{
+            \includegraphics[width=.4\columnwidth]{figures/movedownExmp}
+            \label{fig:coreNumber}
+        }
+        \hspace{2ex}
+        \subfigure[connectivity]{
+            \includegraphics[width=.4\columnwidth]{figures/connectiveExmp}
+            \label{fig:ConnectivityExmp}
+        }
+    }
+    \caption{The core number and connectivity change.}
+    \label{fig:connectivity}
+\end{figure}
+
+To maintain the CL-tree for inserting an edge, we propose an algorithm called {\tt insertEdge}.
+The main idea is that, we first find vertices whose core numbers change, then change their positions in the CL-tree, and merge some subtrees. Let $V^+$ be the set of vertices whose core numbers increase after inserting an edge ($u,v$).
+We summarize the main steps of {\tt insertEdge} as follows.
+
+$\bullet$ \textbf{Step 1:} Compute $V^+$;
+
+$\bullet$ \textbf{Step 2:} Move down vertices of $V^+$;
+
+$\bullet$ \textbf{Step 3:} Merge subtrees.
+
+We now elaborate these steps one by one.
+
+\textbf{Step 1: Compute $V^+$.}
+A recent $k$-core maintenance algorithm~\cite{kcoreUpdate} states that inserting an edge only affects the core numbers of a small number of vertices. We first give a definition, a theorem and a lemma proposed in this paper.
+
+\begin{definition}[\cite{kcoreUpdate}]
+\label{df:inducedgraph}
+Given a graph $G$ and a vertex $v$, the induced core subgraph of $v$, denoted as $G_v$, is a connected subgraph containing $v$ and the core numbers of all vertices in $G_v$ equal to $core_{G}[v]$.
+\end{definition}
+
+Notice that, the sets of vertices in $G_u$ ($G_v$) are actually subsets of vertices in $p_u.vertexSet$ ($p_v.vertexSet$),
+where $p_u$, $p_v$ denote the nodes that contain $u$, $v$.
+
+\begin{theorem}[k-core update theorem\cite{kcoreUpdate}]
+\label{thrm:kcoreupdate}
+Given a graph $G$ and two vertices $u$ and $v$. After inserting or deleting an edge $(u$,$v)$ in $G$, we have that,
+
+$\bullet$ If $core_G[u] > core_G[v]$, only the core numbers of vertices in $G_v$ may need to be updated.
+
+$\bullet$ If $core_G[u] < core_G[v]$, only the core numbers of vertices in $G_u$ may need to be updated.
+
+$\bullet$ If $core_G[u] = core_G[v]$, only the core numbers of vertices in the union of $G_u$ and $G_v$, \textit{i.e.,} $G_{u\cup v}$ may need to be updated.
+\end{theorem}
+
+\begin{lemma}[\cite{kcoreUpdate}]
+\label{lm:kcorelemma}
+After inserting (deleting) an edge, the core number of any vertex in $G$ increases (decreases) by at most 1.
+\end{lemma}
+
+By above theorem and lemma, we can conclude that only a small number of vertices need to change their core numbers.
+In specific, we can first find node $p_u$ ($p_v$) and then compute the vertex set $V^+$ in which vertices's core numbers increase by 1 using the algorithm in~\cite{kcoreUpdate}.
+
+\textbf{Step 2: Move down vertices of $V^+$.}
+Let $p$ be the node containing $V^+$ and $c$=min\{$core_G[u], core_G[v]$\}). Since the core numbers of vertices in $V^+$ increase by 1 (from $c$ to $c$+1), we need move them down to nodes in the lower level.
+During the moving down process, we may also need to reorganize $p$'s child nodes. Let us illustrate this by Example~\ref{eg:goDown}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.04\linewidth]{figures/movedownEmp}
+    \caption{An example of the tree index update.}
+    \label{fig:movedownEmp}
+\end{figure}
+
+
+\begin{example}
+\label{eg:goDown}
+Consider a graph in Figure~\ref{fig:movedownEmp}(a) and its CL-tree in Figure~\ref{fig:movedownEmp}(b).
+Let us insert an new edge (8, 11). We first get $V^+$=\{8, 11, 23\} and $c$=2.
+Next, we move them down from $r_1$ to $r_3$.
+Besides, we have to merge $r_2$ into $r_3$ and place $r_4$ as $r_3$'s child node,
+since their connectivity changes after the insertion.
+The updated CL-tree is depicted in Figure~\ref{fig:movedownEmp}(c).
+%Consider that an edge ($8,11$) is inserted in Figure~\ref{fig:movedownEmp}(a). Before insertion, the CL-tree index is shown in Figure~\ref{fig:movedownEmp}(b). After insertion, vertices $8$, $11$ and $23$ form $V^+$ and need to increase the core number from 2 to 3. Thus they need to move down a level and the tree index changes accordingly. Nodes $r_2$, $r_3$ whose core number are 3 are traced by the neighbors of the vertices ($11$ and $23$) and therefore $r_2$, $r_3$ are merged as a new node (see the arrows in Figure~\ref{fig:movedownEmp}(b)). Another node $r_4$ which is connected through $8$ is also affected and re-linked as a child node of the new node $r_2$ because the core number of $r_4$ is 4. Other nodes remain unchanged. Finally the updated tree index is presented in Figure~\ref{fig:movedownEmp}(c).
+\end{example}
+
+%We divide $p$'s child nodes into two sets $Z_1$ and $Z_2$, where nodes in $Z_1$ have a core number of $c$+1 and nodes in $Z_2$ have a core number of $c$+2 or more.
+
+Clearly, moving down vertices of $V^+$ from $p$ to $p$'s child node (denoted by $p'$) may change the connectivity of $p$'s child nodes.
+Consider a specific vertex $a$$\in$$V^+$ and we initialize two empty sets $B_1$ and $B_2$.
+For each of $a$'s neighbor $b$ whose $core_G[b]$$\textgreater$$c$, we first find the node $p_b$ containing $b$,
+and then trace it up from $p_b$ along the CL-tree until a child node of $p$, denoted by $o_b$.
+If $o_b$ has a core number of $c$+1, we put it into $B_1$;
+if it has a core number of $c$+2 or more, we put it into $B_2$.
+Then, after moving down vertices of $V^+$,
+nodes in $B_1$ should be merged into $p'$ and nodes in $B_2$ will be child nodes of $p'$.
+
+
+%Some child nodes of $p$ which are connected through vertices in $V^+$ may also need to be updated. These child nodes can be divided into two types. (1) The core number of the node is $c$+1; (2) The core number of the node is larger than $c$+1. If $c=core_G[v]$, for example, after increasing the core number of the vertex $v$ to $c$+1, all ($c$+1)-$\widehat{core}$ which are connected with $v$ should be merged as a new ($c$+1)-$\widehat{core}$. Reflected in the tree index, the first type of child nodes mentioned above will be merged as a new tree node. In addtion, if there exists the second type of child node, this node will become the new child node of the new node whose core number is $c$+1. This process should be done for each vertex in $V^+$. We give the Algorithm~\ref{alg:moveDown} and illustrate this in Example~\ref{eg:goDown} afterwards.
+
+\begin{algorithm}
+\caption{move down vertices: {\tt moveDown}}
+\label{alg:moveDown}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{moveDown($V^+$, $p$)}{}
+    \If{$V^+$=$\emptyset$}
+        \Return $p$;
+    \EndIf
+    \State $P \gets \emptyset$;
+    \State update $p$ using $V^+$;
+    \For {each $a \in V^+$}
+        \For{each $b\in a$'s neighbor vertices}
+            \If{$core_G[b]>c$ and $b\notin V^+$}
+                \State locate node $p_b$;
+                \State run \Call{TRACE($p_b$)}{}, and update $P$;
+            \EndIf
+        \EndFor
+    \EndFor
+    \State $p_{max}\gets$ a node of $P$, which has a core number of $c$+1
+        and its $vertexSet$ is the largest among all nodes of $P$;
+
+    \If{$p_{max} = $ null }
+        \State create a new node $p'$;
+        \State update $p'$;
+        \State add $P$ to $childList$ of $p'$;
+    \Else{}
+    \State add $V^+$ to $p_{max}.vertexSet$;
+         \For{each $p_i \in P$}
+            \If{$p_i.coreNum$ = $c+1$}
+                \State merge $p_i$ to $p_{max}$;
+            \Else{}
+                \State  add $p_i$ to $childList$ of $p_{max}$;
+            \EndIf
+         \EndFor
+         \State $p' \gets p_{max}$;
+
+    \EndIf
+    \State update vertex-node map;
+     \If{$p.vertexSet=\emptyset$}
+            \State add $ \{p.childList-P\}$ to $childList$ of $p.father$;
+         \EndIf
+    \State \Return $p'$;
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+Algorithm~\ref{alg:moveDown} presents {\tt moveDown}.
+If $V^+$$\neq\emptyset$, we first initialize a node set $P$ (line 3).
+Then, we remove $V^+$ from $p.vertexSet$ and update $p.invertedList$ (line 4).
+$\forall$$a\in V^+$, we enumerate $a$'s neighbor $b$ whose $core_G[b]$$\textgreater$$c$,
+locate $p_b$, trace up from $p_b$ to find $p_b$'s ancestor node $o_b$ which is a child node of $p$,
+and put $o_b$ into $P$ (lines 5-9).
+Let the node which has the largest size with core number being $c$+1 in $P$ be $p_{max}$ (line 10).
+Next, if $p_{max}$=$null$, we need to create a new child node of $p$ (lines 11-14);
+otherwise, we merge and reorganize $p$'s child nodes (lines 15-22). 
+Finally we return node $p'$ (line 26), which will be used later.
+
+%In Algorithm~\ref{alg:moveDown}, if $V^+$ is not an empty set, we first initialize a node set $P$ and a node $p_{max}$ (line 3). After computing $V^+$, we need to remove $V^+$ from $vertexSet$ of $p$ and update $invertedList$ of $p$ (line 4). For each vertex $a\in V^+$, we locate $a$'s neighbor vertex $b$ whose core number is larger than c in the tree at the node $p_b$, then we trace up from $p_b$ with $fatherNode$ to find $p_b$'s ancestor node which is also the child node of $p$ and add it to $P$. Simultaneously, we mark the child node whose core number is $c$+1 and contains the most vertices as $p_{max}$ (lines 5-9). Next, if $p_{max}$ does not exist, a new node $p'$ will be created (line 11). Vertices in $V^+$ will be added to $vertexSet$ of $p'$ and all child nodes in $P$ will also be linked to $p'$ (lines 12-13). If $p_{max}$ exists, vertices in $V^+$ will be added into $vertexSet$ of $p_{max}$. All the first type of child nodes in $P$ will be merged to $p_{max}$, and the second type of child nodes in $P$ will be linked to $p_{max}$ (line 15-20). Then we update the vertex-node map (line 22). Note that after removing $V^+$, if $p.vertexSet$ is empty, we update the child list of $p.father$ (lines 23-24). Finally the updated node will be returned (line 25).
+%Note that in the process of merging nodes, we merge nodes to the one that contains the most vertices because it is more efficient.
+
+
+
+\textbf{Step 3: Merge subtrees.}
+Recall in Figure~\ref{fig:ConnectivityExmp}, after inserting ($G$, $I$), the corresponding subtrees, which correspond to the $k$-$\widehat{core}$s containing $G$ and $I$ are merged into one subtree. The process of merging subtrees starts from the tree nodes which contain $G$ and $I$, and ends at their common ancestor node.
+The merging process is guaranteed by Lemmas~\ref{lemma:mergetree} and \ref{lemma:relevantNode}.
+
+\begin{lemma}
+\label{lemma:mergetree}
+After inserting an edge between two vertices, the maximum numbers of disconnected $k$-$\widehat{core}$s
+which need to be merged is two.
+\end{lemma}
+\begin{proof}
+It can be proved directly by contradiction.
+\end{proof}
+
+%\begin{figure}[ht]
+%    \centering
+%    \includegraphics[width=0.4\linewidth]{figures/MGlemma}
+%    \caption{Three separate $k-\widehat{core}$.}
+%    \label{fig:MGlemma}
+%\end{figure}
+%
+%\begin{proof}
+%\label{prf:proof}
+%Since
+% One subtree whose core number of the root is $k$, for instance, represents a $k$-$\widehat{core}$. Lemma~\ref{lemma:mergetree} means, in other words, after inserting an edge between two vertices, there are at most 2 $k$-$\widehat{core}$ that need to be merged.
+%
+% Figure~\ref{fig:MGlemma} presents that $G_1$, $G_2$, $G_3$ are three $k$-$\widehat{core}$, and $u \in G_1$, $v \in G_2$, $w \in G_3$ . Suppose that, after inserting an edge($u$,$v$), $G_1$ and $G_2$ is connected and need to be merged. From the definition of k$-\widehat{core}$, every vertex in $G_1$ can reach every vertex in $G_2$ along the path ($u$, $...$, $v$). If $G_3$ is also affected by the insertion which means $G_3$ needs to be merged with $G_1$ and $G_2$. There must exist one path ($w$, ..., $u$, ..., $v$). Suppose that the path is between $w$ and $v$, there are two possible paths for $w$ to reach $v$. One is directly through the path ($w$, ..., $v$), the other is through ($w$, ..., $u$) first, and then through ($u$, ..., $v$). Case one means there exists an edge between $G_2$ and $G_3$, which is contradictory to the fact that $G_2$ and $G_3$ are two separate subgraphs. Case two means there already exists one edge before the insertion, and that is also contradictory to the fact.
+%
+% Therefore, the number of subtrees which need to be merged is less than 3. This completes the proof.
+%\end{proof}
+
+\begin{lemma}
+\label{lemma:relevantNode}
+In the process of merging subtrees, the maximum number of nodes which need to be merged in each level is two.
+\end{lemma}
+\begin{proof}
+It can be proved directly by contradiction.
+\end{proof}
+%\begin{proof}
+%The hypothesis that there exists a third tree node which need to be merged in each level can be proved to be false in the similar way to the proof of Lemma~\ref{prf:proof}. Thus, we do not repeat it.
+%\end{proof}
+
+By Lemmas~\ref{lemma:mergetree} and \ref{lemma:relevantNode}, we conclude that,
+to merge the subtrees, we can first trace two paths starting from $p_u$ and $p_v$ until their common ancestor in the CL-tree,
+and then merge the pairs of nodes on the paths, if their core numbers are the same.
+
+Algorithm~\ref{alg:insertEdge} presents the overall steps of {\tt insertEdge}.
+Following Theorem~\ref{thrm:kcoreupdate}, we first compute $V^+$,
+and invoke {\tt moveDown} to update these nodes in CL-tree (lines 2-16).
+Next, if $p_u'$ and $p_v'$ belong to two disconnected $k$-$\widehat{core}$s, we need to merge the subtrees (lines 17-19).
+In detail, we first trace two paths starting from $p_u'$ and $p_v'$ up until one common ancestor.
+Then, for each pair of nodes on the paths, if their core numbers are equal,
+we merge them as a single node.
+Finally, the tree index is updated.
+Note that during the above process, the elements of nodes and vertex-node map are also updated.
+%the efficient way is always merging the node with few vertices to the one with more vertices.
+
+\begin{algorithm}[h]
+\caption{index update algorithm: {\tt insertEdge}}
+\label{alg:insertEdge}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{insertEdge($p_u$,$p_v$)}{}
+    \If{$p_u.coreNum$=$p_v.coreNum$}
+        \State compute  $V_1^+$ in $p_u.vertexSet$;
+        \State $p_u' \gets $ \Call{movedown($V_1^+$,$p_u$)}{};
+        \State $p_v' \gets p_v$;
+        \If {$p_u \neq p_v$}
+            \State compute $V_2^+$ in $p_v.vertexSet$;
+            \State $p_v' \gets $ \Call{movedown($V_2^+$,$p_v$)}{};
+        \EndIf
+    \ElsIf{$p_u.coreNum < p_v.coreNum$}
+        \State compute $V^+$ in $p_u.vertexSet$;
+        \State $p_u' \gets $ \Call{movedown($V^+$,$p_u$)}{};
+        \State $p_v' \gets p_v$;
+    \Else
+        \State compute $V^+$ in $p_v.vertexSet$;
+        \State $p_v' \gets $ \Call{movedown($V^+$,$p_v$)}{};
+        \State $p_u' \gets p_u$;
+    \EndIf
+     \If{$p_u'$ and $p_v'$ are in two disconnected $k$-$\widehat{core}$s}
+        \State trace two paths starting from $p_u'$ and $p_v'$ up until a common ancestor;
+        \State merge pairs of nodes with the same core number on the paths;
+    \EndIf
+    \EndFunction
+
+\end{algorithmic}}
+\end{algorithm}
+

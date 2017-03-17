@@ -1,0 +1,84 @@
+\section{Details of Basic Solutions}
+\label{app:basic}
+
+Algorithms~\ref{alg:basic-g} and~\ref{alg:basic-w} present {\tt basic-g} and {\tt basic-w} respectively.
+The input of {\tt basic-g} is a graph $G$, a query vertex $q$, an integer $k$ and a set $S$.
+It first generates a set, $\Psi$, of candidate keyword sets,
+each of which contains a single keyword of $S$ (line 2).
+Then, it finds the $k$-$\widehat {core}$, ${\mathcal C}_k$, containing $q$ from the graph $G$.
+In the while loop (lines 4-14), it first initializes an empty set $\Phi$ (line 5),
+which is used to collect all the qualified keyword sets.
+Then for each candidate keyword set $S'\in \Psi$,
+it finds $G[S']$ from ${\mathcal C}_k$ by considering the keyword constraint.
+After that, it finds $G_k[S']$ from $G[S']$ (lines 7-8),
+and put it into $\Phi$ if $G_k[S']$ exists (lines 9-10).
+After checking all the candidate keyword sets in $\Psi$,
+if there are at least one qualified keyword sets in $\Phi$,
+it generates a new set $\Psi$ of larger candidate keyword sets
+by calling \textsc{geneCand($\Phi$)} (see Appendix~\ref{app:geneCand})
+and continues to checking longer candidate keyword sets in next loop;
+otherwise, it stops and outputs all the communities of the latest verified keyword sets as the target ACs.
+
+
+\begin{algorithm}[h]
+\caption{Basic solution: {\tt basic-g}}
+\label{alg:basic-g}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $q$, $k$, $S$)}{}
+        \State init $\Psi$ using $S$;
+        \State find the $k$-$\widehat {core}$, ${\mathcal C}_k$, containing $q$ from $G$;
+        \While {true}
+            \State $\Phi\gets \emptyset$;
+            \For {each $S'$ $\in \Psi$}
+                \State find $G[S']$ from ${\mathcal C}_k$;
+                \State find $G_k[S']$ from $G[S']$;
+                \If {$G_k[S']$ exists}
+                    \State $\Phi$.add($S'$);
+                \EndIf
+            \EndFor
+            \If {$\Phi \ne \emptyset$}
+                \State $\Psi\gets$ \Call{geneCand($\Phi$)}{};
+            \Else
+                \State break;
+            \EndIf
+        \EndWhile
+        \State output the communities of keyword sets in $\Phi$;
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+Algorithm~\ref{alg:basic-w} presents the pseudocodes of {\tt basic-w}.
+It follows the main steps of {\tt basic-g},
+except that for each candidate keyword set $S'$,
+it finds $G[S']$ from $G$ directly,
+rather than from ${\mathcal C}_k$.
+
+\begin{algorithm}[h]
+\caption{Basic solution: {\tt basic-w}}
+\label{alg:basic-w}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $q$, $k$, $S$)}{}
+        \State init $\Psi$ using $S$;
+        \While {true}
+            \State $\Phi\gets \emptyset$;
+            \For {each $S'$ $\in \Psi$}
+                \State find $G[S']$ from $G$;
+                \State find $G_k[S']$ from $G[S']$;
+                \If {$G_k[S']$ exists}
+                    \State $\Phi$.add($S'$);
+                \EndIf
+            \EndFor
+            \If {$\Phi \ne \emptyset$}
+                \State $\Psi\gets$ \Call{geneCand($\Phi$)}{};
+            \Else
+                \State break;
+            \EndIf
+        \EndWhile
+        \State output the communities of keyword sets in $\Phi$;
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
