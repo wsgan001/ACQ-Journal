@@ -104,7 +104,7 @@ After regrouping, we can split the nodes in the path from $p$ to all its ancesto
 
 \noindent $\bullet$ If there is only one group, we do not split $p$; otherwise we split $p$ into two nodes, each of which contains a group of vertices and links to a set of child nodes that its vertices correspond to.
 
-\noindent $\bullet$ If $p$ remains unsplit, and each child node of $p$ is still linked as a child node of $p$, we stop; otherwise, we link the unvisited child node to $p$'s father node and perform these two steps for $p$'s father node.
+\noindent $\bullet$ If $p$ remains unsplit, and each child node of $p$ is still linked to $p$, we stop; otherwise, we link the unvisited child node to $p$'s father node and perform these two steps for $p$'s father node.
 
 Clearly, the splitting process is recursively performed on $p$'s ancestor nodes and thus we split nodes in a path.
 We give Example~\ref{em:steps} to illustrate the process.
@@ -122,7 +122,7 @@ Consider the graph in Figure~\ref{fig:ConnectivityExmp}.
 We show the splitting process for deleting ($G$, $I$) in Figure~\ref{fig:steps}.
 We first locate node $p_3$ containing $G$, regroup vertices of $p_3$ and find that $p_2$ cannot be linked as a child node $p_3$. So we link $p_2$ to $p_3$'s father node $p_4$ and perform splitting on $p_4$.
 After regrouping vertices in $p_4$, we split it to two nodes because $p_2$ and $p_3$ are respectively shared by vertices $H$ and $M$.
-Now since each child node of $p_5$ is still linked as a its child node,
+Now since each child node of $p_5$ is still linked to it,
 we stop the splitting process.
 \end{example}
 
