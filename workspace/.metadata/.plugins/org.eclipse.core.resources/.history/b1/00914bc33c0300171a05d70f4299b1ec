@@ -1,8 +1,0 @@
-package hku.algo.index.edgeUpdate;
-
-public class GenerateMixPrep {
-	private String outpath="/Users/chenyankai/Desktop/yankai_data/deleteEdge/";
-
-	
-	
-}
