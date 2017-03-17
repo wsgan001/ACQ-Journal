@@ -122,6 +122,7 @@ public class DataReader {
 	public int[][] readGraph(){
 		int edges = 0;
 		int graph[][] = new int[userNum + 1][];
+		
 		try{
 			BufferedReader stdin = new BufferedReader(new FileReader(graphFile));
 						
@@ -134,6 +135,7 @@ public class DataReader {
 					graph[userId][i - 1] = Integer.parseInt(s[i]);
 				}
 				edges += graph[userId].length;
+				
 			}
 			stdin.close();
 		}catch(Exception e){

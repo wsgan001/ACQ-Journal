@@ -49,7 +49,11 @@ public class Config {
 	public static String flickrGraph="/Users/chenyankai/Desktop/ACQ/yankai_data/flickr/flickr-graph.txt";
 
 	
+	public static String DflickrGraph="/Users/chenyankai/Desktop/ACQ/yankai_data/DynamicGraph/flickr-graph.txt";
+	public static String DflickrNode="/Users/chenyankai/Desktop/ACQ/yankai_data/DynamicGraph/flickr-nodes.txt";
 	
+	public static String youtubeGraph="/Users/chenyankai/Desktop/ACQ/yankai_data/DynamicGraph/youtube-graph.txt";
+	public static String youtubeNode="/Users/chenyankai/Desktop/ACQ/yankai_data/DynamicGraph/youtube-nodes.txt";
 	
 	
 	//query parameters

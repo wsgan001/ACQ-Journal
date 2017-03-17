@@ -44,8 +44,9 @@ public class AdvancedIndex {
 		KCore kcore = new KCore(graph);
 		core = kcore.decompose();
 		int maxCore = kcore.obtainMaxCore();
+		
 		coreReverseFang = kcore.obtainReverseCoreArr();
-	//	System.out.println("k-core decomposition finished (maxCore= " + maxCore +  ").");
+		System.out.println("k-core decomposition finished (maxCore= " + maxCore +  ").");
 		
 		//step 2: initialize the union-find data structure
 		restNodeSet = new HashSet<TNode>();//the remaining nodes without parents

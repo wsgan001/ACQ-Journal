@@ -55,9 +55,9 @@
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="javax.xml.crypto.Data"/>
 <fullyQualifiedTypeName name="hku.algo.DataReader"/>
-<fullyQualifiedTypeName name="hku.algo.index.AdvancedIndex"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="hku.Config"/>
 <fullyQualifiedTypeName name="hku.algo.index.KwUpdate"/>
+<fullyQualifiedTypeName name="hku.Config"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="hku.algo.index.AdvancedIndex"/>
 </qualifiedTypeNameHistroy>
