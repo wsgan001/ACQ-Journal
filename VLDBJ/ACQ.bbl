@@ -3,6 +3,11 @@
 \bibitem{unionFind}
 https://en.wikipedia.org/wiki/Disjoint-set\_data\_structure.
 
+\bibitem{barbieri2015efficient}
+N.~Barbieri, F.~Bonchi, E.~Galimberti, and F.~Gullo.
+\newblock Efficient and effective community search.
+\newblock {\em Data Mining and Knowledge Discovery}, 29(5):1406--1433, 2015.
+
 \bibitem{kcore2003}
 V.~Batagelj and M.~Zaversnik.
 \newblock An o(m) algorithm for cores decomposition of networks.
@@ -76,6 +81,11 @@ H.~He, H.~Wang, J.~Yang, and P.~S. Yu.
 X.~Huang, H.~Cheng, L.~Qin, W.~Tian, and J.~X. Yu.
 \newblock Querying k-truss community in large and dynamic graphs.
 \newblock In {\em SIGMOD}, 2014.
+
+\bibitem{huang2015approximate}
+X.~Huang, L.~V. Lakshmanan, J.~X. Yu, and H.~Cheng.
+\newblock Approximate closest community search in networks.
+\newblock {\em Proceedings of the VLDB Endowment}, 9(4):276--287, 2015.
 
 \bibitem{keyword-vldb2005}
 V.~Kacholia~et al.
@@ -168,6 +178,12 @@ H.~Tong, C.~Faloutsos, B.~Gallagher, and T.~Eliassi-Rad.
 Z.~Xu, Y.~Ke, Y.~Wang, H.~Cheng, and J.~Cheng.
 \newblock A model-based approach to attributed graph clustering.
 \newblock In {\em SIGMOD}, 2012.
+
+\bibitem{yang2013community}
+J.~Yang, J.~McAuley, and J.~Leskovec.
+\newblock Community detection in networks with node attributes.
+\newblock In {\em Data Mining (ICDM), 2013 IEEE 13th international conference
+  on}, pages 1151--1156. IEEE, 2013.
 
 \bibitem{attr-icdm2013}
 J.~Yang, J.~McAuley, and J.~Leskovec.

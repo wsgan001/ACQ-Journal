@@ -15,9 +15,9 @@ Due to the recent developments of gigantic social networks (e.g., Flickr, Facebo
 In this paper, we investigate the {\it attributed community query} (or ACQ). Given an attributed graph $G$ and a vertex $q \in G$, the ACQ returns one or more subgraphs of $G$ known as {\it attributed communities} (or ACs).  An AC is a kind of {\it community}, which consists of vertices that are closely related~\cite{KDD2010,local2014,online-sigmod2013,k-truss2014,community-phy2004,community-phy2010}.  Particularly, an AC satisfies {\it structure cohesiveness} (i.e., its vertices are closely linked to each other) and {\it keyword cohesiveness} (i.e., its vertices have keywords in common). Figure~\ref{fig:motivation} illustrates an AC (circled), which is a connected subgraph with vertex degree 3; its vertices $\{${\tt Jack}, {\tt Bob}, {\tt John}, {\tt Mike}$\}$ have two keywords (i.e., ``research'' and ``sports'') in common.
 
 {\bf Prior works.} %An AC is a kind of {\it community}.
-The problems related to retrieving communities from a graph can generally be classified into {\it community detection} (CD) and {\it community search} (CS).  In general, CD algorithms aim to retrieve all communities for a graph~\cite{community-phy2004,community-phy2010,attr-vldb2009,attr-topic-kdd2008,attr-topic-icml2009,attr-topic-sigmod2012,attr-www2013}. These solutions are not ``query-based'', i.e., they are not customized for a query request (e.g., a user-specified query vertex).
+The problems related to retrieving communities from a graph can generally be classified into {\it community detection} (CD) and {\it community search} (CS).  In general, CD algorithms aim to retrieve all communities for a graph~\cite{community-phy2004,community-phy2010,attr-vldb2009,attr-topic-kdd2008,attr-topic-icml2009,attr-topic-sigmod2012,attr-www2013,yang2013community}. These solutions are not ``query-based'', i.e., they are not customized for a query request (e.g., a user-specified query vertex).
 %For example, it is not clear how these algorithms can return a community that contain a given vertex $q$.
-Moreover, they can take a long time to find all the communities for a large graph, and so they are not suitable for quick or {\it online} retrieval of communities. To solve these problems, CS solutions have been recently developed~\cite{KDD2010,local2014,online-sigmod2013,k-truss2014}. These approaches are query-based, and are able to derive communities in an ``online'' manner. However, existing CS algorithms assume {\it non-attributed} graphs, and only use the graph structure information to find communities. The ACQ is a class of CS problem for attributed graphs. As we will show, the use of keyword information can significantly improve the effectiveness of the communities retrieved. Table~\ref{tab:method} summarizes some representative existing works in this area.
+Moreover, they can take a long time to find all the communities for a large graph, and so they are not suitable for quick or {\it online} retrieval of communities. To solve these problems, CS solutions have been recently developed~\cite{KDD2010,local2014,online-sigmod2013,k-truss2014,huang2015approximate,barbieri2015efficient}. These approaches are query-based, and are able to derive communities in an ``online'' manner. However, existing CS algorithms assume {\it non-attributed} graphs, and only use the graph structure information to find communities. The ACQ is a class of CS problem for attributed graphs. As we will show, the use of keyword information can significantly improve the effectiveness of the communities retrieved. Table~\ref{tab:method} summarizes some representative existing works in this area.
 
 \begin{table}
   \centering \footnotesize \caption {Classification of works in community retrieval. }\label{tab:method}
@@ -28,9 +28,9 @@ Moreover, they can take a long time to find all the communities for a large grap
                        & \tabincell{c}{\textbf{Community}\\ \textbf{search (CS)}}\\
      \hline\hline
         Non-attributed & \cite{community-phy2004,community-phy2010}
-                       & \cite{KDD2010,local2014,online-sigmod2013,k-truss2014,vldb2015}\\
+                       & \cite{KDD2010,local2014,online-sigmod2013,k-truss2014,vldb2015,huang2015approximate,barbieri2015efficient}\\
      \hline
-        Attributed     & \cite{attr-vldb2009,attr-topic-kdd2008,attr-topic-icml2009,attr-topic-sigmod2012,attr-www2013}
+        Attributed     & \cite{attr-vldb2009,attr-topic-kdd2008,attr-topic-icml2009,attr-topic-sigmod2012,attr-www2013,yang2013community}
                        & {\bf ACQ (This paper)} \\
      \hline
   \end{tabular}

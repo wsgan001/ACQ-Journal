@@ -13,7 +13,7 @@ We present {\tt basic-g-v1} and {\tt basic-w-v1} in Algorithms~\ref{alg:basic-g-
 \begin{algorithmic}[1]
     \Function{query($G$, $q$, $k$, $S$)}{}
         \State find the $k$-$\widehat {core}$, ${\mathcal C}_k$, containing $q$ from $G$;
-        \State collect a set $V'$ of vertices containing share at least $|S|\times \theta$ keywords from ${\mathcal C}_k$;
+        \State collect a set $V'$ of vertices containing at least $|S|\times \theta$ keywords from ${\mathcal C}_k$;
         \State find $G[S]$ from the subgraph induced by $V'$;
         \State find $G_k[S]$ from $G[S]$;
         \State output $G_k[S]$ as the target AC.
@@ -28,7 +28,7 @@ We present {\tt basic-g-v1} and {\tt basic-w-v1} in Algorithms~\ref{alg:basic-g-
 \algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
 \begin{algorithmic}[1]
     \Function{query($G$, $q$, $k$, $S$)}{}
-        \State collect a set $V'$ of vertices containing share at least $|S|\times \theta$ keywords from $G$;
+        \State collect a set $V'$ of vertices containing at least $|S|\times \theta$ keywords from $G$;
         \State find $G[S]$ from the subgraph induced by $V'$;
         \State find $G_k[S]$ from $G[S]$;
         \State output $G_k[S]$ as the target AC.
