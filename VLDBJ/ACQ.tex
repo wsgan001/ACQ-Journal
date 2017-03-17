@@ -1,5 +1,4 @@
 \begin{filecontents*}{example.eps}
-
 %!PS-Adobe-3.0 EPSF-3.0moveUp
 %%BoundingBox: 19 19 221 221
 %%CreationDate: Mon Sep 29 1997
@@ -30,11 +29,12 @@ grestore
 \smartqed  % flush right qed marks, e.g. at end of proof
 %
 
-\let\proof\relax 
+\let\proof\relax
 \let\endproof\relax
 
 \usepackage{graphicx}
 \usepackage{balance}
+
 \usepackage{color}
 \usepackage[noend]{algpseudocode}
 \usepackage{algorithm}
@@ -75,17 +75,18 @@ grestore
 
 %\titlerunning{Short form of title}        % if too long for running head
 
-\author{XXX         \and
-        YYY        \and
-        ZZZ          \and
-        WWW
+\author{Yixiang Fang         \and
+        Reynold Cheng        \and
+        Yankai Chen          \and \\
+        Siqiang Luo          \and
+        Jiafeng Hu
 }
 
 %\authorrunning{Short form of author list} % if too long for running head
 
-\institute{Authors \at
+\institute{Y. Fang, R. Cheng, Y. Chen, S. Luo, J. Hu \at
               Department of Computer Science, The University of Hong Kong, Pokfulam, Hong Kong \\
-              \email{\{authors\}@cs.hku.hk}
+              \email{\{yxfang, ckcheng, ykchen, sqluo, jhu\}@cs.hku.hk}
 %           \and
 %           S. Author \at
 %              second address
@@ -114,27 +115,27 @@ grestore
 
 \input{query}
 
-\chen{
-  \input{ACQvariant}
-}
+\input{indexMaintenance}
+
+\input{variant}
 
 \input{experiment}
 
 \input{conclude}
 
 
+
+
+\bibliographystyle{abbrv}
+\bibliography{ACQ}
+
+\include{appendix}
+
+\end{document}
+
 %\begin{thebibliography}{}
 %\bibitem{RefJ}
 %Author, Article title, Journal, Volume, page numbers (year)
 %\bibitem{RefB}
 %Author, Book title, page numbers. Publisher, place (year)
-%\end{thebibliography}
-
-\bibliographystyle{abbrv}
-\bibliography{lac}
-
-\include{appendix}
-
-\end{document}
-% end of file template.tex
-
+%\end{thebibliography} 

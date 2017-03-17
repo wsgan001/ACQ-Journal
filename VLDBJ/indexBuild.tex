@@ -191,11 +191,12 @@ Finally, we build the inverted list for each tree node and obtain the built inde
 
 
 \textbf{Complexity analysis.}
-In Algorithm~\ref{alg:advancedIndex}, lines 1-3 can be completed in $O(m)$ (We assume $m$>$n$).
+In Algorithm~\ref{alg:advancedIndex}, lines 1-3 can be completed in $O(m)$ (We assume $m$$\ge$$n$).
 In the while loop, the number of operations on each vertex and its neighbors are constant,
-and each can be done in $O(\alpha(n))$, where $\alpha(n)$ is the inverse Ackermann function.
+and each can be done in $O(\alpha(n))$, where $\alpha(n)$, the inverse Ackermann function, is less than 5 for all remotely
+practical values of $n$.
 The keyword inverted lists of all the tree nodes can be computed in $O(n\cdot {\widehat l})$.
-Therefor, the CL-tree can be built in $O(m\cdot \alpha(n)+n\cdot{\widehat l})$.
+Therefore, the CL-tree can be built in $O(m\cdot \alpha(n)+n\cdot{\widehat l})$.
 The space cost is $O(m+n\cdot{\widehat l})$, as maintaining an AUF takes $O(n)$.
 
 %\textbf{Complexity analysis.}
@@ -223,7 +224,7 @@ When $k$=0, we generate $p_6$ and finish the index construction.
 \begin{figure}
 	\small
 	\centering
-	\includegraphics[width=0.85\linewidth]{figures/advancedIndex}
+	\includegraphics[width=0.88\linewidth]{figures/advancedIndex}
 	\caption{An index built by {\tt advanced} method.}
 	\label{fig:advancedIndex}
 \end{figure} 

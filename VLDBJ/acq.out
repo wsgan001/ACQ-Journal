@@ -3,13 +3,13 @@
 \BOOKMARK [1][-]{section.3}{The ACQ Problem}{}% 3
 \BOOKMARK [1][-]{section.4}{Basic Solutions}{}% 4
 \BOOKMARK [1][-]{section.5}{CL-tree Index}{}% 5
-\BOOKMARK [1][-]{section.6}{Index Maintenance}{}% 6
-\BOOKMARK [1][-]{section.7}{Query Algorithms}{}% 7
+\BOOKMARK [1][-]{section.6}{Query Algorithms}{}% 6
+\BOOKMARK [1][-]{section.7}{Index Maintenance}{}% 7
 \BOOKMARK [1][-]{section.8}{Variants of ACQ Problem}{}% 8
 \BOOKMARK [1][-]{section.9}{Experiments}{}% 9
 \BOOKMARK [1][-]{section.10}{Conclusions}{}% 10
 \BOOKMARK [1][-]{appendix.A}{Proofs of Lemmas}{}% 11
-\BOOKMARK [1][-]{appendix.B}{Details of Basic Solutions}{}% 12
+\BOOKMARK [1][-]{appendix.B}{Basic Solutions for ACQ}{}% 12
 \BOOKMARK [1][-]{appendix.C}{Candidate Generation}{}% 13
 \BOOKMARK [1][-]{appendix.D}{Anchored Union-find}{}% 14
-\BOOKMARK [1][-]{appendix.E}{Basic Algorithm of Variants}{}% 15
+\BOOKMARK [1][-]{appendix.E}{Basic Algorithms for Variants}{}% 15

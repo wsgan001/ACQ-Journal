@@ -24,36 +24,10 @@ By Lemma~\ref{lm:kcorelemma}, the core numbers of vertices in $G$ decrease by at
 We compute $V^-$ using the algorithm in~\cite{kcoreUpdate}.
 
 \textbf{Step 2: Split nodes in a path.}
-Similar to edge insertion, the connectivity of vertices may change after deleting an edge. 
-%We illustrate this by Example~\ref{ep:delete}.
-
-\iffalse
-\begin{example}
-\label{ep:delete}
-Consider the graph in Figure~\ref{fig:ConnectivityExmp}. If we delete an edge ($G,I$), then the updated graph and CL-tree will be presented as shown in Figure~\ref{fig:advancedIndex}. 
-%Figure~\ref{fig:splitExmp} presents two 2-$\widehat{core}$s. After deleting an edge ($u,v$), the graph in Figure~\ref{fig:split1} is still a 2-$\widehat{core}$; however, the graph in Figure~\ref{fig:split2} is split to two disconnected 2-$\widehat{core}$s.
-\end{example}
-\begin{figure}[ht]
-    \centering
-    \mbox{
-        \subfigure[]{
-            \includegraphics[width=.335\columnwidth]{figures/splitExmp1}
-            \label{fig:split1}
-        }
-        \hspace{2ex}
-        \subfigure[]{
-            \includegraphics[width=.335\columnwidth]{figures/splitExmp2}
-            \label{fig:split2}
-        }
-    }
-    \caption{The connectivity changes.}
-    \label{fig:splitExmp}
-\end{figure}
-\fi
-
+Similar to edge insertion, the connectivity of vertices may change after deleting an edge.
 Let $p$ be the node containing vertex $u$ if $core_G[u]$ $\le$$core_G[v]$;
 or the node containing $v$ if $core_G[v]$$<$$core_G[u]$.
-From the second example in Example~\ref{ep:deleteExample}, we conclude that after deleting an edge ($u$, $v$),
+From Example~\ref{ep:deleteExample}, we conclude that after deleting an edge ($u$, $v$),
 we may have to split $p$ and its ancestor nodes.
 To enable efficient splitting, we first build a \emph{vertex-tree} map for $p$.
 In this map, the key is a vertex $v_{key}$,
@@ -90,12 +64,10 @@ As a result, each vertex corresponds to a list of child nodes of $p$.
 Then, we partition vertices of $p$ into groups such that:
 
 \noindent $\bullet$ For each vertex $a$ in a group $g$,
-there is at least another vertex in $g$ that has the same corresponding child node or neighbors $a$.
+there is at least another vertex in $g$ that is a neighbor of $a$ or has the same corresponding child node.
 
 \noindent $\bullet$ If there are two groups $g_1$ and $g_2$, then their corresponding
 child nodes should be completely different.
-
-%For instance, $p_1$ is now associated with $x$ because $x$ has a neighbor $w$ and $p_2$ is associated with $y$. If $y$ has another neighbor vertex that maps $p_1$, which means $p_1$ is associated with both $x$ and $y$. Then we can group $x$ and $y$ in one vertex set because they are connected through some vertices of the subtree whose root is $p_1$, and further associate the set (containing $x$ and $y$) with $p_1$ and $p_2$. Note that if we find one of $x$'s neighbor vertices whose core number is equal to $x$'s, we can directly group it with $x$ together with their associated child nodes because this vertex is definitely being in $p$ as well.
 
 Essentially, each group corresponds to a $k$-$\widehat{core}$.
 Since deleting an edge in a $k$-$\widehat{core}$ can result in at most two $k$-$\widehat{core}$,
@@ -104,7 +76,7 @@ After regrouping, we can split the nodes in the path from $p$ to all its ancesto
 
 \noindent $\bullet$ If there is only one group, we do not split $p$; otherwise we split $p$ into two nodes, each of which contains a group of vertices and links to a set of child nodes that its vertices correspond to.
 
-\noindent $\bullet$ If $p$ remains unsplit, and each child node of $p$ is still linked to $p$, we stop; otherwise, we link the unvisited child node to $p$'s father node and perform these two steps for $p$'s father node.
+\noindent $\bullet$ If $p$ remains unsplit, and each child node of $p$ is still linked to $p$, we stop; otherwise, we perform these two steps for $p$'s father node.
 
 Clearly, the splitting process is recursively performed on $p$'s ancestor nodes and thus we split nodes in a path.
 We give Example~\ref{em:steps} to illustrate the process.
@@ -128,10 +100,18 @@ we stop the splitting process.
 
 
 \textbf{Step 3: Move up vertices of $V^-$.}
+After computing $V^-$ and splitting some nodes in CL-tree,
+we move up vertices of $V^-$ to an upper level.
+We denote the algorithm of performing moving up by {\tt moveUp}.
 
-After computing the vertex set $V^-$ and modifying the structure of the tree index, the third step of our edge deletion algorithm is moving up vertices of $V^-$ to an upper level. We give the {\tt moveUp} algorithm in Algorithm~\ref{alg:moveUp}.
-
-As outlined in Algorithm~\ref{alg:moveUp}, we first initialize two node sets $P,P'$(line 3). We need to remove $V^-$ from $vertexSet$ of $p$ and update $invertedList$ of $p$ (line 4). Then if the core number of $father$ is $c-1$, we add $V^-$ to it; If the core number of $father$ is less than $c-1$, we create a new node and join it to the tree(lines 5-10). Next, we collect the left vertices of $p$ in $set$, reorganize and split them to nodes and update the vertex-node map (lines 11-13). We also need to update $childList$ and $invertedList$ of $p.father$ (lines 15-16). If there exist child nodes that are not visited in line 12, we re-link them to $p.father$ because these nodes are traceable only by vertices of $V^-$ (lines 16-18).
+We outline {\tt moveUp} in Algorithm~\ref{alg:moveUp}.
+We firs update $p$ by removing $V^-$ from its vertex set and updating its inverted list (line 3).
+Then, if the core number of $p.father$ is $c$--1, we add $V^-$ to it;
+otherwise, we create a new node and add it to the tree (lines 4-9).
+Next, we collect the remaining vertices of $p$ in $set$, regroup them and split nodes and update the vertex-node map (lines 10-12).
+We also need to update $childList$ and $invertedList$ of $p.father$ (lines 14-15).
+If there exists child nodes that are unconsidered in line 11,
+we re-link them to $p.father$ because these nodes are connected to vertices of $V^-$ (line 16).
 
 
 \begin{algorithm}[h]
@@ -141,34 +121,38 @@ As outlined in Algorithm~\ref{alg:moveUp}, we first initialize two node sets $P,
 \algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
 \begin{algorithmic}[1]
 \Function{moveUp($V^-$, $p$)}{}
-\If{$V^- \neq \emptyset$}
-    \State $P,P'\gets \emptyset$;
-    \State update $p$;
-    \If{ $ (p.father).getCore$ = $c$-1}
-    %\If{$father.getCore = c-1$}
-       \State add $V^-$ to $father$;
-    \Else
-       \State create new node $newFather$;
-       \State add $V^-$ to $newFather$;
-       \State join $newFather$ to the tree;
+    \If{$V^-$=$\emptyset$}
+        \Return;
     \EndIf
-  \State $set \gets$ $p.vertexSet$;
-  \State $P \gets$ reorganize vertices of $set$ and split to nodes;
-  \State update vertex-node map;
-  \State link each $p_i \in P$ to $p.father$;
-  \State update $invertedList$ of $p.father$;
+    \State update $p$;
+    \If{ $ (p.father).coreNum$ = $c$--1}
+       \State add $V^-$ to $p.father$;
+    \Else
+       \State create a new node $newFather$;
+       \State add $V^-$ to $newFather$;
+       \State add $newFather$ to the tree;
+    \EndIf
+    \State $set \gets$ $p.vertexSet$;
+    \State $P \gets$ regroup vertices of $set$ and split node;
+    \State update vertex-node map;
+    \State link each $p_i \in P$ to $p.father$;
+    \State update $invertedList$ of $p.father$;
 
-  \State $P' \gets$ get child nodes which are not visited by the re-oranize step;
-  \If{$P' \neq \emptyset$}
-    \State re-link each $p \in P'$ to $p.father$;
-  \EndIf
-\EndIf
+    \State $P' \gets$ child nodes unconsidered in above step;
+    \If{$P' \neq \emptyset$}
+        re-link each $p \in P'$ to $p.father$;
+    \EndIf
 \EndFunction
 \end{algorithmic}}
 \end{algorithm}
 
-
-We outline Algorithm~\ref{alg:delete} for the edge deletion. Similar to edge insertion, we have three cases to handle separately. In these three cases, we first compute vertex set $V^-$ (lines 3,7,11). Then we split the subtree and get the updated node $p_u'$ ($p_v'$ or $p_u'$ and $p_v'$) (lines 4,8,12). Next we apply {\tt moveUp} to update vertices of $V^-$ (lines 5,9,14). In $p_u.coreNum = p_v.coreNum$ case, if vertices of $V^-$ belongs to two disconnected $k-\widehat{core}$s, we should separate $V^-$ to two sets and invoke {\tt moveUp} accordingly (lines 16-18).
+We present the overall steps of {\tt deleteEdge} in Algorithm~\ref{alg:delete}.
+Similar to edge insertion, we have three cases to be handled separately.
+In these three cases, we first compute $V^-$ (lines 3,7,11).
+Then we split the nodes and get the updated node(s) $p_v'$ or $p_u'$ or both $p_u'$ and $p_v'$ (lines 4,8,12).
+Next we apply {\tt moveUp} to move up vertices of $V^-$ (lines 5,9,13).
+In $p_u.coreNum$ = $p_v.coreNum$ case, if vertices of $V^-$ belong to two disconnected $k-\widehat{core}$s,
+we should separate $V^-$ to two sets and invoke {\tt moveUp} accordingly (lines 14-16).
 
 \begin{algorithm}[h]
 \caption{index algorithm: {\tt deleteEdge}}
@@ -179,21 +163,20 @@ We outline Algorithm~\ref{alg:delete} for the edge deletion. Similar to edge ins
 \Function{deleteEdge($p_u,p_v$)}{}
     \If{$p_u.coreNum > p_v.coreNum$}
         \State compute $V^-$ in $p_v.vertexSet$;
-        \State $p_v' \gets$ split the subtree;
-        \State \Call{moveUp($V^-$,$p_v'$)}{};
+        \State $p_v' \gets$ split $p$ and its ancestor nodes;
+        \State \Call{moveUp($V^-$, $p_v'$)}{};
     \ElsIf{$p_u.coreNum < p_v.coreNum$}
         \State compute $V^-$ in $p_u.vertexSet$;
-        \State $p_u' \gets$ split the subtree;
-        \State \Call{moveUp($V^-$,$p_u'$)}{};
+        \State $p_u' \gets$ split $p$ and its ancestor nodes;
+        \State \Call{moveUp($V^-$, $p_u'$)}{};
     \Else
         \State compute $V^-$ in $p_u.vertexSet$;
-        \State $p_u',p_v' \gets$ split the subtree;
+        \State $p_u',p_v' \gets$ split $p$ and its ancestor nodes;
         \If{$p_u' = p_v'$}
-             \State \Call{moveUp($V^-$,$p_u'$)}{};
+             \Call{moveUp($V^-$, $p_u'$)}{};
         \Else
              \State ${V_u}^-, {V_v}^- \gets$ separate $V^-$;
-             \State \Call{moveUp(${V_u}^-$,$p_u'$)}{};
-             \State \Call{moveUp(${V_v}^-$,$p_v'$)}{};
+             \State \Call{moveUp(${V_u}^-$,$p_u'$)}{}; \textbf{ } \textbf{} \Call{moveUp(${V_v}^-$,$p_v'$)}{};
         \EndIf
 
     \EndIf

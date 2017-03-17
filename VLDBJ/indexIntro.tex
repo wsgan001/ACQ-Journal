@@ -44,7 +44,7 @@ After such removal, we obtain a compressed tree,
 where each graph vertex appears only once.
 This structure constitutes the CL-tree index, the nodes of which are further augmented by inverted lists (Figure~\ref{fig:cktree}).
 For each keyword $e$ that appears in a CL-tree node, a list of IDs of vertices whose keyword sets contain $e$ is stored.  For example, in node $r_3$, the inverted list of keyword $y$ contains $\{A,C,D\}$. As discussed later, given a keyword set $T$, these inverted lists allow efficient retrieval of vertices whose keyword sets contain $T$.
-To summarize, each CL-tree node contains five elements:
+To summarize, each CL-tree node $p$ contains five elements:
 
 $\bullet$ \emph{coreNum}: the core number of the $k$-$\widehat {core}$;
 
@@ -52,11 +52,9 @@ $\bullet$ \emph{vertexSet}: a set of graph vertices;
 
 $\bullet$ \emph{invertedList}: a list of $\textless key,value\textgreater$ pairs, where the $key$ is a keyword contained by vertices in $vertexSet$ and the $value$ is the list of vertices in $vertexSet$ containing $key$;
 
-$\bullet$ \emph{childList}: a list of child nodes.
+$\bullet$ \emph{childList}: a list of child nodes;
 
-\chen{
-$\bullet$ \emph{fatherNode}: the father node of the current node.
-}
+$\bullet$ \emph{fatherNode}: the father node of $p$.
 
 Figure~\ref{fig:cktree} depicts the CL-tree index for the example graph in Figure~\ref{fig:kcoreGraph},
 the elements of each tree node are labeled explicitly.

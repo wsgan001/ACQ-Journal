@@ -39,7 +39,7 @@ $\bullet$ \textbf{Step 3:} Merge subtrees.
 We now elaborate these steps one by one.
 
 \textbf{Step 1: Compute $V^+$.}
-A recent $k$-core maintenance algorithm~\cite{kcoreUpdate} states that inserting an edge only affects the core numbers of a small number of vertices. We first give a definition, a theorem and a lemma proposed in this paper.
+Inserting an edge only affects the core numbers of a small number of vertices~\cite{kcoreUpdate,sariyuce2016incremental}. We first give a definition, a theorem and a lemma proposed in this paper.
 
 \begin{definition}[\cite{kcoreUpdate}]
 \label{df:inducedgraph}
@@ -98,7 +98,7 @@ Consider a specific vertex $a$$\in$$V^+$ and we initialize two empty sets $B_1$ 
 For each of $a$'s neighbor $b$ whose $core_G[b]$$\textgreater$$c$, we first find the node $p_b$ containing $b$,
 and then trace it up from $p_b$ along the CL-tree until a child node of $p$, denoted by $o_b$.
 If $o_b$ has a core number of $c$+1, we put it into $B_1$;
-if it has a core number of $c$+2 or more, we put it into $B_2$.
+Otherwise, we put it into $B_2$.
 Then, after moving down vertices of $V^+$,
 nodes in $B_1$ should be merged into $p'$ and nodes in $B_2$ will be child nodes of $p'$.
 
@@ -161,7 +161,7 @@ locate $p_b$, trace up from $p_b$ to find $p_b$'s ancestor node $o_b$ which is a
 and put $o_b$ into $P$ (lines 5-9).
 Let the node which has the largest size with core number being $c$+1 in $P$ be $p_{max}$ (line 10).
 Next, if $p_{max}$=$null$, we need to create a new child node of $p$ (lines 11-14);
-otherwise, we merge and reorganize $p$'s child nodes (lines 15-22). 
+otherwise, we merge and reorganize $p$'s child nodes (lines 15-22).
 Finally we return node $p'$ (line 26), which will be used later.
 
 %In Algorithm~\ref{alg:moveDown}, if $V^+$ is not an empty set, we first initialize a node set $P$ and a node $p_{max}$ (line 3). After computing $V^+$, we need to remove $V^+$ from $vertexSet$ of $p$ and update $invertedList$ of $p$ (line 4). For each vertex $a\in V^+$, we locate $a$'s neighbor vertex $b$ whose core number is larger than c in the tree at the node $p_b$, then we trace up from $p_b$ with $fatherNode$ to find $p_b$'s ancestor node which is also the child node of $p$ and add it to $P$. Simultaneously, we mark the child node whose core number is $c$+1 and contains the most vertices as $p_{max}$ (lines 5-9). Next, if $p_{max}$ does not exist, a new node $p'$ will be created (line 11). Vertices in $V^+$ will be added to $vertexSet$ of $p'$ and all child nodes in $P$ will also be linked to $p'$ (lines 12-13). If $p_{max}$ exists, vertices in $V^+$ will be added into $vertexSet$ of $p_{max}$. All the first type of child nodes in $P$ will be merged to $p_{max}$, and the second type of child nodes in $P$ will be linked to $p_{max}$ (line 15-20). Then we update the vertex-node map (line 22). Note that after removing $V^+$, if $p.vertexSet$ is empty, we update the child list of $p.father$ (lines 23-24). Finally the updated node will be returned (line 25).

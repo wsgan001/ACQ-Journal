@@ -1,5 +1,5 @@
 \begin{filecontents*}{example.eps}
-%!PS-Adobe-3.0 EPSF-3.0
+%!PS-Adobe-3.0 EPSF-3.0moveUp
 %%BoundingBox: 19 19 221 221
 %%CreationDate: Mon Sep 29 1997
 %%Creator: programmed by hand (JK)
@@ -28,6 +28,10 @@ grestore
 %
 \smartqed  % flush right qed marks, e.g. at end of proof
 %
+
+\let\proof\relax
+\let\endproof\relax
+
 \usepackage{graphicx}
 \usepackage{balance}
 
@@ -41,6 +45,9 @@ grestore
 \usepackage{mathtools}
 \usepackage{amsmath,bm}
 \usepackage{hyperref}
+\usepackage{amsthm}
+
+\usepackage{indentfirst}
 
 \renewcommand{\arraystretch}{1.18}
 
@@ -55,8 +62,11 @@ grestore
 \newcommand{\rey}[1]{{\color{blue}[\textbf{Reynold:} #1]}}
 \newcommand{\luo}[1]{{\color{purple}[\textbf{Siqiang:} #1]}}
 \newcommand{\hu}[1]{{\color{green}[\textbf{Jiafeng:} #1]}}
+\newcommand{\chen}[1]{{\color{blue}[\textbf{Yankai:} #1]}}
 
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+
 
 \begin{document}
 
@@ -65,24 +75,24 @@ grestore
 
 %\titlerunning{Short form of title}        % if too long for running head
 
-\author{XXX         \and
-        YYY        \and
-        ZZZ          \and
-        WWW
+\author{Yixiang Fang         \and
+        Reynold Cheng        \and
+        Yankai Chen          \and \\
+        Siqiang Luo          \and
+        Jiafeng Hu
 }
 
 %\authorrunning{Short form of author list} % if too long for running head
 
-\institute{Y. Yixiang, R. Cheng, S. Luo, J. Hu \at
+\institute{Y. Fang, R. Cheng, Y. Chen, S. Luo, J. Hu \at
               Department of Computer Science, The University of Hong Kong, Pokfulam, Hong Kong \\
-              \email{\{yxfang, ckcheng, sqluo, jhu\}@cs.hku.hk}
+              \email{\{yxfang, ckcheng, ykchen, sqluo, jhu\}@cs.hku.hk}
 %           \and
 %           S. Author \at
 %              second address
 }
 
 \date{Received: date / Accepted: date}
-% The correct dates will be entered by the editor
 
 
 \maketitle
@@ -103,19 +113,18 @@ grestore
 
 \input{index}
 
+\input{indexMaintenance}
+
 \input{query}
+
+\input{variant}
 
 \input{experiment}
 
 \input{conclude}
 
 
-%\begin{thebibliography}{}
-%\bibitem{RefJ}
-%Author, Article title, Journal, Volume, page numbers (year)
-%\bibitem{RefB}
-%Author, Book title, page numbers. Publisher, place (year)
-%\end{thebibliography}
+
 
 \bibliographystyle{abbrv}
 \bibliography{lac}
@@ -123,5 +132,10 @@ grestore
 \include{appendix}
 
 \end{document}
-% end of file template.tex
 
+%\begin{thebibliography}{}
+%\bibitem{RefJ}
+%Author, Article title, Journal, Volume, page numbers (year)
+%\bibitem{RefB}
+%Author, Book title, page numbers. Publisher, place (year)
+%\end{thebibliography} 

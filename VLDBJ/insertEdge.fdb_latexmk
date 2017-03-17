@@ -1,16 +1,15 @@
 # Fdb version 3
-["pdflatex"] 1489552795 "insertEdge.tex" "insertEdge.pdf" "insertEdge" 1489552795
+["pdflatex"] 1487486478 "insertEdge.tex" "insertEdge.pdf" "insertEdge" 1487486479
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
-  "/usr/local/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd" 1454284088 2257 15f13452fccbf1841cc4a62831b0d32a ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd" 1454284088 2256 80ce1168fb4ce6a85583a9cf8972c013 ""
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1486569144 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1486569181 3873396 d90160026fd3d5ceb358e6e0244e36e8 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
   "insertEdge.aux" 1487486478 8 a94a2480d3289e625eea47cd1b285758 ""
-  "insertEdge.tex" 1489552708 15963 468ab448e529fe353b59d5f2cd148093 ""
+  "insertEdge.tex" 1487486478 11660 e2559bc2d66bce8aa11dcc75f0e8f578 ""
   (generated)
   "insertEdge.pdf"
   "insertEdge.log"

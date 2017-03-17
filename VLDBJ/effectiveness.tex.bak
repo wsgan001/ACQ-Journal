@@ -49,8 +49,6 @@ We collect ACs containing one to five keywords, and then group the ACs according
 \end{figure}
 
 
-
-
 {\bf 2. Comparison with existing CD methods}
 As mentioned ahead, the existing CD methods for attributed graph can be adapted for community search. We choose to adapt {\tt CODICIL}~\cite{attr-www2013} for comparison. The main reasons are: (1) it has been tested on the ever reported largest attributed graph (vertex number:3.6M); (2) it identifies communities of comparable or superior quality than those of many existing methods like~\cite{attr-topic-kdd2008,attr-kdd2009}; and (3) it runs faster than many existing methods. Since {\tt CODICIL} needs users to specify the number of clusters expected, we set the numbers as 1K, 5K, 10K, 50K and 100K. The corresponding adapted algorithms are named as {\tt Cod1K}, $\cdots$, {\tt Cod100K} respectively. Other parameter settings are the same as those in~\cite{attr-www2013}. We first run these algorithms offline to obtain all the communities. Given a query vertex $q$, they return communities containing $q$ as the results.
 
@@ -179,11 +177,27 @@ We see that {\tt ACQ} has the highest MF values for the top 20 keywords. Thus, t
 
 The number of distinct keywords of {\tt ACQ} communities is also the fewest, as shown in Table~\ref{tab:kws}.
 For example, the $k$-$\widehat{core}$ returned by {\tt Global} has over $139K$ distinct keywords,
-about 2,300 times more than that returned by {\tt ACQ} (less than 60 keywords). While the semantics of the $k$-$\widehat{core}$ can be difficult to understand, the small number of distinct keywords of AC makes it easier to understand why the community is so formed. We further report the keywords with the 6 highest MF values in Jiawei's communities in Table~\ref{tab:jiawei}. We can see that, the top-6 keywords of {\tt ACQ} are highly related to the input query keyword set, while keywords of {\tt Global} and {\tt Local} tend to be less related to the query keyword set, and thus they cannot be used to characterize the communities specifically related to Jiawei.
+about 2,300 times more than that returned by {\tt ACQ} (less than 60 keywords). While the semantics of the $k$-$\widehat{core}$ can be difficult to understand, the small number of distinct keywords of AC makes it easier to understand why the community is so formed. We further report the keywords with the 6 highest MF values in Jim and Jiawei's communities in Tables~\ref{tab:jim} and~\ref{tab:jiawei}. We can see that, words ``sloan'',  ``digital'', ``sky'', ``survey'', and ``sdss'' reflect that the community is likely about the SDSS project led by Jim. The top-6 keywords of Jiawei's AC are related to heterogenous networks. In contrast, the keywords of {\tt Global} and {\tt Local} tend to be less related to the query keyword set, and thus they cannot be used to characterize the communities specifically related to Jiawei.
+Note that the top-6 keywords of {\tt Global} are the same for both Jim and Jiawei, as they are in the same $k$-$\widehat{core}$.
 The overall results show that, {\tt ACQ} performs better than other methods.
 
-% words ``sloan'',  ``digital'', ``sky'', ``survey'', and ``sdss'' reflect that the community is likely about the SDSS project led by Jim. The top-6 keywords of Jiawei's AC are related to heterogenous networks.
-%Note that the top-6 keywords of {\tt Global} are the same for both Jim and Jiawei, as they are in the same $k$-$\widehat{core}$.
+\begin{table}[htp]
+  \centering \footnotesize \caption {Top-6 keywords (Jim Gray).}
+  \label{tab:jim}
+  \begin{tabular}{c|l}
+     \hline
+          \bf{Algo.}   & \multicolumn{1}{c}{\textbf{Keywords}}\\
+     \hline\hline
+          {\tt Cod50K} & server, archive, sloan, digital, database\\
+     \hline
+          {\tt Global} & use, system, model, network, analysis, data\\
+     \hline
+          {\tt Local}  & database, system, multipetabyte, data, lsst, story\\
+     \hline
+          {\tt ACQ}    & sloan, digital, sky, data, sdss, server\\
+     \hline
+  \end{tabular}
+\end{table}
 
 \begin{table}[htp]
   \centering \footnotesize \caption {Top-6 keywords (Jiawei Han).}
@@ -202,6 +216,8 @@ The overall results show that, {\tt ACQ} performs better than other methods.
      \hline
   \end{tabular}
 \end{table}
+
+
 
 \textbf{3. Effect of $k$ on community size.}  We vary the value of $k$ and report the average size of communities in Figure~\ref{fig:size}. We can see that  the communities returned by {\tt Global} are extremely large (more than $10^5$), which can make them difficult for a query user to analyze. The community size of {\tt Local} increases sharply when $k$=8. In this situation, {\tt Local} returns the same community as {\tt Global}. The size of an AC is relatively insensitive to the change of $k$, as AC contains around a hundred vertices for a wide range of values of $k$.
 
@@ -222,25 +238,4 @@ The overall results show that, {\tt ACQ} performs better than other methods.
     \label{fig:size}
 \end{figure}
 
-%\textbf{4. GPM Results.} We have examined communities produced by Graph Pattern Matching (GPM) algorithms on the DBLP dataset. We consider a ``{\tt Star-$a$}'' pattern, which contains $a$ vertices linked to the query vertex $q$.  A keyword set $S$ is randomly drawn from Jim Gray's keyword sets, i.e., $W(q)$. Each vertex of the pattern is associated with $S$. We vary the size of $S$; for each $|S|$, we obtain 100 different sets. We then execute the {\tt Match} algorithm~\cite{GPM-VLDB2010} with its default settings. Table~\ref{tab:percent1} shows the fraction of GPM queries returning non-empty communities. When $|S| \geq 3$, only a small fraction of {\tt Star-$a$} patterns yields non-empty subgraphs.
-%These subgraphs vary, depending on the topology and keyword sets associated with the patterns. Hence, if GPM is used to find communities, the user has to be careful in choosing the right pattern.
 
-%\begin{table}[htp]
-% \vspace{-0.2 in}
-%  \centering \footnotesize \caption {Top-6 keywords (Jim Gray).}
-%  \label{tab:jim}
-%  \begin{tabular}{c|l}
-%     \hline
-%          \bf{Algo.}   & \multicolumn{1}{c}{\textbf{Keywords}}\\
-%     \hline\hline
-%          {\tt Cod50K} & server, archive, sloan, digital, database\\
-%     \hline
-%          {\tt Global} & use, system, model, network, analysis, data\\
-%     \hline
-%          {\tt Local}  & database, system, multipetabyte, data, lsst, story\\
-%     \hline
-%          {\tt ACQ}    & sloan, digital, sky, data, sdss, server\\
-%     \hline
-%  \end{tabular}
-%  \vspace{-0.1 in}
-%\end{table}

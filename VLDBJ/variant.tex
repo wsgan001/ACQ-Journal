@@ -1,61 +1,109 @@
-\section{Variants of LAC Search}
+{\color{blue}
+\section{Variants of ACQ Problem}
 \label{variant}
-As the context cohesiveness of LACs can be defined in various ways,
-there are many possible variants of LAC search.
-In this paper, we consider \chen{three} typical variants.
+
+In this section, we introduce two typical variants and present the query algorithms based on the CL-tree.
+
+
+\subsection{Variant 1}
+
+We first present an approximation version of the ACQ query, denoted by Variant~\ref{df:variant1}.
+In Variant~\ref{df:variant1}, vertices of an AC do not need to exactly share the same keywords in $S$;
+instead, they just need to share a predefined percentage of keywords in $S$.
+Thus, the keyword cohesiveness is relaxed.
+This could be useful for graphs if the keyword information of vertices is weak.
 
 \begin{variant}
-\label{variant1}
-Given a graph $G(V,E)$, an integer $k$, a query vertex $q\in V$ and a predefined label $S$,
-return the LAC, which satisfies the first two constraints of Problem~\ref{problem1}
-and its label is exactly $S$.
+\label{df:variant1}
+Given a graph $G$, a positive integer $k$, a vertex $q \in V$, a predefined keyword set $S$,
+and a threshold $\theta\in$[0,1], return a subgraph $G_q$, the following properties hold:
+
+$\bullet$ \textbf{Connectivity}. $G_q \subseteq G$ is connected and $q\in G_q$;
+
+$\bullet$ \textbf{Structure cohesiveness}. $\forall$$v\in G_q$, $deg_{G_q}(v)\geq$$k$;
+
+$\bullet$ \textbf{Keyword cohesiveness}. $\forall v\in G_q$, it has at least $|S|\times \theta$ keywords in $S$.
 \end{variant}
 
-
-\begin{variant}
-\label{variant2}
-Given a graph $G(V,E)$, an integer $k$, a query vertex $q\in V$,
-a predefined label $S$ and a threshold $\theta (0\leq \theta\leq 100)$,
-return the LAC, which satisfies the first two constraints of Problem~\ref{problem1}
-and every community member shares at least $\theta$ percentage of keywords in $S$.
-\end{variant}
-
-Variant~\ref{variant1} can be applied to applications,
-which need communities having specific keyword constraints.
-Note that $S$ does not necessary to be the subset of $W(q)$.
-In Variant~\ref{variant2}, the context cohesiveness is relaxed.
-This can be applied for cases when the context information is weak.
-We illustrate the variants in Example~\ref{eg:variant}.
-
+We illustrate Variant~\ref{df:variant1} using Example~\ref{eg:variant1}.
 \begin{example}
-\label{eg:variant}
-Consider Figure~\ref{fig:kcoreGraph}. Let $q$ be $A$ and $k$ be 2.
-For Variant~\ref{variant1}, if the predefined label is $\{$x$\}$,
-then the vertex set $\{A,B,C,D\}$ forms a target LAC.
-For Variant~\ref{variant2}, if the predefined label is $\{$x,y$\}$
-and the threshold is $50\%$,
-then the vertex set $\{A,B,C,D,E\}$ forms a target LAC.
+\label{eg:variant1}
+In Figure~\ref{fig:kcoreGraph}, let $q$=$A$ and $k$=2.
+If $S$=$\{x,y\}$, $\theta$=50\%, Variant~\ref{df:variant1} will return the subgraph induced by the vertex set $\{A,B,C,D,E\}$ as the target AC.
 \end{example}
 
-We first introduce the solutions to Variant~\ref{variant1}.
 In line with Problem~\ref{problem1}, we first introduce the basic solutions without index,
 which are extended naturally from {\tt basic-g} and {\tt basic-w},
 and are denoted by {\tt basic-g-v1} and {\tt basic-w-v1} respectively.
-Their details are presented in Appendix~\ref{app:variant}.
-For the index based algorithm, we denote it by {\tt SW} (search by keywords).
-The main steps are:
-(1) finding node $r_k$, whose corresponding $k$-$\widehat {core}$ contains $q$, from CL-tree;
-(2) collecting vertices containing $S$ by traversing the subtree rooted at $r_k$ and intersecting the inverted lists;
-(3) finding $G[S,q]$ from the subgraph induced by these vertices;
-(4) finding $G_k[S,q]$ from $G[S,q]$;
-and (4) output $G_k[S,q]$ as the target LAC.
-The solutions of Variant~\ref{variant2} can be adapted from all the query algorithms of Variant~\ref{variant1}.
-We denote them by {\tt basic-g-v2}, {\tt basic-w-v2} and {\tt SWT} respectively.
-We present the pseudocodes of solutions to Variant~\ref{variant1}
-and needed adaption for Variant~\ref{variant2} in Appendix~\ref{app:variant}.
+Their detailed algorithms are presented in Appendix~\ref{app:algoOfVariant}.
 
-In addition, it would be interesting to study the combinations of
-Problem~\ref{problem1} with Variants~\ref{variant1} and~\ref{variant2}.
-The solutions of Problem~\ref{problem1} and Variants~\ref{variant1} and~\ref{variant2}
-can be easily extended to solves these combinations.
-We skip the details due to the space limitation. 
+We also propose an efficient query algorithm {\tt SWT}, based on the CL-tree index.
+Algorithm~\ref{alg:swt} presents {\tt SWT}. We first apply {\tt core-locating} to find node $r_k$, whose corresponding $k$-$\widehat {core}$ contains $q$, from CL-tree (line 1).
+Then we traverse the subtree rooted at $r_k$, and collect a set $V'$ of vertices containing at least $|S|\times \theta$ keywords by applying {\tt keyword-checking}.
+Next, we find $G[S]$ from the subgraph induced by vertices in $V'$ (line 3),
+and find $G_k[S]$ from $G[S]$ (line 4).
+Finally, we output $G_k[S]$ as the target AC, if it exists (line 5).
+
+\begin{algorithm}[h]
+\caption{Query algorithm: {\tt SWT}}
+\label{alg:swt}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $root$, $q$, $k$, $S$)}{}
+        \State find the node $r_k$ from the CL-tree index;
+        \State traverse the subtree rooted at $r_k$ and
+               collect a set $V'$ of vertices containing at least $|S|\times \theta$ keywords by intersecting the inverted lists;
+        \State find $G[S]$ from the subgraph induced by $V'$;
+        \State find $G_k[S]$ from $G[S]$;
+        \State output $G_k[S]$ as the target AC.
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+
+\subsection{Variant 2}
+
+To extend the ACQ query for supporting mutiple query vertices, we propose Variant~\ref{df:variant2} as follows.
+
+\begin{variant}
+\label{df:variant2}
+Given a graph $G$, a positive integer $k$, a vertex set $Q$$\subseteq$$V$, and a predefined keyword set $S$, return a subgraph $G_Q$, the following properties hold:
+
+$\bullet$ \textbf{Connectivity}. $G_Q \subseteq G$ is connected and $G_Q$ contains all the vertices of $Q$;
+
+$\bullet$ \textbf{Structure cohesiveness}. $\forall$$v\in G_Q$, $deg_{G_Q}(v)\geq$$k$;
+
+$\bullet$ \textbf{Keyword cohesiveness}. The size of $L(G_Q, S)$ is maximal, where $L(G_Q, S)=\cap_{v \in G_Q}(W(v)\cap S)$ is the set of keywords shared in $S$ by all vertices of $G_Q$.
+\end{variant}
+
+We illustrate Variant~\ref{df:variant2} via Example~\ref{eg:variant2}.
+
+\begin{example}
+\label{eg:variant2}
+In Figure~\ref{fig:kcoreGraph}, let $Q$=$\{A,C\}$ and $k$=2.
+If $S$=$\{w,x,y,z\}$, then Variant~\ref{df:variant2} returns the subgraph induced by the vertex set $\{A,C,D\}$ as the target AC, whose shared keyword set is$\{x,y\}$.
+\end{example}
+
+To answer the query in Variant~\ref{df:variant2}, we can first find a set $S'$ of intersected keywords, which are contained by $S$ and every vertex in $Q$. Then, we randomly take a vertex $q$$\in$$Q$ as the query vertex.
+Finally, we can find the target ACs by any of previous ACQ algorithms.
+Following the above idea, we extend {\tt basic-g} and {\tt basic-w} and obtain two basic algorithms, i.e., {\tt basic-g-v2} and {\tt basic-w-v2}. We also extend {\tt Dec} and get an index based algorithm {\tt MDec}.
+Algorithm~\ref{alg:MDec} presents {\tt MDec}.
+Note that we do not extend {Inc-S} and {Inc-T}, as they are generally slower than {\tt Dec}, which has been demonstrated by the early version of this paper~\cite{fangeffective}.
+
+\begin{algorithm}[htp]
+\caption{Query algorithm: {\tt MDec}}
+\label{alg:MDec}
+\footnotesize{
+\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
+\begin{algorithmic}[1]
+    \Function{query($G$, $root$, $Q$, $k$, $S$)}{}
+      \State $S'$ = $( \bigcap_{i=0}^{|Q|-1}W(q_i))\cap S$;
+      \State $q \gets$ randomly select a vertex from $Q$;
+      \State run {\tt Dec} with $q$, $k$, and $S'$;
+      \State output target ACs which contain $Q$;
+    \EndFunction
+\end{algorithmic}}
+\end{algorithm}
+
+} 

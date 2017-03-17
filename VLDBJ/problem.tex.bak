@@ -4,15 +4,6 @@
 We now discuss the attributed graph model, the $k$-core, and the AC.  In the CS and CD literature, most existing works assume that the underlying graph is undirected~\cite{KDD2010,vldb2015,attr-topic-sigmod2012,attr-www2013}.
 We also suppose that an attributed graph $G(V,E)$ is undirected, with vertex set $V$ and edge set $E$. Each vertex $v \in V$ is associated with a set of keywords, $W(v)$. Let $n$ and $m$ be the corresponding sizes of $V$ and $E$. The degree of a vertex $v$ of $G$ is denoted by $deg_G(v)$. Table~\ref{tab:notation} lists the symbols used in the paper.
 
-% Before discussing directed graphs (Jun 6)
-%
-%We now discuss the attributed graph model, the $k$-core, and the AC.
-%An attributed graph $G(V,E)$ is an undirected graph with vertex set $V$ and edge set $E$,
-%and each vertex $v \in V$ is associated with a set of keywords, $W(v)$.
-%Let $n$ and $m$ be the corresponding sizes of $V$ and $E$.
-%The degree of a vertex $v$ of $G$ is denoted by $deg_G(v)$.
-%The main notations used in the paper is shown in Table~\ref{tab:notation}.
-
 \begin{table}[]
   \centering \footnotesize \caption {Symbols and meanings.}
   \label{tab:notation}
@@ -66,7 +57,7 @@ We say that $H_k$ has an order of $k$.  Notice that $H_k$ may not be a connected
 
 \begin{example}
 \label{eg:problem}
-In Figure~\ref{fig:kcoreGraph}, $\{A,B,C,D\}$ is both a 3-core and a 3-$\widehat{core}$. The 1-core has vertices $\{A,B,C,D,E,F,G,H,I\}$, and is composed of two $1$-$\widehat{core}$ components: $\{A,B,C,D,E,F,G\}$ and $\{H,I\}$. The number $k$ in each circle represents the $k$-$\widehat{core}$ contained in that ellipse.
+In Figure~\ref{fig:kcoreGraph}, $\{A,B,C,D\}$ is both a 3-core and a 3-$\widehat{core}$. The 1-core has vertices $\{A,B,C,D,E,F,G,$ $H,I\}$, and is composed of two $1$-$\widehat{core}$ components: $\{A,B,C,D,E,F,G\}$ and $\{H,I\}$. The number $k$ in each circle represents the $k$-$\widehat{core}$ contained in that ellipse.
 \end{example}
 
 Observe that $k$-$core$s are ``nested''~\cite{kcore2003}: given two positive integers $i$ and $j$, if $i<j$, then $H_j \subseteq H_i$.  In Figure~\ref{fig:kcoreGraph}, $H_3$ is contained in $H_2$, which is nested within $H_1$.
@@ -92,17 +83,13 @@ Given a graph $G(V,E)$, a positive integer $k$, a vertex $q \in V$ and a set of 
 \vspace{1ex}
 $\bullet$ \textbf{Connectivity}. $G_q \subseteq G$ is connected and $q\in G_q$;
 
-$\bullet$ \textbf{Structure cohesiveness}. $\forall v\in G_q$, $deg_{G_q}(v)\geq k$;
+$\bullet$ \textbf{Structure cohesiveness}. $\forall$$v\in G_q$, $deg_{G_q}(v)\geq$$k$;
 
 $\bullet$ \textbf{Keyword cohesiveness}. The size of $L(G_q, S)$ is maximal, where $L(G_q, S)=\cap_{v \in G_q}(W(v)\cap S)$ is the set of keywords shared in $S$ by all vertices of $G_q$.%\vspace{1ex}
 \end{problem}
 
 We call $G_q$ the {\it attributed community} (or AC) of $q$, and $L(G_q, S)$ the {\it AC-label} of $G_q$. In Problem~\ref{problem1}, the first two properties are also specified by the $k$-$\widehat{core}$ of a given vertex $q$~\cite{KDD2010}. The {\it keyword cohesiveness} (Property 3), which is unique to Problem~\ref{problem1}, enables the retrieval of communities whose vertices have common keywords in $S$.  We use
 $S$ to impose semantics on the AC produced by Problem~\ref{problem1}. By default, $S=W(q)$, which means that the AC generated should have keywords common to those associated with $q$. If $S \subset W(q)$, it means that the ACQ user is interested in forming communities that are related to some (but not all) of the keywords of $q$. A user interface could be developed to display $W(q)$ to the user, allowing her to include the desired keywords into $S$.  For example, in Figure~\ref{fig:kcoreGraph}, if $q$=$A$, $k$=2 and $S$=$\{w,x,y\}$, the output of Problem~\ref{problem1} is $\{A,C,D\}$, with AC-label $\{x,y\}$, meaning that these vertices share the keywords $x$ and $y$.
-
-% Yixiang
-%We call $G_q$ the {\it attributed community} (or AC) of $q$, and $L(G_q, S)$ the {\it AC-label} of $G_q$. In Problem~\ref{problem1}, the first two properties are also specified by the $k$-$\widehat{core}$ of a given vertex $q$~\cite{KDD2010}. The {\it keyword cohesiveness} (Property 3), which is unique to Problem~\ref{problem1}, enables the retrieval of communities whose vertices have common keywords in $S$. The set $S$ usually needs to be a subset of $W(q)$, and it allows the query users to have more semantic control over the desired communities. Note that if $S$ contains some keywords that are not included by $W(q)$, we can simply remove them from $S$ before answering the query. If we just want to find the communities that are highly related to the query user's context or background, then we can simply set $S$ as $W(q)$. In Figure~\ref{fig:kcoreGraph}, if $q$=$A$, $k$=2 and $S$=$\{w,x,y\}$, the output of Problem~\ref{problem1} is $\{A,C,D\}$, with AC-label $\{x,y\}$ (i.e., these vertices share the keywords $x$ and $y$).
-%
 
 
 We require $L(G_q, S)$ to be maximal in Property 3, because we wish the AC(s) returned only contain(s) the most related vertices, in terms of the number of common keywords. Let us use Figure~\ref{fig:kcoreGraph} to explain why this is important. Using the same query ($q$=$A$,$k$=2,$S$= $\{w,x,y\}$), without the ``maximal'' requirement, we can obtain communities such as $\{A,B,E\}$ (which do not share any keywords), $\{A,B,D\}$, or $\{A,B,C\}$ (which share 1 keyword). Note that there does not exist an AC with AC-label being exactly $\{w$, $x,y\}$.
@@ -113,7 +100,3 @@ If there is no AC whose vertices share one or more keywords
 
 There are other candidates for structure cohesiveness (e.g., $k$-truss, $k$-clique) and  {\it keyword cohesiveness} (e.g., Jaccard similarity and string edit distance). An AC can also be defined in different ways. For example, an ACQ user may specify that an AC returned must have vertices that contain a specific set of keywords.
 An interesting direction is to extend ACQ  to support for these criteria, and study their effectiveness.
-
-
-%Old version: July 12, 2016
-%There are other candidates for structure cohesiveness (e.g., $k$-truss, $k$-clique) and  {\it keyword cohesiveness} (e.g., Jaccard similarity and string edit distance). In our  report~\cite{TR}, we studied a variant of keyword cohesiveness, in which an ACQ user may specify that an AC returned must contain vertices having specific keywords. We also examined its approximate version, where given a threshold $\theta \in [0, 1]$, each vertex in an AC has at least $|S| \times \theta$ keywords in $S$. These variants can be easily supported by our solutions to ACQ. An interesting future work is to compare the use of different structure and keyword cohesiveness definitions in an ACQ. 

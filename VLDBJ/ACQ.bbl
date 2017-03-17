@@ -43,6 +43,10 @@ W.~Fan, X.~Wang, Y.~Wu, and J.~Xu.
 \newblock Association rules with graph patterns.
 \newblock {\em PVLDB}, 8(12):1502--1513, 2015.
 
+\bibitem{fangeffective}
+Y.~Fang, R.~Cheng, X.~Li, S.~Luo, and J.~Hu.
+\newblock Effective community search over large spatial graphs.
+
 \bibitem{fang2014}
 Y.~Fang, H.~Zhang, Y.~Ye, and X.~Li.
 \newblock Detecting hot topics from twitter: A multiview approach.
@@ -132,6 +136,12 @@ M.~Sachan~et al.
 \newblock Using content and interactions for discovering communities in social
   networks.
 \newblock In {\em WWW}, 2012.
+
+\bibitem{sariyuce2016incremental}
+A.~E. Sar{\i}y{\"u}ce, B.~Gedik, G.~Jacques-Silva, K.-L. Wu, and {\"U}.~V.
+  {\c{C}}ataly{\"u}rek.
+\newblock Incremental k-core decomposition: algorithms and evaluation.
+\newblock {\em The VLDB Journal}, 25(3):425--447, 2016.
 
 \bibitem{md1983}
 S.~B. Seidman.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.8)  17 MAR 2017 17:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.8)  17 MAR 2017 21:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -459,19 +459,23 @@ J/ACQ.out)
 \openout3 = `ACQ.out'.
 
 SVJour3 warning: Missing \journalname
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 98.
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 99.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <8.5> not available
-(Font)              size <8> substituted on input line 98.
+(Font)              size <8> substituted on input line 99.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 98.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 99.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8.5> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
-(/Users/chenyankai/GitDefault/VLDBJ/abstract.tex) (/Users/chenyankai/GitDefault
-/VLDBJ/intro.tex
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 99.
+(/Users/chenyankai/GitDefault/VLDBJ/abstract.tex
+Overfull \hbox (0.36966pt too wide) in paragraph at lines 4--5
+\OT1/cmr/m/n/10 ized in-for-ma-tion than that of ex-ist-ing com-mu-nity search
+ []
+
+) (/Users/chenyankai/GitDefault/VLDBJ/intro.tex
 Overfull \hbox (0.6196pt too wide) in paragraph at lines 5--6
 \OT1/cmr/m/n/10 net-works (e.g., Flickr, Face-book, and Twit-ter), the topic
  []
@@ -541,6 +545,9 @@ File: figures/jim2.pdf Graphic file (type pdf)
 <use figures/jim2.pdf>
 Package pdftex.def Info: figures/jim2.pdf used on input line 74.
 (pdftex.def)             Requested size: 103.23415pt x 65.71104pt.
+
+Underfull \vbox (badness 2393) has occurred while \output is active []
+
 ) (/Users/chenyankai/GitDefault/VLDBJ/related.tex
 Overfull \hbox (1.33926pt too wide) in paragraph at lines 11--13
 \OT1/cmr/m/n/10 els. In [[], []], the \OT1/cmtt/m/n/10 Link-PLSA-LDA \OT1/cmr/m
@@ -564,6 +571,9 @@ Overfull \hbox (1.20314pt too wide) in paragraph at lines 4--6
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 7.
 
@@ -577,7 +587,7 @@ Overfull \hbox (34.04897pt too wide) in paragraph at lines 11--28
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/kcore
 Graph.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> a
 llowed
-<figures/kcoreGraph.pdf, id=695, 236.51964pt x 135.0144pt>
+<figures/kcoreGraph.pdf, id=694, 236.51964pt x 135.0144pt>
 File: figures/kcoreGraph.pdf Graphic file (type pdf)
 <use figures/kcoreGraph.pdf>
 Package pdftex.def Info: figures/kcoreGraph.pdf used on input line 54.
@@ -587,21 +597,21 @@ Package pdftex.def Info: figures/kcoreGraph.pdf used on input line 54.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/kcore
 Table.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> a
 llowed
-<figures/kcoreTable.pdf, id=696, 192.89465pt x 120.35966pt>
+<figures/kcoreTable.pdf, id=695, 192.89465pt x 120.35966pt>
 File: figures/kcoreTable.pdf Graphic file (type pdf)
 <use figures/kcoreTable.pdf>
 Package pdftex.def Info: figures/kcoreTable.pdf used on input line 54.
 (pdftex.def)             Requested size: 95.5842pt x 59.64157pt.
 
-Overfull \hbox (34.21928pt too wide) in paragraph at lines 60--61
+Overfull \hbox (6.58049pt too wide) in paragraph at lines 60--61
 \OT1/cmr/m/n/10 and a 3-$[]$. The 1-core has ver-tices $\OMS/cmsy/m/n/10 f\OML/
-cmm/m/it/10 A; B; C; D; E; F; G; H; I\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 ,
+cmm/m/it/10 A; B; C; D; E; F; G;$
  []
 
 
-Overfull \hbox (37.69174pt too wide) in paragraph at lines 60--61
-\OT1/cmr/m/n/10 and is com-posed of two $1$-$[]$ com-po-nents: $\OMS/cmsy/m/n/1
-0 f\OML/cmm/m/it/10 A; B; C; D; E; F; G\OMS/cmsy/m/n/10 g$
+Overfull \hbox (3.04883pt too wide) in paragraph at lines 60--61
+\OML/cmm/m/it/10 H; I\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 , and is com-posed of t
+wo $1$-$[]$ com-po-nents: $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 A; B;$
  []
 
 [4 </Users/chenyankai/GitDefault/VLDBJ/figures/kcoreGraph.pdf> </Users/chenyank
@@ -617,19 +627,19 @@ m/n/10 1$ sub-graphs (\OT1/cmr/m/it/10 i.e.\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10
 G[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 ]$).
  []
 
-
+[5]
 Overfull \hbox (0.63254pt too wide) in paragraph at lines 37--38
 []$\OMS/cmsy/m/n/10 ^^O$ \OT1/cmr/bx/n/10 Can-di-date gen-er-a-tion. \OT1/cmr/m
 /n/10 For any two cur-rent size-
  []
 
-[5]) (/Users/chenyankai/GitDefault/VLDBJ/index.tex (/Users/chenyankai/GitDefaul
-t/VLDBJ/indexIntro.tex
+) (/Users/chenyankai/GitDefault/VLDBJ/index.tex (/Users/chenyankai/GitDefault/V
+LDBJ/indexIntro.tex
 
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/uck-t
 ree.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> all
 owed
-<figures/uck-tree.pdf, id=1800, 178.70464pt x 201.05113pt>
+<figures/uck-tree.pdf, id=1802, 178.70464pt x 201.05113pt>
 File: figures/uck-tree.pdf Graphic file (type pdf)
 <use figures/uck-tree.pdf>
 Package pdftex.def Info: figures/uck-tree.pdf used on input line 34.
@@ -639,7 +649,7 @@ Package pdftex.def Info: figures/uck-tree.pdf used on input line 34.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/ck-tr
 ee.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allo
 wed
-<figures/ck-tree.pdf, id=1801, 224.25482pt x 203.67091pt>
+<figures/ck-tree.pdf, id=1803, 224.25482pt x 203.67091pt>
 File: figures/ck-tree.pdf Graphic file (type pdf)
 <use figures/ck-tree.pdf>
 Package pdftex.def Info: figures/ck-tree.pdf used on input line 34.
@@ -662,205 +672,47 @@ LaTeX Warning: Command \textgreater invalid in math mode on input line 53.
 
 LaTeX Warning: Command \textgreater invalid in math mode on input line 53.
 
-
-Overfull \hbox (13.17145pt too wide) in paragraph at lines 72--75
-[]\OT1/cmr/bx/n/10 Remarks. \OT1/cmr/m/n/10 The CL-tree can also sup-port $\OML
-/cmm/m/it/10 k$\OT1/cmr/m/n/10 -$[]$ queries
- []
-
-) (/Users/chenyankai/GitDefault/VLDBJ/indexBuild.tex [6 </Users/chenyankai/GitD
-efault/VLDBJ/figures/uck-tree.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/
-ck-tree.pdf
+[6 </Users/chenyankai/GitDefault/VLDBJ/figures/uck-tree.pdf> </Users/chenyankai
+/GitDefault/VLDBJ/figures/ck-tree.pdf
 
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/ck-tr
 ee.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
+Overfull \hbox (13.17145pt too wide) in paragraph at lines 70--73
+[]\OT1/cmr/bx/n/10 Remarks. \OT1/cmr/m/n/10 The CL-tree can also sup-port $\OML
+/cmm/m/it/10 k$\OT1/cmr/m/n/10 -$[]$ queries
+ []
+
+) (/Users/chenyankai/GitDefault/VLDBJ/indexBuild.tex
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 17.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [7]
 Overfull \hbox (1.20291pt too wide) in paragraph at lines 93--101
 \OT1/cmr/m/n/10 should link to the tree node con-tain-ing the ver-tex, whose
  []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8]
 
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/advan
 cedIndex.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5
 > allowed
-<figures/advancedIndex.pdf, id=2858, 468.83356pt x 285.39926pt>
+<figures/advancedIndex.pdf, id=2860, 468.83356pt x 285.39926pt>
 File: figures/advancedIndex.pdf Graphic file (type pdf)
 <use figures/advancedIndex.pdf>
-Package pdftex.def Info: figures/advancedIndex.pdf used on input line 226.
-(pdftex.def)             Requested size: 203.121pt x 123.64687pt.
-) (/Users/chenyankai/GitDefault/VLDBJ/indexMaintenance.tex
-Overfull \hbox (9.36913pt too wide) in paragraph at lines 21--21
-[]\OT1/cmr/m/n/10 Recall in the \OT1/cmtt/m/n/10 Advanced \OT1/cmr/m/n/10 in-de
-x con-struc-tion method(Sec
- []
-
-(/Users/chenyankai/GitDefault/VLDBJ/insertEdge.tex
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/moved
-ownExmp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
- allowed
-<figures/movedownExmp.pdf, id=2865, 256.95198pt x 331.45833pt>
-File: figures/movedownExmp.pdf Graphic file (type pdf)
-<use figures/movedownExmp.pdf>
-Package pdftex.def Info: figures/movedownExmp.pdf used on input line 24.
-(pdftex.def)             Requested size: 95.5842pt x 123.3002pt.
-
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/conne
-ctiveExmp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.
-5> allowed
-<figures/connectiveExmp.pdf, id=2866, 298.60861pt x 376.46648pt>
-File: figures/connectiveExmp.pdf Graphic file (type pdf)
-<use figures/connectiveExmp.pdf>
-Package pdftex.def Info: figures/connectiveExmp.pdf used on input line 24.
-(pdftex.def)             Requested size: 95.5842pt x 120.5062pt.
-
-Overfull \hbox (0.59167pt too wide) in paragraph at lines 29--32
-\OT1/cmr/m/n/10 is that, we first find ver-tices whose core num-bers change,
- []
-
-[9 </Users/chenyankai/GitDefault/VLDBJ/figures/advancedIndex.pdf> </Users/cheny
-ankai/GitDefault/VLDBJ/figures/movedownExmp.pdf
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/moved
-ownExmp.pdf): PDF inclusion: multiple pdfs with page group included in a single
- page
-> </Users/chenyankai/GitDefault/VLDBJ/figures/connectiveExmp.pdf
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/conne
-ctiveExmp.pdf): PDF inclusion: multiple pdfs with page group included in a sing
-le page
->]
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/moved
-ownEmp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> 
-allowed
-<figures/movedownEmp.pdf, id=4348, 689.85341pt x 617.58733pt>
-File: figures/movedownEmp.pdf Graphic file (type pdf)
-<use figures/movedownEmp.pdf>
-Package pdftex.def Info: figures/movedownEmp.pdf used on input line 77.
-(pdftex.def)             Requested size: 248.52113pt x 222.48204pt.
-
-Overfull \hbox (9.55696pt too wide) in paragraph at lines 77--78
- [][] 
- []
-
-
-LaTeX Warning: Command \textgreater invalid in math mode on input line 98.
-
-
-LaTeX Warning: Command \textgreater invalid in math mode on input line 98.
-
-
-LaTeX Warning: Command \textgreater invalid in math mode on input line 159.
-
-
-LaTeX Warning: Command \textgreater invalid in math mode on input line 159.
-
-
-Overfull \hbox (4.17058pt too wide) in paragraph at lines 156--166
-\OMS/cmsy/m/n/10 8$$\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 V[]$
-\OT1/cmr/m/n/10 , we enu-mer-ate $\OML/cmm/m/it/10 a$\OT1/cmr/m/n/10 's neigh-b
-or $\OML/cmm/m/it/10 b$ \OT1/cmr/m/n/10 whose $\OML/cmm/m/it/10 core[]\OT1/cmr/
-m/n/10 [\OML/cmm/m/it/10 b\OT1/cmr/m/n/10 ]$$[]$$\OML/cmm/m/it/10 c$\OT1/cmr/m/
-n/10 ,
- []
-
-
-Overfull \hbox (2.33154pt too wide) in paragraph at lines 172--175
-\OT1/cmr/m/n/10 cor-re-spond to the $\OML/cmm/m/it/10 k$\OT1/cmr/m/n/10 -$[]$s 
-con-tain-ing $\OML/cmm/m/it/10 G$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 I$ \OT1
-/cmr/m/n/10 are merged
- []
-
-[10 </Users/chenyankai/GitDefault/VLDBJ/figures/movedownEmp.pdf>]
-Overfull \hbox (4.39674pt too wide) in paragraph at lines 217--227
-[]\OT1/cmr/m/n/10 Algorithm []4[] presents the over-all steps of \OT1/cmtt/m/n/
-10 insertEdge\OT1/cmr/m/n/10 .
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (/Users/chenyankai/GitDefault/VLDBJ/deleteEdge.tex
-Overfull \hbox (6.50128pt too wide) in paragraph at lines 54--64
-\OMS/cmsy/m/n/10 ^^T$$\OML/cmm/m/it/10 core[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 
-v\OT1/cmr/m/n/10 ]$; or the node con-tain-ing $\OML/cmm/m/it/10 v$ \OT1/cmr/m/n
-/10 if $\OML/cmm/m/it/10 core[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 v\OT1/cmr/m/n/
-10 ]$$\OML/cmm/m/it/10 <$$core[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 u\OT1/cmr/m/n
-/10 ]$.
- []
-
-[11]
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/trace
-Child.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> a
-llowed
-<figures/traceChild.pdf, id=4878, 400.8074pt x 139.71196pt>
-File: figures/traceChild.pdf Graphic file (type pdf)
-<use figures/traceChild.pdf>
-Package pdftex.def Info: figures/traceChild.pdf used on input line 70.
-(pdftex.def)             Requested size: 191.17206pt x 66.63887pt.
-
-LaTeX Warning: Command \textgreater invalid in math mode on input line 87.
-
-
-LaTeX Warning: Command \textgreater invalid in math mode on input line 87.
-
-
-Overfull \hbox (8.96318pt too wide) in paragraph at lines 85--91
-\OT1/cmr/m/n/10 map. Specif-i-cally, we con-sider each ver-tex $\OML/cmm/m/it/1
-0 a$$\OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 p:vertexSet$\OT1/cmr/m/n/10 .
- []
-
-
-Overfull \hbox (3.12184pt too wide) in paragraph at lines 100--104
-[]\OT1/cmr/m/n/10 Essentially, each group cor-re-sponds to a $\OML/cmm/m/it/10 
-k$\OT1/cmr/m/n/10 -$[]$. Since
- []
-
-
-Overfull \hbox (2.0362pt too wide) in paragraph at lines 109--111
-[]\OT1/cmr/m/n/10 Clearly, the split-ting pro-cess is re-cur-sively per-formed
- []
-
-
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/steps
-.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowe
-d
-<figures/steps.pdf, id=4881, 662.60146pt x 233.56963pt>
-File: figures/steps.pdf Graphic file (type pdf)
-<use figures/steps.pdf>
-Package pdftex.def Info: figures/steps.pdf used on input line 114.
-(pdftex.def)             Requested size: 238.96417pt x 84.23468pt.
-
-Underfull \vbox (badness 3291) has occurred while \output is active []
-
-[12 </Users/chenyankai/GitDefault/VLDBJ/figures/traceChild.pdf> </Users/chenyan
-kai/GitDefault/VLDBJ/figures/steps.pdf
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/steps
-.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]))) (/Users/chenyankai/GitDefault/VLDBJ/query.tex (/Users/chenyankai/GitDefau
-lt/VLDBJ/query1.tex
-Underfull \vbox (badness 7099) has occurred while \output is active []
-
-
+Package pdftex.def Info: figures/advancedIndex.pdf used on input line 227.
+(pdftex.def)             Requested size: 210.28963pt x 128.0104pt.
+)) (/Users/chenyankai/GitDefault/VLDBJ/query.tex (/Users/chenyankai/GitDefault/
+VLDBJ/query1.tex
 Overfull \hbox (1.1693pt too wide) in paragraph at lines 21--23
 \OT1/cmr/m/n/10 and \OT1/cmr/m/it/10 can-di-date gen-er-a-tion\OT1/cmr/m/n/10 )
  in-tro-duced in Sec-tion []4[]. With
  []
 
-
+[9 </Users/chenyankai/GitDefault/VLDBJ/figures/advancedIndex.pdf>]
 Overfull \hbox (3.78278pt too wide) in paragraph at lines 42--44
 []\OT1/cmr/m/it/10 Given a con-nected graph $\OML/cmm/m/it/10 G\OT1/cmr/m/n/10 
 (\OML/cmm/m/it/10 V; E\OT1/cmr/m/n/10 )$ \OT1/cmr/m/it/10 with $\OML/cmm/m/it/1
@@ -891,7 +743,6 @@ LaTeX Warning: Command \textgreater invalid in math mode on input line 56.
 
 LaTeX Warning: Command \textgreater invalid in math mode on input line 56.
 
-[13]
 
 LaTeX Warning: Command \textless invalid in math mode on input line 79.
 
@@ -938,12 +789,15 @@ LaTeX Warning: Command \textgreater invalid in math mode on input line 94.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (/Users/chenyankai/GitDefault/VLDBJ/query2.tex [14]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10]) (/Users/chenyankai/GitDefault/VLDBJ/query2.tex
 
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/nghGr
 aph.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> all
 owed
-<figures/nghGraph.pdf, id=6025, 186.14905pt x 81.46837pt>
+<figures/nghGraph.pdf, id=3434, 186.14905pt x 81.46837pt>
 File: figures/nghGraph.pdf Graphic file (type pdf)
 <use figures/nghGraph.pdf>
 Package pdftex.def Info: figures/nghGraph.pdf used on input line 41.
@@ -953,43 +807,188 @@ Package pdftex.def Info: figures/nghGraph.pdf used on input line 41.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/nghCa
 nd.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allo
 wed
-<figures/nghCand.pdf, id=6026, 124.93275pt x 78.22424pt>
+<figures/nghCand.pdf, id=3435, 124.93275pt x 78.22424pt>
 File: figures/nghCand.pdf Graphic file (type pdf)
 <use figures/nghCand.pdf>
 Package pdftex.def Info: figures/nghCand.pdf used on input line 41.
 (pdftex.def)             Requested size: 81.24693pt x 50.8714pt.
 
-Overfull \hbox (20.86024pt too wide) in paragraph at lines 45--49
+Overfull \hbox (15.74916pt too wide) in paragraph at lines 45--49
 []\OT1/cmr/m/n/10 Consider a query ver-tex $\OML/cmm/m/it/10 Q$ \OT1/cmr/m/n/10
  ($\OML/cmm/m/it/10 k$\OT1/cmr/m/n/10 =3, $\OML/cmm/m/it/10 S$\OT1/cmr/m/n/10 =
 $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 v; x; y; z\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/1
 0 )
  []
 
-)) (/Users/chenyankai/GitDefault/VLDBJ/ACQvariant.tex
-Underfull \vbox (badness 2057) has occurred while \output is active []
-
-[15 </Users/chenyankai/GitDefault/VLDBJ/figures/nghGraph.pdf> </Users/chenyanka
-i/GitDefault/VLDBJ/figures/nghCand.pdf
+)) [11 </Users/chenyankai/GitDefault/VLDBJ/figures/nghGraph.pdf> </Users/chenya
+nkai/GitDefault/VLDBJ/figures/nghCand.pdf
 
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/nghCa
 nd.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
+>] (/Users/chenyankai/GitDefault/VLDBJ/indexMaintenance.tex
+Overfull \hbox (1.06296pt too wide) in paragraph at lines 5--11
+\OT1/cmr/m/n/10 sults also need to be up-dated. A straight-for-ward method
+ []
+
+(/Users/chenyankai/GitDefault/VLDBJ/insertEdge.tex
+
+pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/moved
+ownExmp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
+ allowed
+<figures/movedownExmp.pdf, id=3711, 256.95198pt x 331.45833pt>
+File: figures/movedownExmp.pdf Graphic file (type pdf)
+<use figures/movedownExmp.pdf>
+Package pdftex.def Info: figures/movedownExmp.pdf used on input line 24.
+(pdftex.def)             Requested size: 95.5842pt x 123.3002pt.
+
+
+pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/conne
+ctiveExmp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.
+5> allowed
+<figures/connectiveExmp.pdf, id=3712, 298.60861pt x 376.46648pt>
+File: figures/connectiveExmp.pdf Graphic file (type pdf)
+<use figures/connectiveExmp.pdf>
+Package pdftex.def Info: figures/connectiveExmp.pdf used on input line 24.
+(pdftex.def)             Requested size: 95.5842pt x 120.5062pt.
+
+Overfull \hbox (0.59167pt too wide) in paragraph at lines 29--32
+\OT1/cmr/m/n/10 is that, we first find ver-tices whose core num-bers change,
+ []
+
+[12 </Users/chenyankai/GitDefault/VLDBJ/figures/movedownExmp.pdf> </Users/cheny
+ankai/GitDefault/VLDBJ/figures/connectiveExmp.pdf
+
+pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/conne
+ctiveExmp.pdf): PDF inclusion: multiple pdfs with page group included in a sing
+le page
 >]
-Overfull \hbox (0.94499pt too wide) in paragraph at lines 24--28
-\OT1/cmr/m/n/10 the thresh-old is $50%$, then the ver-tex set $\OMS/cmsy/m/n/10
- f\OML/cmm/m/it/10 A; B; C; D; E\OMS/cmsy/m/n/10 g$
+
+pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/moved
+ownEmp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> 
+allowed
+<figures/movedownEmp.pdf, id=4676, 689.85341pt x 617.58733pt>
+File: figures/movedownEmp.pdf Graphic file (type pdf)
+<use figures/movedownEmp.pdf>
+Package pdftex.def Info: figures/movedownEmp.pdf used on input line 77.
+(pdftex.def)             Requested size: 248.52113pt x 222.48204pt.
+
+Overfull \hbox (9.55696pt too wide) in paragraph at lines 77--78
+ [][] 
  []
 
 
-Overfull \hbox (3.2437pt too wide) in paragraph at lines 36--42
-\OT1/cmr/m/n/10 at least $\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 S\OMS/cmsy/m/n/10 
-j ^^B \OML/cmm/m/it/10 ^^R$ \OT1/cmr/m/n/10 key-words by ap-ply-ing \OT1/cmtt/m
-/n/10 keyword-checking\OT1/cmr/m/n/10 .
+LaTeX Warning: Command \textgreater invalid in math mode on input line 98.
+
+
+LaTeX Warning: Command \textgreater invalid in math mode on input line 98.
+
+
+LaTeX Warning: Command \textgreater invalid in math mode on input line 159.
+
+
+LaTeX Warning: Command \textgreater invalid in math mode on input line 159.
+
+
+Overfull \hbox (4.17058pt too wide) in paragraph at lines 156--166
+\OMS/cmsy/m/n/10 8$$\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 V[]$
+\OT1/cmr/m/n/10 , we enu-mer-ate $\OML/cmm/m/it/10 a$\OT1/cmr/m/n/10 's neigh-b
+or $\OML/cmm/m/it/10 b$ \OT1/cmr/m/n/10 whose $\OML/cmm/m/it/10 core[]\OT1/cmr/
+m/n/10 [\OML/cmm/m/it/10 b\OT1/cmr/m/n/10 ]$$[]$$\OML/cmm/m/it/10 c$\OT1/cmr/m/
+n/10 ,
+ []
+
+
+Overfull \hbox (2.33154pt too wide) in paragraph at lines 172--175
+\OT1/cmr/m/n/10 cor-re-spond to the $\OML/cmm/m/it/10 k$\OT1/cmr/m/n/10 -$[]$s 
+con-tain-ing $\OML/cmm/m/it/10 G$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 I$ \OT1
+/cmr/m/n/10 are merged
+ []
+
+[13 </Users/chenyankai/GitDefault/VLDBJ/figures/movedownEmp.pdf>]
+Overfull \hbox (4.39674pt too wide) in paragraph at lines 217--227
+[]\OT1/cmr/m/n/10 Algorithm []7[] presents the over-all steps of \OT1/cmtt/m/n/
+10 insertEdge\OT1/cmr/m/n/10 .
+ []
+
+) (/Users/chenyankai/GitDefault/VLDBJ/deleteEdge.tex
+
+pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/trace
+Child.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> a
+llowed
+<figures/traceChild.pdf, id=5195, 387.62918pt x 134.46236pt>
+File: figures/traceChild.pdf Graphic file (type pdf)
+<use figures/traceChild.pdf>
+Package pdftex.def Info: figures/traceChild.pdf used on input line 44.
+(pdftex.def)             Requested size: 191.17206pt x 66.31387pt.
+
+LaTeX Warning: Command \textgreater invalid in math mode on input line 61.
+
+
+LaTeX Warning: Command \textgreater invalid in math mode on input line 61.
+
+
+Overfull \hbox (8.96318pt too wide) in paragraph at lines 59--65
+\OT1/cmr/m/n/10 map. Specif-i-cally, we con-sider each ver-tex $\OML/cmm/m/it/1
+0 a$$\OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 p:vertexSet$\OT1/cmr/m/n/10 .
+ []
+
+[14 </Users/chenyankai/GitDefault/VLDBJ/figures/traceChild.pdf>]
+Overfull \hbox (3.12184pt too wide) in paragraph at lines 72--76
+[]\OT1/cmr/m/n/10 Essentially, each group cor-re-sponds to a $\OML/cmm/m/it/10 
+k$\OT1/cmr/m/n/10 -$[]$. Since
+ []
+
+
+Overfull \hbox (2.0362pt too wide) in paragraph at lines 81--83
+[]\OT1/cmr/m/n/10 Clearly, the split-ting pro-cess is re-cur-sively per-formed
+ []
+
+
+
+pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/steps
+.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowe
+d
+<figures/steps.pdf, id=5765, 662.60146pt x 233.56963pt>
+File: figures/steps.pdf Graphic file (type pdf)
+<use figures/steps.pdf>
+Package pdftex.def Info: figures/steps.pdf used on input line 86.
+(pdftex.def)             Requested size: 238.96417pt x 84.23468pt.
+
+Overfull \hbox (2.7025pt too wide) in paragraph at lines 93--99
+[]\OT1/cmr/m/n/10 Consider the graph in Fig-ure []7(b)[]. We show
+ []
+
+
+Overfull \hbox (3.82799pt too wide) in paragraph at lines 149--156
+\OT1/cmr/m/n/10 tices of $\OML/cmm/m/it/10 V[]$ \OT1/cmr/m/n/10 (lines 5,9,13).
+ In $\OML/cmm/m/it/10 p[]:coreNum$ \OT1/cmr/m/n/10 = $\OML/cmm/m/it/10 p[]:core
+Num$
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
+
+)) (/Users/chenyankai/GitDefault/VLDBJ/variant.tex [15 </Users/chenyankai/GitDe
+fault/VLDBJ/figures/steps.pdf>]
+Overfull \hbox (10.28697pt too wide) in paragraph at lines 31--33
+[]\OT1/cmr/m/n/10 In Fig-ure []3(a)[], let $\OML/cmm/m/it/10 q$\OT1/cmr/m/n/10 
+=$\OML/cmm/m/it/10 A$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 k$\OT1/cmr/m/n/10 =
+2. If $\OML/cmm/m/it/10 S$\OT1/cmr/m/n/10 =$\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 
+x; y\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 ,
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (4.04834pt too wide) in paragraph at lines 75--76
+[]$\OMS/cmsy/m/n/10 ^^O$ \OT1/cmr/bx/it/10 Struc-ture co-he-sive-ness\OT1/cmr/m
+/it/10 . $\OMS/cmsy/m/n/10 8$$\OML/cmm/m/it/10 v \OMS/cmsy/m/n/10 2 \OML/cmm/m/
+it/10 G[]$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 deg[]\OT1/cmr/m/n/10 (\OML/cmm/m
+/it/10 v\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^U$$\OML/cmm/m/it/10 k$\OT1/cmr/m/i
+t/10 ; 
+ []
 
 ) (/Users/chenyankai/GitDefault/VLDBJ/experiment.tex
 Overfull \hbox (0.45282pt too wide) in paragraph at lines 4--5
@@ -1003,9 +1002,19 @@ Overfull \hbox (2.7861pt too wide) in paragraph at lines 4--5
 .2[]
  []
 
-(/Users/chenyankai/GitDefault/VLDBJ/setup.tex [16]
-Overfull \hbox (11.31152pt too wide) in paragraph at lines 12--29
- [][] 
+(/Users/chenyankai/GitDefault/VLDBJ/setup.tex
+Overfull \hbox (3.03625pt too wide) in paragraph at lines 4--10
+\OT1/cmr/m/n/10 (Flickr, DBLP, Ten-cent, and DB-pe-dia) are static graphs.
+ []
+
+[16]
+Overfull \hbox (8.9807pt too wide) in paragraph at lines 12--19
+[]\OT1/cmr/m/n/10 The re-main-ing two datasets (DFlickr and Youtube [[],
+ []
+
+
+Overfull \hbox (1.34175pt too wide) in paragraph at lines 12--19
+\OT1/cmr/m/n/10 works on Flickr and Youtube web-sites re-spec-tively. Each
  []
 
 ) (/Users/chenyankai/GitDefault/VLDBJ/effectiveness.tex
@@ -1016,6 +1025,7 @@ Overfull \hbox (0.84062pt too wide) in paragraph at lines 9--11
 
 LaTeX Font Warning: Command \small invalid in math mode on input line 16.
 
+[17]
 
 LaTeX Font Warning: Command \small invalid in math mode on input line 25.
 
@@ -1025,12 +1035,12 @@ $\OML/cmm/m/it/10 CPJ\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 (\OML/c
 mm/m/it/10 q\OT1/cmr/m/n/10 )) = [] [] []$  
  []
 
-[17]
+
 
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/cmf-s
 hare.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
 lowed
-<figures/cmf-share.pdf, id=6367, 230.93578pt x 162.27928pt>
+<figures/cmf-share.pdf, id=6409, 230.93578pt x 162.27928pt>
 File: figures/cmf-share.pdf Graphic file (type pdf)
 <use figures/cmf-share.pdf>
 Package pdftex.def Info: figures/cmf-share.pdf used on input line 47.
@@ -1040,7 +1050,7 @@ Package pdftex.def Info: figures/cmf-share.pdf used on input line 47.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/cpj-s
 hare.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
 lowed
-<figures/cpj-share.pdf, id=6368, 229.95009pt x 161.95004pt>
+<figures/cpj-share.pdf, id=6410, 229.95009pt x 161.95004pt>
 File: figures/cpj-share.pdf Graphic file (type pdf)
 <use figures/cpj-share.pdf>
 Package pdftex.def Info: figures/cpj-share.pdf used on input line 47.
@@ -1054,17 +1064,17 @@ Overfull \hbox (6.06299pt too wide) in paragraph at lines 52--54
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 59.
 
-<figures/cmfCOD.pdf, id=6379, 231.92046pt x 161.62183pt>
+<figures/cmfCOD.pdf, id=6421, 231.92046pt x 161.62183pt>
 File: figures/cmfCOD.pdf Graphic file (type pdf)
 <use figures/cmfCOD.pdf>
 Package pdftex.def Info: figures/cmfCOD.pdf used on input line 63.
 (pdftex.def)             Requested size: 95.3169pt x 66.42566pt.
-<figures/cpjCOD.pdf, id=6380, 232.57791pt x 160.63612pt>
+<figures/cpjCOD.pdf, id=6422, 232.57791pt x 160.63612pt>
 File: figures/cpjCOD.pdf Graphic file (type pdf)
 <use figures/cpjCOD.pdf>
 Package pdftex.def Info: figures/cpjCOD.pdf used on input line 67.
 (pdftex.def)             Requested size: 95.3169pt x 65.83426pt.
-<figures/avgDegCOD.pdf, id=6381, 231.263pt x 157.02264pt>
+<figures/avgDegCOD.pdf, id=6423, 231.263pt x 157.02264pt>
 File: figures/avgDegCOD.pdf Graphic file (type pdf)
 <use figures/avgDegCOD.pdf>
 Package pdftex.def Info: figures/avgDegCOD.pdf used on input line 76.
@@ -1074,7 +1084,7 @@ Package pdftex.def Info: figures/avgDegCOD.pdf used on input line 76.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/deg6C
 OD.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allo
 wed
-<figures/deg6COD.pdf, id=6382, 308.47485pt x 208.11879pt>
+<figures/deg6COD.pdf, id=6424, 308.47485pt x 208.11879pt>
 File: figures/deg6COD.pdf Graphic file (type pdf)
 <use figures/deg6COD.pdf>
 Package pdftex.def Info: figures/deg6COD.pdf used on input line 80.
@@ -1090,12 +1100,12 @@ Overfull \hbox (2.397pt too wide) in paragraph at lines 92--95
 Global \OT1/cmr/m/n/10 [[]]
  []
 
-<figures/cmf.pdf, id=6388, 230.93578pt x 162.93674pt>
+<figures/cmf.pdf, id=6430, 230.93578pt x 162.93674pt>
 File: figures/cmf.pdf Graphic file (type pdf)
 <use figures/cmf.pdf>
 Package pdftex.def Info: figures/cmf.pdf used on input line 108.
 (pdftex.def)             Requested size: 95.5842pt x 67.44095pt.
-<figures/cpj.pdf, id=6389, 231.263pt x 163.59317pt>
+<figures/cpj.pdf, id=6431, 231.263pt x 163.59317pt>
 File: figures/cpj.pdf Graphic file (type pdf)
 <use figures/cpj.pdf>
 Package pdftex.def Info: figures/cpj.pdf used on input line 108.
@@ -1104,6 +1114,9 @@ Package pdftex.def Info: figures/cpj.pdf used on input line 108.
 Overfull \hbox (10.84166pt too wide) in paragraph at lines 116--118
 \OT1/cmr/m/n/10 in which we con-sider two renowned re-searchers in database
  []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [18 </Users/chenyankai/GitDefault/VLDBJ/figures/cmf-share.pdf> </Users/chenyank
 ai/GitDefault/VLDBJ/figures/cpj-share.pdf> </Users/chenyankai/GitDefault/VLDBJ/
@@ -1115,7 +1128,7 @@ mf.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/cpj.pdf>]
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/jiawe
 i1.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allo
 wed
-<figures/jiawei1.pdf, id=6434, 262.69542pt x 153.3178pt>
+<figures/jiawei1.pdf, id=6475, 262.69542pt x 153.3178pt>
 File: figures/jiawei1.pdf Graphic file (type pdf)
 <use figures/jiawei1.pdf>
 Package pdftex.def Info: figures/jiawei1.pdf used on input line 136.
@@ -1125,17 +1138,17 @@ Package pdftex.def Info: figures/jiawei1.pdf used on input line 136.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/jiawe
 i2.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allo
 wed
-<figures/jiawei2.pdf, id=6435, 263.45726pt x 156.36417pt>
+<figures/jiawei2.pdf, id=6476, 263.45726pt x 156.36417pt>
 File: figures/jiawei2.pdf Graphic file (type pdf)
 <use figures/jiawei2.pdf>
 Package pdftex.def Info: figures/jiawei2.pdf used on input line 136.
 (pdftex.def)             Requested size: 95.5842pt x 56.73006pt.
-<figures/jim-mf.pdf, id=6436, 231.92046pt x 159.65144pt>
+<figures/jim-mf.pdf, id=6477, 231.92046pt x 159.65144pt>
 File: figures/jim-mf.pdf Graphic file (type pdf)
 <use figures/jim-mf.pdf>
 Package pdftex.def Info: figures/jim-mf.pdf used on input line 153.
 (pdftex.def)             Requested size: 95.5842pt x 65.79855pt.
-<figures/jiawei-mf.pdf, id=6437, 231.92046pt x 159.97969pt>
+<figures/jiawei-mf.pdf, id=6478, 231.92046pt x 159.97969pt>
 File: figures/jiawei-mf.pdf Graphic file (type pdf)
 <use figures/jiawei-mf.pdf>
 Package pdftex.def Info: figures/jiawei-mf.pdf used on input line 153.
@@ -1150,12 +1163,20 @@ Overfull \hbox (13.70209pt too wide) in paragraph at lines 205--218
  [][] 
  []
 
-<figures/jim-size.pdf, id=6443, 230.60654pt x 163.92142pt>
+[19 </Users/chenyankai/GitDefault/VLDBJ/figures/jiawei1.pdf> </Users/chenyankai
+/GitDefault/VLDBJ/figures/jiawei2.pdf
+
+pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/jiawe
+i2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+
+> </Users/chenyankai/GitDefault/VLDBJ/figures/jim-mf.pdf> </Users/chenyankai/Gi
+tDefault/VLDBJ/figures/jiawei-mf.pdf>] <figures/jim-size.pdf, id=6770, 230.6065
+4pt x 163.92142pt>
 File: figures/jim-size.pdf Graphic file (type pdf)
 <use figures/jim-size.pdf>
 Package pdftex.def Info: figures/jim-size.pdf used on input line 236.
 (pdftex.def)             Requested size: 95.5842pt x 67.94357pt.
-<figures/jiawei-size.pdf, id=6444, 229.62086pt x 162.6075pt>
+<figures/jiawei-size.pdf, id=6771, 229.62086pt x 162.6075pt>
 File: figures/jiawei-size.pdf Graphic file (type pdf)
 <use figures/jiawei-size.pdf>
 Package pdftex.def Info: figures/jiawei-size.pdf used on input line 236.
@@ -1165,7 +1186,7 @@ Package pdftex.def Info: figures/jiawei-size.pdf used on input line 236.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/flick
 r-index.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
  allowed
-<figures/flickr-index.pdf, id=6445, 231.9034pt x 187.59084pt>
+<figures/flickr-index.pdf, id=6772, 231.9034pt x 187.59084pt>
 File: figures/flickr-index.pdf Graphic file (type pdf)
 <use figures/flickr-index.pdf>
 Package pdftex.def Info: figures/flickr-index.pdf used on input line 9.
@@ -1175,7 +1196,7 @@ Package pdftex.def Info: figures/flickr-index.pdf used on input line 9.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dblp-
 index.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> a
 llowed
-<figures/dblp-index.pdf, id=6446, 230.82536pt x 194.47154pt>
+<figures/dblp-index.pdf, id=6773, 230.82536pt x 194.47154pt>
 File: figures/dblp-index.pdf Graphic file (type pdf)
 <use figures/dblp-index.pdf>
 Package pdftex.def Info: figures/dblp-index.pdf used on input line 13.
@@ -1185,7 +1206,7 @@ Package pdftex.def Info: figures/dblp-index.pdf used on input line 13.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/tence
 nt-index.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5
 > allowed
-<figures/tencent-index.pdf, id=6447, 227.96367pt x 194.4836pt>
+<figures/tencent-index.pdf, id=6774, 227.96367pt x 194.4836pt>
 File: figures/tencent-index.pdf Graphic file (type pdf)
 <use figures/tencent-index.pdf>
 Package pdftex.def Info: figures/tencent-index.pdf used on input line 17.
@@ -1195,52 +1216,52 @@ Package pdftex.def Info: figures/tencent-index.pdf used on input line 17.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dbped
 ia-index.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5
 > allowed
-<figures/dbpedia-index.pdf, id=6448, 231.26399pt x 193.8151pt>
+<figures/dbpedia-index.pdf, id=6775, 231.26399pt x 193.8151pt>
 File: figures/dbpedia-index.pdf Graphic file (type pdf)
 <use figures/dbpedia-index.pdf>
 Package pdftex.def Info: figures/dbpedia-index.pdf used on input line 21.
 (pdftex.def)             Requested size: 105.98668pt x 88.82478pt.
-<figures/flickrUpdate.pdf, id=6449, 236.42027pt x 194.50568pt>
+<figures/flickrUpdate.pdf, id=6776, 236.42027pt x 194.50568pt>
 File: figures/flickrUpdate.pdf Graphic file (type pdf)
 <use figures/flickrUpdate.pdf>
 Package pdftex.def Info: figures/flickrUpdate.pdf used on input line 43.
 (pdftex.def)             Requested size: 105.98668pt x 87.1973pt.
-<figures/dblpUpdate.pdf, id=6450, 239.04005pt x 194.50568pt>
+<figures/dblpUpdate.pdf, id=6777, 239.04005pt x 194.50568pt>
 File: figures/dblpUpdate.pdf Graphic file (type pdf)
 <use figures/dblpUpdate.pdf>
 Package pdftex.def Info: figures/dblpUpdate.pdf used on input line 47.
 (pdftex.def)             Requested size: 105.98668pt x 86.23866pt.
-<figures/tencentUpdate.pdf, id=6451, 240.34995pt x 196.47101pt>
+<figures/tencentUpdate.pdf, id=6778, 240.34995pt x 196.47101pt>
 File: figures/tencentUpdate.pdf Graphic file (type pdf)
 <use figures/tencentUpdate.pdf>
 Package pdftex.def Info: figures/tencentUpdate.pdf used on input line 51.
 (pdftex.def)             Requested size: 105.98668pt x 86.63937pt.
-<figures/dbpediaUpdate.pdf, id=6452, 242.96973pt x 195.16113pt>
+<figures/dbpediaUpdate.pdf, id=6779, 242.96973pt x 195.16113pt>
 File: figures/dbpediaUpdate.pdf Graphic file (type pdf)
 <use figures/dbpediaUpdate.pdf>
 Package pdftex.def Info: figures/dbpediaUpdate.pdf used on input line 55.
 (pdftex.def)             Requested size: 105.98668pt x 85.12965pt.
-<figures/flickrMix.pdf, id=6453, 239.80592pt x 198.41428pt>
+<figures/flickrMix.pdf, id=6780, 239.80592pt x 198.41428pt>
 File: figures/flickrMix.pdf Graphic file (type pdf)
 <use figures/flickrMix.pdf>
 Package pdftex.def Info: figures/flickrMix.pdf used on input line 67.
 (pdftex.def)             Requested size: 105.98668pt x 87.69308pt.
-<figures/dblpMix.pdf, id=6454, 243.8962pt x 197.26097pt>
+<figures/dblpMix.pdf, id=6781, 243.8962pt x 197.26097pt>
 File: figures/dblpMix.pdf Graphic file (type pdf)
 <use figures/dblpMix.pdf>
 Package pdftex.def Info: figures/dblpMix.pdf used on input line 71.
 (pdftex.def)             Requested size: 105.98668pt x 85.72054pt.
-<figures/tencentMix.pdf, id=6455, 240.68019pt x 197.79797pt>
+<figures/tencentMix.pdf, id=6782, 240.68019pt x 197.79797pt>
 File: figures/tencentMix.pdf Graphic file (type pdf)
 <use figures/tencentMix.pdf>
 Package pdftex.def Info: figures/tencentMix.pdf used on input line 75.
 (pdftex.def)             Requested size: 105.98668pt x 87.1038pt.
-<figures/dbpediaMix.pdf, id=6456, 239.60817pt x 195.11696pt>
+<figures/dbpediaMix.pdf, id=6783, 239.60817pt x 195.11696pt>
 File: figures/dbpediaMix.pdf Graphic file (type pdf)
 <use figures/dbpediaMix.pdf>
 Package pdftex.def Info: figures/dbpediaMix.pdf used on input line 79.
 (pdftex.def)             Requested size: 105.98668pt x 86.30724pt.
-<figures/DynamicFlickr.pdf, id=6457, 243.3602pt x 195.11696pt>
+<figures/DynamicFlickr.pdf, id=6784, 243.3602pt x 195.11696pt>
 File: figures/DynamicFlickr.pdf Graphic file (type pdf)
 <use figures/DynamicFlickr.pdf>
 Package pdftex.def Info: figures/DynamicFlickr.pdf used on input line 92.
@@ -1250,7 +1271,7 @@ Overfull \hbox (11.38136pt too wide) in paragraph at lines 92--93
 [][] 
  []
 
-<figures/DynamicYoutube.pdf, id=6458, 241.75218pt x 198.86897pt>
+<figures/DynamicYoutube.pdf, id=6785, 241.75218pt x 198.86897pt>
 File: figures/DynamicYoutube.pdf Graphic file (type pdf)
 <use figures/DynamicYoutube.pdf>
 Package pdftex.def Info: figures/DynamicYoutube.pdf used on input line 96.
@@ -1265,7 +1286,7 @@ Overfull \hbox (11.38136pt too wide) in paragraph at lines 96--97
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/flick
 r-comp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> 
 allowed
-<figures/flickr-comp.pdf, id=6459, 230.60654pt x 185.93063pt>
+<figures/flickr-comp.pdf, id=6786, 230.60654pt x 185.93063pt>
 File: figures/flickr-comp.pdf Graphic file (type pdf)
 <use figures/flickr-comp.pdf>
 Package pdftex.def Info: figures/flickr-comp.pdf used on input line 116.
@@ -1275,7 +1296,7 @@ Package pdftex.def Info: figures/flickr-comp.pdf used on input line 116.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dblp-
 comp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
 lowed
-<figures/dblp-comp.pdf, id=6460, 231.41055pt x 181.68277pt>
+<figures/dblp-comp.pdf, id=6787, 231.41055pt x 181.68277pt>
 File: figures/dblp-comp.pdf Graphic file (type pdf)
 <use figures/dblp-comp.pdf>
 Package pdftex.def Info: figures/dblp-comp.pdf used on input line 120.
@@ -1285,7 +1306,7 @@ Package pdftex.def Info: figures/dblp-comp.pdf used on input line 120.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/tence
 nt-comp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
  allowed
-<figures/tencent-comp.pdf, id=6461, 230.93477pt x 185.93063pt>
+<figures/tencent-comp.pdf, id=6788, 230.93477pt x 185.93063pt>
 File: figures/tencent-comp.pdf Graphic file (type pdf)
 <use figures/tencent-comp.pdf>
 Package pdftex.def Info: figures/tencent-comp.pdf used on input line 124.
@@ -1295,7 +1316,7 @@ Package pdftex.def Info: figures/tencent-comp.pdf used on input line 124.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dbped
 ia-comp.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
  allowed
-<figures/dbpedia-comp.pdf, id=6462, 231.50891pt x 184.10884pt>
+<figures/dbpedia-comp.pdf, id=6789, 231.50891pt x 184.10884pt>
 File: figures/dbpedia-comp.pdf Graphic file (type pdf)
 <use figures/dbpedia-comp.pdf>
 Package pdftex.def Info: figures/dbpedia-comp.pdf used on input line 128.
@@ -1305,7 +1326,7 @@ Package pdftex.def Info: figures/dbpedia-comp.pdf used on input line 128.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/flick
 r-k.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> all
 owed
-<figures/flickr-k.pdf, id=6463, 230.93578pt x 190.85805pt>
+<figures/flickr-k.pdf, id=6790, 230.93578pt x 190.85805pt>
 File: figures/flickr-k.pdf Graphic file (type pdf)
 <use figures/flickr-k.pdf>
 Package pdftex.def Info: figures/flickr-k.pdf used on input line 141.
@@ -1315,7 +1336,7 @@ Package pdftex.def Info: figures/flickr-k.pdf used on input line 141.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dblp-
 k.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allow
 ed
-<figures/dblp-k.pdf, id=6464, 231.50891pt x 182.61223pt>
+<figures/dblp-k.pdf, id=6791, 231.50891pt x 182.61223pt>
 File: figures/dblp-k.pdf Graphic file (type pdf)
 <use figures/dblp-k.pdf>
 Package pdftex.def Info: figures/dblp-k.pdf used on input line 145.
@@ -1325,7 +1346,7 @@ Package pdftex.def Info: figures/dblp-k.pdf used on input line 145.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/tence
 nt-k.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
 lowed
-<figures/tencent-k.pdf, id=6465, 230.60754pt x 183.30281pt>
+<figures/tencent-k.pdf, id=6792, 230.60754pt x 183.30281pt>
 File: figures/tencent-k.pdf Graphic file (type pdf)
 <use figures/tencent-k.pdf>
 Package pdftex.def Info: figures/tencent-k.pdf used on input line 149.
@@ -1335,7 +1356,7 @@ Package pdftex.def Info: figures/tencent-k.pdf used on input line 149.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dbped
 ia-k.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
 lowed
-<figures/dbpedia-k.pdf, id=6466, 229.29263pt x 182.97359pt>
+<figures/dbpedia-k.pdf, id=6793, 229.29263pt x 182.97359pt>
 File: figures/dbpedia-k.pdf Graphic file (type pdf)
 <use figures/dbpedia-k.pdf>
 Package pdftex.def Info: figures/dbpedia-k.pdf used on input line 153.
@@ -1345,7 +1366,7 @@ Package pdftex.def Info: figures/dbpedia-k.pdf used on input line 153.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/flick
 r-keyword.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.
 5> allowed
-<figures/flickr-keyword.pdf, id=6467, 230.27832pt x 186.91632pt>
+<figures/flickr-keyword.pdf, id=6794, 230.27832pt x 186.91632pt>
 File: figures/flickr-keyword.pdf Graphic file (type pdf)
 <use figures/flickr-keyword.pdf>
 Package pdftex.def Info: figures/flickr-keyword.pdf used on input line 166.
@@ -1355,7 +1376,7 @@ Package pdftex.def Info: figures/flickr-keyword.pdf used on input line 166.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dblp-
 keyword.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
  allowed
-<figures/dblp-keyword.pdf, id=6468, 231.263pt x 188.77728pt>
+<figures/dblp-keyword.pdf, id=6795, 231.263pt x 188.77728pt>
 File: figures/dblp-keyword.pdf Graphic file (type pdf)
 <use figures/dblp-keyword.pdf>
 Package pdftex.def Info: figures/dblp-keyword.pdf used on input line 170.
@@ -1365,7 +1386,7 @@ Package pdftex.def Info: figures/dblp-keyword.pdf used on input line 170.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/tence
 nt-keyword.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1
 .5> allowed
-<figures/tencent-keyword.pdf, id=6469, 230.60654pt x 187.24454pt>
+<figures/tencent-keyword.pdf, id=6796, 230.60654pt x 187.24454pt>
 File: figures/tencent-keyword.pdf Graphic file (type pdf)
 <use figures/tencent-keyword.pdf>
 Package pdftex.def Info: figures/tencent-keyword.pdf used on input line 174.
@@ -1375,7 +1396,7 @@ Package pdftex.def Info: figures/tencent-keyword.pdf used on input line 174.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dbped
 ia-keyword.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1
 .5> allowed
-<figures/dbpedia-keyword.pdf, id=6470, 231.41055pt x 184.63681pt>
+<figures/dbpedia-keyword.pdf, id=6797, 231.41055pt x 184.63681pt>
 File: figures/dbpedia-keyword.pdf Graphic file (type pdf)
 <use figures/dbpedia-keyword.pdf>
 Package pdftex.def Info: figures/dbpedia-keyword.pdf used on input line 178.
@@ -1401,7 +1422,7 @@ Package pdftex.def Info: figures/dbpedia-keyword.pdf used on input line 203.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/flick
 r-s.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> all
 owed
-<figures/flickr-s.pdf, id=6471, 230.27832pt x 184.61772pt>
+<figures/flickr-s.pdf, id=6798, 230.27832pt x 184.61772pt>
 File: figures/flickr-s.pdf Graphic file (type pdf)
 <use figures/flickr-s.pdf>
 Package pdftex.def Info: figures/flickr-s.pdf used on input line 216.
@@ -1411,7 +1432,7 @@ Package pdftex.def Info: figures/flickr-s.pdf used on input line 216.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dblp-
 s.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allow
 ed
-<figures/dblp-s.pdf, id=6472, 264.9368pt x 219.03531pt>
+<figures/dblp-s.pdf, id=6799, 264.9368pt x 219.03531pt>
 File: figures/dblp-s.pdf Graphic file (type pdf)
 <use figures/dblp-s.pdf>
 Package pdftex.def Info: figures/dblp-s.pdf used on input line 220.
@@ -1421,7 +1442,7 @@ Package pdftex.def Info: figures/dblp-s.pdf used on input line 220.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/tence
 nt-s.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
 lowed
-<figures/tencent-s.pdf, id=6473, 230.60754pt x 184.94495pt>
+<figures/tencent-s.pdf, id=6800, 230.60754pt x 184.94495pt>
 File: figures/tencent-s.pdf Graphic file (type pdf)
 <use figures/tencent-s.pdf>
 Package pdftex.def Info: figures/tencent-s.pdf used on input line 224.
@@ -1431,226 +1452,189 @@ Package pdftex.def Info: figures/tencent-s.pdf used on input line 224.
 pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dbped
 ia-s.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
 lowed
-<figures/dbpedia-s.pdf, id=6474, 230.82536pt x 186.14944pt>
+<figures/dbpedia-s.pdf, id=6801, 230.82536pt x 186.14944pt>
 File: figures/dbpedia-s.pdf Graphic file (type pdf)
 <use figures/dbpedia-s.pdf>
 Package pdftex.def Info: figures/dbpedia-s.pdf used on input line 228.
 (pdftex.def)             Requested size: 105.98668pt x 85.47356pt.
-[19 </Users/chenyankai/GitDefault/VLDBJ/figures/jiawei1.pdf> </Users/chenyankai
-/GitDefault/VLDBJ/figures/jiawei2.pdf
 
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/jiawe
-i2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-
-> </Users/chenyankai/GitDefault/VLDBJ/figures/jim-mf.pdf> </Users/chenyankai/Gi
-tDefault/VLDBJ/figures/jiawei-mf.pdf>]
 Overfull \hbox (8.20207pt too wide) in paragraph at lines 249--259
 \OT1/cmr/m/n/10 ing key-words. We de-note them by \OT1/cmtt/m/n/10 Basic- \OT1/
 cmr/m/n/10 and \OT1/cmtt/m/n/10 Advanced-\OT1/cmr/m/n/10 .
  []
 
 
-Overfull \hbox (2.59184pt too wide) in paragraph at lines 273--273
-\OT1/cmr/m/n/10 Fig-ure []18[](i)-[]18[](j). Flickr dy-namic dataset has $2\OML
-/cmm/m/it/10 ; \OT1/cmr/m/n/10 585\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 569$
- []
-
-
-Overfull \hbox (1.47943pt too wide) in paragraph at lines 275--277
+Overfull \hbox (1.47943pt too wide) in paragraph at lines 285--287
 \OT1/cmr/m/n/10 com-pares our best al-go-rithm \OT1/cmtt/m/n/10 Dec \OT1/cmr/m/
 n/10 with ex-ist-ing CS meth-
  []
 
 
-Overfull \hbox (5.9244pt too wide) in paragraph at lines 278--285
+Overfull \hbox (5.9244pt too wide) in paragraph at lines 288--295
 \OT1/cmr/m/n/10 rithms. Note that \OT1/cmtt/m/n/10 basic-g \OT1/cmr/m/n/10 per-
 forms faster than \OT1/cmtt/m/n/10 basic-w\OT1/cmr/m/n/10 ,
  []
 
 
-Overfull \hbox (3.47958pt too wide) in paragraph at lines 286--288
+Overfull \hbox (3.47958pt too wide) in paragraph at lines 296--298
 []\OT1/cmr/bx/n/10 5. ACQ scal-a-bil-ity w.r.t. key-word. \OT1/cmr/m/n/10 Fig-u
 res []19[](i)-
  []
 
-[20 </Users/chenyankai/GitDefault/VLDBJ/figures/jim-size.pdf> </Users/chenyanka
-i/GitDefault/VLDBJ/figures/jiawei-size.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/flick
-r-share.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
- allowed
-<figures/flickr-share.pdf, id=6807, 230.93477pt x 194.14331pt>
-File: figures/flickr-share.pdf Graphic file (type pdf)
-<use figures/flickr-share.pdf>
-Package pdftex.def Info: figures/flickr-share.pdf used on input line 309.
-(pdftex.def)             Requested size: 94.60532pt x 79.53409pt.
-
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dblp-
-share.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> a
-llowed
-<figures/dblp-share.pdf, id=6808, 228.63518pt x 193.8151pt>
-File: figures/dblp-share.pdf Graphic file (type pdf)
-<use figures/dblp-share.pdf>
-Package pdftex.def Info: figures/dblp-share.pdf used on input line 313.
-(pdftex.def)             Requested size: 94.60532pt x 80.19516pt.
-<figures/tencent-share.pdf, id=6809, 229.07281pt x 194.47154pt>
-File: figures/tencent-share.pdf Graphic file (type pdf)
-<use figures/tencent-share.pdf>
-Package pdftex.def Info: figures/tencent-share.pdf used on input line 317.
-(pdftex.def)             Requested size: 94.60532pt x 80.31544pt.
-
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/dbped
-ia-share.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5
-> allowed
-<figures/dbpedia-share.pdf, id=6810, 228.63518pt x 193.59526pt>
-File: figures/dbpedia-share.pdf Graphic file (type pdf)
-<use figures/dbpedia-share.pdf>
-Package pdftex.def Info: figures/dbpedia-share.pdf used on input line 321.
-(pdftex.def)             Requested size: 94.60532pt x 80.1042pt.
-<figures/flickrInverted.pdf, id=6811, 232.5769pt x 190.20158pt>
+<figures/flickrInverted.pdf, id=6822, 232.5769pt x 190.20158pt>
 File: figures/flickrInverted.pdf Graphic file (type pdf)
 <use figures/flickrInverted.pdf>
-Package pdftex.def Info: figures/flickrInverted.pdf used on input line 343.
+Package pdftex.def Info: figures/flickrInverted.pdf used on input line 314.
 (pdftex.def)             Requested size: 94.60532pt x 77.36787pt.
-<figures/dblpInverted.pdf, id=6812, 233.01454pt x 191.84372pt>
+<figures/dblpInverted.pdf, id=6823, 233.01454pt x 191.84372pt>
 File: figures/dblpInverted.pdf Graphic file (type pdf)
 <use figures/dblpInverted.pdf>
-Package pdftex.def Info: figures/dblpInverted.pdf used on input line 347.
+Package pdftex.def Info: figures/dblpInverted.pdf used on input line 318.
 (pdftex.def)             Requested size: 94.60532pt x 77.88948pt.
-<figures/tencentInverted.pdf, id=6813, 231.263pt x 189.54413pt>
+<figures/tencentInverted.pdf, id=6824, 231.263pt x 189.54413pt>
 File: figures/tencentInverted.pdf Graphic file (type pdf)
 <use figures/tencentInverted.pdf>
-Package pdftex.def Info: figures/tencentInverted.pdf used on input line 351.
+Package pdftex.def Info: figures/tencentInverted.pdf used on input line 322.
 (pdftex.def)             Requested size: 94.60532pt x 77.54005pt.
-<figures/dbpediaInverted.pdf, id=6814, 233.89081pt x 185.71182pt>
+<figures/dbpediaInverted.pdf, id=6825, 233.89081pt x 185.71182pt>
 File: figures/dbpediaInverted.pdf Graphic file (type pdf)
 <use figures/dbpediaInverted.pdf>
-Package pdftex.def Info: figures/dbpediaInverted.pdf used on input line 355.
+Package pdftex.def Info: figures/dbpediaInverted.pdf used on input line 326.
 (pdftex.def)             Requested size: 94.60532pt x 75.11935pt.
-<figures/flickrDecComp.pdf, id=6815, 232.39522pt x 186.60616pt>
+<figures/flickrDecComp.pdf, id=6826, 232.39522pt x 186.60616pt>
 File: figures/flickrDecComp.pdf Graphic file (type pdf)
 <use figures/flickrDecComp.pdf>
-Package pdftex.def Info: figures/flickrDecComp.pdf used on input line 377.
+Package pdftex.def Info: figures/flickrDecComp.pdf used on input line 348.
 (pdftex.def)             Requested size: 94.60532pt x 75.96516pt.
-<figures/dblpDecComp.pdf, id=6816, 232.5769pt x 187.46336pt>
+<figures/dblpDecComp.pdf, id=6827, 232.5769pt x 187.46336pt>
 File: figures/dblpDecComp.pdf Graphic file (type pdf)
 <use figures/dblpDecComp.pdf>
-Package pdftex.def Info: figures/dblpDecComp.pdf used on input line 381.
+Package pdftex.def Info: figures/dblpDecComp.pdf used on input line 352.
 (pdftex.def)             Requested size: 94.60532pt x 76.25404pt.
-<figures/tencentDecComp.pdf, id=6817, 230.93477pt x 185.93164pt>
+<figures/tencentDecComp.pdf, id=6828, 230.93477pt x 185.93164pt>
 File: figures/tencentDecComp.pdf Graphic file (type pdf)
 <use figures/tencentDecComp.pdf>
-Package pdftex.def Info: figures/tencentDecComp.pdf used on input line 385.
+Package pdftex.def Info: figures/tencentDecComp.pdf used on input line 356.
 (pdftex.def)             Requested size: 94.60532pt x 76.17003pt.
-<figures/dbpediaDecComp.pdf, id=6818, 233.45317pt x 183.083pt>
+<figures/dbpediaDecComp.pdf, id=6829, 233.45317pt x 183.083pt>
 File: figures/dbpediaDecComp.pdf Graphic file (type pdf)
 <use figures/dbpediaDecComp.pdf>
-Package pdftex.def Info: figures/dbpediaDecComp.pdf used on input line 389.
+Package pdftex.def Info: figures/dbpediaDecComp.pdf used on input line 360.
 (pdftex.def)             Requested size: 94.60532pt x 74.19289pt.
-<figures/flickrv1.pdf, id=6819, 239.60817pt x 191.90094pt>
+<figures/flickrv1.pdf, id=6830, 239.60817pt x 191.90094pt>
 File: figures/flickrv1.pdf Graphic file (type pdf)
 <use figures/flickrv1.pdf>
-Package pdftex.def Info: figures/flickrv1.pdf used on input line 411.
+Package pdftex.def Info: figures/flickrv1.pdf used on input line 382.
 (pdftex.def)             Requested size: 105.98668pt x 84.88467pt.
 
-Overfull \hbox (11.38136pt too wide) in paragraph at lines 411--412
+Overfull \hbox (11.38136pt too wide) in paragraph at lines 382--383
 [][] 
  []
 
-<figures/dblpv1.pdf, id=6820, 239.07217pt x 193.50894pt>
+<figures/dblpv1.pdf, id=6831, 239.07217pt x 193.50894pt>
 File: figures/dblpv1.pdf Graphic file (type pdf)
 <use figures/dblpv1.pdf>
-Package pdftex.def Info: figures/dblpv1.pdf used on input line 415.
+Package pdftex.def Info: figures/dblpv1.pdf used on input line 386.
 (pdftex.def)             Requested size: 105.98668pt x 85.78493pt.
 
-Overfull \hbox (11.38136pt too wide) in paragraph at lines 415--416
+Overfull \hbox (11.38136pt too wide) in paragraph at lines 386--387
 [][] 
  []
 
-<figures/tencentv1.pdf, id=6821, 241.75218pt x 194.04495pt>
+<figures/tencentv1.pdf, id=6832, 241.75218pt x 194.04495pt>
 File: figures/tencentv1.pdf Graphic file (type pdf)
 <use figures/tencentv1.pdf>
-Package pdftex.def Info: figures/tencentv1.pdf used on input line 419.
+Package pdftex.def Info: figures/tencentv1.pdf used on input line 390.
 (pdftex.def)             Requested size: 105.98668pt x 85.06914pt.
 
-Overfull \hbox (11.38136pt too wide) in paragraph at lines 419--420
+Overfull \hbox (11.38136pt too wide) in paragraph at lines 390--391
 [][] 
  []
 
-<figures/dbpediav1.pdf, id=6822, 240.14417pt x 194.04495pt>
+<figures/dbpediav1.pdf, id=6833, 240.14417pt x 194.04495pt>
 File: figures/dbpediav1.pdf Graphic file (type pdf)
 <use figures/dbpediav1.pdf>
-Package pdftex.def Info: figures/dbpediav1.pdf used on input line 423.
+Package pdftex.def Info: figures/dbpediav1.pdf used on input line 394.
 (pdftex.def)             Requested size: 105.98668pt x 85.6406pt.
 
-Overfull \hbox (11.38136pt too wide) in paragraph at lines 423--424
+Overfull \hbox (11.38136pt too wide) in paragraph at lines 394--395
 [][] 
  []
 
-<figures/flickrv2.pdf, id=6823, 236.92816pt x 192.97295pt>
+<figures/flickrv2.pdf, id=6834, 236.92816pt x 192.97295pt>
 File: figures/flickrv2.pdf Graphic file (type pdf)
 <use figures/flickrv2.pdf>
-Package pdftex.def Info: figures/flickrv2.pdf used on input line 435.
+Package pdftex.def Info: figures/flickrv2.pdf used on input line 406.
 (pdftex.def)             Requested size: 105.98668pt x 86.32466pt.
 
-Overfull \hbox (11.38136pt too wide) in paragraph at lines 435--436
+Overfull \hbox (11.38136pt too wide) in paragraph at lines 406--407
 [][] 
  []
 
-<figures/dblpv2.pdf, id=6824, 235.85616pt x 194.04495pt>
+<figures/dblpv2.pdf, id=6835, 235.85616pt x 194.04495pt>
 File: figures/dblpv2.pdf Graphic file (type pdf)
 <use figures/dblpv2.pdf>
-Package pdftex.def Info: figures/dblpv2.pdf used on input line 439.
+Package pdftex.def Info: figures/dblpv2.pdf used on input line 410.
 (pdftex.def)             Requested size: 105.98668pt x 87.19801pt.
 
-Overfull \hbox (11.38136pt too wide) in paragraph at lines 439--440
+Overfull \hbox (11.38136pt too wide) in paragraph at lines 410--411
 [][] 
  []
 
-<figures/tencentv2.pdf, id=6825, 236.92816pt x 195.11696pt>
+<figures/tencentv2.pdf, id=6836, 236.92816pt x 195.11696pt>
 File: figures/tencentv2.pdf Graphic file (type pdf)
 <use figures/tencentv2.pdf>
-Package pdftex.def Info: figures/tencentv2.pdf used on input line 443.
+Package pdftex.def Info: figures/tencentv2.pdf used on input line 414.
 (pdftex.def)             Requested size: 105.98668pt x 87.28377pt.
 
-Overfull \hbox (11.38136pt too wide) in paragraph at lines 443--444
+Overfull \hbox (11.38136pt too wide) in paragraph at lines 414--415
 [][] 
  []
 
-<figures/dbpediav2.pdf, id=6826, 240.68019pt x 195.65295pt>
+<figures/dbpediav2.pdf, id=6837, 240.68019pt x 195.65295pt>
 File: figures/dbpediav2.pdf Graphic file (type pdf)
 <use figures/dbpediav2.pdf>
-Package pdftex.def Info: figures/dbpediav2.pdf used on input line 447.
+Package pdftex.def Info: figures/dbpediav2.pdf used on input line 418.
 (pdftex.def)             Requested size: 105.98668pt x 86.15921pt.
 
-Overfull \hbox (11.38136pt too wide) in paragraph at lines 447--448
+Overfull \hbox (11.38136pt too wide) in paragraph at lines 418--419
 [][] 
  []
 
 
-Overfull \hbox (8.42445pt too wide) in paragraph at lines 466--469
+Overfull \hbox (8.42445pt too wide) in paragraph at lines 437--440
 \OT1/cmr/m/n/10 of in-vert-edList, we have im-ple-mented \OT1/cmtt/m/n/10 Inc-S
 * \OT1/cmr/m/n/10 and \OT1/cmtt/m/n/10 Inc-T*\OT1/cmr/m/n/10 ,
  []
 
 
-Overfull \hbox (1.2584pt too wide) in paragraph at lines 466--469
+Overfull \hbox (1.2584pt too wide) in paragraph at lines 437--440
 \OT1/cmr/m/n/10 with-out the in-vert-edList struc-ture at each CL-tree node.
  []
 
 
-Overfull \hbox (0.8967pt too wide) in paragraph at lines 466--469
+Overfull \hbox (0.8967pt too wide) in paragraph at lines 437--440
 \OT1/cmr/m/n/10 is 1 to 2 or-der of mag-ni-tude faster than \OT1/cmtt/m/n/10 In
 c-S* \OT1/cmr/m/n/10 (\OT1/cmtt/m/n/10 Inc-T*\OT1/cmr/m/n/10 )
  []
 
+[20 </Users/chenyankai/GitDefault/VLDBJ/figures/jim-size.pdf> </Users/chenyanka
+i/GitDefault/VLDBJ/figures/jiawei-size.pdf>]
+Overfull \hbox (2.00844pt too wide) in paragraph at lines 441--443
+\OT1/cmr/m/n/10 CL-tree is not very high (lower than 405 for all datasets),
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (10.42513pt too wide) in paragraph at lines 451--458
+\OT1/cmr/m/n/10 groups of query sets, and re-port ef-fi-ciency in Fig-ures []22
+[](e)-
+ []
+
+
+Underfull \vbox (badness 1852) has occurred while \output is active []
 
 [21 </Users/chenyankai/GitDefault/VLDBJ/figures/flickr-index.pdf> </Users/cheny
 ankai/GitDefault/VLDBJ/figures/dblp-index.pdf> </Users/chenyankai/GitDefault/VL
@@ -1662,13 +1646,14 @@ igures/dbpediaUpdate.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/flickrMix
 .pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/dblpMix.pdf> </Users/chenyank
 ai/GitDefault/VLDBJ/figures/tencentMix.pdf> </Users/chenyankai/GitDefault/VLDBJ
 /figures/dbpediaMix.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/DynamicFli
-ckr.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/DynamicYoutube.pdf>]
-Overfull \hbox (2.00844pt too wide) in paragraph at lines 470--472
-\OT1/cmr/m/n/10 CL-tree is not very high (lower than 405 for all datasets),
+ckr.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/DynamicYoutube.pdf>])) (/U
+sers/chenyankai/GitDefault/VLDBJ/conclude.tex
+Overfull \hbox (2.31404pt too wide) in paragraph at lines 4--8
+\OT1/cmr/m/n/10 mu-nity de-tec-tion/search meth-ods, and they can be ``per-
  []
 
 
-Underfull \vbox (badness 1442) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1685,65 +1670,27 @@ ult/VLDBJ/figures/tencent-keyword.pdf> </Users/chenyankai/GitDefault/VLDBJ/figu
 res/dbpedia-keyword.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/flickr-s.p
 df> </Users/chenyankai/GitDefault/VLDBJ/figures/dblp-s.pdf> </Users/chenyankai/
 GitDefault/VLDBJ/figures/tencent-s.pdf> </Users/chenyankai/GitDefault/VLDBJ/fig
-ures/dbpedia-s.pdf>]
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/jiawe
-i-v1-1.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> 
-allowed
-<figures/jiawei-v1-1.pdf, id=6941, 240.19798pt x 161.35883pt>
-File: figures/jiawei-v1-1.pdf Graphic file (type pdf)
-<use figures/jiawei-v1-1.pdf>
-Package pdftex.def Info: figures/jiawei-v1-1.pdf used on input line 518.
-(pdftex.def)             Requested size: 100.3645pt x 67.42061pt.
-
-
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/jiawe
-i-v1-2.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> 
-allowed
-<figures/jiawei-v1-2.pdf, id=6942, 242.76195pt x 169.8345pt>
-File: figures/jiawei-v1-2.pdf Graphic file (type pdf)
-<use figures/jiawei-v1-2.pdf>
-Package pdftex.def Info: figures/jiawei-v1-2.pdf used on input line 518.
-(pdftex.def)             Requested size: 99.16852pt x 69.37604pt.
-
-Underfull \vbox (badness 2469) has occurred while \output is active []
-
-)) (/Users/chenyankai/GitDefault/VLDBJ/conclude.tex
-Overfull \hbox (9.61961pt too wide) in paragraph at lines 4--7
-\OT1/cmr/m/n/10 ter-pret than those of ex-ist-ing com-mu-nity de-tec-tion/searc
-h
- []
-
-[23 </Users/chenyankai/GitDefault/VLDBJ/figures/flickr-share.pdf> </Users/cheny
-ankai/GitDefault/VLDBJ/figures/dblp-share.pdf> </Users/chenyankai/GitDefault/VL
-DBJ/figures/tencent-share.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/dbpe
-dia-share.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/flickrInverted.pdf> 
-</Users/chenyankai/GitDefault/VLDBJ/figures/dblpInverted.pdf> </Users/chenyanka
-i/GitDefault/VLDBJ/figures/tencentInverted.pdf> </Users/chenyankai/GitDefault/V
-LDBJ/figures/dbpediaInverted.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/f
-lickrDecComp.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/dblpDecComp.pdf> 
-</Users/chenyankai/GitDefault/VLDBJ/figures/tencentDecComp.pdf> </Users/chenyan
-kai/GitDefault/VLDBJ/figures/dbpediaDecComp.pdf>]) (/Users/chenyankai/GitDefaul
-t/VLDBJ/ACQ.bbl
+ures/dbpedia-s.pdf>]) (/Users/chenyankai/GitDefault/VLDBJ/ACQ.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
 []\OT1/cmr/m/n/8.5 https://en.wikipedia.org/wiki/Disjoint-
  []
 
-[24 </Users/chenyankai/GitDefault/VLDBJ/figures/flickrv1.pdf> </Users/chenyanka
-i/GitDefault/VLDBJ/figures/dblpv1.pdf> </Users/chenyankai/GitDefault/VLDBJ/figu
-res/tencentv1.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/dbpediav1.pdf> <
-/Users/chenyankai/GitDefault/VLDBJ/figures/flickrv2.pdf> </Users/chenyankai/Git
-Default/VLDBJ/figures/dblpv2.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/t
-encentv2.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/dbpediav2.pdf> </User
-s/chenyankai/GitDefault/VLDBJ/figures/jiawei-v1-1.pdf> </Users/chenyankai/GitDe
-fault/VLDBJ/figures/jiawei-v1-2.pdf
 
-pdfTeX warning: pdflatex (file /Users/chenyankai/GitDefault/VLDBJ/figures/jiawe
-i-v1-2.pdf): PDF inclusion: multiple pdfs with page group included in a single 
-page
->]) [25
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-]
+[23 </Users/chenyankai/GitDefault/VLDBJ/figures/flickrInverted.pdf> </Users/che
+nyankai/GitDefault/VLDBJ/figures/dblpInverted.pdf> </Users/chenyankai/GitDefaul
+t/VLDBJ/figures/tencentInverted.pdf> </Users/chenyankai/GitDefault/VLDBJ/figure
+s/dbpediaInverted.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/flickrDecCom
+p.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/dblpDecComp.pdf> </Users/che
+nyankai/GitDefault/VLDBJ/figures/tencentDecComp.pdf> </Users/chenyankai/GitDefa
+ult/VLDBJ/figures/dbpediaDecComp.pdf> </Users/chenyankai/GitDefault/VLDBJ/figur
+es/flickrv1.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/dblpv1.pdf> </User
+s/chenyankai/GitDefault/VLDBJ/figures/tencentv1.pdf> </Users/chenyankai/GitDefa
+ult/VLDBJ/figures/dbpediav1.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/fl
+ickrv2.pdf> </Users/chenyankai/GitDefault/VLDBJ/figures/dblpv2.pdf> </Users/che
+nyankai/GitDefault/VLDBJ/figures/tencentv2.pdf> </Users/chenyankai/GitDefault/V
+LDBJ/figures/dbpediav2.pdf>]) [24]
 \openout2 = `appendix.aux'.
 
 (/Users/chenyankai/GitDefault/VLDBJ/appendix.tex (/Users/chenyankai/GitDefault/
@@ -1786,76 +1733,67 @@ l.83 \begin{lemma}
 chenyankai/GitDefault/VLDBJ/app-cand.tex
 Underfull \vbox (badness 1308) has occurred while \output is active []
 
-[26
+[25
 
 ]) (/Users/chenyankai/GitDefault/VLDBJ/app-auf.tex) (/Users/chenyankai/GitDefau
 lt/VLDBJ/algoOfVariant.tex
-Overfull \hbox (5.04076pt too wide) in paragraph at lines 112--112
-\OT1/cmr/m/n/8.5 noted as \OT1/cmtt/m/n/8.5 basic-g-v1 \OT1/cmr/m/n/8.5 and \OT
-1/cmtt/m/n/8.5 basic-w-v1\OT1/cmr/m/n/8.5 . Their de-tail pseu-docodes
- []
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-)) [27] [28
+)) [26] [27
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 138.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 138.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
 (/Users/chenyankai/GitDefault/VLDBJ/ACQ.aux (/Users/chenyankai/GitDefault/VLDBJ
 /appendix.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 138.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 138.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
 Package rerunfilecheck Info: File `ACQ.out' has not changed.
-(rerunfilecheck)             Checksum: F7ECCC7017E66137464DB9ADA20B69FD;790.
+(rerunfilecheck)             Checksum: 874E3ABBB55249230EC3860FEEBD7624;789.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 138.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
  ) 
 Here is how much of TeX's memory you used:
- 8904 strings out of 493014
- 138366 string characters out of 6133352
- 235635 words of memory out of 5000000
- 11938 multiletter control sequences out of 15000+600000
- 16174 words of font info for 57 fonts, out of 8000000 for 9000
+ 8861 strings out of 493014
+ 137444 string characters out of 6133352
+ 234402 words of memory out of 5000000
+ 11914 multiletter control sequences out of 15000+600000
+ 16533 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,17n,33p,1913b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,17n,33p,1401b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on /Users/chenyankai/GitDefault/VLDBJ/ACQ.pdf (28 pages, 8143810
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2016/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on /Users/chenyankai/GitDefault/VLDBJ/ACQ.pdf (27 pages, 7572528
  bytes).
 PDF statistics:
- 7567 PDF objects out of 8907 (max. 8388607)
- 1304 compressed objects within 14 object streams
- 223 named destinations out of 1000 (max. 500000)
- 526 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 7234 PDF objects out of 7423 (max. 8388607)
+ 1232 compressed objects within 13 object streams
+ 211 named destinations out of 1000 (max. 500000)
+ 496 words of extra memory for PDF output out of 10000 (max. 10000000)
 
