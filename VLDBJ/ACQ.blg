@@ -1,6 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2016)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: ACQ.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: ACQ.aux
 The style file: abbrv.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: ACQ.bib
@@ -16,45 +14,4 @@ I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in unionFind
 Warning--empty journal in fangeffective
 Warning--empty year in fangeffective
-You've used 40 entries,
-            2118 wiz_defined-function locations,
-            684 strings with 9090 characters,
-and the built_in function-call counts, 12550 in all, are:
-= -- 1120
-> -- 729
-< -- 1
-+ -- 292
-- -- 248
-* -- 839
-:= -- 2157
-add.period$ -- 118
-call.type$ -- 40
-change.case$ -- 241
-chr.to.int$ -- 0
-cite$ -- 43
-duplicate$ -- 497
-empty$ -- 1007
-format.name$ -- 248
-if$ -- 2569
-int.to.chr$ -- 0
-int.to.str$ -- 40
-missing$ -- 39
-newline$ -- 200
-num.names$ -- 78
-pop$ -- 320
-preamble$ -- 1
-purify$ -- 204
-quote$ -- 0
-skip$ -- 295
-stack$ -- 0
-substring$ -- 449
-swap$ -- 70
-text.length$ -- 1
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 158
-warning$ -- 3
-while$ -- 96
-width$ -- 42
-write$ -- 405
 (There were 2 error messages)

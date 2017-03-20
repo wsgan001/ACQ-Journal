@@ -28,10 +28,10 @@ Moreover, they can take a long time to find all the communities for a large grap
                        & \tabincell{c}{\textbf{Community}\\ \textbf{search (CS)}}\\
      \hline\hline
         Non-attributed & \cite{community-phy2004,community-phy2010}
-                       & \cite{KDD2010,local2014,online-sigmod2013,k-truss2014,vldb2015,huang2015approximate,barbieri2015efficient}\\
+                       & \cite{KDD2010,local2014,online-sigmod2013,k-truss2014,vldb2015,huang2015approximate}\\
      \hline
         Attributed     & \cite{attr-vldb2009,attr-topic-kdd2008,attr-topic-icml2009,attr-topic-sigmod2012,attr-www2013,yang2013community}
-                       & {\bf ACQ (This paper)} \\
+                       & {\bf ACQ}\\
      \hline
   \end{tabular}
 \end{table}
@@ -78,7 +78,7 @@ We formulate the keyword cohesiveness as maximizing the number of shared keyword
 The second question is not easy to answer, because the attributed graph $G$ to be explored can be very large, and the (structure and keyword) cohesiveness criteria can be complex to handle. A simple way is first to consider all the possible keyword combinations, and then return the subgraphs, which satisfy the minimum degree constraint and have the most shared keywords. This solution, which requires the enumeration of all the subsets of $q$'s keyword set, has a complexity exponential to the size $l$ of $q$'s keyword set. In our experiments, for some queries, $l$ can be up to 30, resulting in the consideration of $2^{30}=1,073,741,824$ subsets of $q$. The algorithm is impractical, especially when $q$'s keyword set is large.
 
 {\color{blue}
-We observe the {\it anti-monotonicity} property, which states that given a set $S$ of keywords, if it appears in every vertex of an AC, then for every subset $S'$ of $S$, there exists an AC in which every vertex contains $S'$. We use this intuition to propose better algorithms. We further develop the \emph{CL-tree}, an index that organizes the vertex keyword data in a hierarchical structure. The CL-tree has a space and construction time complexity linear to the size of $G$. 
+We observe the {\it anti-monotonicity} property, which states that given a set $S$ of keywords, if it appears in every vertex of an AC, then for every subset $S'$ of $S$, there exists an AC in which every vertex contains $S'$. We use this intuition to propose better algorithms. We further develop the \emph{CL-tree}, an index that organizes the vertex keyword data in a hierarchical structure. The CL-tree has a space and construction time complexity linear to the size of $G$.
 Based on the CL-tree index, we have developed three different ACQ algorithms based on the CL-tree, and they are able to achieve a superior performance.
 Moreover, to maintain the CL-tree index for dynamic graphs in which the keywords and edges are inserted or deleted, we have develop efficient algorithms for maintaining the CL-tree without re-building it from scratch.
 

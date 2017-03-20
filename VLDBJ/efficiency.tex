@@ -244,12 +244,10 @@ For each dataset, we randomly select 20\%, 40\%, 60\% and 80\%
 of its vertices, and obtain four subgraphs induced by these vertex sets.
 For each vertex, we randomly select 20\%, 40\%, 60\% and 80\%
 of its keywords, and obtain four keyword sets.
-%The results of index construction and ACQ evaluation are reported in Figures~\ref{fig:exp-index} and~\ref{fig:exp-problem1} respectively.
 
 \textbf{1. Index construction.}
 Figures~\ref{fig:exp-index}(a)-\ref{fig:exp-index}(d)
 compare the efficiency of {\tt Basic} and {\tt Advanced}.
-%Since their main difference is the part of building the tree structure, we also compare the parts of only building the tree without keywords.
 We study their main parts, which build the tree without considering keywords.
 We denote them by {\tt Basic-} and {\tt Advanced-}.
 Notice that {\tt Advanced} performs consistently faster, and scales better, than {\tt Basic}.
@@ -265,14 +263,15 @@ In Figures~\ref{fig:exp-indexMaintenance}(a)-\ref{fig:exp-indexMaintenance}(b), 
 and {\tt deleteEdge} is also around $10^2$ times faster than rebuilding index.
 The main reason is that, inserting or deleting one edge only affects a small proportion of CL-tree nodes and their connectivity.
 In other words, most of the nodes remain unaffected.
-Moreover, {\tt deleteEdge} is slower than {\tt insertEdge}. This is because, splitting tree nodes generally involves more computational cost than merging tree nodes.
+Moreover, the algorithm {\tt deleteEdge} is slower than {\tt insertEdge}. This is because, splitting tree nodes generally involves more computational cost than merging tree nodes.
 In addition, we put all the insertion and deletion edges together, and report the efficiency by performing insertion and deletion for these edge with a random order. We report the results in Figures~\ref{fig:exp-indexMaintenance}(c)-\ref{fig:exp-indexMaintenance}(d),
 where ``update" denotes our algorithms including both {\tt insertEdge} and {\tt deleteEdge}.
 We can see that, the index update algorithm is still much faster than rebuilding the index.
 
 The results on real dynamic graphs (DFlickr and Youtube datasets) are shown in Figures~\ref{fig:exp-indexMaintenance}(i)-\ref{fig:exp-indexMaintenance}(j).
-It is obvious to observe that, the results on real dynamic graphs are similar to those on static graphs.
-In summary, our proposed index maintenance algorithms are much faster than rebuilding the index from scratch.
+It is obvious to observe that, the results on real dynamic graphs are similar to those on static graphs,
+and our proposed algorithms are at least two orders of magnitude faster than rebuilding the CL-tree from scratch.
+In summary, our proposed algorithms are efficient for maintaining the index for dynamic graphs.
 
 %We can observe that the index maintenance algorithms are always much more efficient than rebuilding the CL-tree. In four static datasets, the curves of four real datasets are slightly different as the core number increases. For the edge insertion case, as shown in the Figure~\ref{fig:exp-indexMaintenance}(a)-\ref{fig:exp-indexMaintenance}(d), dynamically updating the tree index is $10^2$ to $10^5$ times faster than rebuilding the CL-tree. Note that our algorithms follows two main steps: (1) Compute vertices which may increase (decrease) the core numbers; (2) Update the tree index. And the reason for the phenomenon that it takes more time to as the core number increases, as shown in BDLP Figure~\ref{fig:exp-indexMaintenance}(b), is that the number of vertices whose core numbers range from 10 to 20 is relatively larger than others. As a result of that, we need to recursively compute the vertices which may increase the core numbers and, if necessary, update corresponding subtrees afterwards.
 %
@@ -453,52 +452,5 @@ We randomly select five groups of query sets by varying the size of $Q$ from 2 t
 Each group has 200 query sets.
 We run {\tt basic-g-v2}, {\tt basic-w-v2} and {\tt MDec} with these five groups of query sets,
 and report efficiency in Figures~\ref{fig:exp-variant}(e)-\ref{fig:exp-variant}(h).
-Similar to the results of single query vertices, we can observe that {\tt MDec} is at least two orders of magnitude faster than the baseline solutions which do not use the CL-tree index.
+We can observe that, similar to the results of single query vertices, {\tt MDec} is at least two orders of magnitude faster than the baseline solutions which do not use the CL-tree index.
 }
-
-%\chen{
-%\subsection{Experiments on Variants}
-%\label{app:varExp}
-%\chen{
-%The experimental results of variants are presented here and the basic algorithms for these variants are attached in Appendix~\ref{app:algoOfVariant}.
-%}
-%
-%\textbf{1. Case study of Variants 1 and 2.}
-%We search Jiawei Han's communities with explicit AC-label constraints in Variants 1 and 2.
-%We consider two keyword sets, \textit{i.e.}, $S_1$=$\{$stream, classification$\}$ and $S_2$=$\{$cube, information, cluster$\}$.
-%Note that the captions indicate the shared keywords of the communities.
-%While for Variant 1 ($\theta$=0.6), we can obtain two communities (see Figures~\ref{fig:jiawei-v1}(a) and~\ref{fig:jiawei-v1}(b)). This implies that, for Variant 1, although we cannot find a community with AC-label being exactly $S_2$, we still can find a community, in which each member contains at least 60\% percentage of keywords of the input query keyword set. And for Variant 2, if the query set is \{Jiawei Han, Jing gao\}, and the keyword set is $S_1$=$\{$stream, classification$\}$, we will also obtain the community in Figures~\ref{fig:jiawei-v1}(a).
-%
-%
-%\begin{figure}[ht]
-%    \centering
-%    \mbox{
-%        \subfigure[$\{$stream, classification$\}$]{
-%            \includegraphics[width=.42\columnwidth]{figures/jiawei-v1-1}
-%            \label{fig:jiawei-v1-1}
-%        }
-%        \hspace{1ex}
-%        \subfigure[$\{$cube, information$\}$]{
-%            \includegraphics[width=.415\columnwidth]{figures/jiawei-v1-2}
-%            \label{fig:jiawei-v1-2}
-%        }
-%    }
-%    \caption{Jiawei Han's communities on Variants 1 and 2.}\label{fig:jiawei-v1}
-%\end{figure}
-%
-%
-%
-%
-%\textbf{2. Effect of $\theta$ in Variant 1.}
-%For each query vertex, we randomly select 10 keywords to form set $S$, set $\theta$ as 0.2, 0.4 0.6, 0.8 and 1.0,
-%and answer the query of Variant 1 using {\tt basic-g-v1}, {\tt basic-w-v1} and {\tt SWT}.
-%Figures~\ref{fig:exp-variant}(a)-\ref{fig:exp-variant}(d) show their efficiency.
-%We can see that {\tt SWT} outperforms the basic solutions consistently, as it uses the CL-tree index.
-%
-%{\color{blue}
-%\textbf{3. Effect of $|Q|$ in Variant 2.}
-%We limit query vertices with no more than 6 keywords.
-%We randomly select 2, 3, 4, 5, 6 vertices to form the query set, and answer the query of Variant 2 using {\tt basic-g-v2}, {\tt basic-w-v2} and {\tt MDec}. Figures~\ref{fig:exp-variant}(e)-\ref{fig:exp-variant}(h) show their efficiency. Similar with Variant 2, we can see that {\tt MDec} performs the best by using the CL-tree index.
-%}
-%
-%} 

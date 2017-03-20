@@ -10,8 +10,8 @@
 
 %\input{app-advanced}
 
-\input{app-inct}
+%\input{app-inct}
 
-\input{app-variant}
+\input{algoOfVariant}
 
-\input{app-moreExp}
+%\input{app-moreExp}

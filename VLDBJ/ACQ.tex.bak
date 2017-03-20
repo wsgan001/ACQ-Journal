@@ -46,24 +46,15 @@ grestore
 \usepackage{amsmath,bm}
 \usepackage{hyperref}
 \usepackage{amsthm}
-
 \usepackage{indentfirst}
 
 \renewcommand{\arraystretch}{1.18}
-
-%\newtheorem{definition}{Definition}
 \newtheorem{variant}{Variant}
-%\newtheorem{problem}{Problem}
-%\newtheorem{example}{Example}
-%\newtheorem{lemma}{Lemma}
-%\newtheorem{proposition}{Proposition}
-
 \newcommand{\fang}[1]{{\color{red}[\textbf{Yixiang:} #1]}}
 \newcommand{\rey}[1]{{\color{blue}[\textbf{Reynold:} #1]}}
 \newcommand{\luo}[1]{{\color{purple}[\textbf{Siqiang:} #1]}}
 \newcommand{\hu}[1]{{\color{green}[\textbf{Jiafeng:} #1]}}
 \newcommand{\chen}[1]{{\color{blue}[\textbf{Yankai:} #1]}}
-
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 
 
@@ -113,9 +104,9 @@ grestore
 
 \input{index}
 
-\input{indexMaintenance}
-
 \input{query}
+
+\input{indexMaintenance}
 
 \input{variant}
 
@@ -127,7 +118,7 @@ grestore
 
 
 \bibliographystyle{abbrv}
-\bibliography{lac}
+\bibliography{ACQ}
 
 \include{appendix}
 

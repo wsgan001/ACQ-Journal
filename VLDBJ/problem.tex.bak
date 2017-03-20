@@ -12,7 +12,7 @@ We also suppose that an attributed graph $G(V,E)$ is undirected, with vertex set
      \hline
           {\bf Symbol} & {\bf Meaning}\\
      \hline\hline
-          $G(V,E)$       & An attributed graph with vertex set $V$ and edge set $E$\\ %($n$=$|V|$, $m$=$E$)
+          $G(V,E)$       & A graph with vertex set $V$ and edge set $E$\\ %($n$=$|V|$, $m$=$E$)
      \hline
           $W(v)$         & The keyword set of vertex $v$\\
      \hline
@@ -57,10 +57,10 @@ We say that $H_k$ has an order of $k$.  Notice that $H_k$ may not be a connected
 
 \begin{example}
 \label{eg:problem}
-In Figure~\ref{fig:kcoreGraph}, $\{A,B,C,D\}$ is both a 3-core and a 3-$\widehat{core}$. The 1-core has vertices $\{A,B,C,D,E,F,G,$ $H,I\}$, and is composed of two $1$-$\widehat{core}$ components: $\{A,B,C,D,E,F,G\}$ and $\{H,I\}$. The number $k$ in each circle represents the $k$-$\widehat{core}$ contained in that ellipse.
+In Figure~\ref{fig:kcoreGraph}, $\{A,B,C,D\}$ is both a 3-core and a 3-$\widehat{core}$. The 1-core has vertices $\{A,B,C,D,E,F,G,$ $H,I\}$, and is composed of two $1$-$\widehat{core}$ components: $\{A,B,$ $C,D,E,F,G\}$ and $\{H,I\}$. The number $k$ in each circle represents the $k$-$\widehat{core}$ contained in that ellipse.
 \end{example}
 
-Observe that $k$-$core$s are ``nested''~\cite{kcore2003}: given two positive integers $i$ and $j$, if $i<j$, then $H_j \subseteq H_i$.  In Figure~\ref{fig:kcoreGraph}, $H_3$ is contained in $H_2$, which is nested within $H_1$.
+Observe that $k$-$core$s are ``nested''~\cite{kcore2003}: given two positive integers $i$ and $j$, if $i<j$, then $H_j \subseteq H_i$.  In Figure~\ref{fig:kcoreGraph}, $H_3$ is contained in $H_2$, which is nested in $H_1$.
 
 \begin{definition}[Core number]
 \label{def:coreNum}
