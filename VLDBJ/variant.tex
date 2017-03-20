@@ -2,19 +2,20 @@
 \section{Variants of ACQ Problem}
 \label{variant}
 
-In this section, we introduce two typical variants and present the query algorithms based on the CL-tree.
+In this section, we introduce two typical variants named {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-query problem} (or ACQ-M). We present the query algorithms based on the CL-tree.
 
 
-\subsection{Variant 1}
+\subsection{ACQ-A}
 
-We first present an approximation version of the ACQ query, denoted by Variant~\ref{df:variant1}.
-In Variant~\ref{df:variant1}, vertices of an AC do not need to exactly share the same keywords in $S$;
+We first present an approximation version of the ACQ query, denoted by Problem~\ref{ACQ-A}.
+In Problem~\ref{ACQ-A}, vertices of an AC do not need to exactly share the same keywords in $S$;
 instead, they just need to share a predefined percentage of keywords in $S$.
 Thus, the keyword cohesiveness is relaxed.
 This could be useful for graphs if the keyword information of vertices is weak.
 
-\begin{variant}
-\label{df:variant1}
+%\begin{variant}
+\begin{problem}[ACQ-A]
+\label{ACQ-A}
 Given a graph $G$, a positive integer $k$, a vertex $q \in V$, a predefined keyword set $S$,
 and a threshold $\theta\in$[0,1], return a subgraph $G_q$, the following properties hold:
 
@@ -23,13 +24,14 @@ $\bullet$ \textbf{Connectivity}. $G_q \subseteq G$ is connected and $q\in G_q$;
 $\bullet$ \textbf{Structure cohesiveness}. $\forall$$v\in G_q$, $deg_{G_q}(v)\geq$$k$;
 
 $\bullet$ \textbf{Keyword cohesiveness}. $\forall v\in G_q$, it has at least $|S|\times \theta$ keywords in $S$.
-\end{variant}
+%\end{variant}
+\end{problem}
 
-We illustrate Variant~\ref{df:variant1} using Example~\ref{eg:variant1}.
+We illustrate problem~\ref{ACQ-A} using Example~\ref{eg:ACQ-A}.
 \begin{example}
-\label{eg:variant1}
+\label{eg:ACQ-A}
 In Figure~\ref{fig:kcoreGraph}, let $q$=$A$ and $k$=2.
-If $S$=$\{x,y\}$, $\theta$=50\%, Variant~\ref{df:variant1} will return the subgraph induced by the vertex set $\{A,B,C,D,E\}$ as the target AC.
+If $S$=$\{x,y\}$, $\theta$=50\%, ACQ-A will return the subgraph induced by the vertex set $\{A,B,C,D,E\}$ as the target AC.
 \end{example}
 
 In line with Problem~\ref{problem1}, we first introduce the basic solutions without index,
@@ -62,12 +64,13 @@ Finally, we output $G_k[S]$ as the target AC, if it exists (line 5).
 \end{algorithm}
 
 
-\subsection{Variant 2}
+\subsection{ACQ-M}
 
-To extend the ACQ query for supporting mutiple query vertices, we propose Variant~\ref{df:variant2} as follows.
+To extend the ACQ query for supporting mutiple query vertices, we propose Problem~\ref{ACQ-M} as follows.
 
-\begin{variant}
-\label{df:variant2}
+%\begin{variant}
+\begin{problem}
+\label{ACQ-M}
 Given a graph $G$, a positive integer $k$, a vertex set $Q$$\subseteq$$V$, and a predefined keyword set $S$, return a subgraph $G_Q$, the following properties hold:
 
 $\bullet$ \textbf{Connectivity}. $G_Q \subseteq G$ is connected and $G_Q$ contains all the vertices of $Q$;
@@ -75,17 +78,18 @@ $\bullet$ \textbf{Connectivity}. $G_Q \subseteq G$ is connected and $G_Q$ contai
 $\bullet$ \textbf{Structure cohesiveness}. $\forall$$v\in G_Q$, $deg_{G_Q}(v)\geq$$k$;
 
 $\bullet$ \textbf{Keyword cohesiveness}. The size of $L(G_Q, S)$ is maximal, where $L(G_Q, S)=\cap_{v \in G_Q}(W(v)\cap S)$ is the set of keywords shared in $S$ by all vertices of $G_Q$.
-\end{variant}
+%\end{variant}
+\end{problem}
 
-We illustrate Variant~\ref{df:variant2} via Example~\ref{eg:variant2}.
+We illustrate Problem~\ref{ACQ-M} via Example~\ref{eg:ACQ-M}.
 
 \begin{example}
-\label{eg:variant2}
+\label{eg:ACQ-M}
 In Figure~\ref{fig:kcoreGraph}, let $Q$=$\{A,C\}$ and $k$=2.
-If $S$=$\{w,x,y,z\}$, then Variant~\ref{df:variant2} returns the subgraph induced by the vertex set $\{A,C,D\}$ as the target AC, whose shared keyword set is$\{x,y\}$.
+If $S$=$\{w,x,y,z\}$, then ACQ-M returns the subgraph induced by the vertex set $\{A,C,D\}$ as the target AC, whose shared keyword set is$\{x,y\}$.
 \end{example}
 
-To answer the query in Variant~\ref{df:variant2}, we can first find a set $S'$ of intersected keywords, which are contained by $S$ and every vertex in $Q$. Then, we randomly take a vertex $q$$\in$$Q$ as the query vertex.
+To answer the query in Problem~\ref{ACQ-M}, we can first find a set $S'$ of intersected keywords, which are contained by $S$ and every vertex in $Q$. Then, we randomly take a vertex $q$$\in$$Q$ as the query vertex.
 Finally, we can find the target ACs by any of previous ACQ algorithms.
 Following the above idea, we extend {\tt basic-g} and {\tt basic-w} and obtain two basic algorithms, i.e., {\tt basic-g-v2} and {\tt basic-w-v2}. We also extend {\tt Dec} and get an index based algorithm {\tt MDec}.
 Algorithm~\ref{alg:MDec} presents {\tt MDec}.

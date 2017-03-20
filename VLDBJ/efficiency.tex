@@ -393,13 +393,13 @@ As {\tt Dec} performs better than {\tt Inc-S} and {\tt Inc-T}, we mainly compare
   \includegraphics[width=3.725cm]{figures/dbpediav1}
   \end{minipage}
   \\
-  \small (a) Flickr (Variant 1)
+  \small (a) Flickr (ACQ-A)
   &
-  \small (b) DBLP (Variant 1)
+  \small (b) DBLP (ACQ-A)
   &
-  \small (c) Tencent (Variant 1)
+  \small (c) Tencent (ACQ-A)
   &
-  \small (d) DBpedia (Variant 1)
+  \small (d) DBpedia (ACQ-A)
       \\
   \begin{minipage}{3.325cm}
   \includegraphics[width=3.725cm]{figures/flickrv2}
@@ -417,18 +417,18 @@ As {\tt Dec} performs better than {\tt Inc-S} and {\tt Inc-T}, we mainly compare
   \includegraphics[width=3.725cm]{figures/dbpediav2}
   \end{minipage}
   \\
-  \small (e) Flickr (Variant 2)
+  \small (e) Flickr (ACQ-M)
   &
-  \small (f) DBLP (Variant 2)
+  \small (f) DBLP (ACQ-M)
   &
-  \small (g) Tencent (Variant 2)
+  \small (g) Tencent (ACQ-M)
   &
-  \small (h) DBpedia (Variant 2)
+  \small (h) DBpedia (ACQ-M)
 \\
 
 
 \end{tabular}
-\caption{Efficiency results of Variants of ACQ problem.}
+\caption{Efficiency results of ACQ-A and ACQ-M.}
 \label{fig:exp-variant}
 \end{figure*}
 
@@ -441,13 +441,13 @@ The reason is that the keyword-checking operation mentioned in the above example
 We have tested {\tt Dec} and {\tt Local} on non-attributed graphs. This is done by running these algorithms on our datasets, without using any of their associated keyword sets. As shown in Figure~\ref{fig:exp-more-decComp}, for Flickr, Tencent and DBpedia, {\tt Dec} is consistently faster than {\tt Local}. In {\tt Dec}, cores are organized into the CL-tree structure. Because the height of the CL-tree is not very high (lower than 405 for all datasets), the core-locating operation can be done quickly. For DBLP, {\tt Dec} is also  faster than {\tt Local}, except when $k$=4. In this dataset, a paper often has few (around 3 to 5) co-authors. Since an author may be closely related to a few co-authors, finding a 4-$\widehat {core}$ in {\tt Local} can be done efficiently through local expansion.  From these experiments, we conclude that {\tt Dec} can also be efficiently executed on non-attributed graphs.
 
 {\color{blue}
-\textbf{10. Effect of $\theta$ in Variant 1.}
+\textbf{10. Effect of $\theta$ in ACQ-A.}
 For each query vertex, we randomly select 10 keywords to form set $S$, set $\theta$ as 0.2, 0.4 0.6, 0.8 and 1.0,
 and answer the query of Variant 1 using {\tt basic-g-v1}, {\tt basic-w-v1} and {\tt SWT}.
 Figures~\ref{fig:exp-variant}(a)-\ref{fig:exp-variant}(d) show their efficiency.
 We can see that {\tt SWT} outperforms the basic solutions consistently, as it uses the CL-tree index.
 
-\textbf{11. Effect of $|Q|$ in Variant 2.}
+\textbf{11. Effect of $|Q|$ in ACQ-M.}
 We randomly select five groups of query sets by varying the size of $Q$ from 2 to 6.
 Each group has 200 query sets.
 We run {\tt basic-g-v2}, {\tt basic-w-v2} and {\tt MDec} with these five groups of query sets,
