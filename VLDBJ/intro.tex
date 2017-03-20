@@ -79,11 +79,11 @@ The second question is not easy to answer, because the attributed graph $G$ to b
 
 {\color{blue}
 We observe the {\it anti-monotonicity} property, which states that given a set $S$ of keywords, if it appears in every vertex of an AC, then for every subset $S'$ of $S$, there exists an AC in which every vertex contains $S'$. We use this intuition to propose better algorithms. We further develop the \emph{CL-tree}, an index that organizes the vertex keyword data in a hierarchical structure. The CL-tree has a space and construction time complexity linear to the size of $G$.
-Based on the CL-tree index, we have developed three different ACQ algorithms based on the CL-tree, and they are able to achieve a superior performance.
-Moreover, to maintain the CL-tree index for dynamic graphs in which the keywords and edges are inserted or deleted, we have develop efficient algorithms for maintaining the CL-tree without re-building it from scratch.
+Based on the CL-tree index, we have developed three different ACQ algorithms, and they are able to achieve a superior performance.
+In practice, graphs are continuously envolving. For instance, users may change their profiles, make friends or remove friendship. Thus the CL-tree index needs to be updated to reflect the changes in the graph. However, rebuilding the CL-tree from scratch can be computationally expensive,  especially when the updates are very frequent. So we have developed efficient algorithms to maintain the CL-tree index for dynamic graphs.
 
-In addition, we have proposed two typical variants of the ACQ problems which are called {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-query problem} (or ACQ-M) respectively. ACQ-A is an approximation version of the ACQ query in which vertices of an AC do not need to exactly share the same keywords in $S$;
-ACQ-M considers multiple query vertices and outputs their ACs.
+In addition, we have proposed two typical variants of the ACQ problems which are called {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-query problem} (or ACQ-M) respectively. ACQ-A is an approximation version of the ACQ query in which vertices of an AC do not need to exactly share the same keywords in $S$. It loosens the constraint on the number of shared keywords and find potential ACs if the keyword information is weak.
+ACQ-M considers multiple query vertices and outputs their ACs. It can help to narrow the size of targeted ACs in which vertices are more relevant.
 To answer the queries for these variants, we have also developed efficient algorithms based on the CL-tree index.
 }
 

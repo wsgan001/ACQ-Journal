@@ -2,10 +2,11 @@
 \section{Index Maintenance}
 \label{indexMaintenance}
 
-In practice, the keywords and edges of graphs are often frequently updated.
+%In practice, the keywords and edges of graphs are often frequently updated.
+In practice, the graphs are continuously evolving. Thus keywords and edges of graphs are often frequently updated.
 Clearly, when the graph is updated, both the CL-tree index and the ACQ query results also need to be updated.
 A straightforward method for handling the dynamic graph is to rebuild the index from scratch when an update is made.
-However, this method is very inefficient, especially the updates are very frequent.
+However, this method is very inefficient, especially when the updates are very frequent.
 To alleviate this issue, in this section we study how to dynamically maintain the CL-tree index efficiently,
 and propose algorithms for maintaining the CL-tree without rebuilding the CL-tree from scratch.
 

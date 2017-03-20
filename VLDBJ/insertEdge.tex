@@ -179,7 +179,8 @@ After inserting an edge between two vertices, the maximum numbers of disconnecte
 which need to be merged is two.
 \end{lemma}
 \begin{proof}
-It can be proved directly by contradiction.
+The hypothesis is that there exist at least 3 disconnected $k$-$\widehat{core}$s that need to be merged after inserting an edge. 
+We first randomly select three disconnected $k$-$\widehat{core}$s. Then we can prove by contradiction that one of them are already connected to one of the other two $k$-$\widehat{core}$s, which means there does not exist the third disconnected $k$-$\widehat{core}$ that needs to be merged. That completes the proof.  
 \end{proof}
 
 %\begin{figure}[ht]
@@ -204,7 +205,7 @@ It can be proved directly by contradiction.
 In the process of merging subtrees, the maximum number of nodes which need to be merged in each level is two.
 \end{lemma}
 \begin{proof}
-It can be proved directly by contradiction.
+It can be proved similarly by contradiction.
 \end{proof}
 %\begin{proof}
 %The hypothesis that there exists a third tree node which need to be merged in each level can be proved to be false in the similar way to the proof of Lemma~\ref{prf:proof}. Thus, we do not repeat it.

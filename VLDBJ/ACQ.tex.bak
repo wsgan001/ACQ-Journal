@@ -47,6 +47,7 @@ grestore
 \usepackage{hyperref}
 \usepackage{amsthm}
 \usepackage{indentfirst}
+\usepackage{small}
 
 \renewcommand{\arraystretch}{1.18}
 \newtheorem{variant}{Variant}
@@ -62,9 +63,6 @@ grestore
 \begin{document}
 
 \title{Effective and Efficient Attributed Community Search}
-%\subtitle{Do you have a subtitle?\\ If so, write it here}
-
-%\titlerunning{Short form of title}        % if too long for running head
 
 \author{Yixiang Fang         \and
         Reynold Cheng        \and
@@ -73,14 +71,9 @@ grestore
         Jiafeng Hu
 }
 
-%\authorrunning{Short form of author list} % if too long for running head
-
 \institute{Y. Fang, R. Cheng, Y. Chen, S. Luo, J. Hu \at
               Department of Computer Science, The University of Hong Kong, Pokfulam, Hong Kong \\
               \email{\{yxfang, ckcheng, ykchen, sqluo, jhu\}@cs.hku.hk}
-%           \and
-%           S. Author \at
-%              second address
 }
 
 \date{Received: date / Accepted: date}

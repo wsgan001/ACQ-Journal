@@ -257,7 +257,7 @@ In addition, we also run the CD method {\tt CODICIL}, which takes 32 mins, 2 min
 
 {\color{blue}
 \textbf{2. Index Maintenance.}
-We first evaluate the performance of keyword update and the results show that the keyword update is very fast. For example, inserting and deleting a keyword are around $10^6$ times faster than rebuilding the index.
+We first evaluate the performance of keyword update and the results show that the keyword update is very fast. The keyword insertion and deletion are around $10^6$ and $10^5$ times faster than rebuilding the index respectively.
 Next, we show the performance of edge update on four static datasets in Figures~\ref{fig:exp-indexMaintenance}(a)-\ref{fig:exp-indexMaintenance}(h) by varying $k$.
 In Figures~\ref{fig:exp-indexMaintenance}(a)-\ref{fig:exp-indexMaintenance}(b), we report the efficiency by separately performing edge insertion and deletion. Clearly, {\tt insertEdge} is $10^2$ to $10^5$ times faster than rebuilding the index,
 and {\tt deleteEdge} is also around $10^2$ times faster than rebuilding index.
