@@ -4,57 +4,50 @@ The top-level auxiliary file: ACQ.aux
 The style file: abbrv.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: ACQ.bib
-I was expecting a `,' or a `}'---line 370 of file ACQ.bib
- :   
- :   booktitle = {PVLDB},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Repeated entry---line 374 of file ACQ.bib
+Repeated entry---line 379 of file ACQ.bib
  : @inproceedings{mislove-2008-flickr
  :                                   ,
 I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in unionFind
-Warning--empty journal in fangeffective
-Warning--empty year in fangeffective
-You've used 42 entries,
+You've used 43 entries,
             2118 wiz_defined-function locations,
-            693 strings with 9292 characters,
-and the built_in function-call counts, 13437 in all, are:
-= -- 1202
-> -- 780
-< -- 2
-+ -- 312
-- -- 266
-* -- 908
-:= -- 2297
-add.period$ -- 123
-call.type$ -- 42
-change.case$ -- 256
+            703 strings with 9499 characters,
+and the built_in function-call counts, 14484 in all, are:
+= -- 1324
+> -- 808
+< -- 5
++ -- 323
+- -- 276
+* -- 981
+:= -- 2425
+add.period$ -- 127
+call.type$ -- 43
+change.case$ -- 264
 chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 529
-empty$ -- 1072
-format.name$ -- 266
-if$ -- 2753
+cite$ -- 44
+duplicate$ -- 573
+empty$ -- 1153
+format.name$ -- 276
+if$ -- 3003
 int.to.chr$ -- 0
-int.to.str$ -- 42
-missing$ -- 41
-newline$ -- 210
-num.names$ -- 82
-pop$ -- 336
+int.to.str$ -- 43
+missing$ -- 42
+newline$ -- 216
+num.names$ -- 84
+pop$ -- 339
 preamble$ -- 1
-purify$ -- 217
+purify$ -- 224
 quote$ -- 0
-skip$ -- 321
+skip$ -- 371
 stack$ -- 0
-substring$ -- 508
-swap$ -- 80
-text.length$ -- 2
+substring$ -- 645
+swap$ -- 112
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 166
-warning$ -- 3
-while$ -- 105
-width$ -- 44
-write$ -- 426
-(There were 2 error messages)
+type$ -- 170
+warning$ -- 1
+while$ -- 118
+width$ -- 45
+write$ -- 443
+(There was 1 error message)

@@ -141,7 +141,6 @@ public class DataReader {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
 //		System.out.print(graphFile);
 		System.out.println(" the # of edges in G:" + edges);
 		System.out.println("the average degree:" + (edges * 1.0 / userNum));
@@ -160,11 +159,15 @@ public class DataReader {
 	}
 
 	public static void main(String[] args) {
-		DataReader dataReader = new DataReader(Config.flickrGraph, Config.flickrNode);
-		DataReader d1=new DataReader(Config.dblpGraph, Config.dblpNode);
-//		String users[][] = dataReader.readNode();
-		int graph[][] = dataReader.readGraph();
+//		DataReader dataReader = new DataReader(Config.flickrGraph, Config.flickrNode);
+		DataReader d1=new DataReader(Config.youtubeGraph, Config.youtubeNode);
+		DataReader d2 = new DataReader(Config.DflickrGraph, Config.DflickrNode);
+		
+//		int users[][] = dataReader.readGraph();
+//		System.out.println(dataReader.getEdgeNum());
+//		int graph[][] = dataReader.readGraph();
 		int[][] h2=d1.readGraph();
+		d2.readGraph();
 //		int nodeId = 7786;
 //		String kw[] = users[nodeId];
 //		for(int i = 0;i < users[nodeId].length;i ++){

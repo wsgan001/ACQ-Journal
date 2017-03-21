@@ -58,6 +58,6 @@
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="hku.algo.index.KwUpdate"/>
 <fullyQualifiedTypeName name="hku.Config"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="hku.algo.index.AdvancedIndex"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

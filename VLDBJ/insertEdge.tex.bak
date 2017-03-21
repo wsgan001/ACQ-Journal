@@ -1,10 +1,7 @@
 \subsection{Edge Insertion}
 \label{sec:edgeInsertion}
 
-For the update of edge, i.e, inserting or deleting an edge, it is not straightforward how to accordingly update the CL-tree efficiently. This is because, the insertion or deletion of a single edge may trigger updates in several CL-tree nodes as well as their structures.
-
-As aforementioned, inserting an edge may trigger the updates of several CL-tree nodes as well as their structures.
-We illustrate this by Example~\ref{eg:edgeInsertion}.
+For the update of edge, i.e, inserting (deleting) an edge, it is not straightforward how to accordingly update the CL-tree efficiently. This is because, the insertion (deletion) of a single edge may trigger updates in several CL-tree nodes as well as their structures. We illustrate this by Example~\ref{eg:edgeInsertion}.
 
 \begin{example}
 \label{eg:edgeInsertion}
@@ -51,7 +48,7 @@ Given a graph $G$ and a vertex $v$, the induced core subgraph of $v$, denoted as
 Notice that, the sets of vertices in $G_u$ ($G_v$) are actually subsets of vertices in $p_u.vertexSet$ ($p_v.vertexSet$),
 where $p_u$, $p_v$ denote the nodes that contain $u$, $v$.
 
-\begin{theorem}[k-core update theorem\cite{kcoreUpdate}]
+\begin{theorem}[$k$-core update \cite{kcoreUpdate}]
 \label{thrm:kcoreupdate}
 Given a graph $G$ and two vertices $u$ and $v$. After inserting or deleting an edge $(u$,$v)$ in $G$, we have that,
 
@@ -181,8 +178,8 @@ After inserting an edge between two vertices, the maximum numbers of disconnecte
 which need to be merged is two.
 \end{lemma}
 \begin{proof}
-The hypothesis is that there exist at least 3 disconnected $k$-$\widehat{core}$s that need to be merged after inserting an edge.
-We first randomly select three disconnected $k$-$\widehat{core}$s. Then we can prove by contradiction that one of them are already connected to one of the other two $k$-$\widehat{core}$s, which means there does not exist the third disconnected $k$-$\widehat{core}$ that needs to be merged. That completes the proof.
+Suppose that there are at least three disconnected $k$-$\widehat{core}$s that need to be merged after inserting an edge.
+We first randomly select three disconnected $k$-$\widehat{core}$s. Then we can prove by contradiction that one of them is already connected to one of the other two $k$-$\widehat{core}$s, which means there does not exist the third disconnected $k$-$\widehat{core}$ that needs to be merged. That completes the proof.
 \end{proof}
 
 %\begin{figure}[ht]

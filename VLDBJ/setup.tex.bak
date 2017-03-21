@@ -10,13 +10,13 @@ Table~\ref{tab:dataset} shows the number of vertices and edges, the $k_{max}$ va
 
 {\color{blue}
 The remaining two dynamic datasets,
-i.e., {\it DFlickr} and {\it Youtube}~\cite{mislove-2009-socialnetworksthesis,mislove-2008-flickr}),
+i.e., {\it DFlickr} and {\it Youtube}~\cite{mislove-2009-socialnetworksthesis,mislove-2008-flickr},
 are dynamic evolving graphs, which contain the snapshots of graphs as the time goes on.
 Note that these two datasets do not have keywords.
 Both DFlickr and Youtube datasets are about the user friendship networks on Flickr and Youtube websites respectively.
 Each vertex denotes a user and each edge denotes a friendship between two users.
 DFlickr contains edges which are inserted and deleted during the evolving process;
-while in Youtude, there are only inserted edges as the time goes on.
+while in Youtube, there are only inserted edges as the time goes on.
 }
 
 \begin{table}[h]
@@ -48,12 +48,12 @@ while in Youtude, there are only inserted edges as the time goes on.
 
 {\color{blue}
 To evaluate ACQs, we set the default value of $k$ to 6. The input keyword set $S$ is set to the whole set of keywords contained by the query vertex. For each dataset, we randomly select 300 query vertices with core numbers of 6 or more, which ensures that there is a $k$-core containing each query vertex.
-Each data point is the average result for these 300 queries.
+In all the following figures about efficiency, we report the average time cost of these queries.
 
 To evaluate the index maintenance algorithms, we consider all the six datasets.
-For the first four datasets, we randomly select 1000 vertices and for each of them, we randomly insert and delete one keyword to evaluate the perform keyword update. Meanwhile, we randomly insert and delete five groups of edges, each of which has 100 edges, and their core numbers vary from 5 to 25.
-For each of the remaining datasets, we first take the snapshots in 100 consecutive days, then divide them into five groups, each of which are in a period of 20 consecutive days, and finally we randomly select 200 records from each group as test edges.
+For the first four datasets, we randomly select 1,000 vertices and for each of them, we randomly insert and delete one keyword to evaluate the perform keyword update. Meanwhile, we randomly insert and delete five groups of edges, each of which has 100 edges, and their core numbers vary from 5 to 25.
+For each of the remaining datasets (DFlickr and Youtube), we first take the snapshots in 100 consecutive days, then divide them into five groups, each of which are in a period of 20 consecutive days, and finally we randomly select 200 records from each group as test edges.
+}
 
 We implement all the algorithms in Java, and run experiments on a machine having a quad-core Intel i7-3770 3.40GHz processor, and 32GB of memory, with Ubuntu installed.
 We present the effectiveness and efficiency results in Sections~\ref{effectiveness} and~\ref{efficiency}.
-} 

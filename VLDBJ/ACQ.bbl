@@ -26,12 +26,12 @@ G.~Bhalotia~et al.
 \bibitem{online-sigmod2013}
 W.~Cui, Y.~Xiao, H.~Wang, Y.~Lu, and W.~Wang.
 \newblock Online search of overlapping communities.
-\newblock In {\em SIGMOD}, 2013.
+\newblock In {\em SIGMOD}, pages 277--288, 2013.
 
 \bibitem{local2014}
 W.~Cui, Y.~Xiao, H.~Wang, and W.~Wang.
 \newblock Local search of communities in large graphs.
-\newblock In {\em SIGMOD}, 2014.
+\newblock In {\em SIGMOD}, pages 991--1002, 2014.
 
 \bibitem{keyword-icde2007}
 B.~Ding, J.~X. Yu, S.~Wang, L.~Qin, X.~Zhang, and X.~Lin.
@@ -56,6 +56,7 @@ W.~Fan, X.~Wang, Y.~Wu, and J.~Xu.
 \bibitem{fangeffective}
 Y.~Fang, R.~Cheng, X.~Li, S.~Luo, and J.~Hu.
 \newblock Effective community search over large spatial graphs.
+\newblock {\em PVLDB}, 10(6):709--720, 2017.
 
 \bibitem{fang2014}
 Y.~Fang, H.~Zhang, Y.~Ye, and X.~Li.
@@ -81,6 +82,11 @@ J.~Han, J.~Pei, and Y.~Yin.
 H.~He, H.~Wang, J.~Yang, and P.~S. Yu.
 \newblock Blinks: ranked keyword searches on graphs.
 \newblock In {\em SIGMOD}, 2007.
+
+\bibitem{hu2016querying}
+J.~Hu, X.~Wu, R.~Cheng, S.~Luo, and Y.~Fang.
+\newblock Querying minimal steiner maximum-connected subgraphs in large graphs.
+\newblock In {\em CIKM}, pages 1241--1250, 2016.
 
 \bibitem{k-truss2014}
 X.~Huang, H.~Cheng, L.~Qin, W.~Tian, and J.~X. Yu.

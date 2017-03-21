@@ -1,4 +1,3 @@
-% !TEX root = lac.tex
 \section{Introduction}
 \label{intro}
 
@@ -80,16 +79,19 @@ The second question is not easy to answer, because the attributed graph $G$ to b
 {\color{blue}
 We observe the {\it anti-monotonicity} property, which states that given a set $S$ of keywords, if it appears in every vertex of an AC, then for every subset $S'$ of $S$, there exists an AC in which every vertex contains $S'$. We use this intuition to propose better algorithms. We further develop the \emph{CL-tree}, an index that organizes the vertex keyword data in a hierarchical structure. The CL-tree has a space and construction time complexity linear to the size of $G$.
 Based on the CL-tree index, we have developed three different ACQ algorithms, and they are able to achieve a superior performance.
-In practice, graphs are continuously evolving. For instance, users may change their profiles, make friends or remove friendship. Thus the CL-tree index needs to be updated to reflect the changes in the graph. However, rebuilding the CL-tree from scratch can be computationally expensive,  especially when the updates are very frequent. So we have developed efficient algorithms to maintain the CL-tree index for dynamic graphs.
+In practice, graphs are continuously evolving \cite{chenghui,kddEvolving}. For instance, in the friendship networks of Facebook, users may change their profiles, and make new friends or remove friendship. Thus the CL-tree index needs to be updated to reflect the changes in the graph. A straightforward method to handle the update is to rebuild the CL-tree from scratch. However, this can be very computationally expensive, especially when the updates are very frequent. To alleviate this issue, we have developed efficient algorithms to maintain the CL-tree index for dynamic graphs.
 
-In addition, we have proposed two typical variants of the ACQ problems which are called {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-query problem} (or ACQ-M) respectively. ACQ-A is an approximation version of the ACQ query in which vertices of an AC do not need to exactly share the same keywords in $S$. It loosens the constraint on the number of shared keywords and find potential ACs if the keyword information is weak.
-ACQ-M considers multiple query vertices and outputs their ACs. It can help to narrow the size of targeted ACs in which vertices are more relevant.
-To answer the queries for these variants, we have also developed efficient algorithms based on the CL-tree index.
+In addition, we have proposed two typical variants of the ACQ problem, which are called {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-vertex ACQ problem} (or ACQ-M) respectively.
+ACQ-A is an approximation version of the ACQ query, in which vertices of an AC do not need to exactly share the same keywords as that in ACQ. It relaxes the constraint on sharing common keywords; this could be very useful if the vertices of the graph do have much keyword information.
+ACQ-M generalizes the ACQ query for supporting multiple query vertices. It takes multiple query vertices as input and returns the ACs containing all of them. This could be very useful if we want to find the ACs for a group of query vertices. For example, a database workshop organizer may be interested in inviting researchers who have a close relationship with both Jim Gray and Michael Stonebraker.
+To answer the queries for ACQ-A and ACQ-M, we have also developed efficient algorithms based on the CL-tree index.
 }
 
-We have performed extensive experiments on four large real graph datasets (namely Flickr, DBLP, Tencent, and DBpedia).
+We have performed extensive experiments on six large real graph datasets.
 We found that a large number of common keywords appear across vertices in our graph datasets. In DBLP, for instance, an AC with one common keyword contains over 5,000 vertices on average; an AC with two common keywords contains over 700 vertices. Hence, using shared keywords among vertices as keyword cohesiveness makes sense.
-We have also studied how to quantify the quality of a community, based on occurrence frequencies of keywords and similarity between the keyword sets of two vertices. We conducted a detailed case study on DBLP. These results confirm the superiority of the AC over the communities returned by existing community detection and community search algorithms, in terms of community quality. The performance of our best algorithm is 2 to 3 order-of-magnitude better than solutions that do not use the CL-tree. Another advantage of our approaches is that they organize and search vertex keywords for ACs effectively, achieving a higher efficiency than existing community search solutions (that do not use vertex keywords in the community search process).
+We have also studied how to quantify the quality of a community, based on occurrence frequencies of keywords and similarity between the keyword sets of two vertices. We conducted a detailed case study on DBLP. These results confirm the superiority of the AC over the communities returned by existing community detection and community search algorithms, in terms of community quality. The performance of our best algorithm is 2 to 3 order-of-magnitude faster than solutions that do not use the CL-tree.
+We have also experimentally evaluated the index maintenance algorithms and the results show that they are very efficient.
+Moreover, we perform the queries of the ACQ-A and ACQ-M problems, and the results show that our index-based algorithms are much faster than the baseline algorithms. In addition, our approaches achieve a higher efficiency than existing community search solutions (that do not use vertex keywords in the community search process).
 
 {\bf Organization.} We review the related work in Section~\ref{related}, and define the ACQ problem formally in Section~\ref{problem}. Section~\ref{basic} presents the basic solutions, and Section~\ref{index} discusses the CL-tree index.
 In Section~\ref{indexMaintenance}, we discuss how to maintain the CL-tree index for dynamic graphs.
