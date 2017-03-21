@@ -1,10 +1,9 @@
-\section{Basic Algorithm of Variants}
+\section{Basic Algorithms for Variants}
 \label{app:algoOfVariant}
 
-\chen{
-\textbf{1. Variant 1.}
-Algorithms with out index denoted as {\tt basic-g-v1} and {\tt basic-w-v1}.
-Their detail pseudocodes are presented in Algorithms~\ref{alg:basic-g-v1} and~\ref{alg:basic-w-v1}.
+{\color{blue}
+\textbf{1. ACQ-A.}
+We present {\tt basic-g-v1} and {\tt basic-w-v1} in Algorithms~\ref{alg:basic-g-v1} and~\ref{alg:basic-w-v1} respectively.
 
 \begin{algorithm}[h]
 \caption{Query algorithm: {\tt basic-g-v1}}
@@ -14,7 +13,7 @@ Their detail pseudocodes are presented in Algorithms~\ref{alg:basic-g-v1} and~\r
 \begin{algorithmic}[1]
     \Function{query($G$, $q$, $k$, $S$)}{}
         \State find the $k$-$\widehat {core}$, ${\mathcal C}_k$, containing $q$ from $G$;
-        \State collect a set $V'$ of vertices containing share at least $|S|\times \theta$ keywords from ${\mathcal C}_k$;
+        \State collect a set $V'$ of vertices containing at least $|S|\times \theta$ keywords from ${\mathcal C}_k$;
         \State find $G[S]$ from the subgraph induced by $V'$;
         \State find $G_k[S]$ from $G[S]$;
         \State output $G_k[S]$ as the target AC.
@@ -29,7 +28,7 @@ Their detail pseudocodes are presented in Algorithms~\ref{alg:basic-g-v1} and~\r
 \algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
 \begin{algorithmic}[1]
     \Function{query($G$, $q$, $k$, $S$)}{}
-        \State collect a set $V'$ of vertices containing share at least $|S|\times \theta$ keywords from $G$;
+        \State collect a set $V'$ of vertices containing at least $|S|\times \theta$ keywords from $G$;
         \State find $G[S]$ from the subgraph induced by $V'$;
         \State find $G_k[S]$ from $G[S]$;
         \State output $G_k[S]$ as the target AC.
@@ -37,14 +36,9 @@ Their detail pseudocodes are presented in Algorithms~\ref{alg:basic-g-v1} and~\r
 \end{algorithmic}}
 \end{algorithm}
 
-
-
-
-\textbf{2. Variant 2.}
-Algorithm {\tt basic-g-v2}, {\tt basic-w-v2} are extended from {\tt basic-g} and {\tt basic-w}.
-Detailed pseudocodes are attached in Algorithm~\ref{alg:basic-g-v2} and Algorithm~\ref{alg:basic-w-v2}.
-
-
+\textbf{2. ACQ-M.}
+Algorithms {\tt basic-g-v2}, {\tt basic-w-v2} are extended from {\tt basic-g} and {\tt basic-w}.
+Detailed pseudocodes are attached in Algorithms~\ref{alg:basic-g-v2} and~\ref{alg:basic-w-v2} respectively.
 
 \begin{algorithm}[h]
 \caption{Query algorithm: {\tt basic-g-v2}}
@@ -53,30 +47,14 @@ Detailed pseudocodes are attached in Algorithm~\ref{alg:basic-g-v2} and Algorith
 \algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
 \begin{algorithmic}[1]
     \Function{query($G$, $Q$, $k$, $S$)}{}
-        \State $S$ = $( \bigcap_{i=0}^{n-1}W(q_i))\cap S$;
-        \State $q \gets$ first vertex $q_0$ in $Q$;
-        \State init $\Psi$ using $S'$;
-        \State find the $k$-$\widehat {core}$, ${\mathcal C}_k$, containing $q$ from $G$;
-        \While {true}
-            \State $\Phi\gets \emptyset$;
-            \For {each $S'$ $\in \Psi$}
-                \State find $G[S']$ from ${\mathcal C}_k$;
-                \State find $G_k[S']$ from $G[S']$;
-                \If {$G_k[S']$ exists}
-                    \State $\Phi$.add($S'$);
-                \EndIf
-            \EndFor
-            \If {$\Phi \ne \emptyset$}
-                \State $\Psi\gets$ \Call{geneCand($\Phi$)}{};
-            \Else
-                \State break;
-            \EndIf
-        \EndWhile
-        \State find the target ACs which contains $Q$ from communities of keyword sets in $\Phi$;
+        \State $S'$ = $( \bigcap_{i=0}^{|Q|-1}W(q_i))\cap S$;
+        \State $q \gets$ randomly select a vertex from $Q$;
+        \State run {\tt basic-g} with $q$, $k$, and $S'$;
+        \State output target ACs which contain $Q$;
     \EndFunction
 \end{algorithmic}}
 \end{algorithm}
-
+\vspace{-0.6cm}
 \begin{algorithm}[h]
 \caption{Query algorithm: {\tt basic-w-v2}}
 \label{alg:basic-w-v2}
@@ -84,28 +62,11 @@ Detailed pseudocodes are attached in Algorithm~\ref{alg:basic-g-v2} and Algorith
 \algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
 \begin{algorithmic}[1]
     \Function{query($G$, $Q$, $k$, $S$)}{}
-        % \State $S$ = $( \bigcap\limits_{i=0}^{n-1}W(q_i))\cap S$;
-        \State $S$ = $( \bigcap_{i=0}^{n-1}W(q_i))\cap S$;
-        \State $q \gets$ first vertex $q_0$ in $Q$;
-        \State init $\Psi$ using $S'$;
-        \While {true}
-            \State $\Phi\gets \emptyset$;
-            \For {each $S'$ $\in \Psi$}
-                \State find $G[S']$ from $G$;
-                \State find $G_k[S']$ from $G[S']$;
-                \If {$G_k[S']$ exists}
-                    \State $\Phi$.add($S'$);
-                \EndIf
-            \EndFor
-            \If {$\Phi \ne \emptyset$}
-                \State $\Psi\gets$ \Call{geneCand($\Phi$)}{};
-            \Else
-                \State break;
-            \EndIf
-        \EndWhile
-        \State find the target ACs which contains $Q$ from communities of keyword sets in $\Phi$;
+        \State $S$ = $( \bigcap_{i=0}^{|Q|-1}W(q_i))\cap S$;
+        \State $q \gets$ randomly select a vertex from $Q$;
+        \State run {\tt basic-w} with $q$, $k$, and $S'$;
+        \State output target ACs which contain $Q$;
     \EndFunction
 \end{algorithmic}}
 \end{algorithm}
-
 } 

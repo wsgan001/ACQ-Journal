@@ -2,21 +2,21 @@
 \section{Index Maintenance}
 \label{indexMaintenance}
 
-%In practice, the keywords and edges of graphs are often frequently updated.
-In practice, the graphs are continuously evolving. Thus keywords and edges of graphs are often frequently updated.
+In practice, the graphs are continuously evolving~\cite{chenghui,kddEvolving}.
+Thus keywords and edges of graphs are often frequently updated.
 Clearly, when the graph is updated, both the CL-tree index and the ACQ query results also need to be updated.
 A straightforward method for handling the dynamic graph is to rebuild the index from scratch when an update is made.
 However, this method is very inefficient, especially when the updates are very frequent.
 To alleviate this issue, in this section we study how to dynamically maintain the CL-tree index efficiently,
 and propose algorithms for maintaining the CL-tree without rebuilding the CL-tree from scratch.
 
-The update for keyword update, i.e., inserting or deleting a keyword from a vertex's keyword set, is easy to be handled, since we can simply find the CL-tree node containing the vertex and update its $invertedList$.
-For the update of edge, i.e, inserting or deleting an edge, it is not straightforward how to accordingly update the CL-tree efficiently. This is because, the insertion or deletion of a single edge may trigger updates in several CL-tree nodes as well as their structures.
 We first present how to handle keyword update in Section~\ref{sec:keyword}.
 Then, we discuss the maintenance of CL-tree for the insertion and deletion of an edge in Sections~\ref{sec:edgeInsertion} and~\ref{sec:edgeDeletion}.
 
 \subsection{Keyword Update}
 \label{sec:keyword}
+
+The update for keyword update, i.e., inserting or deleting a keyword from a vertex's keyword set, is easy to be handled, since we can simply find the CL-tree node containing the vertex and update its $invertedList$.
 Recall that in the {\tt advanced} method (Section~\ref{advancedIndex}), we have built a vertex-node map, where each vertex is mapped to a CL-tree node. Note that we can build such a map by traversing the tree if we use {\tt basic}.
 To insert a new keyword for a vertex $v$, we can first locate the CL-tree node, $p$, containing $v$ by the vertex-node map, and then insert the keyword and vertex ID into $p.invertedList$. To remove a keyword of a vertex, we can have a similar process on the CL-tree.
 

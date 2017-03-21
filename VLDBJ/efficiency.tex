@@ -257,7 +257,11 @@ In addition, we also run the CD method {\tt CODICIL}, which takes 32 mins, 2 min
 
 {\color{blue}
 \textbf{2. Index Maintenance.}
-We first evaluate the performance of keyword update and the results show that the keyword update is very fast. The keyword insertion and deletion are around $10^6$ and $10^5$ times faster than rebuilding the index respectively.
+We first evaluate the performance of keyword update and the results show that the keyword update is very fast.
+For example, we compute the average time of 1,000 keyword insertion and deletion on Flickr dataset,
+and the results show that they are over $10^6$ and $10^5$ times faster than rebuilding the index respectively.
+Similar results are obtained on other three datasets.
+
 Next, we show the performance of edge update on four static datasets in Figures~\ref{fig:exp-indexMaintenance}(a)-\ref{fig:exp-indexMaintenance}(h) by varying $k$.
 In Figures~\ref{fig:exp-indexMaintenance}(a)-\ref{fig:exp-indexMaintenance}(b), we report the efficiency by separately performing edge insertion and deletion. Clearly, {\tt insertEdge} is $10^2$ to $10^5$ times faster than rebuilding the index,
 and {\tt deleteEdge} is also around $10^2$ times faster than rebuilding index.
@@ -443,9 +447,9 @@ We have tested {\tt Dec} and {\tt Local} on non-attributed graphs. This is done 
 {\color{blue}
 \textbf{10. Effect of $\theta$ in ACQ-A.}
 For each query vertex, we randomly select 10 keywords to form set $S$, set $\theta$ as 0.2, 0.4 0.6, 0.8 and 1.0,
-and answer the query of Variant 1 using {\tt basic-g-v1}, {\tt basic-w-v1} and {\tt SWT}.
-Figures~\ref{fig:exp-variant}(a)-\ref{fig:exp-variant}(d) show their efficiency.
-We can see that {\tt SWT} outperforms the basic solutions consistently, as it uses the CL-tree index.
+and answer the query of ACQ-A using {\tt basic-g-v1}, {\tt basic-w-v1} and {\tt SWT}.
+Figures~\ref{fig:exp-variant}(a)-\ref{fig:exp-variant}(d) show their efficiency results.
+We can see that {\tt SWT} outperforms the basic solutions consistently, since it is based on the CL-tree index.
 
 \textbf{11. Effect of $|Q|$ in ACQ-M.}
 We randomly select five groups of query sets by varying the size of $Q$ from 2 to 6.
@@ -453,4 +457,4 @@ Each group has 200 query sets.
 We run {\tt basic-g-v2}, {\tt basic-w-v2} and {\tt MDec} with these five groups of query sets,
 and report efficiency in Figures~\ref{fig:exp-variant}(e)-\ref{fig:exp-variant}(h).
 We can observe that, similar to the results of single query vertices, {\tt MDec} is at least two orders of magnitude faster than the baseline solutions which do not use the CL-tree index.
-}
+} 

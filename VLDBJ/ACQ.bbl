@@ -3,6 +3,11 @@
 \bibitem{unionFind}
 https://en.wikipedia.org/wiki/Disjoint-set\_data\_structure.
 
+\bibitem{kddEvolving}
+B.~Bahmani, R.~Kumar, M.~Mahdian, and E.~Upfal.
+\newblock Pagerank on an evolving graph.
+\newblock In {\em KDD}, pages 24--32, 2012.
+
 \bibitem{barbieri2015efficient}
 N.~Barbieri, F.~Bonchi, E.~Galimberti, and F.~Gullo.
 \newblock Efficient and effective community search.
@@ -135,6 +140,11 @@ M.~Newman~et al.
 \newblock Finding and evaluating community structure in networks.
 \newblock {\em Physical review E}, 2004.
 
+\bibitem{chenghui}
+C.~Ren, E.~Lo, B.~Kao, X.~Zhu, and R.~Cheng.
+\newblock On querying historical evolving graph sequences.
+\newblock {\em VLDB}, 4(11):726--737, 2011.
+
 \bibitem{attr-www2013}
 Y.~Ruan, D.~Fuhry, and S.~Parthasarathy.
 \newblock Efficient community detection in large networks using content and
@@ -182,8 +192,7 @@ Z.~Xu, Y.~Ke, Y.~Wang, H.~Cheng, and J.~Cheng.
 \bibitem{yang2013community}
 J.~Yang, J.~McAuley, and J.~Leskovec.
 \newblock Community detection in networks with node attributes.
-\newblock In {\em Data Mining (ICDM), 2013 IEEE 13th international conference
-  on}, pages 1151--1156. IEEE, 2013.
+\newblock In {\em ICDM}, pages 1151--1156, 2013.
 
 \bibitem{attr-icdm2013}
 J.~Yang, J.~McAuley, and J.~Leskovec.

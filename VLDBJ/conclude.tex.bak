@@ -1,11 +1,11 @@
 \section{Conclusions}
 \label{conclusion}
 
-An AC is a community that exhibits structure and keyword cohesiveness. To facilitate ACQ evaluation, we develop the CL-tree index and its query algorithms. We further propose index maintenance algorithms for dynamic graphs and define two typical variants of the ACQ problems.
-Our experimental results show that ACs are
-easier to interpret than those of existing community detection/search methods,
-and they can be ``personalized''. Our solutions are also faster than existing community search algorithms.
+An AC is a community that exhibits structure and keyword cohesiveness. To facilitate ACQ evaluation, we develop the CL-tree index and its query algorithms. We further propose index maintenance algorithms for dynamic graphs.
+%Moreover, we formally define two typical variants of the ACQ problem and propose efficient query algorithms based on the CL-tree index.
+Moreover, we formally define ACQ-A and ACQ-M problems and propose efficient query algorithms based on the CL-tree index.
+Our experimental results on several dataseats show that ACs are easier to interpret than those of existing community detection/search methods, and they can be ``personalized''. In addition, our solutions are also faster than existing community search algorithms.
 
 In the future, we will study the use of other measures of structure cohesiveness (e.g., $k$-truss, $k$-clique) and keyword cohesiveness (e.g., Jaccard similarity and string edit distance) in the ACQ definition.
 We will also investigate how the directions of edges will affect the formation of an AC.
-We will examine how graph pattern matching techniques~\cite{GPM-KDD2007,GPM-VLDB2010,GPM-PVLDB2015} can be extended to find ACs effectively from large attributed graphs. An interesting research direction is to study how to automatically generate a meaningful graph pattern that well reflects a real community, and how to use these patterns to find ACs efficiently.
+We will examine how graph pattern matching techniques~\cite{GPM-KDD2007,GPM-VLDB2010,GPM-PVLDB2015} can be extended to find ACs effectively from large attributed graphs. An interesting research direction is to study how to automatically generate a meaningful graph pattern that well reflects a real community, and how to use these patterns to find ACs efficiently. 

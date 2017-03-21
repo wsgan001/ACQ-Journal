@@ -16,45 +16,45 @@ I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in unionFind
 Warning--empty journal in fangeffective
 Warning--empty year in fangeffective
-You've used 40 entries,
+You've used 42 entries,
             2118 wiz_defined-function locations,
-            684 strings with 9090 characters,
-and the built_in function-call counts, 12550 in all, are:
-= -- 1120
-> -- 729
-< -- 1
-+ -- 292
-- -- 248
-* -- 839
-:= -- 2157
-add.period$ -- 118
-call.type$ -- 40
-change.case$ -- 241
+            693 strings with 9292 characters,
+and the built_in function-call counts, 13437 in all, are:
+= -- 1202
+> -- 780
+< -- 2
++ -- 312
+- -- 266
+* -- 908
+:= -- 2297
+add.period$ -- 123
+call.type$ -- 42
+change.case$ -- 256
 chr.to.int$ -- 0
-cite$ -- 43
-duplicate$ -- 497
-empty$ -- 1007
-format.name$ -- 248
-if$ -- 2569
+cite$ -- 45
+duplicate$ -- 529
+empty$ -- 1072
+format.name$ -- 266
+if$ -- 2753
 int.to.chr$ -- 0
-int.to.str$ -- 40
-missing$ -- 39
-newline$ -- 200
-num.names$ -- 78
-pop$ -- 320
+int.to.str$ -- 42
+missing$ -- 41
+newline$ -- 210
+num.names$ -- 82
+pop$ -- 336
 preamble$ -- 1
-purify$ -- 204
+purify$ -- 217
 quote$ -- 0
-skip$ -- 295
+skip$ -- 321
 stack$ -- 0
-substring$ -- 449
-swap$ -- 70
-text.length$ -- 1
+substring$ -- 508
+swap$ -- 80
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 158
+type$ -- 166
 warning$ -- 3
-while$ -- 96
-width$ -- 42
-write$ -- 405
+while$ -- 105
+width$ -- 44
+write$ -- 426
 (There were 2 error messages)
