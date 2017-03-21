@@ -1,0 +1,448 @@
+%% This BibTeX bibliography file was created using BibDesk.
+%% http://bibdesk.sourceforge.net/
+
+
+%% Created for Reynold CK Cheng at 2016-03-02 07:53:01 +0800
+
+
+%% Saved with string encoding Unicode (UTF-8)
+
+
+
+@article{community-phy2004,
+	Author = {Newman et al, Mark},
+	Journal = {Physical review E},
+	Title = {Finding and evaluating community structure in networks},
+	Year = {2004}}
+
+@article{community-phy2010,
+	Author = {Fortunato, Santo},
+	Journal = {Physics Reports},
+	Number = {3},
+	Pages = {75--174},
+	Publisher = {Elsevier},
+	Title = {Community detection in graphs},
+	Volume = {486},
+	Year = {2010}}
+
+@inproceedings{KDD2010,
+	author={Sozio, Mauro and Gionis, Aristides},
+	Booktitle = {KDD},
+	Title = {The Community-search Problem and How to Plan a Successful Cocktail Party},
+	Year = {2010}}
+
+@inproceedings{online-sigmod2013,
+	author={Cui, Wanyun and Xiao, Yanghua and Wang, Haixun and Lu, Yiqi and Wang, Wei},
+	Booktitle = {SIGMOD},
+	Title = {Online search of overlapping communities},
+	Year = {2013}}
+
+@inproceedings{local2014,
+	author={Cui, Wanyun and Xiao, Yanghua and Wang, Haixun and Wang, Wei},
+	Booktitle = {SIGMOD},
+	Title = {Local search of communities in large graphs},
+	Year = {2014}}
+
+@inproceedings{k-truss2014,
+	author={Huang, Xin and Cheng, Hong and Qin, Lu and Tian, Wentao and Yu, Jeffrey Xu},
+	Booktitle = {SIGMOD},
+	Title = {Querying k-truss community in large and dynamic graphs},
+	Year = {2014}}
+
+@inproceedings{vldb2015,
+	Author = {Li, Rong-Hua and Qin, Lu and Yu, Jeffrey Xu and Mao, Rui},
+	Booktitle = {PVLDB},
+	Title = {Influential community search in large networks},
+	Year = {2015}}
+
+@article{md1983,
+	Author = {Seidman, Stephen B},
+	Journal = {Social networks},
+	Number = {3},
+	Pages = {269--287},
+	Publisher = {Elsevier},
+	Title = {Network structure and minimum degree},
+	Volume = {5},
+	Year = {1983}}
+
+@article{kcore2006,
+	Author = {Dorogovtsev et al, Sergey N},
+	Journal = {Physical review letters},
+	Title = {K-core organization of complex networks},
+	Year = {2006}}
+
+@article{kcore2003,
+	Author = {Batagelj, Vladimir and Zaversnik, Matjaz},
+	Journal = {arXiv},
+	Title = {An O(m) algorithm for cores decomposition of networks},
+	Year = {2003}}
+
+@article{unionFind1964,
+	Author = {Galler, Bernard A. and Fisher, Michael J.},
+	Issn = {0001-0782},
+	Issue_Date = {May 1964},
+	Journal = {Commun. ACM},
+	Month = may,
+	Number = {5},
+	Numpages = {3},
+	Pages = {301--303},
+	Publisher = {ACM},
+	Title = {An Improved Equivalence Algorithm},
+	Volume = {7},
+	Year = {1964}}
+
+@misc{unionFind,
+	Howpublished = {https://en.wikipedia.org/wiki/Disjoint-set\_data\_structure}}
+
+@book{han2011data,
+	Author = {Han, Jiawei and Kamber, Micheline and Pei, Jian},
+	Publisher = {Elsevier},
+	Title = {Data mining: concepts and techniques},
+	Year = {2011}}
+
+@inproceedings{han2000mining,
+	Author = {Han, Jiawei and Pei, Jian and Yin, Yiwen},
+	Booktitle = {SIGMOD},
+	Title = {Mining frequent patterns without candidate generation},
+	Year = {2000}}
+
+@article{fournier2014spmf,
+	Author = {Fournier-Viger et al, Philippe},
+	Journal = {JMLR},
+	Pages = {3389--3393},
+	Title = {SPMF: a Java Open-Source Pattern Mining Library},
+	Volume = {15},
+	Year = {2014}}
+
+@inproceedings{twitterDataset,
+	Author = {Yamaguchi, Yuto and Yoshida, Mitsuo and Faloutsos, Christos and Kitagawa, Hiroyuki},
+	Booktitle = {ICWSM2015},
+	Pages = {513--522},
+	Title = {Patterns in Interactive Tagging Networks},
+	Year = {2015}}
+
+@inproceedings{keyword-icde2002,
+	Author = {Bhalotia et al, Gaurav},
+	Booktitle = {ICDE},
+	Title = {Keyword searching and browsing in databases using BANKS},
+	Year = {2002}}
+
+@inproceedings{keyword-icde2007,
+	author={Ding, Bolin and Yu, Jeffrey Xu and Wang, Shan and Qin, Lu and Zhang, Xiao and Lin, Xuemin},
+	Booktitle = {ICDE},
+	Title = {Finding top-k min-cost connected trees in databases},
+	Year = {2007}}
+
+@inproceedings{keyword-vldb2005,
+	Author = {Kacholia et al, Varun},
+	Booktitle = {VLDB},
+	Title = {Bidirectional expansion for keyword search on graph databases},
+	Year = {2005}}
+
+@inproceedings{keyword-sigmod2007,
+	 author={He, Hao and Wang, Haixun and Yang, Jun and Yu, Philip S},
+	Booktitle = {SIGMOD},
+	Title = {BLINKS: ranked keyword searches on graphs},
+	Year = {2007}}
+
+@inproceedings{keyword-icde2009,
+	Author = {Qin, Lu and Yu, Jeffrey Xu and Chang, Lijun and Tao, Yufei},
+	Booktitle = {ICDE},
+	Title = {Querying communities in relational databases},
+	Year = {2009}}
+	
+@inproceedings{keyword-sigmod2008,
+	Author = {Li et al, Guoliang},
+	Booktitle = {SIGMOD},
+	Pages = {903--914},
+	Title = {EASE: an effective 3-in-1 keyword search method for unstructured, semi-structured and structured data},
+	Year = {2008}}
+
+@article{keyword-yu-2009,
+	author={Yu, Jeffrey Xu and Qin, Lu and Chang, Lijun},
+	Journal = {Synthesis Lectures on Data Management},
+	Title = {Keyword search in databases},
+	Year = {2009}}
+
+@article{keyword-vldb2011,
+	Author = {Kargar, Mehdi and An, Aijun},
+	Journal = {PVLDB},
+	Number = {10},
+	Pages = {681--692},
+	Publisher = {VLDB Endowment},
+	Title = {Keyword search in graphs: Finding r-cliques},
+	Volume = {4},
+	Year = {2011}}
+
+@article{thomee2015new,
+	Author = {Thomee et al, Bart},
+	Journal = {arXiv:1503.01817},
+	Title = {The new data and new challenges in multimedia research},
+	Year = {2015}}
+
+@article{salton1986introduction,
+	Author = {Salton, Gerard and McGill, Michael J},
+	Publisher = {McGraw-Hill, Inc.},
+	Title = {Introduction to modern information retrieval},
+	Year = {1986}}
+
+@inproceedings{pr-kdd14,
+	Author = {Kloumann et al, Isabel M.},
+	Booktitle = {KDD},
+	Title = {Community Membership Identification from Small Seed Sets},
+	Year = {2014}}
+
+@inproceedings{sp-www15,
+	Author = {Li, Yixuan and He, Kun and Bindel, David and Hopcroft, John E.},
+	Booktitle = {WWW},
+	Title = {Uncovering the Small Community Structure in Large Networks: A Local Spectral Approach},
+	Year = {2015}}
+
+@article{attr-vldb2009,
+	author={Zhou, Yang and Cheng, Hong and Yu, Jeffrey Xu},
+	Journal = {VLDB},
+	Title = {Graph clustering based on structural/attribute similarities},
+	Year = {2009}}
+
+@inproceedings{attr-www2013,
+	author={Ruan, Yiye and Fuhry, David and Parthasarathy, Srinivasan},
+	Booktitle = {WWW},
+	Title = {Efficient community detection in large networks using content and links},
+	Year = {2013}}
+
+@inproceedings{attr-topic-kdd2008,
+	author={Nallapati, Ramesh M and Ahmed, Amr and Xing, Eric P and Cohen, William W},
+	Booktitle = {KDD},
+	Title = {Joint latent topic models for text and citations},
+	Year = {2008}}
+
+@inproceedings{attr-topic-icml2009,
+	author={Liu, Yan and Niculescu-Mizil, Alexandru and Gryc, Wojciech},
+	Booktitle = {ICML},
+	Title = {Topic-link LDA: joint models of topic and author community},
+	Year = {2009}}
+
+@inproceedings{attr-topic-sigmod2012,
+	author={Xu, Zhiqiang and Ke, Yiping and Wang, Yi and Cheng, Hong and Cheng, James},
+	Booktitle = {SIGMOD},
+	Title = {A model-based approach to attributed graph clustering},
+	Year = {2012}}
+
+@inproceedings{attr-topic-www2012,
+	Author = {Sachan et al, Mrinmaya},
+	Booktitle = {WWW},
+	Title = {Using content and interactions for discovering communities in social networks},
+	Year = {2012}}
+
+@inproceedings{attr-kdd2009,
+	author={Yang, Tianbao and Jin, Rong and Chi, Yun and Zhu, Shenghuo},
+	Booktitle = {KDD},
+	Title = {Combining link and content for community detection: a discriminative approach},
+	Year = {2009}}
+
+@inproceedings{attr-icdm2013,
+	author={Yang, Jaewon and McAuley, Julian and Leskovec, Jure},
+	Booktitle = {ICDM},
+	Title = {Community detection in networks with node attributes},
+	Year = {2013}}
+
+@inproceedings{attr-icdm2015,
+	Author = {Liu et al, Liyuan},
+	Booktitle = {ICDM},
+	Title = {Community Detection Based on Structure and Content: A Content Propagation Perspective},
+	Year = {2015}}
+
+@misc{TR,
+	Author = {{Y. Fang et al}},
+	Date-Modified = {2016-03-01 23:53:00 +0000},
+	Howpublished = {\url{http://www.cs.hku.hk/research/techreps/document/TR-2016-01.pdf}},
+	Title = {Effective Community Search for Large Attributed Graphs (Technical report)}}
+
+
+
+
+@inproceedings{GPM-KDD2007,
+  title={Fast best-effort pattern matching in large attributed graphs},
+  author={Tong, Hanghang and Faloutsos, Christos and Gallagher, Brian and Eliassi-Rad, Tina},
+  booktitle={KDD},
+  year={2007},
+}
+%author={Tong, Hanghang and Faloutsos, Christos and Gallagher, Brian and Eliassi-Rad, Tina},
+%  pages={737--746},
+%  organization={ACM}
+
+@article{GPM-VLDB2010,
+  title={Graph pattern matching: from intractable to polynomial time},
+  author={Fan, Wenfei and Li, Jianzhong and Ma, Shuai and Tang, Nan and Wu, Yinghui and Wu, Yunpeng},
+  journal={PVLDB},
+  year={2010},
+}
+%author={Fan, Wenfei and Li, Jianzhong and Ma, Shuai and Tang, Nan and Wu, Yinghui and Wu, Yunpeng},
+%volume={3},
+%number={1-2},
+%pages={264--275},
+%publisher={VLDB Endowment}
+
+@inproceedings{GPM-SIGMOD2011,
+ author = {Fan et al, Wenfei},
+ title = {Incremental Graph Pattern Matching},
+ booktitle = {SIGMOD},
+ year = {2011},
+}
+%author = {Fan, Wenfei and Li, Jianzhong and Luo, Jizhou and Tan, Zijing and Wang, Xin and Wu, Yinghui},
+% publisher = {ACM},
+
+@inproceedings{GPM-ICDE2012,
+  title={Top-k graph pattern matching over large graphs},
+  author={Cheng, Jiefeng and Zeng, Xianggang and Yu, Jeffrey Xu},
+  booktitle={ICDE},
+  pages={1033--1044},
+  year={2013},
+  organization={IEEE}
+}
+
+@article{GPM-KDD2013,
+  title={Fast and Effective Pattern Matching on Weighted Attributed Graphs},
+  author={Basu-Roy, Senjuti and Eliassi-Rad, Tina and Papadimitriou, Spiros}
+}
+
+@article{GPM-PVLDB2013,
+ author = {Fan, Wenfei and Wang, Xin and Wu, Yinghui},
+ title = {Diversified Top-k Graph Pattern Matching},
+ journal = {PVLDB},
+ volume = {6},
+ number = {13},
+ month = aug,
+ year = {2013},
+ pages = {1510--1521},
+}
+% publisher = {VLDB Endowment},
+@article{GPM-PVLDB2015,
+  title={Association rules with graph patterns},
+  author={Fan, Wenfei and Wang, Xin and Wu, Yinghui and Xu, Jingbo},
+  journal={PVLDB},
+  volume={8},
+  number={12},
+  pages={1502--1513},
+  year={2015},
+
+}
+% author={Fan, Wenfei and Wang, Xin and Wu, Yinghui and Xu, Jingbo},
+% publisher={VLDB Endowment}
+@article{kcoreUpdate,
+  title={Efficient core maintenance in large dynamic graphs},
+  author={Li, Rong-Hua and Yu, Jeffrey Xu and Mao, Rui},
+  journal={TKDE},
+  year={2014},
+  publisher={IEEE}
+}
+
+@article{fang2014,
+  title={Detecting hot topics from Twitter: A multiview approach},
+  author={Fang, Yixiang and Zhang, Haijun and Ye, Yunming and Li, Xutao},
+  journal={Journal of Information Science},
+  volume = {40(5)},
+  pages={578-593},
+  year={2014},
+  publisher={Sage Publications}
+}s
+
+@inproceedings{mislove-2008-flickr,
+  author = {Alan Mislove and Hema Swetha Koppula and Krishna P. Gummadi and Peter Druschel and Bobby Bhattacharjee},
+  title = {Growth of the Flickr Social Network},
+  booktitle = {Proceedings of the 1st ACM SIGCOMM Workshop on Social Networks (WOSN'08)},
+  location = {Seattle, WA},
+  month = {August},
+  year = {2008}
+}
+
+@phdthesis{mislove-2009-socialnetworksthesis,
+  author = {Alan Mislove},
+  title = {Online Social Networks:  Measurement, Analysis, and Applications to Distributed Information Systems},
+  school = {Rice University, Department of Computer Science},
+  year = {2009},
+  month = {May}
+}
+
+@article{fangeffective,
+  title={Effective Community Search over Large Spatial Graphs},
+  author={Fang, Yixiang and Cheng, Reynold and Li, Xiaodong and Luo, Siqiang and Hu, Jiafeng}
+  booktitle = {PVLDB},
+  year = {2016}
+}
+
+@inproceedings{mislove-2008-flickr,
+  author = {Alan Mislove and Hema Swetha Koppula and Krishna P. Gummadi and Peter Druschel and Bobby Bhattacharjee},
+  title = {Growth of the Flickr Social Network},
+  booktitle = {Proceedings of the 1st ACM SIGCOMM Workshop on Social Networks (WOSN'08)},
+  location = {Seattle, WA},
+  month = {August},
+  year = {2008}
+}
+
+@article{sariyuce2016incremental,
+  title={Incremental k-core decomposition: algorithms and evaluation},
+  author={Sar{\i}y{\"u}ce, Ahmet Erdem and Gedik, Bu{\u{g}}ra and Jacques-Silva, Gabriela and Wu, Kun-Lung and {\c{C}}ataly{\"u}rek, {\"U}mit V},
+  journal={The VLDB Journal},
+  volume={25},
+  number={3},
+  pages={425--447},
+  year={2016},
+  publisher={Springer}
+}
+
+@article{huang2015approximate,
+  title={Approximate closest community search in networks},
+  author={Huang, Xin and Lakshmanan, Laks VS and Yu, Jeffrey Xu and Cheng, Hong},
+  journal={Proceedings of the VLDB Endowment},
+  volume={9},
+  number={4},
+  pages={276--287},
+  year={2015},
+  publisher={VLDB Endowment}
+}
+
+@article{barbieri2015efficient,
+  title={Efficient and effective community search},
+  author={Barbieri, Nicola and Bonchi, Francesco and Galimberti, Edoardo and Gullo, Francesco},
+  journal={Data Mining and Knowledge Discovery},
+  volume={29},
+  number={5},
+  pages={1406--1433},
+  year={2015},
+  publisher={Springer}
+}
+
+@inproceedings{yang2013community,
+  title={Community detection in networks with node attributes},
+  author={Yang, Jaewon and McAuley, Julian and Leskovec, Jure},
+  booktitle={ICDM},
+  pages={1151--1156},
+  year={2013}
+}
+
+@article{chenghui,
+  title={On querying historical evolving graph sequences},
+  author={Ren, Chenghui and Lo, Eric and Kao, Ben and Zhu, Xinjie and Cheng, Reynold},
+  journal={VLDB},
+  volume={4},
+  number={11},
+  pages={726--737},
+  year={2011}
+}
+@inproceedings{kddEvolving,
+ author = {Bahmani, Bahman and Kumar, Ravi and Mahdian, Mohammad and Upfal, Eli},
+ title = {PageRank on an Evolving Graph},
+ booktitle = {KDD},
+ year = {2012},
+ pages = {24--32},
+ numpages = {9},
+}
+
+@inproceedings{hu2016querying,
+  title={Querying Minimal Steiner Maximum-Connected Subgraphs in Large Graphs},
+  author={Hu, Jiafeng and Wu, Xiaowei and Cheng, Reynold and Luo, Siqiang and Fang, Yixiang},
+  booktitle={CIKM},
+  pages={1241--1250},
+  year={2016},
+}
