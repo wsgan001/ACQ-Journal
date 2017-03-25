@@ -35,7 +35,7 @@ Moreover, they can take a long time to find all the communities for a large grap
   \end{tabular}
 \end{table}
 
-{\bf Features of ACs.} We now present more details about ACs.
+{\bf Features of ACs.} We now present more details of ACs.
 
 \noindent $\bullet$ {\bf Ease of interpretation.}
 As demonstrated in Figure~\ref{fig:motivation}, an AC contains tightly-connected vertices with similar contexts or backgrounds. Thus, an ACQ user can focus on the common keywords or features of these vertices (e.g., the vertices of the AC in this example contain ``research'' and ``sports'', reflecting that all members of this AC like research and sports).  We call the set of common keywords among AC vertices
@@ -79,11 +79,11 @@ The second question is not easy to answer, because the attributed graph $G$ to b
 {\color{blue}
 We observe the {\it anti-monotonicity} property, which states that given a set $S$ of keywords, if it appears in every vertex of an AC, then for every subset $S'$ of $S$, there exists an AC in which every vertex contains $S'$. We use this intuition to propose better algorithms. We further develop the \emph{CL-tree}, an index that organizes the vertex keyword data in a hierarchical structure. The CL-tree has a space and construction time complexity linear to the size of $G$.
 Based on the CL-tree index, we have developed three different ACQ algorithms, and they are able to achieve a superior performance.
-In practice, graphs are continuously evolving \cite{chenghui,kddEvolving}. For instance, in the friendship networks of Facebook, users may change their profiles, and make new friends or remove friendship. Thus the CL-tree index needs to be updated to reflect the changes in the graph. A straightforward method to handle the update is to rebuild the CL-tree from scratch. However, this can be very computationally expensive, especially when the updates are very frequent. To alleviate this issue, we have developed efficient algorithms to maintain the CL-tree index for dynamic graphs.
+In practice, graphs are continuously evolving \cite{chenghui,kddEvolving}. For instance, in the friendship network of Facebook, users may change their profiles, and make new friends or remove friendship. Thus the CL-tree index needs to be updated to reflect the changes in the graph. A straightforward method to handle the update is to rebuild the CL-tree from scratch. However, this can be very computationally expensive, especially when the updates are very frequent. To alleviate this issue, we have developed efficient algorithms to maintain the CL-tree index for dynamic graphs.
 
-In addition, we have proposed two typical variants of the ACQ problem, which are called {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-vertex ACQ problem} (or ACQ-M) respectively.
-ACQ-A is an approximation version of the ACQ query, in which vertices of an AC do not need to exactly share the same keywords as that in ACQ. It relaxes the constraint on sharing common keywords; this could be very useful if the vertices of the graph do have much keyword information.
-ACQ-M generalizes the ACQ query for supporting multiple query vertices. It takes multiple query vertices as input and returns the ACs containing all of them. This could be very useful if we want to find the ACs for a group of query vertices. For example, a database workshop organizer may be interested in inviting researchers who have a close relationship with both Jim Gray and Michael Stonebraker.
+In addition, we have proposed two problems that are related to the ACQ problem, which are called {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-vertex ACQ problem} (or ACQ-M) respectively.
+ACQ-A is an approximation version of the ACQ query, in which vertices of an AC do not need to exactly share the same keywords as that in ACQ. It relaxes the constraint on sharing common keywords; this could be very useful if vertices of the graph do not have much keyword information.
+ACQ-M generalizes the ACQ query for supporting multiple query vertices. It takes multiple query vertices as input and returns the ACs containing all of them. This could be very helpful if we want to find the ACs for a group of query vertices. For example, a database workshop organizer may be interested in inviting researchers who have a close relationship with both Jim Gray and Michael Stonebraker.
 To answer the queries for ACQ-A and ACQ-M, we have also developed efficient algorithms based on the CL-tree index.
 }
 

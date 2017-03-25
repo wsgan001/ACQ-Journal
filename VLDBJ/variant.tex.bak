@@ -1,11 +1,13 @@
 {\color{blue}
-\section{Variants of ACQ Problem}
+\section{The ACQ-A and ACQ-M Problems}
 \label{variant}
 
-In this section, we introduce two typical variants named {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-query problem} (or ACQ-M). We present the query algorithms based on the CL-tree.
+In this section, we introduce two problems related to the ACQ problem, namely
+{\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-vertex ACQ problem} (or ACQ-M).
+We also develop the query algorithms based on the CL-tree.
 
 
-\subsection{ACQ-A}
+\subsection{The ACQ-A Problem}
 
 We first present an approximation version of the ACQ query, denoted by Problem~\ref{ACQ-A}.
 In Problem~\ref{ACQ-A}, vertices of an AC do not need to exactly share the same keywords in $S$;
@@ -43,7 +45,7 @@ We also propose an efficient query algorithm {\tt SWT}, based on the CL-tree ind
 Algorithm~\ref{alg:swt} presents {\tt SWT}. We first apply {\tt core-locating} to find node $r_k$, whose corresponding $k$-$\widehat {core}$ contains $q$, from CL-tree (line 1).
 Then we traverse the subtree rooted at $r_k$, and collect a set $V'$ of vertices containing at least $|S|\times \theta$ keywords by applying {\tt keyword}-{\tt checking}.
 Next, we find $G[S]$ from the subgraph induced by vertices in $V'$ (line 3),
-and find $G_k[S]$ from $G[S]$ (line 4).
+and find $G_k[S]$(line 4).
 Finally, we output $G_k[S]$ as the target AC, if it exists (line 5).
 
 \begin{algorithm}[h]
@@ -64,9 +66,9 @@ Finally, we output $G_k[S]$ as the target AC, if it exists (line 5).
 \end{algorithm}
 
 
-\subsection{ACQ-M}
+\subsection{The ACQ-M Problem}
 
-To extend the ACQ query for supporting mutiple query vertices to narrow the size of targeted ACs, we propose Problem~\ref{ACQ-M} as follows.
+The ACQ-M problem generalizes the ACQ problem for supporting a set $Q$ of vertices, and it finds the ACs containing all the vertices in $Q$. We give its definition as follows.
 
 %\begin{variant}
 \begin{problem}
@@ -86,7 +88,7 @@ We illustrate Problem~\ref{ACQ-M} via Example~\ref{eg:ACQ-M}.
 \begin{example}
 \label{eg:ACQ-M}
 In Figure~\ref{fig:kcoreGraph}, let $Q$=$\{A,C\}$ and $k$=2.
-If $S$=$\{w,x,y,z\}$, then ACQ-M returns the subgraph induced by the vertex set $\{A,C,D\}$ as the target AC, whose shared keyword set is$\{x,y\}$.
+If $S$=$\{w$, $x,y,z\}$, then ACQ-M returns the subgraph induced by the vertex set $\{A,C,D\}$ as the target AC, whose shared keyword set is$\{x,y\}$.
 \end{example}
 
 To answer the query in Problem~\ref{ACQ-M}, we can first find a set $S'$ of intersected keywords, which are contained by $S$ and every vertex in $Q$. Then, we randomly take a vertex $q$$\in$$Q$ as the query vertex.

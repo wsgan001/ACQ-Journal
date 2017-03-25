@@ -1,53 +1,15 @@
-This is BibTeX, Version 0.99d (TeX Live 2016)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: ACQ.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: ACQ.aux
 The style file: abbrv.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: ACQ.bib
-Repeated entry---line 379 of file ACQ.bib
+I was expecting a `,' or a `}'---line 378 of file ACQ.bib
+ : 
+ : @article{fangeffective,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 388 of file ACQ.bib
  : @inproceedings{mislove-2008-flickr
  :                                   ,
 I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in unionFind
-You've used 43 entries,
-            2118 wiz_defined-function locations,
-            703 strings with 9499 characters,
-and the built_in function-call counts, 14484 in all, are:
-= -- 1324
-> -- 808
-< -- 5
-+ -- 323
-- -- 276
-* -- 981
-:= -- 2425
-add.period$ -- 127
-call.type$ -- 43
-change.case$ -- 264
-chr.to.int$ -- 0
-cite$ -- 44
-duplicate$ -- 573
-empty$ -- 1153
-format.name$ -- 276
-if$ -- 3003
-int.to.chr$ -- 0
-int.to.str$ -- 43
-missing$ -- 42
-newline$ -- 216
-num.names$ -- 84
-pop$ -- 339
-preamble$ -- 1
-purify$ -- 224
-quote$ -- 0
-skip$ -- 371
-stack$ -- 0
-substring$ -- 645
-swap$ -- 112
-text.length$ -- 5
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 170
-warning$ -- 1
-while$ -- 118
-width$ -- 45
-write$ -- 443
-(There was 1 error message)
+(There were 2 error messages)

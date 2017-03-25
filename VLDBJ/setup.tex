@@ -6,7 +6,7 @@ For {\it Flickr}~\footnote{\url{https://www.flickr.com/}}~\cite{thomee2015new}, 
 For {\it DBLP}~\footnote{\url{http://dblp.uni-trier.de/xml/}}, a vertex denotes an author, and an edge is a co-authorship relationship between two authors.
 For each author, we use the 20 most frequent keywords from the titles of her publications as her keywords.
 In the {\it Tencent} graph provided by the KDD contest 2012~\footnote{\url{http://www.kddcup2012.org/c/kddcup2012-track1}}, a vertex is a person, an organization, or a microblog group. Each edge denotes the friendship between two users. The keyword set of each vertex is extracted from a user's profile. For the {\it DBpedia}~\footnote{\url{http://dbpedia.org/datasets}}, each vertex is an entity, and each edge is the relationship between two entities. The keywords of each entity are extracted by the Stanford Analyzer and Lemmatizer.
-Table~\ref{tab:dataset} shows the number of vertices and edges, the $k_{max}$ value, a vertex's average degree $\widehat d$, and its keyword set size $\widehat l$.
+Table~\ref{tab:dataset} shows the numbers of vertices and edges, $k_{max}$ value, a vertex's average degree $\widehat d$, and its keyword set size $\widehat l$.
 
 {\color{blue}
 The remaining two dynamic datasets,
@@ -17,7 +17,7 @@ Both DFlickr and Youtube datasets are about the user friendship networks on Flic
 Each vertex denotes a user and each edge denotes a friendship between two users.
 DFlickr contains edges which are inserted and deleted during the evolving process;
 while in Youtube, there are only inserted edges as the time goes on.
-In Table~\ref{tab:dataset}, the initial numbers of vertices and edges in day 0 are reported. In the next 100 days, for {\it DFlickr}, 10,301,741 edges were inserted and 2,211,272 edges were deleted; for {\it Youtube}, 13,954,071 edges were inserted.
+In Table~\ref{tab:dataset}, the initial numbers of vertices and edges in the first day of each dataset are reported. In the next 100 days, for {\it DFlickr}, 10,301,741 edges were inserted and 2,211,272 edges were deleted; for {\it Youtube}, 13,954,071 edges were inserted.
 }
 
 \begin{table}[h]

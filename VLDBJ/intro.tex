@@ -1,7 +1,7 @@
 \section{Introduction}
 \label{intro}
 
-Due to the recent developments of gigantic social networks (e.g., Flickr, Facebook, and Twitter), the topic of {\it attributed graphs} has attracted attention from industry and research communities~\cite{attr-topic-sigmod2012,keyword-icde2002,keyword-icde2007,keyword-sigmod2007,keyword-vldb2005,keyword-yu-2009,keyword-vldb2011,fang2014}.  An attributed graph is essentially a graph associated with text strings or keywords.  Figure~\ref{fig:motivation} illustrates an attributed graph, where each vertex represents a social network user, and its keywords describe the interest of that user.
+Due to the recent developments of gigantic social networks (e.g., Flickr, Facebook, and Twitter), the topic of {\it attributed graphs} has attracted attention from industry and research communities~\cite{attr-topic-sigmod2012,keyword-icde2007,keyword-sigmod2007,keyword-vldb2005,keyword-yu-2009,keyword-vldb2011,fang2014}.  An attributed graph is essentially a graph associated with text strings or keywords.  Figure~\ref{fig:motivation} illustrates an attributed graph, where each vertex represents a social network user, and its keywords describe the interest of that user.
 
 \begin{figure}
 	\small
@@ -81,7 +81,8 @@ We observe the {\it anti-monotonicity} property, which states that given a set $
 Based on the CL-tree index, we have developed three different ACQ algorithms, and they are able to achieve a superior performance.
 In practice, graphs are continuously evolving \cite{chenghui,kddEvolving}. For instance, in the friendship network of Facebook, users may change their profiles, and make new friends or remove friendship. Thus the CL-tree index needs to be updated to reflect the changes in the graph. A straightforward method to handle the update is to rebuild the CL-tree from scratch. However, this can be very computationally expensive, especially when the updates are very frequent. To alleviate this issue, we have developed efficient algorithms to maintain the CL-tree index for dynamic graphs.
 
-In addition, we have proposed two typical variants of the ACQ problem, which are called {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-vertex ACQ problem} (or ACQ-M) respectively.
+In addition, we have proposed two problems that are related to the ACQ problem,
+which are called {\it Approximate ACQ problem} (or ACQ-A) and {\it Multiple-vertex ACQ problem} (or ACQ-M) respectively.
 ACQ-A is an approximation version of the ACQ query, in which vertices of an AC do not need to exactly share the same keywords as that in ACQ. It relaxes the constraint on sharing common keywords; this could be very useful if vertices of the graph do not have much keyword information.
 ACQ-M generalizes the ACQ query for supporting multiple query vertices. It takes multiple query vertices as input and returns the ACs containing all of them. This could be very helpful if we want to find the ACs for a group of query vertices. For example, a database workshop organizer may be interested in inviting researchers who have a close relationship with both Jim Gray and Michael Stonebraker.
 To answer the queries for ACQ-A and ACQ-M, we have also developed efficient algorithms based on the CL-tree index.
@@ -96,6 +97,6 @@ Moreover, we perform the queries of the ACQ-A and ACQ-M problems, and the result
 {\bf Organization.} We review the related work in Section~\ref{related}, and define the ACQ problem formally in Section~\ref{problem}. Section~\ref{basic} presents the basic solutions, and Section~\ref{index} discusses the CL-tree index.
 In Section~\ref{indexMaintenance}, we discuss how to maintain the CL-tree index for dynamic graphs.
 We present the query algorithms in Section~\ref{query}.
-In Section~\ref{variant}, we introduce two variants and the corresponding query algorithms.
+In Section~\ref{variant}, we introduce two problems related to the ACQ problem and the corresponding query algorithms.
 Our experimental results are reported in Section~\ref{experiment}.
 We conclude in Section~\ref{conclusion}. 

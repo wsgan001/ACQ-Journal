@@ -130,18 +130,6 @@ Since every vertex in $G_k[S_1]\cap G_k[S_2]$ contains both $S_1$ and $S_2$,
 we do not need to consider the keyword constraint again when finding $G_k[S']$.
 
 Based on Lemma~\ref{lemma:kcoreIntersect}, we introduce a new algorithm \textbf{{\tt Inc-T}}. Different from {\tt Inc-S}, {\tt Inc-T} maintains $G_k[S']$ rather than $core_G[$ $G_k[S']]$ for each qualified keyword set $S'$. As we will demonstrate later, {\tt Inc-T} is more effective for shrinking the subgraphs containing the ACs, and thus more efficient. As a trade-off for better efficiency, {\tt Inc-T} consumes more memory as it needs to store a list of subgraph $G_k[S']$ in memory.
-%The detailed algorithm pseudocodes are listed in the technical report~\cite{TR}.
-
-Algorithm~\ref{alg:incT} presents the steps of {\tt Inc-T}.
-We first apply {\tt core-locating} to find the $k$-$\widehat{core}$ containing $q$ from the CL-tree (line 2).
-Then, we set $l$=0, indicating the sizes of current keyword sets,
-and initialize a set $\Psi$ of $<S',\widehat G>$ pairs,
-where $S'$ is a set containing a keyword from $S$ and $\widehat G$ is the $k$-$\widehat {core}$.
-The while loop (lines 4-18) is similar with that of {\tt Inc-S}.
-The main differences are that:
-(1) for each qualified keyword set $S'$, {\tt Inc-T} keeps $G_k[S']$ in memory (line 11);
-and (2) for each candidate keyword set $S'$ generated from $S_1$ and $S_2$,
-{\tt Inc-T} finds $G_k[S']$ from $G_k[S_1]\cap G_k[S_2]$ directly without further keyword verification (lines 6-9, 16).
 
 \begin{algorithm}[h]
 \caption{Query algorithm: {\tt Inc-T}}
@@ -178,6 +166,17 @@ and (2) for each candidate keyword set $S'$ generated from $S_1$ and $S_2$,
     \EndFunction
 \end{algorithmic}}
 \end{algorithm}
+
+Algorithm~\ref{alg:incT} presents the steps of {\tt Inc-T}.
+We first apply {\tt core-locating} to find the $k$-$\widehat{core}$ containing $q$ from the CL-tree (line 2).
+Then, we set $l$=0, indicating the sizes of current keyword sets,
+and initialize a set $\Psi$ of $<S',\widehat G>$ pairs,
+where $S'$ is a set containing a keyword from $S$ and $\widehat G$ is the $k$-$\widehat {core}$.
+The while loop (lines 4-18) is similar with that of {\tt Inc-S}.
+The main differences are that:
+(1) for each qualified keyword set $S'$, {\tt Inc-T} keeps $G_k[S']$ in memory (line 11);
+and (2) for each candidate keyword set $S'$ generated from $S_1$ and $S_2$,
+{\tt Inc-T} finds $G_k[S']$ from $G_k[S_1]\cap G_k[S_2]$ directly without further keyword verification (lines 6-9, 16).
 
 \begin{example}
 \label{eg:inc-T}

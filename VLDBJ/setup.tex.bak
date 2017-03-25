@@ -17,6 +17,7 @@ Both DFlickr and Youtube datasets are about the user friendship networks on Flic
 Each vertex denotes a user and each edge denotes a friendship between two users.
 DFlickr contains edges which are inserted and deleted during the evolving process;
 while in Youtube, there are only inserted edges as the time goes on.
+In Table~\ref{tab:dataset}, the initial numbers of vertices and edges in the first are reported. In the next 100 days, for {\it DFlickr}, 10,301,741 edges were inserted and 2,211,272 edges were deleted; for {\it Youtube}, 13,954,071 edges were inserted.
 }
 
 \begin{table}[h]
@@ -31,7 +32,7 @@ while in Youtube, there are only inserted edges as the time goes on.
                          & \textbf{\emph{{$\widehat d$}}}
                          & \textbf{\emph{{$\widehat l$}}}\\
      \hline\hline
-          Flickr         &  581,099      &  9,944,548   &   152   & 17.1   &  9.90 \\
+          Flickr         &  581,099      &  4,972,274   &   152   & 17.1   &  9.90 \\
      \hline
           DBLP           &  977,288      &  3,432,273   &   118   &  7.02  &  11.8 \\
      \hline
@@ -39,9 +40,9 @@ while in Youtube, there are only inserted edges as the time goes on.
      \hline
           DBpedia        &  8,099,955    &  71,527,515  &    95   &  17.7  &  15.0 \\
      \hline
-          DFlickr        &  2,585,569    &  45,676,553  &   600   &  17.6  &  --- \\
+          DFlickr        &  2,585,569    &  22,838,277  &   600   &  17.6  &  --- \\
      \hline
-          Youtube        &  1,881,147    &  9,142,046   &   55   &  4.9  &  --- \\
+          Youtube        &  1,881,147    &  4,571,023   &   55   &  4.9  &  --- \\
      \hline
   \end{tabular}
 \end{table}

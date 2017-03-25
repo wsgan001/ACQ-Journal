@@ -18,11 +18,6 @@ V.~Batagelj and M.~Zaversnik.
 \newblock An o(m) algorithm for cores decomposition of networks.
 \newblock {\em arXiv}, 2003.
 
-\bibitem{keyword-icde2002}
-G.~Bhalotia~et al.
-\newblock Keyword searching and browsing in databases using banks.
-\newblock In {\em ICDE}, 2002.
-
 \bibitem{online-sigmod2013}
 W.~Cui, Y.~Xiao, H.~Wang, Y.~Lu, and W.~Wang.
 \newblock Online search of overlapping communities.
@@ -57,6 +52,11 @@ W.~Fan, X.~Wang, Y.~Wu, and J.~Xu.
 Y.~Fang, R.~Cheng, X.~Li, S.~Luo, and J.~Hu.
 \newblock Effective community search over large spatial graphs.
 \newblock {\em PVLDB}, 10(6):709--720, 2017.
+
+\bibitem{fang2016effective}
+Y.~Fang, R.~Cheng, S.~Luo, and J.~Hu.
+\newblock Effective community search for large attributed graphs.
+\newblock {\em PVLDB}, 9(12):1233--1244, 2016.
 
 \bibitem{fang2014}
 Y.~Fang, H.~Zhang, Y.~Ye, and X.~Li.

@@ -35,12 +35,14 @@
 	author={Cui, Wanyun and Xiao, Yanghua and Wang, Haixun and Lu, Yiqi and Wang, Wei},
 	Booktitle = {SIGMOD},
 	Title = {Online search of overlapping communities},
+    pages = {277--288},
 	Year = {2013}}
 
 @inproceedings{local2014,
 	author={Cui, Wanyun and Xiao, Yanghua and Wang, Haixun and Wang, Wei},
 	Booktitle = {SIGMOD},
 	Title = {Local search of communities in large graphs},
+    pages={991--1002},
 	Year = {2014}}
 
 @inproceedings{k-truss2014,
@@ -364,11 +366,25 @@
   month = {May}
 }
 
+@article{fang2016effective,
+  title={Effective community search for large attributed graphs},
+  author={Fang, Yixiang and Cheng, Reynold and Luo, Siqiang and Hu, Jiafeng},
+  journal={Proceedings of the VLDB Endowment},
+  volume={9},
+  number={12},
+  pages={1233--1244},
+  year={2016},
+  publisher={VLDB Endowment}
+}
+
 @article{fangeffective,
   title={Effective Community Search over Large Spatial Graphs},
-  author={Fang, Yixiang and Cheng, Reynold and Li, Xiaodong and Luo, Siqiang and Hu, Jiafeng}
-  booktitle = {PVLDB},
-  year = {2016}
+  author={Fang, Yixiang and Cheng, Reynold and Li, Xiaodong and Luo, Siqiang and Hu, Jiafeng},
+  journal={PVLDB},
+  volume={10},
+  number={6},
+  pages={709--720},
+  year = {2017}
 }
 
 @inproceedings{mislove-2008-flickr,

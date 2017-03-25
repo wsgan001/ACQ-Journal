@@ -59,7 +59,7 @@ If we cannot ensure that $G[S']$ does not contain a $k$-$\widehat {core}$ by Lem
 we then find $G_k[S']$ from $G[S']$ (lines 8-9).
 If $G_k[S']$ exists, we put $S'$ with its core number into the set $\Phi_l$ (lines 10-11).
 Next, if $\Phi_l$ is nonempty, we generate new candidates by calling \textsc{geneCand($\Phi_{l}$)},
-which is detailed in the full version~\cite{TR}.
+which is detailed in Appendix~\ref{app:geneCand}.
 For each candidate $S'$ in $\Psi$, we compute the core number using Lemma~\ref{lemma:coreDown}
 and update it as a pair in $\Psi$ (lines 12-17);
 otherwise, we stop (line 18).
@@ -142,42 +142,6 @@ The main differences are that:
 (1) for each qualified keyword set $S'$, {\tt Inc-T} keeps $G_k[S']$ in memory (line 11);
 and (2) for each candidate keyword set $S'$ generated from $S_1$ and $S_2$,
 {\tt Inc-T} finds $G_k[S']$ from $G_k[S_1]\cap G_k[S_2]$ directly without further keyword verification (lines 6-9, 16).
-
-\begin{algorithm}[h]
-\caption{Query algorithm: {\tt Inc-T}}
-\label{alg:incT}
-\footnotesize{
-\algrenewcommand{\algorithmiccomment}[1]{\hskip3em$//$ #1}
-\begin{algorithmic}[1]
-    \Function{query($G$, $root$, $q$, $k$, $S$)}{}
-        \State find the $k$-$\widehat {core}$, which contains $q$;
-        \State initialize $l$=0, $\Psi$ using $S$;
-        \While{$true$}
-            \State $l\gets l+1$; $\Phi_{l} \gets \emptyset$;
-            \For {each $<S',\widehat{G}>$ $\in \Psi$}
-                \State find $G[S']$ from $\widehat{G}$;
-                \If {$G[S']$ is not pruned by Lemma~\ref{lemma:coreExist}}
-                    \State find $G_k[S']$ from $G[S']$;
-                    \If {$G_k[S']$ exists}
-                        \State $\Phi_{l}$.add($<S', G_k[S']>$);
-                    \EndIf
-                \EndIf
-            \EndFor
-            \If {$\Phi_{l} \ne \emptyset$}
-                \State $\Psi \gets$ \Call{geneCand($\Phi_{l}$)}{};
-                \For {each $S' \in \Psi$}
-                    \If {$S'$ is generated from $S_1$ and $S_2$}
-                        \State $\widehat G \gets G_k[S_1]\cap G_k[S_2]$;
-                        \State $\Psi_{l}$.update($S'$,$<S',\widehat G>$);
-                   \EndIf
-                \EndFor
-            \Else {} break;
-            \EndIf
-        \EndWhile
-        \State output the communities of keyword sets in $\Phi_{l-1}$;
-    \EndFunction
-\end{algorithmic}}
-\end{algorithm}
 
 \begin{example}
 \label{eg:inc-T}
