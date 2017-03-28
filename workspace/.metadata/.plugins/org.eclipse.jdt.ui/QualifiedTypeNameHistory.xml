@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.concurrent.CountDownLatch"/>
-<fullyQualifiedTypeName name="java.awt.RadialGradientPaint"/>
-<fullyQualifiedTypeName name="org.omg.PortableInterceptor.SYSTEM_EXCEPTION"/>
-<fullyQualifiedTypeName name="org.w3c.dom.ls.LSException"/>
-<fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
-<fullyQualifiedTypeName name="java.beans.IntrospectionException"/>
-<fullyQualifiedTypeName name="javax.swing.tree.TreeNode"/>
-<fullyQualifiedTypeName name="hku.util.Log"/>
-<fullyQualifiedTypeName name="hku.algo.index.edgeUpdate.DeletionTest"/>
-<fullyQualifiedTypeName name="java.nio.BufferUnderflowException"/>
-<fullyQualifiedTypeName name="hku.algo.index.edgeUpdate.GenerateEdgePrep"/>
-<fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="java.lang.Boolean"/>
-<fullyQualifiedTypeName name="javax.swing.SpringLayout.Constraints"/>
-<fullyQualifiedTypeName name="hku.algo.index.edgeUpdate.GenerateInsrtEdgePrep"/>
-<fullyQualifiedTypeName name="hku.algo.index.edgeUpdate.ExpInsertion"/>
-<fullyQualifiedTypeName name="hku.algo.index.edgeUpdate.EdgeInsertion"/>
-<fullyQualifiedTypeName name="hku.variant.variant4.BasicGV3_V2"/>
 <fullyQualifiedTypeName name="hku.variant.variant4.BasicWV3_V2"/>
 <fullyQualifiedTypeName name="hku.algo.online.BasicW"/>
 <fullyQualifiedTypeName name="java.util.function.IntPredicate"/>
@@ -52,12 +34,30 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="javax.xml.crypto.Data"/>
 <fullyQualifiedTypeName name="hku.algo.DataReader"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="hku.algo.index.KwUpdate"/>
 <fullyQualifiedTypeName name="hku.Config"/>
 <fullyQualifiedTypeName name="hku.algo.index.AdvancedIndex"/>
+<fullyQualifiedTypeName name="prep.HTMLDownload"/>
+<fullyQualifiedTypeName name="java.text.FieldPosition"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="javax.net.ssl.HttpsURLConnection"/>
+<fullyQualifiedTypeName name="prep.downloadConfig"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
+<fullyQualifiedTypeName name="javax.swing.text.Document"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="javax.lang.model.element.Element"/>
+<fullyQualifiedTypeName name="config.Config"/>
+<fullyQualifiedTypeName name="prep.MeSHPrep"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Element"/>
+<fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Node"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
