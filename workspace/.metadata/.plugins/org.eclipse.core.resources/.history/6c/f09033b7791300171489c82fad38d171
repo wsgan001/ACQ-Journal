@@ -1,0 +1,6 @@
+package prep;
+
+public class downloadConfig {
+	
+	public static int connectTime=7000;
+}

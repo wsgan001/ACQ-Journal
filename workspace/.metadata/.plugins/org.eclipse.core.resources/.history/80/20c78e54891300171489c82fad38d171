@@ -1,0 +1,70 @@
+package prep;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.*;
+
+import config.Config;
+
+/**
+ * 
+ * @author chenyankai
+ * @date Mar 28, 2017
+ */
+
+public class MeSHPrep {
+	String xmlFile=null;
+	
+	public MeSHPrep(String xmlfile){
+		this.xmlFile=xmlfile;
+	}
+	
+	//extract one tag
+	public void domMeSh(){
+		try {
+			DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder=factory.newDocumentBuilder();
+			Document doc=builder.parse(new File(xmlFile));
+			Element element=doc.getDocumentElement();
+	
+			NodeList nodes=element.getElementsByTagName("PubmedArticle");
+			System.out.println(nodes.getLength()+" 1 ");
+			for(int i=0;i<nodes.getLength();i++){
+				
+				Element node=(Element) nodes.item(i);
+//				Element list=(Element) node.getChildNodes().item(0);
+				Element list=(Element) node.getElementsByTagName("MedlineCitation").item(0);
+				System.out.println(list.getNodeName()+" 2 ");
+				NodeList autherList= list.getElementsByTagName("AuthorList");
+				System.out.println(autherList.getLength()+" 3 ");
+				for(int j=0;j<autherList.getLength();j++){
+					Element author=(Element) autherList.item(j);
+					NamedNodeMap attr=author.getAttributes();
+					for(int x=0;x<attr.getLength();x++){
+						Node attnode=attr.item(x);
+						System.out.println("here "+attnode.getNodeName()+" "+attnode.getNodeValue());
+					}
+				}
+				
+				
+			}
+			System.out.println("nodes size: "+nodes.getLength());
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
+	
+	
+	public static void main(String[] a){
+		String file=Config.home+"medsample1.xml";
+		MeSHPrep meSHPrep=new MeSHPrep(file);
+		
+		meSHPrep.domMeSh();
+	}
+}
