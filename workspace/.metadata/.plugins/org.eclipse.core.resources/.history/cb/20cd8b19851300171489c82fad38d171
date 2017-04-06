@@ -1,6 +1,0 @@
-package prep;
-
-public class MeSHPrep {
-	String TreeUrl="https://meshb.nlm.nih.gov/#/treeSearch";
-	String xmlFile="";
-}
