@@ -1,0 +1,13 @@
+INSTUPOptionFunc
+/Users/chenyankai/GitDefault/workspace/MiniOptionPricer/OptionFunc.py
+INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0&&2|7|2|0&&2|8|2|0&&2|9|2|0&&2|10|2|0
+IVP=7
+OptionFunc=2
+BSC=3
+dBS=1
+initGuess=5
+IVC=6
+geoAsianOption=10
+d1=8
+BSP=4
+d2=9

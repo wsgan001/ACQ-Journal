@@ -1,0 +1,81 @@
+import math
+import numpy as np
+from scipy.stats import norm
+from timeit import default_timer as timer #for timing
+
+def dBS(S, K, T, t, sigma, q, r, type):
+    if type='d1':
+        return (    math.log(S / K, math.e) + (r - q) * (T - t)) / (sigma * math.sqrt(T - t)) \
+        + 0.5*sigma * math.sqrt(T - t) 
+    else if type='d2':
+        return (math.log(S /K, math.e) + (r - q) * (T - t)) / (sigma * math.sqrt(T - t))\
+         -0.5* sigma * math.sqrt(T - t)
+        
+ 
+
+#black-scholes func for call option
+def BSC(S, K, T, t, sigma, q, r):
+    return S * math.exp((-q) * (T - t)) * norm.cdf(d1BS(S, K, T, t, sigma, q, r))\
+         - K * math.exp((-r) * (T - t)) * norm.cdf(d2BS(S, K, T, t, sigma, q, r))
+
+#black-scholes func for put option
+def BSP(S, K, T, t, sigma, q, r):
+    return K * math.exp(-r * (T - t)) * norm.cdf(-d2BS(S, K, T, t, sigma, q, r))\
+         - S * math.exp(-q * (T - t)) * norm.cdf(-d1BS(S, K, T, t, sigma, q, r))
+         
+#Initiate guess of sigmahat with newton method
+def initGuess(S, K, T, t, q, r):
+    return math.sqrt(2 * abs( (math.log(S / K, math.e) + (r - q) * (T - t)) / (T - t)))
+
+#Implied volatility for call option
+def IVC(S, K, T, t, q, r, cTrue):
+    lowBound = 1e-8
+    sigma = initGuess(S, K, T, t, q, r)
+    sigmaDiff = 1.0
+    n = 1
+    nMax = 1000
+    while sigmaDiff >= lowBound and n < nMax :
+        #f(xn)
+        c = BSC(S, K, T, t, sigma, q, r)
+        fn = c - cTrue
+        #f'(xn)
+        fn1 = S * math.exp((-q) * (T - t)) * math.sqrt(T - t) * norm._cdf(d1BS(S,K,T,t,sigma,q,r))
+        increment = fn / fn1 * 0.1
+        sigma = sigma - increment
+        n += 1
+        sigmaDiff = abs(increment)
+    return sigma
+
+def IVP(S, K, T, t, q, r, cTrue):
+    return 
+
+#risk free
+def d1(S, K, T, sigma, mu):
+    return (math.log(S/K, math.e)+(mu+0.5*pow(sigma, 2))*T)/(math.sqrt(T)*sigma)
+
+#risk free
+def d2(S, K, T, sigma, mu):
+    return (math.log(S/K, math.e)+(mu-0.5*pow(sigma, 2))*T)/(math.sqrt(T)*sigma)
+
+#Geometric Asian option
+def geoAsianOption(S, sigma, r, t, K, n, type):
+    N = float(n)
+    T = float(t)
+    sigmaHat = sigma*math.sqrt((N+1)*(2*N+1)/(6*pow(N,2)))
+    muHat = (r-0.5*pow(sigma, 2))*(N+1)/(2*N)+0.5*pow(sigmaHat, 2)
+
+    d1 = d1(S, K, T, sigmaHat, muHat)
+    d2 = d2(S, K, T, sigmaHat, muHat)
+
+    if type == 'C':
+        return math.exp(-r*T)*(S*math.exp(muHat*T)*norm.cdf(d1) - K*norm.cdf(d2))
+    else:
+        return math.exp(-r * T) * (-S * math.exp(muHat * T) * norm.cdf(-d1) + K * norm.cdf(-d2))
+
+
+
+
+
+
+
+
