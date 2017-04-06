@@ -60,7 +60,9 @@ def d(S, K, T, sigma, mu,type):
     else:
         print "error"
 
-#Geometric Asian option
+
+
+#time-zore value of geometric Asian option
 def geoAsianOption(S, sigma, r, t, K, n, type):
     N = float(n)
     T = float(t)
@@ -71,17 +73,17 @@ def geoAsianOption(S, sigma, r, t, K, n, type):
     d2 = d(S, K, T, sigmaHat, muHat,'d2')
 
     if type == 'C':
-        return math.exp(-r*T)*(S*math.exp(muHat*T)*norm.cdf(d1) - K*norm.cdf(d2))
+        return math.exp(-r * T) * (S * math.exp(muHat * T)*norm.cdf(d1) - K*norm.cdf(d2))
     elif type=='P':
-        return math.exp(-r * T) * (-S * math.exp(muHat * T) * norm.cdf(-d1) + K * norm.cdf(-d2))
+        return math.exp(-r * T) * (K * norm.cdf(-d2) -S * math.exp(muHat * T) * norm.cdf(-d1))
     else:
         print "error"
 
-#Geometric basket
-#Input S1 S2 sigma1 simga2 r T K corr type
+
+#closed-form formula for C/P on Geometric basket
 def geoBasket(S1, S2, sigma1, sigma2, r, T, K ,corr, type):
     sigma = math.sqrt(sigma1 ** 2 + sigma1 * sigma2 * corr * 2 + sigma2 ** 2) / 2
-    mu = r-(pow(sigma1, 2)+pow(sigma2, 2))/4+0.5*pow(sigma, 2)
+    mu = r-0.25*(pow(sigma1, 2)+pow(sigma2, 2))+0.5*pow(sigma, 2)
     B = math.sqrt(S1*S2)
     d1 = d(B, K, T, sigma, mu,'d1')
     d2 = d(B, K, T, sigma, mu,'d2')
@@ -100,27 +102,26 @@ def geoBasket(S1, S2, sigma1, sigma2, r, T, K ,corr, type):
 # @vectorize(['f8(f8, f8, f8, f8, f8)'], target='gpu')
 # def browinanMotion(S, dt, c1, c2, random):
 #     return S * math.exp(c1 * dt + c2 * random)
-def browinanMotion(S, dt, c1, c2, random):
-    return S * np.exp(c1 * dt + c2 * random)
+def browinanMotion(S, random, r, sigma,T, step,):
+    dt = float(T) / step
+    return S * np.exp((r - 0.5 * sigma * sigma) * dt + sigma * np.sqrt(dt)* random)
 
 
-def arith_asian_option(S, sigma, r, T, K, step, type, path, cv):
+def arithAsianOption(S, sigma, r, T, K, step, type, path, cvtype):
     np.random.seed(0)
     paths = np.zeros((path, step), order='F')
     random = np.zeros((path, step), order='F')
     for i in range(0, path):
         random[i, :] = np.random.standard_normal(step)
-    c1 = r - 0.5 * sigma * sigma
-    dt = float(T) / step
-    c2 = sigma * np.sqrt(dt)
+    
 
     #initialize first step result
-    paths[:, 0] = browinanMotion(S, dt, c1, c2, random[:, 0])
+    paths[:, 0] = browinanMotion(S, sigma, T, random[:, 0])
 
     #simulate the remaining steps in monte carlo
     for i in range(1, step):
         s = paths[:, i - 1]
-        paths[:, i] = browinanMotion(s, dt, c1, c2, random[:, i])
+        paths[:, i] = browinanMotion(s, sigma, T, random[:, i])
 
     arithMean = paths.mean(1)
     logPaths = np.log(paths)
@@ -136,7 +137,7 @@ def arith_asian_option(S, sigma, r, T, K, step, type, path, cv):
         return 'error'
 
     #Standard Monte Carlo
-    if cv == 'NULL':
+    if cvtype == 'NULL':
         return np.mean(arith_payoff)
 
     #Control variates
