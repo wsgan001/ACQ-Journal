@@ -161,9 +161,9 @@
             <children xsi:type="basic:PartStack" xmi:id="_9dLJUhp0EeehqOZ8K09__A" elementId="topLeft" containerData="1935" selectedElement="_9dLJUxp0EeehqOZ8K09__A">
               <children xsi:type="advanced:Placeholder" xmi:id="_9dLJUxp0EeehqOZ8K09__A" elementId="org.python.pydev.navigator.view" ref="_9dJUIBp0EeehqOZ8K09__A"/>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_9dLJVBp0EeehqOZ8K09__A" containerData="8065" selectedElement="_9dLJVRp0EeehqOZ8K09__A">
-              <children xsi:type="advanced:Placeholder" xmi:id="_9dLJVRp0EeehqOZ8K09__A" elementId="org.eclipse.ui.editorss" containerData="8362" ref="_sOuOzwMaEeeWe8SnH6bzWw"/>
-              <children xsi:type="basic:PartStack" xmi:id="_9dLJVhp0EeehqOZ8K09__A" elementId="bottom" containerData="1638" selectedElement="_9dLJWBp0EeehqOZ8K09__A">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_9dLJVBp0EeehqOZ8K09__A" containerData="8065" selectedElement="_9dLJVhp0EeehqOZ8K09__A">
+              <children xsi:type="advanced:Placeholder" xmi:id="_9dLJVRp0EeehqOZ8K09__A" elementId="org.eclipse.ui.editorss" containerData="7894" ref="_sOuOzwMaEeeWe8SnH6bzWw"/>
+              <children xsi:type="basic:PartStack" xmi:id="_9dLJVhp0EeehqOZ8K09__A" elementId="bottom" containerData="2106" selectedElement="_9dLJWBp0EeehqOZ8K09__A">
                 <children xsi:type="advanced:Placeholder" xmi:id="_9dLJVxp0EeehqOZ8K09__A" elementId="org.eclipse.search.ui.views.SearchView" toBeRendered="false" ref="_sOuPqQMaEeeWe8SnH6bzWw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_9dLJWBp0EeehqOZ8K09__A" elementId="org.eclipse.ui.console.ConsoleView" ref="_sOuPqgMaEeeWe8SnH6bzWw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_9dLJWRp0EeehqOZ8K09__A" elementId="org.eclipse.ui.views.BookmarkView" toBeRendered="false" ref="_sOuP3gMaEeeWe8SnH6bzWw"/>
@@ -280,7 +280,7 @@
         <tags>EditorStack</tags>
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_eUXBwBp1EeehqOZ8K09__A" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="OptionFunc" iconURI="platform:/plugin/org.python.pydev/icons/python_file.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.python.pydev.editor.PythonEditor&quot; name=&quot;OptionFunc.py&quot; partName=&quot;OptionFunc&quot; title=&quot;OptionFunc&quot; tooltip=&quot;MiniOptionPricer/OptionFunc.py&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MiniOptionPricer/OptionFunc.py&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4252&quot; selectionTopPixel=&quot;3341&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.python.pydev.editor.PythonEditor&quot; name=&quot;OptionFunc.py&quot; partName=&quot;OptionFunc&quot; title=&quot;OptionFunc&quot; tooltip=&quot;MiniOptionPricer/OptionFunc.py&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MiniOptionPricer/OptionFunc.py&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;7815&quot; selectionTopPixel=&quot;2281&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.python.pydev.editor.PythonEditor</tags>
           <tags>removeOnHide</tags>
@@ -760,7 +760,7 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_9dJUIBp0EeehqOZ8K09__A" elementId="org.python.pydev.navigator.view" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="PyDev Package Explorer" iconURI="platform:/plugin/org.python.pydev/icons/pydev_package_explorer.gif" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.python.pydev.navigator.ui.PydevPackageExplorer"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.python.pydev"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1480916573098&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xA;&lt;expanded IMemento.internal.id=&quot;/Users/chenyankai/GitDefault/workspace/MiniOptionPricer&quot;/>&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1480916573098&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xA;&lt;expanded IMemento.internal.id=&quot;/Users/chenyankai/GitDefault/workspace/MiniOptionPricer&quot;/>&#xA;&lt;selected IMemento.internal.id=&quot;/Users/chenyankai/GitDefault/workspace/MiniOptionPricer/OptionFunc.py&quot;/>&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:PyDev</tags>
       <menus xmi:id="_9drfoBp0EeehqOZ8K09__A" elementId="org.python.pydev.navigator.view">
@@ -776,7 +776,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_sOuQJwMaEeeWe8SnH6bzWw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_kDDUABqjEee7xvaZXnBK7Q" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_sOvf2wMaEeeWe8SnH6bzWw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MKBsgB3cEee5VeEP1KDfCw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_sOvf2wMaEeeWe8SnH6bzWw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_sOuQNAMaEeeWe8SnH6bzWw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -806,7 +806,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_sOuQeAMaEeeWe8SnH6bzWw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_kDGXURqjEee7xvaZXnBK7Q" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_sOveFQMaEeeWe8SnH6bzWw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MKEIwR3cEee5VeEP1KDfCw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_sOveFQMaEeeWe8SnH6bzWw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_sOuQgwMaEeeWe8SnH6bzWw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1215,7 +1215,7 @@
     <bindings xmi:id="_sOuRcQMaEeeWe8SnH6bzWw" keySequence="COMMAND+SHIFT+V" command="_sOvgsQMaEeeWe8SnH6bzWw"/>
     <bindings xmi:id="_sOuRcgMaEeeWe8SnH6bzWw" keySequence="ALT+COMMAND+X G" command="_sOwEIAMaEeeWe8SnH6bzWw"/>
     <bindings xmi:id="_PoNBRBpzEeehqOZ8K09__A" keySequence="ALT+COMMAND+R" command="_sOwEvwMaEeeWe8SnH6bzWw"/>
-    <bindings xmi:id="_jpchMRqjEee7xvaZXnBK7Q" keySequence="COMMAND+CTRL+F" command="_sOwEMAMaEeeWe8SnH6bzWw"/>
+    <bindings xmi:id="_Lv5VQR3cEee5VeEP1KDfCw" keySequence="COMMAND+CTRL+F" command="_sOwEMAMaEeeWe8SnH6bzWw"/>
   </bindingTables>
   <bindingTables xmi:id="_sOuRdAMaEeeWe8SnH6bzWw" elementId="org.eclipse.ui.textEditorScope" bindingContext="_sOu2KgMaEeeWe8SnH6bzWw">
     <bindings xmi:id="_sOuRdQMaEeeWe8SnH6bzWw" keySequence="ALT+ARROW_DOWN" command="_sOvffQMaEeeWe8SnH6bzWw"/>
@@ -1464,7 +1464,7 @@
     <bindings xmi:id="_sOu2FAMaEeeWe8SnH6bzWw" keySequence="COMMAND+1" command="_sOwEKAMaEeeWe8SnH6bzWw"/>
   </bindingTables>
   <bindingTables xmi:id="_sOu2FQMaEeeWe8SnH6bzWw" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_sOu2RwMaEeeWe8SnH6bzWw">
-    <bindings xmi:id="_jpdIQBqjEee7xvaZXnBK7Q" keySequence="M1+W" command="_sOwEMgMaEeeWe8SnH6bzWw"/>
+    <bindings xmi:id="_Lv58UB3cEee5VeEP1KDfCw" keySequence="M1+W" command="_sOwEMgMaEeeWe8SnH6bzWw"/>
   </bindingTables>
   <bindingTables xmi:id="_sOu2FwMaEeeWe8SnH6bzWw" bindingContext="_sOu2hAMaEeeWe8SnH6bzWw"/>
   <bindingTables xmi:id="_sOu2GAMaEeeWe8SnH6bzWw" elementId="org.python.pydev.ui.editor.scope" bindingContext="_sOu2QQMaEeeWe8SnH6bzWw">
