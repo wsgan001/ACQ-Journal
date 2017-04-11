@@ -1,13 +1,30 @@
 -- VERSION_4
 -- START DISKCACHE_2
 /Users/chenyankai/GitDefault/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/test/com.python.pydev.analysis/v2_indexcache
+tst|1491892457000000000|/Users/chenyankai/GitDefault/workspace/test/tst.py
 -- END DISKCACHE
 -- START DICTIONARY
-0
+3
+1=tst
+2=Application1
+3=Application1.createWidgets
 -- END DICTIONARY
 -- START TREE 1
-0
+2
+app|2|Application1!9@app!11@
+roo|1|root!11@
 -- END TREE
 -- START TREE 2
-0
+11
+__i|1|__init__!2&10@
+cal|1|calculate!2&10@
+cre|1|createWidgets!2&10@
+cvt|1|cvType!3&11@
+opt|1|optionType!3&11@
+par|28|param32!3&11@param72lbl!3&11@param82!3&11@param72cvBtn1!3&11@param61!3&11@param41lbl!3&11@param11!3&11@param22lbl!3&11@param81lbl!3&11@param11lbl!3&11@param32lbl!3&11@param21lbl!3&11@param71lbl!3&11@param81!3&11@param72cvBtn2!3&11@param31!3&11@param21!3&11@param51lbl!3&11@param71!3&11@param12lbl!3&11@param22!3&11@param82lbl!3&11@param51!3&11@param12!3&11@param42lbl!3&11@param41!3&11@param61lbl!3&11@param31lbl!3&11@
+que|1|questionValue!3&11@
+res|1|resultContent!3&11@
+sel|1|selected!2&10@
+sho|1|showAllWidgets!2&10@
+typ|2|typeBtn2!3&11@typeBtn1!3&11@
 -- END TREE
