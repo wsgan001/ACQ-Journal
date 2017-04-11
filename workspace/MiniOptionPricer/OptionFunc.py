@@ -48,7 +48,39 @@ def IVC(S, K, T, t, q, r, cTrue):
         sigmaDiff = abs(increment)
     return sigma
 
-def IVP(S, K, T, t, q, r, cTrue):
+def IVP(S, K, T, t, q, r, pTrue):
+    lowBound = 1e-8
+    sigmaHat = initGuess(S, K, T, t, q, r)
+    sigmaA, sigmaB = sigmaHat, sigmaHat
+    sigmaDiff = 1.0
+    n = 1
+    nMax = 1000
+    while sigmaDiff >= lowBound and n < nMax:
+        if n==1:
+            p = BS(S, K, t, T, sigmaHat, q, r,'P')
+        else:
+            p = BS(S, K, t, T, sigmaB, q, r,'P')
+        fn = p-pTrue
+        fn1 = S*math.exp((0-q)*(T-t))*math.sqrt(T-t)*norm._cdf(dBS(S,K,t,T,sigmaB, q, r,'d1'))
+        if fn1 == 0:
+            return 0.0
+        increment = fn/fn1 * 0.1
+        if fn>0:
+            sigmaA = sigmaB
+            sigmaB = sigmaB-increment
+        else:
+            sigmaMid = (sigmaA+sigmaB)/2
+            while sigmaA-sigmaB > lowBound:
+                sigmaMid = (sigmaA+sigmaB)/2
+                if BS(S, K, T, t, sigmaMid, q, r,'P')-pTrue == 0:
+                    return sigmaMid
+                elif (BS(S, K, t, T, sigmaMid, q, r)-pTrue)*(BS(S, K, t, T, sigmaB, q, r)-pTrue)<0:
+                    sigmaA = sigmaMid
+                else:
+                    sigmaB = sigmaMid
+            return abs(sigmaMid)
+        n += 1
+        sigmaDiff = abs(increment)
     return 
 
 #risk free

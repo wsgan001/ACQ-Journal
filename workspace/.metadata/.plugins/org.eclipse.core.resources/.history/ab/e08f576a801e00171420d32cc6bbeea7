@@ -1,0 +1,398 @@
+from Tkinter import  *
+# import versionOne as optFunc
+# import tkMessageBox
+
+# import six
+# import packaging
+# import packaging.version
+# import packaging.specifiers
+# import packaging.requirements
+
+
+class Application1(Frame):
+
+    def createWidgets(self):
+        content = Frame(self)
+        paramlbl = Label(content,text='Parameters',font=("Helvetica",16))
+        resultlbl = Label(content, text='Results',font=("Helvetica",16))
+
+        content.grid(column=0, row=0)
+        paramlbl.grid(column=0, row=0, columnspan=5)
+        # resultlbl.grid(column=0, row=12, columnspan=5)
+
+        Label(content, text = 'Calculated result is : ').grid(column=0, row=15)
+        self.resultContent = Label(content, text='')
+        self.resultContent.grid(column=1, row=15, columnspan = 3, pady = 5)
+
+        # S1, S2, sigma1, sigma2, r, T, K, corr, type, path, cv
+
+        lables=[
+            ['spot price of asset S1', 'spot price of asset S2'],
+            ['volatility of asset S1', 'volatility of asset S2'],
+            ['risk-free interest rate r', 'time to maturity (in years)'],
+            ['risk-free interest rate r', 'time to maturity (in years)'],
+
+        ]
+        # rows = len(lables)
+        # print '-----------', rows
+        # for i in range(1, rows+1, 1):
+        #     print i
+
+        self.param11lbl = Label(content, text='Spot price of asset S1')
+        self.param11 = Entry(content)
+        self.param12lbl = Label(content, text='Spot price of asset S2')
+        self.param12 = Entry(content)
+        self.param21lbl = Label(content, text='Volatility of asset S1')
+        self.param21 = Entry(content)
+        self.param22lbl = Label(content, text='Volatility of asset S2')
+        self.param22 = Entry(content)
+        self.param31lbl = Label(content, text='Time to maturity')
+        self.param31 = Entry(content)
+        self.param32lbl = Label(content, text='Risk-free rate')
+        self.param32 = Entry(content)
+        self.param41lbl = Label(content, text='Strike price')
+        self.param41 = Entry(content)
+        self.param42lbl = Label(content, text='Option type')
+        self.optionType = StringVar()
+        self.typeBtn1 = Radiobutton(content, text="CALL", variable=self.optionType, value="C")
+        self.typeBtn2 = Radiobutton(content, text="PUT", variable=self.optionType, value="P")
+        self.param51lbl = Label(content, text='Correlation')
+        self.param51 = Entry(content)
+        self.param61lbl = Label(content, text='No. of steps')
+        self.param61 = Entry(content)
+        self.param71lbl = Label(content, text='No. of paths')
+        self.param71 = Entry(content)
+        self.param72lbl = Label(content, text='Control Variate')
+        self.cvType = StringVar()
+        self.param72cvBtn1 = Radiobutton(content, text="Standard", variable=self.cvType, value="NULL")
+        self.param72cvBtn2 = Radiobutton(content, text="Control Variate", variable=self.cvType, value="CV")
+        # self.param72 = Entry(content)
+        self.param81lbl = Label(content, text='Repo rate')
+        self.param81 = Entry(content)
+        self.param82lbl = Label(content, text='Option premium')
+        self.param82 = Entry(content)
+
+        self.showAllWidgets()
+        self.typeBtn1.invoke()          # select Call Option as default
+        self.param72cvBtn1.invoke()            # select NULL as defalt cv value
+        Label(content,text=" ").grid(row = 10, pady=10)
+
+        # show question selection menu
+        self.questionValue = StringVar()
+        questionBtn1 = Radiobutton(content, text="Q1 European call/put option", variable=self.questionValue, value="Q1", command=self.selected)
+        questionBtn1.grid(column=0, row=11)
+        questionBtn2 = Radiobutton(content, text="Q2 Implied volatility calculator", variable=self.questionValue, value="Q2", command=self.selected)
+        questionBtn2.grid(column=1, row=11)
+        questionBtn3 = Radiobutton(content, text="Q3 American call/put option", variable=self.questionValue, value="Q3", command=self.selected)
+        questionBtn3.grid(column=2, row=11)
+        questionBtn4 = Radiobutton(content, text="Q4 GeoMetric Asian option", variable=self.questionValue, value="Q4", command=self.selected)
+        questionBtn4.grid(column=0, row=12)
+        questionBtn5 = Radiobutton(content, text="Q5 Arithmetic Asian option", variable=self.questionValue, value="Q5", command=self.selected)
+        questionBtn5.grid(column=1, row=12)
+        questionBtn6 = Radiobutton(content, text="Q6 GeoMetric basket option", variable=self.questionValue, value="Q6", command=self.selected)
+        questionBtn6.grid(column=2, row=12)
+        questionBtn7 = Radiobutton(content, text="Q7 Arithmetic basket option", variable=self.questionValue, value="Q7", command=self.selected)
+        questionBtn7.grid(column=3, row=12)
+        questionBtn1.invoke()
+
+        calcBtn = Button(content, text='Calculate', command=self.calculate)
+        quitBtn = Button(content, text='Quit', command=self.quit)
+        calcBtn.grid(column=0, row=13, columnspan=2, pady=10)
+        quitBtn.grid(column=4, row=13, columnspan=1, pady=10)
+
+
+    def calculate(self):
+        try:
+            # Get Parameters
+            selection = self.questionValue.get()
+            S1 = float(self.param11.get())
+            # S2 = float(self.param12.get())
+            sigma1 = float(self.param21.get())
+            # sigma2 = float(self.param22.get())
+            T = float(self.param31.get())
+            r = float(self.param32.get())
+            K = float(self.param41.get())
+            type = self.optionType.get()
+            # corr = float(self.param51.get())
+            # n = int(self.param61.get())
+            # path = int(self.param71.get())
+            # cv = self.param72.get()
+            # repo = float(self.param81.get())
+            # trueValue = float(self.param82.get())
+            # TODO: repo rate
+            # repo = 0.3
+            # trueValue = 10.0
+
+            print 'TO DO-------execute calculation'
+            resultPrice = 0.0000
+            if selection == 'Q1':
+                # repo = float(self.param81.get())
+                repo = 0.0
+                if type == "C":
+                    #stock, strike, time, maturity, volatility, repo, rfr
+                    resultPrice = optFunc.call_black_scholes(S1, K, 0.0, T, sigma1, repo, r)
+                elif type == "P":
+                    resultPrice = optFunc.put_black_scholes(S1, K, 0.0, T, sigma1, repo, r)
+                else:
+                    resultPrice = 0.0
+                # Q1
+            elif selection == 'Q2':
+                repo = float(self.param81.get())
+                trueValue = float(self.param82.get())
+                if type == 'C':
+                    #S, K, t, T, q, r, pTrue
+                    resultPrice = optFunc.implied_vol_C(S1, K, 0.0, T, repo, r, trueValue)
+                elif type == 'P':
+                    resultPrice = optFunc.implied_vol_P(S1, K, 0.0, T, repo, r, trueValue)
+                else:
+                    resultPrice = 0.0
+                # Q2
+            elif selection == 'Q3':
+                n = int(self.param61.get())
+                #S, K, r, T, sigma, N, type
+                resultPrice =  optFunc.bino_tree(S1, K, r, T, sigma1, n, type)
+                # Q3
+            elif selection == 'Q4':
+                n = int(self.param61.get())
+                #S, sigma, r, t, K, n, type
+                resultPrice = optFunc.geo_asian_option(S1, sigma1, r, T, K, n, type)
+                # Q4
+            elif selection == 'Q5':
+                n = int(self.param61.get())
+                path = int(self.param71.get())
+                cv = self.cvType.get()
+                #S, sigma, r, T, K, step, type, path, cv
+                resultPrice = optFunc.arith_asian_option(S1, sigma1, r, T, K, n, type, path, cv)
+                # Q5
+            elif selection == 'Q6':
+                S2 = float(self.param12.get())
+                sigma2 = float(self.param22.get())
+                corr = float(self.param51.get())
+                #S1, S2, sigma1, sigma2, r, T, K ,corr, type
+                resultPrice = optFunc.geo_basket(S1, S2, sigma1, sigma2, r, T, K ,corr, type)
+                # Q6
+            elif selection == 'Q7':
+                S2 = float(self.param12.get())
+                sigma2 = float(self.param22.get())
+                corr = float(self.param51.get())
+                path = int(self.param71.get())
+                cv = self.cvType.get()
+                #S1, S2, sigma1, sigma2, r, T, K, corr, type, path, cv
+                resultPrice = optFunc.arith_basket(S1, S2, sigma1, sigma2, r, T, K, corr, type, path, cv)
+                # Q7
+            #-------------------------------
+            # show result in result box
+            self.resultContent['text'] = "%.5f" % resultPrice
+        except ValueError as e:
+            print e
+            tkMessageBox.showinfo("Please check your parameters", "Please check and input all parameters")
+
+    # stock, strike, time, maturity, volatility, repo, rfr
+    # S1, K, 0.0, T, sigma1, repo, r
+    def selected(self):
+        selection = self.questionValue.get()
+        # print "qusetion", selection
+        if selection=='Q1':
+            self.showAllWidgets()
+            self.param12lbl.grid_forget()
+            self.param12.grid_forget()
+            self.param22lbl.grid_forget()
+            self.param22.grid_forget()
+            self.param51lbl.grid_forget()
+            self.param51.grid_forget()
+            self.param61lbl.grid_forget()
+            self.param61.grid_forget()
+            self.param71lbl.grid_forget()
+            self.param71.grid_forget()
+            self.param72lbl.grid_forget()
+            self.param72cvBtn1.grid_forget()
+            self.param72cvBtn2.grid_forget()
+            self.param81lbl.grid_forget()
+            self.param81.grid_forget()
+            self.param82lbl.grid_forget()
+            self.param82.grid_forget()
+            # Q1
+        elif selection=='Q2':
+            self.showAllWidgets()
+            self.param12lbl.grid_forget()
+            self.param12.grid_forget()
+            self.param21lbl.grid_forget()
+            self.param21.grid_forget()
+            self.param22lbl.grid_forget()
+            self.param22.grid_forget()
+            self.param51lbl.grid_forget()
+            self.param51.grid_forget()
+            self.param61lbl.grid_forget()
+            self.param61.grid_forget()
+            self.param71lbl.grid_forget()
+            self.param71.grid_forget()
+            self.param72lbl.grid_forget()
+            self.param72cvBtn1.grid_forget()
+            self.param72cvBtn2.grid_forget()
+            # Q2
+        elif selection=='Q3':
+            self.showAllWidgets()
+            self.param12lbl.grid_forget()
+            self.param12.grid_forget()
+            self.param22lbl.grid_forget()
+            self.param22.grid_forget()
+            self.param51lbl.grid_forget()
+            self.param51.grid_forget()
+            # self.param61lbl.grid_forget()
+            # self.param61.grid_forget()
+            self.param71lbl.grid_forget()
+            self.param71.grid_forget()
+            self.param72lbl.grid_forget()
+            self.param72cvBtn1.grid_forget()
+            self.param72cvBtn2.grid_forget()
+            self.param81lbl.grid_forget()
+            self.param81.grid_forget()
+            self.param82lbl.grid_forget()
+            self.param82.grid_forget()
+            # Q3
+        elif selection=='Q4':
+            self.showAllWidgets()
+            self.param12lbl.grid_forget()
+            self.param12.grid_forget()
+            self.param22lbl.grid_forget()
+            self.param22.grid_forget()
+            self.param51lbl.grid_forget()
+            self.param51.grid_forget()
+            # self.param61lbl.grid_forget()
+            # self.param61.grid_forget()
+            self.param71lbl.grid_forget()
+            self.param71.grid_forget()
+            self.param72lbl.grid_forget()
+            self.param72cvBtn1.grid_forget()
+            self.param72cvBtn2.grid_forget()
+            self.param81lbl.grid_forget()
+            self.param81.grid_forget()
+            self.param82lbl.grid_forget()
+            self.param82.grid_forget()
+            # Q4
+        elif selection=='Q5':
+            self.showAllWidgets()
+            self.param12lbl.grid_forget()
+            self.param12.grid_forget()
+            self.param22lbl.grid_forget()
+            self.param22.grid_forget()
+            self.param51lbl.grid_forget()
+            self.param51.grid_forget()
+            # self.param61lbl.grid_forget()
+            # self.param61.grid_forget()
+            # self.param71lbl.grid_forget()
+            # self.param71.grid_forget()
+            # self.param72lbl.grid_forget()
+            # self.param72.grid_forget()
+            # self.param72cvBtn1.grid_forget()
+            # self.param72cvBtn2.grid_forget()
+            self.param81lbl.grid_forget()
+            self.param81.grid_forget()
+            self.param82lbl.grid_forget()
+            self.param82.grid_forget()
+            # Q5
+        elif selection=='Q6':
+            self.showAllWidgets()
+            # self.param12lbl.grid_forget()
+            # self.param12.grid_forget()
+            # self.param22lbl.grid_forget()
+            # self.param22.grid_forget()
+            # self.param51lbl.grid_forget()
+            # self.param51.grid_forget()
+            self.param61lbl.grid_forget()
+            self.param61.grid_forget()
+            self.param71lbl.grid_forget()
+            self.param71.grid_forget()
+            self.param72lbl.grid_forget()
+            self.param72cvBtn1.grid_forget()
+            self.param72cvBtn2.grid_forget()
+            self.param81lbl.grid_forget()
+            self.param81.grid_forget()
+            self.param82lbl.grid_forget()
+            self.param82.grid_forget()
+            # Q6
+        elif selection=='Q7':
+            #S1, S2, sigma1, sigma2, r, T, K, corr, type, path, cv
+            self.showAllWidgets()
+            # self.param12lbl.grid_forget()
+            # self.param12.grid_forget()
+            # self.param22lbl.grid_forget()
+            # self.param22.grid_forget()
+            # self.param51lbl.grid_forget()
+            # self.param51.grid_forget()
+            self.param61lbl.grid_forget()
+            self.param61.grid_forget()
+            # self.param71lbl.grid_forget()
+            # self.param71.grid_forget()
+            # self.param72lbl.grid_forget()
+            # self.param72cvBtn1.grid_forget()
+            # self.param72cvBtn2.grid_forget()
+            self.param81lbl.grid_forget()
+            self.param81.grid_forget()
+            self.param82lbl.grid_forget()
+            self.param82.grid_forget()
+            # Q7
+
+    def showAllWidgets(self):
+        self.param11lbl.grid(column=0, row=1)
+        self.param11.grid(column=1, row=1, columnspan=1)
+
+        self.param12lbl.grid(column=2, row=1)
+        self.param12.grid(column=3, row=1, columnspan=1)
+
+        self.param21lbl.grid(column=0, row=2, columnspan=1)
+        self.param21.grid(column=1, row=2, columnspan=1)
+
+        self.param22lbl.grid(column=2, row=2, columnspan=1)
+        self.param22.grid(column=3, row=2, columnspan=1)
+
+        self.param31lbl.grid(column=0, row=3, columnspan=1)
+        self.param31.grid(column=1, row=3, columnspan=1)
+
+        self.param32lbl.grid(column=2, row=3, columnspan=1)
+        self.param32.grid(column=3, row=3, columnspan=1)
+
+        self.param41lbl.grid(column=0, row=4, columnspan=1)
+        self.param41.grid(column=1, row=4, columnspan=1)
+
+        self.param42lbl.grid(column=2, row=4, columnspan=1)
+        self.typeBtn1.grid(column=3, row=4, sticky=W)
+        self.typeBtn2.grid(column=3, row=4, sticky=E)
+
+        self.param51lbl.grid(column=0, row=5, columnspan=1)
+        self.param51.grid(column=1, row=5, columnspan=1)
+
+        self.param61lbl.grid(column=0, row=6, columnspan=1)
+        self.param61.grid(column=1, row=6, columnspan=1)
+
+        self.param71lbl.grid(column=0, row=7, columnspan=1)
+        self.param71.grid(column=1, row=7, columnspan=1)
+
+        self.param72lbl.grid(column=2, row=7, columnspan=1)
+        # self.param72.grid(column=3, row=7, columnspan=1)
+        self.param72cvBtn1.grid(column=3, row=7, sticky=W)
+        self.param72cvBtn2.grid(column=3, row=7, sticky=E)
+
+        self.param81lbl.grid(column=0, row=8, columnspan=1)
+        self.param81.grid(column=1, row=8, columnspan=1)
+
+        self.param82lbl.grid(column=2, row=8, columnspan=1)
+        self.param82.grid(column=3, row=8, columnspan=1)
+
+    def __init__(self, master):
+
+            root.minsize(width = 960, height = 400)
+            root.maxsize(width = 1440, height = 600)
+            Frame.__init__(self, master)
+            self.pack()
+            self.createWidgets()
+
+
+
+root = Tk()
+root.title('COMP7405 Assign3 , made by WangPW,XuLX,GeXM')
+app = Application1(master=root)
+app.mainloop()
+root.destroy()
+
+

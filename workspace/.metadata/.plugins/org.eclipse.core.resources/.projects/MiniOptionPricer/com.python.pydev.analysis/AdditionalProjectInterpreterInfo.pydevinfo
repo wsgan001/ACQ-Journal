@@ -1,28 +1,53 @@
 -- VERSION_4
 -- START DISKCACHE_2
 /Users/chenyankai/GitDefault/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/MiniOptionPricer/com.python.pydev.analysis/v2_indexcache
-OptionFunc|1491821862000000000|/Users/chenyankai/GitDefault/workspace/MiniOptionPricer/OptionFunc.py
+OptionFunc|1491886363000000000|/Users/chenyankai/GitDefault/workspace/MiniOptionPricer/OptionFunc.py
 -- END DISKCACHE
 -- START DICTIONARY
 1
 1=OptionFunc
 -- END DICTIONARY
 -- START TREE 1
-13
+17
 BS|1|BS!10@
+app|0|
 ari|2|arith_basket!10@arithAsianOption!10@
 bin|1|bino_tree!10@
 bro|1|browinanMotion!10@
 d|1|d!10@
 dbs|1|dBS!10@
 ela|1|elapsed!11@
+ex|0|
 geo|2|geoBasket!10@geoAsianOption!10@
 ini|1|initGuess!10@
 ivc|1|IVC!10@
 ivp|1|IVP!10@
+min|0|
+roo|0|
 te|1|te!11@
 ts|1|ts!11@
 -- END TREE
 -- START TREE 2
-0
+21
+__i|0|
+cal|0|
+cli|0|
+cre|0|
+cvt|0|
+dis|0|
+fun|0|
+id|0|
+ini|0|
+opt|0|
+par|0|
+que|0|
+r4|0|
+r6|0|
+r7|0|
+r8|0|
+res|0|
+sel|0|
+set|0|
+sho|0|
+typ|0|
 -- END TREE

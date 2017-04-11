@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pydev-testrun version="1.0"?><pydev-testsuite>
+<summary errors="1" failures="0" finished="true" name="Test Run: 0" tests="0" total_time="Finished in: 0.00 secs."/>
+<test location="/Users/chenyankai/GitDefault/workspace/MiniOptionPricer/UI.py" status="error" test="UI" time="0">
+<stdout/>
+<stderr><![CDATA[Traceback (most recent call last):
+  File "/Users/chenyankai/.p2/pool/plugins/org.python.pydev_5.6.0.201703221358/pysrc/_pydev_runfiles/pydev_runfiles.py", line 468, in __get_module_from_str
+    mod = __import__(modname)
+  File "/Users/chenyankai/GitDefault/workspace/MiniOptionPricer/UI.py", line 2, in <module>
+    from PyQt5.QtWidgets import (QApplication, QWidget, QRadioButton,
+ImportError: No module named PyQt5.QtWidgets
+ERROR: Module: UI could not be imported (file: /Users/chenyankai/GitDefault/workspace/MiniOptionPricer/UI.py).
+]]></stderr>
+</test>
+<launch mode="run">
+<launch_memento><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration local="true" path="MiniOptionPricer UI.py (1)"/>
+]]></launch_memento>
+</launch>
+</pydev-testsuite>
