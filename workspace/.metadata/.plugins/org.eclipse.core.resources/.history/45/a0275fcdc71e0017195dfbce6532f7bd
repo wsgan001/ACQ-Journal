@@ -1,9 +1,0 @@
-
-2016-12-6 cyk
-It seems that there are two bugs in the project:
-(1) Src/algo/index/AttachKw.java line39 
-(2) src/algo/DataReader.java line63-line68
-
-16-12-11 cyk see 16-12-11log
-(2) changed   
-(1) recorrect back

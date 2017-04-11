@@ -31,6 +31,7 @@
 	<section name="ZipFileImportWizard">
 		<item value="false" key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/Users/chenyankai/Downloads/commons-net-3.6/commons-net-3.6.jar"/>
 			<item value="/Users/chenyankai/Downloads/jtidy-r938/jtidy-r938.jar"/>
 		</list>
 	</section>
