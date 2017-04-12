@@ -98,7 +98,7 @@ public class ExpInsertion {
 //		int[] fileList3={5,10,15,20,25};
 //		for(int x:fileList3) eInsertion.experiment("dbpedia",Config.dbpediaGraph, Config.dbpediaNode, x);
 		
-		eInsertion.experiment(dataSet, graphFile, nodeFile, coreNumber);
+//		eInsertion.experiment(dataSet, graphFile, nodeFile, coreNumber);
 		
 	}
 	

@@ -2,6 +2,8 @@ package prep;
 import java.io.*;
 
 import org.apache.commons.net.ftp.*;
+import org.omg.PortableInterceptor.SUCCESSFUL;
+
 import config.Config;
 
 public class DownloadFtp {
@@ -26,14 +28,21 @@ public class DownloadFtp {
 		FTPClient ftpClient=null;
 		try {
 			ftpClient=new FTPClient();
-			ftpClient.connect("ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/medline17n0001.xml.gz",port);//connect to ftp
-//			ftpClient.login("", password);
-			if(!FTPReply.isPositiveIntermediate(ftpClient.getReplyCode())){
-				System.out.println("can not connect to ftp");
-				ftpClient.disconnect();
-			}else {
-				System.out.println("connection succeeds!");
-			}
+			System.out.println(1);
+			ftpClient.connect(ftpHost,21);//connect to ftp
+			System.out.println(2);
+			ftpClient.login(userName, password);
+			System.out.println(3);
+			
+			int replyCode = ftpClient.getReplyCode();
+		    if(!FTPReply.isPositiveCompletion(replyCode)){
+		    	 System.out.println("failed ");
+		      }
+		    else{ 
+		    	  System.out.println(ftpClient.getReplyString());
+		    	  System.out.println("succeed in login");	
+		    	  }
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("error in login");
@@ -41,6 +50,11 @@ public class DownloadFtp {
 		return ftpClient;
 	}
 	
+	private String GeneFileName(int i){
+		String id="000"+i;
+		if(id.length()>4) id=id.substring(id.length()-4, id.length());
+		return "medline17n"+id+".xml.gz";
+	}
 	
 	public void downloadFile(String fileName){
 		FTPClient ftpClient=null;
@@ -48,13 +62,12 @@ public class DownloadFtp {
 			ftpClient=getFTPClient();
 			ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
 			ftpClient.changeWorkingDirectory(ftpPath);
-			
-			 File localFile = new File(localpath + File.separatorChar + fileName);  
-	         OutputStream os = new FileOutputStream(localFile);  
-	         ftpClient.retrieveFile(fileName, os);  
-	         os.flush();
-	         os.close();
-	         ftpClient.logout();
+		      
+			File localFile = new File(localpath + fileName);  
+	        OutputStream os = new FileOutputStream(localFile);  
+	        ftpClient.retrieveFile(fileName, os);  
+	        os.close();
+	        ftpClient.logout();
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -63,8 +76,9 @@ public class DownloadFtp {
 	}
 	
 	public static void main(String []args){
-		DownloadFtp downFtp=new DownloadFtp(Config.urlPath,"", "",0, Config.urlPath, Config.localPath);
+		DownloadFtp downFtp=new DownloadFtp(Config.pubMedHost,Config.pubMedUsr,Config.pubMedPswrd, Config.pubMedPort, Config.ftpPath, Config.localPath);
 		downFtp.downloadFile("medline17n0001.xml.gz");
+		
 	}
 	
 }
