@@ -50,7 +50,7 @@ public class DownloadFtp {
 		return ftpClient;
 	}
 	
-	private String GeneFileName(int i){
+	public String GeneFileName(int i){
 		String id="000"+i;
 		if(id.length()>4) id=id.substring(id.length()-4, id.length());
 		return "medline17n"+id+".xml.gz";
@@ -75,10 +75,13 @@ public class DownloadFtp {
 		}		
 	}
 	
-	public static void main(String []args){
-		DownloadFtp downFtp=new DownloadFtp(Config.pubMedHost,Config.pubMedUsr,Config.pubMedPswrd, Config.pubMedPort, Config.ftpPath, Config.localPath);
-		downFtp.downloadFile("medline17n0001.xml.gz");
-		
-	}
+	
+	
+	
+//	public static void main(String []args){
+//		DownloadFtp downFtp=new DownloadFtp(Config.pubMedHost,Config.pubMedUsr,Config.pubMedPswrd, Config.pubMedPort, Config.ftpPath, Config.localPath);
+//		
+//		
+//	}
 	
 }

@@ -1,0 +1,33 @@
+package prep;
+
+import java.io.IOException;
+
+import config.*;
+
+public class Extract {
+	public static int pubMedSize=10;
+	
+	
+	public void process(){
+		DownloadFtp downFtp=new DownloadFtp(Config.pubMedHost,Config.pubMedUsr,Config.pubMedPswrd, Config.pubMedPort, Config.ftpPath, Config.localPath);
+		for(int i=1;i<=pubMedSize;i++){
+			String string=downFtp.GeneFileName(i);
+			downFtp.downloadFile("medline17n0001.xml.gz");
+		}
+		
+		
+	}
+	
+	
+	public static void main(String[] a){
+		String command="gzip -d /Users/chenyankai/GitDefault/workspace/HC/file/medline17n0001.xml.gz";
+		try {
+			Runtime.getRuntime().exec(command);
+//			Runtime.getRuntime().exec("rm -f /Users/chenyankai/GitDefault/workspace/HC/file/medline17n0001.xml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}

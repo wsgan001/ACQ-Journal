@@ -5,7 +5,7 @@ public class Config {
 	
 	public static String ftpPath="/pubmed/baseline/";
 	
-	public static String localPath="/Users/chenyankai/GitDefault/workspace/HC/file/";
+	public static String localPath="/Users/chenyankai/Documents/pubMed/";
 	
 	public static String pubMedHost="ftp.ncbi.nlm.nih.gov";
 	

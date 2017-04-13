@@ -25,6 +25,8 @@ class MiniPricerInterface(QWidget):
         vbox=QVBoxLayout()
         self.result=QTextEdit()
         self.result.isReadOnly()
+#       
+        
 
         funcBtnGroup = QButtonGroup(self) # Number group
         funcBtnGroup1 = QButtonGroup(self)
@@ -83,6 +85,7 @@ class MiniPricerInterface(QWidget):
         hboxLyt.addLayout(vboxButtonLyt)
         vbox.addLayout(hboxLyt)
         vbox.addWidget(self.result)
+#         vbox.addWidget(scroll)
         self.setLayout(vbox)
 
         self.resize(600,600)
@@ -114,9 +117,6 @@ class MiniPricerInterface(QWidget):
             self.r7.setVisible(True)
             self.r8.setVisible(True)
             
-    
-    def display(self):
-        self.initUI()
 
 #
 
@@ -131,7 +131,7 @@ class MiniPricerInterface(QWidget):
             
     def showResult(self):
         
-        self.array=('1', '2', '3', '4', '5');
+        self.array=('1', '2', '3', '4', '5','1', '2', '3', '4', '5','1', '2', '3', '4', '5')
         str="\n".join(self.array)
         self.result.setText(str)
 
