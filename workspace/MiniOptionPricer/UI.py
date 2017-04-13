@@ -27,7 +27,7 @@ class MiniPricerInterface(QWidget):
         self.result.isReadOnly()
 
         funcBtnGroup = QButtonGroup(self) # Number group
-
+        funcBtnGroup1 = QButtonGroup(self)
 
         r0 = QRadioButton("EU call/put option")
         r1 = QRadioButton("Implied Volatility")
@@ -38,8 +38,11 @@ class MiniPricerInterface(QWidget):
         r6 = QRadioButton("Arithmetic basket option")
         self.r7 = QRadioButton("Standard")
         self.r8 = QRadioButton("Control Variate")
+        self.r9 = QRadioButton()
         self.r7.setVisible(False)
         self.r8.setVisible(False)
+        self.r9.setVisible(False)
+        
 
         funcBtnGroup.addButton(r0,1)
         funcBtnGroup.addButton(r1,2)
@@ -48,8 +51,9 @@ class MiniPricerInterface(QWidget):
         funcBtnGroup.addButton(r4,5)
         funcBtnGroup.addButton(r5,6)
         funcBtnGroup.addButton(r6,7)
-        funcBtnGroup.addButton(self.r7,8)
-        funcBtnGroup.addButton(self.r8,9)
+        funcBtnGroup1.addButton(self.r7,8)
+        funcBtnGroup1.addButton(self.r8,9)
+        funcBtnGroup1.addButton(self.r9)
         vboxClickLyt.addWidget(r0)
         vboxClickLyt.addWidget(r1)
         vboxClickLyt.addWidget(r2)
@@ -66,7 +70,9 @@ class MiniPricerInterface(QWidget):
         btn.move(50, 50)
 
         funcBtnGroup.buttonClicked[int].connect(self.funcBtnGroup_clicked)
+        funcBtnGroup1.buttonClicked[int].connect(self.funcBtnGroup1_clicked)
         btn.clicked.connect(self.showDialog)
+        calButton.clicked.connect(self.showResult)
 #-----------------------------------------------
         vboxClickLyt.setAlignment(Qt.AlignTop)
         vboxButtonLyt.addWidget(self.r7)
@@ -85,19 +91,30 @@ class MiniPricerInterface(QWidget):
         #self.setWindowIcon(QIcon('web.png'))
         self.show()
 
+    
 
     def funcBtnGroup_clicked(self,buttonid):
         self.result.setText("Please select input file and Calculate")
         self.case = buttonid
+        self.r9.setChecked(True)
         print(self.case)
-        if self.case==5 or self.case==7 or self.case==8 or self.case==9:
+        if self.case==5 or self.case==7:
             self.r7.setVisible(True)
             self.r8.setVisible(True)
+            
         else:
             self.r7.setVisible(False)
             self.r8.setVisible(False)
 
-
+    def funcBtnGroup1_clicked(self,buttonid):
+        self.CVType=buttonid
+        print(self.CVType)
+        if self.CVType==8 or self.CVType==9:
+            
+            self.r7.setVisible(True)
+            self.r8.setVisible(True)
+            
+    
     def display(self):
         self.initUI()
 
@@ -111,7 +128,12 @@ class MiniPricerInterface(QWidget):
             print(fname[0])
 #             r = arithAsianOption(100,0.3,0.05,3,100,50,100000,conVar='NULL')
             self.result.setText(repr(r))
-
+            
+    def showResult(self):
+        
+        self.array=('1', '2', '3', '4', '5');
+        str="\n".join(self.array)
+        self.result.setText(str)
 
 
 if __name__ == '__main__':
