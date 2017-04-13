@@ -22,7 +22,6 @@ INDEX VERSION 1.129+/Users/chenyankai/GitDefault/workspace/.metadata/.plugins/or
 950241290.index
 3070287333.index
 2499292115.index
-3650568168.index
 1450857100.index
 341315055.index
 3302703152.index

@@ -2,13 +2,14 @@
 -- START DISKCACHE_2
 /Users/chenyankai/GitDefault/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/MiniOptionPricer/com.python.pydev.analysis/v2_indexcache
 OptionFunc|1491886363000000000|/Users/chenyankai/GitDefault/workspace/MiniOptionPricer/OptionFunc.py
-UI|1491905780000000000|/Users/chenyankai/GitDefault/workspace/MiniOptionPricer/UI.py
+UI|1492044345000000000|/Users/chenyankai/GitDefault/workspace/MiniOptionPricer/UI.py
 -- END DISKCACHE
 -- START DICTIONARY
-4
-4=MiniPricerInterface.initUI
+5
+5=MiniPricerInterface.initUI
 1=OptionFunc
 2=UI
+4=MiniPricerInterface.funcBtnGroup_clicked
 3=MiniPricerInterface
 -- END DICTIONARY
 -- START TREE 1
@@ -33,12 +34,12 @@ ts|1|ts!11@
 -- START TREE 2
 9
 __i|1|__init__!3&18@
+cas|2|case!3&19@case!4&19@
 dis|1|display!3&18@
 fun|1|funcBtnGroup_clicked!3&18@
-id|1|id!3&19@
 ini|1|initUI!3&18@
-r7|1|r7!4&19@
-r8|1|r8!4&19@
-res|1|result!4&19@
+r7|1|r7!5&19@
+r8|1|r8!5&19@
+res|1|result!5&19@
 sho|1|showDialog!3&18@
 -- END TREE
