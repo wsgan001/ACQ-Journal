@@ -3,7 +3,7 @@ from random import *
 import sys
 import math
 import numpy as np
-# import sobol_seq
+import sobol_seq
 from timeit import default_timer as timer
 
 

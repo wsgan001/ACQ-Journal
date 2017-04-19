@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import (QApplication, QWidget, QRadioButton,
-    QPushButton, QButtonGroup, QHBoxLayout, QVBoxLayout, QGridLayout,QLineEdit,
+    QPushButton, QButtonGroup, QHBoxLayout, QVBoxLayout, QGridLayout,
     QFileDialog)
 from PyQt5.QtCore import Qt
 import numpy as np
@@ -15,7 +15,6 @@ class MiniPricerInterface(QWidget):
     case = 0
     CVType = 0
     calculateR = []
-    M = 100000
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -46,6 +45,7 @@ class MiniPricerInterface(QWidget):
         self.r8.setVisible(False)
         self.r9.setVisible(False)
 
+
         funcBtnGroup.addButton(r0,1)
         funcBtnGroup.addButton(r1,2)
         funcBtnGroup.addButton(r2,3)
@@ -67,11 +67,6 @@ class MiniPricerInterface(QWidget):
 
         btn = QPushButton('Select File', self)
         calButton = QPushButton("Calculate")
-        self.MEditLabel = QLabel('Monte Carlo:')
-        self.MEdit = QLineEdit()
-        self.MEdit.setText(str(self.M))
-        self.MEdit.setVisible(False)
-        self.MEditLabel.setVisible(False)
         #btn.setToolTip('This is a <b>QPushButton</b> widget')
         btn.resize(btn.sizeHint())
         btn.move(50, 50)
@@ -84,8 +79,6 @@ class MiniPricerInterface(QWidget):
         vboxClickLyt.setAlignment(Qt.AlignTop)
         vboxButtonLyt.addWidget(self.r7)
         vboxButtonLyt.addWidget(self.r8)
-        vboxButtonLyt.addWidget(self.MEditLabel)
-        vboxButtonLyt.addWidget(self.MEdit)
         vboxButtonLyt.addWidget(btn)
         vboxButtonLyt.addWidget(calButton)
         hboxLyt.addLayout(vboxClickLyt)
@@ -111,13 +104,10 @@ class MiniPricerInterface(QWidget):
         if self.case==5 or self.case==7:
             self.r7.setVisible(True)
             self.r8.setVisible(True)
-            self.MEditLabel.setVisible(True)
-            self.MEdit.setVisible(True)
+
         else:
             self.r7.setVisible(False)
             self.r8.setVisible(False)
-            self.MEditLabel.setVisible(False)
-            self.MEdit.setVisible(False)
 
     def funcBtnGroup1_clicked(self,buttonid):
         self.CVType=buttonid
@@ -125,55 +115,45 @@ class MiniPricerInterface(QWidget):
 
 
     def parseOptCsv(self,fname):
-        self.M = int(self.MEdit.text())
         oringaldata = pd.read_csv(fname)
         data = oringaldata.dropna()
         data['cp'] = data['Type'].map({'put': -1, 'put': -1, 'call': 1, 'Call': 1})
         # data.drop('Type',axis=1, inplace=True)
         dataArray = np.asarray(data.drop('Type', 1).values)
 
+        s=100
+        r=0.05
+        T=3
+        m=100000
         cVar = 'NULL'
+        #baskVol=[]
         nOfAsset = 2
         if self.CVType == 9:
             cVar = 'y'
-        if self.case == 1:
-            for item in dataArray:
-                Rtmp = cal.OptPricewithq(StockPrice=item[0], vol=item[1], rate=item[2], q=item[3], tau = item[4],
-                                         StrikePrice=item[5], cp=item[6])[0]
-                self.calculateR.append(Rtmp)
-        if self.case == 2:
-            for item in dataArray:
-                Rtmp = cal.impliedVolwithq(StockPrice=item[0], OptPrice=item[1],rate=item[2], q=item[3], tau = item[4],
-                                           StrikePrice=item[5], cp=item[6])
-                self.calculateR.append(Rtmp)
-        if self.case == 3:
-            for item in dataArray:
-                Rtmp = cal.OptionBinTree(StockPrice=item[0], vol=item[1], rate=item[2], N=item[3], T = item[4],
-                                         K=item[5], cp=item[6])
-                self.calculateR.append(Rtmp)
+        if self.case == 1:pass
+        if self.case == 2:pass
+        if self.case == 3:pass
         if self.case == 4:
             for item in dataArray:
-                Rtmp = cal.geoAsianOption(StockPrice=item[0], vol=item[1], rate=item[2], T=item[3], K = item[4],
-                                         N=item[5], cp=item[6])
+                Rtmp = cal.geoAsianOption(StockPrice=s, vol=item[0], K=item[1], N=item[2], cp=item[3],
+                                            rate=r, T=T)#,  path=m, conVar=cVar)
                 self.calculateR.append(Rtmp)
         if self.case == 5:
             for item in dataArray:
                 ts = timer()
-                Rtmp = cal.arithAsianOption(StockPrice=item[0], vol=item[1], rate=item[2], T=item[3], K = item[4],
-                                            step=item[5], cp=item[6],  path=self.M, conVar=cVar)
+                Rtmp = cal.arithAsianOption(StockPrice=s, vol=item[0], K=item[1], step=item[2], cp=item[3],
+                                            rate=r, T=T,  path=m, conVar=cVar)
                 print('arithAsian time: ',timer()-ts)
                 self.calculateR.append(Rtmp)
         if self.case == 6:
             for item in dataArray:
-                Rtmp = cal.geoBasketOption(StockPrice=item[:nOfAsset], vol=item[nOfAsset+1:nOfAsset+nOfAsset+1],
-                                           K=item[nOfAsset], corr=item[nOfAsset+nOfAsset+1], rate=item[nOfAsset+nOfAsset+2],
-                                           T=item[nOfAsset+nOfAsset+3], cp=item[nOfAsset+nOfAsset+4], n=nOfAsset)#,  path=m, conVar=cVar)
+                Rtmp = cal.geoBasketOption(StockPrice=item[:nOfAsset], vol=item[nOfAsset+1:nOfAsset+nOfAsset+1], K=item[nOfAsset], corr=item[nOfAsset+nOfAsset+1], cp=item[nOfAsset+nOfAsset+2],
+                                            rate=r, T=T, n=nOfAsset)#,  path=m, conVar=cVar)
                 self.calculateR.append(Rtmp)
         if self.case == 7 :
             for item in dataArray:
-                Rtmp = cal.arithBasketOption(StockPrice=item[:nOfAsset], vol=item[nOfAsset+1:nOfAsset+nOfAsset+1],
-                                             K=item[nOfAsset], corr=item[nOfAsset+nOfAsset+1], rate=item[nOfAsset+nOfAsset+2],
-                                           T=item[nOfAsset+nOfAsset+3], cp=item[nOfAsset+nOfAsset+4], path=self.M, conVar=cVar)
+                Rtmp = cal.arithBasketOption(StockPrice=item[:nOfAsset], vol=item[nOfAsset+1:nOfAsset+nOfAsset+1], K=item[nOfAsset], corr=item[nOfAsset+nOfAsset+1], cp=item[nOfAsset+nOfAsset+2],
+                                            rate=r, T=T, n=nOfAsset, path=m, conVar=cVar)
                 self.calculateR.append(Rtmp)
 
 
@@ -187,7 +167,7 @@ class MiniPricerInterface(QWidget):
 
     def showResult(self):
         re = list(map(repr,self.calculateR))
-        re.insert(0,'['+str(len(self.calculateR))+'] option calculation COMPLETED:')
+        re.insert(0,str(len(self.calculateR))+' option price calculation completed:')
         re.insert(0,str(datetime.now().replace(microsecond=0)))
         output="\n".join(re)
         self.result.setText(output)
