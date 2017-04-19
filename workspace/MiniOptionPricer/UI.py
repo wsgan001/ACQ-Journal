@@ -3,18 +3,20 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QRadioButton,
     QPushButton, QButtonGroup, QHBoxLayout, QVBoxLayout, QGridLayout,
     QFileDialog)
 from PyQt5.QtCore import Qt
-from _signal import signal
-from click._unicodefun import click
+import numpy as np
+import pandas as pd
+from timeit import default_timer as timer
+from datetime import datetime
 from PyQt5.Qt import QLabel, QTextEdit, QTextBrowser
 from sympy.printing.pretty.pretty_symbology import vobj
-from share import *
+import share as cal
 
 class MiniPricerInterface(QWidget):
     case = 0
-
+    CVType = 0
+    calculateR = []
     def __init__(self):
         super().__init__()
-#         self.display()
         self.initUI()
 
     def initUI(self):
@@ -25,8 +27,6 @@ class MiniPricerInterface(QWidget):
         vbox=QVBoxLayout()
         self.result=QTextEdit()
         self.result.isReadOnly()
-#       
-        
 
         funcBtnGroup = QButtonGroup(self) # Number group
         funcBtnGroup1 = QButtonGroup(self)
@@ -44,7 +44,7 @@ class MiniPricerInterface(QWidget):
         self.r7.setVisible(False)
         self.r8.setVisible(False)
         self.r9.setVisible(False)
-        
+
 
         funcBtnGroup.addButton(r0,1)
         funcBtnGroup.addButton(r1,2)
@@ -85,7 +85,6 @@ class MiniPricerInterface(QWidget):
         hboxLyt.addLayout(vboxButtonLyt)
         vbox.addLayout(hboxLyt)
         vbox.addWidget(self.result)
-#         vbox.addWidget(scroll)
         self.setLayout(vbox)
 
         self.resize(600,600)
@@ -94,46 +93,84 @@ class MiniPricerInterface(QWidget):
         #self.setWindowIcon(QIcon('web.png'))
         self.show()
 
-    
+
 
     def funcBtnGroup_clicked(self,buttonid):
         self.result.setText("Please select input file and Calculate")
+        self.calculateR.clear()
         self.case = buttonid
         self.r9.setChecked(True)
         print(self.case)
         if self.case==5 or self.case==7:
             self.r7.setVisible(True)
             self.r8.setVisible(True)
-            
+
         else:
             self.r7.setVisible(False)
             self.r8.setVisible(False)
 
     def funcBtnGroup1_clicked(self,buttonid):
         self.CVType=buttonid
-        print(self.CVType)
-        if self.CVType==8 or self.CVType==9:
-            
-            self.r7.setVisible(True)
-            self.r8.setVisible(True)
-            
+        self.calculateR.clear()
 
-#
+
+    def parseOptCsv(self,fname):
+        oringaldata = pd.read_csv(fname)
+        data = oringaldata.dropna()
+        data['cp'] = data['Type'].map({'put': -1, 'put': -1, 'call': 1, 'Call': 1})
+        # data.drop('Type',axis=1, inplace=True)
+        dataArray = np.asarray(data.drop('Type', 1).values)
+
+        s=100
+        r=0.05
+        T=3
+        m=100000
+        cVar = 'NULL'
+        #baskVol=[]
+        nOfAsset = 2
+        if self.CVType == 9:
+            cVar = 'y'
+        if self.case == 1:pass
+        if self.case == 2:pass
+        if self.case == 3:pass
+        if self.case == 4:
+            for item in dataArray:
+                Rtmp = cal.geoAsianOption(StockPrice=s, vol=item[0], K=item[1], N=item[2], cp=item[3],
+                                            rate=r, T=T)#,  path=m, conVar=cVar)
+                self.calculateR.append(Rtmp)
+        if self.case == 5:
+            for item in dataArray:
+                ts = timer()
+                Rtmp = cal.arithAsianOption(StockPrice=s, vol=item[0], K=item[1], step=item[2], cp=item[3],
+                                            rate=r, T=T,  path=m, conVar=cVar)
+                print('arithAsian time: ',timer()-ts)
+                self.calculateR.append(Rtmp)
+        if self.case == 6:
+            for item in dataArray:
+                Rtmp = cal.geoBasketOption(StockPrice=item[:nOfAsset], vol=item[nOfAsset+1:nOfAsset+nOfAsset+1], K=item[nOfAsset], corr=item[nOfAsset+nOfAsset+1], cp=item[nOfAsset+nOfAsset+2],
+                                            rate=r, T=T, n=nOfAsset)#,  path=m, conVar=cVar)
+                self.calculateR.append(Rtmp)
+        if self.case == 7 :
+            for item in dataArray:
+                Rtmp = cal.arithBasketOption(StockPrice=item[:nOfAsset], vol=item[nOfAsset+1:nOfAsset+nOfAsset+1], K=item[nOfAsset], corr=item[nOfAsset+nOfAsset+1], cp=item[nOfAsset+nOfAsset+2],
+                                            rate=r, T=T, n=nOfAsset, path=m, conVar=cVar)
+                self.calculateR.append(Rtmp)
+
 
     def showDialog(self):
         print(self.case)
         fname = QFileDialog.getOpenFileName(self, 'Open file', sys.path[0])
 
         if fname[0]:
-            print(fname[0])
-#             r = arithAsianOption(100,0.3,0.05,3,100,50,100000,conVar='NULL')
-            self.result.setText(repr(r))
-            
+            self.parseOptCsv(fname[0])
+            self.showResult()
+
     def showResult(self):
-        
-        self.array=('1', '2', '3', '4', '5','1', '2', '3', '4', '5','1', '2', '3', '4', '5')
-        str="\n".join(self.array)
-        self.result.setText(str)
+        re = list(map(repr,self.calculateR))
+        re.insert(0,str(len(self.calculateR))+' option price calculation completed:')
+        re.insert(0,str(datetime.now().replace(microsecond=0)))
+        output="\n".join(re)
+        self.result.setText(output)
 
 
 if __name__ == '__main__':

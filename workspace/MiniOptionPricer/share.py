@@ -64,17 +64,17 @@ def standNormal(row,col):
 		random[i, :] = np.random.standard_normal(col)
 	return random
 
-def geoAsianOption(StockPrice, vol, rate, tau, K, N, cp=1):
+def geoAsianOption(StockPrice, vol, rate, T, K, N, cp=1):
 	sigma = vol * np.sqrt(1.0 * (N+1) * (2*N+1) / (6*N**2))
 	mu = (rate-0.5*vol**2) * (N+1)/(2*N) + 0.5*sigma**2
-	return OptPricewithq(cp, StockPrice, K, tau, sigma, rate, rate - mu)[0]
+	return OptPricewithq(cp, StockPrice, K, T, sigma, rate, rate - mu)[0]
 
-def geoBasketOption(StockPrice, vol, rate, tau, K ,corr, cp):
-	n = 2.0
+def geoBasketOption(StockPrice, vol, rate, T, K ,corr, cp,n=2):
+	n = n*1.0
 	sigma = 1/n * np.sqrt(vol[0]**2 + vol[0]*vol[1]*corr* 2 + vol[1]**2)
 	mu = rate - 0.5*np.sum(vol**2)/n + 0.5*sigma**2
 	basketPrice = np.power(StockPrice.cumprod()[-1],1/n)
-	return OptPricewithq(cp, basketPrice, K, tau, sigma, rate, rate - mu)[0]
+	return OptPricewithq(cp, basketPrice, K, T, sigma, rate, rate - mu)[0]
 
 def conVariMethod(Varith,Vgeo,Vgeo_true):
 	print('using Control variates :')
@@ -87,7 +87,7 @@ def arithAsianOption(StockPrice, vol, rate, T, K, step, path, conVar,cp=1):
 	dt = 1.0 * T / step
 	c1 = rate - 0.5 * vol ** 2
 	c2 = vol * np.sqrt(dt)
-	t = np.cumprod( np.exp(c1 * dt + c2 * standNormal(path,step)) , axis=1 )
+	#t = np.cumprod( np.exp(c1 * dt + c2 * standNormal(path,step)) , axis=1 )
 	paths = StockPrice * np.exp(c1 * dt + c2 * standNormal(path,step)).cumprod(axis=1)
 
 	arithMean = paths.mean(1)
@@ -157,7 +157,9 @@ if __name__ == '__main__':
 	T = 3
 	r = 0.05
 	m = 100000
-	# print(arithAsianOption(s,0.3,r,T,100,50,m,conVar='NULL'))
+	ts = timer()
+	print(arithAsianOption(s,0.3,r,T,100,50,m,conVar=0,cp=-1))
+	print('run time:',timer()-ts)
 	# print(arithAsianOption(s,0.3,r,T,100,50,m,1))
 	# print(arithAsianOption(s,0.3,r,T,100,50,m,conVar='NULL',cp=-1))
 	# print(arithAsianOption(s,0.3,r,T,100,50,m,1,-1))
@@ -167,10 +169,10 @@ if __name__ == '__main__':
 	sigma = np.asarray([0.3,0.3])
 	cor = 0.5
 	# print(geoBasketOption(S,sigma,r,T,100,cor,1))
-	ts = timer()
-	print(arithBasketOption(S,sigma,r,T,100,cor,1,m,conVar='NULL'))
-	print(arithBasketOption(S,sigma,r,T,100,cor,1,m,1))
-	te = timer()
-	print(te-ts)
-	print(arithBasketOption(S,sigma,r,T,100,cor,-1,m,conVar='NULL'))
-	print(arithBasketOption(S,sigma,r,T,100,cor,-1,m,1))
+	# ts = timer()
+	# print(arithBasketOption(S,sigma,r,T,100,cor,1,m,conVar='NULL'))
+	# print(arithBasketOption(S,sigma,r,T,100,cor,1,m,1))
+	# te = timer()
+	# print(te-ts)
+	# print(arithBasketOption(S,sigma,r,T,100,cor,-1,m,conVar='NULL'))
+	# print(arithBasketOption(S,sigma,r,T,100,cor,-1,m,1))
