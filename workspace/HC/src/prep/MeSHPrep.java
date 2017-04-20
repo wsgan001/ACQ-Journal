@@ -1,9 +1,10 @@
 package prep;
 
-import java.io.File;
+import java.awt.geom.Area;
+import java.io.*;
+import java.util.*;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.*;
 import org.w3c.dom.*;
 
 import config.Config;
@@ -16,9 +17,30 @@ import config.Config;
 
 public class MeSHPrep {
 	String xmlFile=null;
+	String outFile=null;
+	Map<String, String> map=null;//store the MeshTree code key:name value:code
 	
-	public MeSHPrep(String xmlfile){
-		this.xmlFile=xmlfile;
+	public MeSHPrep(String xmlfile,String outFile){
+		this.xmlFile=Config.localPath+xmlfile;
+		this.outFile=Config.localPath+outFile;
+		this.map=new HashMap<String,String>();
+		
+	}
+	
+	private void readMeshTree(){
+		try {
+			BufferedReader bfReader=new BufferedReader(new FileReader(Config.localPath+"mtrees2017.txt"));
+			String line=null;
+			while((line=bfReader.readLine())!=null){
+				String[] s=line.split(";");
+				map.put(s[0], s[1]);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	//extract one tag
@@ -28,15 +50,24 @@ public class MeSHPrep {
 			DocumentBuilder builder=factory.newDocumentBuilder();
 			Document doc=builder.parse(new File(xmlFile));
 			Element element=doc.getDocumentElement();
-	
+			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(outFile));
+			Map<String, Set<String>> line=new HashMap<String, Set<String>>();
+
 			NodeList nodes=element.getElementsByTagName("PubmedArticle");
 			System.out.println(nodes.getLength()+" 1 ");
 			for(int i=0;i<nodes.getLength();i++){
 				Element Article=(Element) nodes.item(i);
 				Element MedlineCitation=(Element) Article.getElementsByTagName("MedlineCitation").item(0);
-				Element autherListNode=  (Element) MedlineCitation.getElementsByTagName("AuthorList").item(0);
-				if(autherListNode!=null){
-					NodeList autherList= autherListNode.getElementsByTagName("Author");
+				Element authorListNode=  (Element) MedlineCitation.getElementsByTagName("AuthorList").item(0);
+				Element MeshKeyListNode= (Element) MedlineCitation.getElementsByTagName("MeshHeadingList").item(0);
+				boolean flag=false;//mark if there are authors in one citation
+				ArrayList<String> nameList=null;
+				//find all the author
+				if(authorListNode!=null){
+					flag=true;
+					NodeList autherList= authorListNode.getElementsByTagName("Author");
+					System.out.print("name: ");
+					nameList=new ArrayList<String>();
 					for(int j=0;j<autherList.getLength();j++){
 						Element author=(Element) autherList.item(j);
 							NodeList childList=author.getChildNodes();
@@ -50,21 +81,77 @@ public class MeSHPrep {
 									name=node.getFirstChild().getNodeValue()+","+name;
 								}
 							}		
-							if(name!=null) System.out.println("name "+name);
+							
+							if(name!=null) {
+								nameList.add(name);
+								Set<String> set=new HashSet<String>();
+								line.put(name,set);
+								System.out.print(name+"   ");
+							}
 					}
+					System.out.println();
 				}
+				//find all the meshCode
+				if(flag==true&&MeshKeyListNode!=null){
+					Set<String> set=new HashSet<String>();
+					System.out.print("Mesh: ");
+					String string="";
+					NodeList meshList=MeshKeyListNode.getElementsByTagName("DescriptorName");					
+					for(int k=0;k<meshList.getLength();k++){
+						Element mesh=(Element) meshList.item(k);
+						String key=null;
+						String meshValue=mesh.getFirstChild().getNodeValue();
+						if(map.containsKey(meshValue)){
+							key = map.get(meshValue);
+						}
+						else{	System.out.println("No Mesh keyword!"+meshValue);}
+						if(key!=null) {
+//							System.out.print(key+"-");
+//							string=string+"-"+key;
+							set.add(key);
+						}
+//						else System.out.print("null对应的mesh"+mesh.getFirstChild().getNodeValue());
+//						keyList.add(mesh.getFirstChild().getNodeValue());
+						
+					}
+//					string=string.substring(1);
+					for(String x:nameList){
+						if(line.containsKey(x)){
+							
+							line.get(x).addAll(set);
+						}else{
+							line.put(x,set);
+						}
+					}
+					System.out.println();
+					System.out.println("mesh String  "+set.toString());
+					System.out.println();
+				}
+
+				
 			}
+			
+			for(String x:line.keySet()){
+				String write=line.get(x).toString();
+				bfWriter.write(x+"\t"+write.substring(1, write.length()-1));
+				bfWriter.newLine();
+			}
+			bfWriter.flush();
+			bfWriter.close();
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("error!!!");
 		}
 		
 	}
 	
 	
 	public static void main(String[] a){
-		String file=Config.home+"medsample1.xml";
-		MeSHPrep meSHPrep=new MeSHPrep(file);
+		
+	
+		MeSHPrep meSHPrep=new MeSHPrep("medsample1.xml","test.txt");
+		meSHPrep.readMeshTree();
 		meSHPrep.domMeSH();
 	}
 }

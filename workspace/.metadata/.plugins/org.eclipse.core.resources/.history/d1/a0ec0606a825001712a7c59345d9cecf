@@ -1,0 +1,121 @@
+package prep;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.xml.parsers.*;
+import org.w3c.dom.*;
+
+import config.Config;
+
+/**
+ * 
+ * @author chenyankai
+ * @date Mar 28, 2017
+ */
+
+public class MeSHPrep {
+	String xmlFile=null;
+	String outFile=null;
+	
+	public MeSHPrep(String xmlfile,String outFile){
+		this.xmlFile=Config.localPath+xmlfile;
+		this.outFile=Config.localPath+outFile;
+	}
+	
+	//extract one tag
+	public void domMeSH(){
+		try {
+			DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder=factory.newDocumentBuilder();
+			Document doc=builder.parse(new File(xmlFile));
+			Element element=doc.getDocumentElement();
+			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(outFile));
+			Map<String, String> line=new HashMap<String, String>();
+
+			NodeList nodes=element.getElementsByTagName("PubmedArticle");
+			System.out.println(nodes.getLength()+" 1 ");
+			for(int i=0;i<nodes.getLength();i++){
+				Element Article=(Element) nodes.item(i);
+				Element MedlineCitation=(Element) Article.getElementsByTagName("MedlineCitation").item(0);
+				Element autherListNode=  (Element) MedlineCitation.getElementsByTagName("AuthorList").item(0);
+				Element MeshKeyListNode= (Element) MedlineCitation.getElementsByTagName("MeshHeadingList").item(0);
+				boolean flag=false;//mark if there are authors in one citation
+				ArrayList<String> nameList=null;
+				ArrayList<String> keyList=null;
+				if(autherListNode!=null){
+					flag=true;
+					NodeList autherList= autherListNode.getElementsByTagName("Author");
+					System.out.print("name: ");
+					nameList=new ArrayList<String>();
+					for(int j=0;j<autherList.getLength();j++){
+						Element author=(Element) autherList.item(j);
+							NodeList childList=author.getChildNodes();
+							String name=null;
+							for(int x=0;x<childList.getLength();x++){
+								Node node=childList.item(x);
+								String tag=node.getNodeName();
+								if(tag.equals("LastName")){
+									name=node.getFirstChild().getNodeValue();
+								}else if(tag.equals("Initials")){
+									name=node.getFirstChild().getNodeValue()+","+name;
+								}
+							}		
+							nameList.add(name);
+							if(name!=null) System.out.print(name+"   ");
+//							line.put(name, null);
+					}
+					System.out.println(nameList.size());
+				}
+				
+				if(flag==true){
+					keyList=new ArrayList<String>();
+
+					System.out.print("Mesh: ");
+					NodeList meshList=MeshKeyListNode.getElementsByTagName("DescriptorName");
+//					System.out.println(meshList.getLength());
+					for(int k=0;k<meshList.getLength();k++){
+						Element mesh=(Element) meshList.item(k);
+						System.out.print(mesh.getFirstChild().getNodeValue()+"   ");
+						keyList.add(mesh.getFirstChild().getNodeValue());
+					}
+					System.out.println();
+					System.out.println();
+				}
+				
+			for(String x:nameList){
+				String key="";
+//				for(String y:keyList){
+//					key=y+"/"+key;
+//				}
+				if(line.containsKey(x)){
+					String oldkey=line.get(x)+"/"+key;
+					line.put(x, oldkey);
+				}else{
+					line.put(x, key);
+				}
+			}
+				
+			}
+//			for(String x:line.keySet()){
+//				bfWriter.write(x+"\t"+line.get(x));
+//			}
+//			bfWriter.flush();
+//			bfWriter.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
+	
+	
+	public static void main(String[] a){
+		
+	
+		MeSHPrep meSHPrep=new MeSHPrep("medsample1.xml","test.txt");
+		meSHPrep.domMeSH();
+	}
+}
