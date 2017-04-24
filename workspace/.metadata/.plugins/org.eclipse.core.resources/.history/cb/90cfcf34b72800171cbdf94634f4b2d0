@@ -1,0 +1,31 @@
+package prep;
+
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class BuildMeshTree {
+	private Map<String, MeshNode> map=null;
+	private MeshNode root=null;
+	
+	
+	public BuildMeshTree(){
+		this.map=new HashMap<String,MeshNode>();
+		this.root=new MeshNode("root", 0);
+	}
+	
+	//build the first level taxa of the meshTree
+	public ArrayList<MeshNode> build1stLvl(char start, char end){
+		ArrayList<MeshNode> list=new ArrayList<MeshNode>();
+		for(char i=start;i<=end;i++){
+			System.out.println(i);
+		}
+		return list;
+	}
+	
+	public static void main(String[] a){
+		BuildMeshTree bmTree=new BuildMeshTree();
+		bmTree.build1stLvl('A', 'Z');
+	}
+}

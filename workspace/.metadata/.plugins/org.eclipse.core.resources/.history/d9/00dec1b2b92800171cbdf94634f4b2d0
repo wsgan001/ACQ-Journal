@@ -1,0 +1,41 @@
+package prep;
+
+import java.util.*;
+
+public class BuildMeshTree {
+	private Map<String, MeshNode> map=null;
+	private MeshNode root=null;
+	
+	
+	public BuildMeshTree(){
+		this.map=new HashMap<String,MeshNode>();
+		this.root=new MeshNode("root", 0);
+	}
+	
+	//build the first level taxa of the meshTree
+	public ArrayList<MeshNode> build1stLvl(){
+		ArrayList<MeshNode> list=new ArrayList<MeshNode>();
+		list.add(new MeshNode("Anatomy",'A'));
+		list.add(new MeshNode("Organisms",'B'));
+		list.add(new MeshNode("Diseases",'C'));
+		list.add(new MeshNode("Chemicals and Drugs",'D'));
+		list.add(new MeshNode("Analytical, Diagnostic and Therapeutic Techniques, and Equipment",'E'));
+		list.add(new MeshNode("Psychiatry and Psychology",'F'));
+		list.add(new MeshNode("Phenomena and Processes",'G'));
+		list.add(new MeshNode("Disciplines and Occupations",'H'));
+		list.add(new MeshNode("Anthropology, Education, Sociology, and Social Phenomena",'I'));
+		list.add(new MeshNode("Technology, Industry, and Agriculture",'J'));
+		list.add(new MeshNode("Humanities",'K'));
+		list.add(new MeshNode("Information Science",'L'));
+		list.add(new MeshNode("Named Groups",'M'));
+		list.add(new MeshNode("Health Care",'N'));
+		list.add(new MeshNode("Publication Characteristics",'V'));
+		list.add(new MeshNode("Geographicals",'Z'));
+		return list;
+	}
+	
+	public static void main(String[] args){
+		BuildMeshTree bmTree=new BuildMeshTree();
+		bmTree.build1stLvl();
+	}
+}

@@ -1,0 +1,16 @@
+package prep;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class BuildMeshTree {
+	private Map<String, MeshNode> map=null;
+	
+	public BuildMeshTree(){
+		this.map=new HashMap<String,MeshNode>();
+		
+	}
+	
+	
+	
+}

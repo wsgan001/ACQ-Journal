@@ -26,20 +26,17 @@ public class BuildMeshTree {
 		try {
 			BufferedReader bReader = new BufferedReader(new FileReader(treeFile));
 			String line=null;
-			int count=0;
 			while((line=bReader.readLine())!=null){
 				String[] contents=line.split(";");
 				char letter= contents[1].charAt(0);
-				String[] leaves=contents[1].split("\\.");// split \\. not . 
-				//get last code of keyword such as 111 of A01.111; 01 of A01
-				String leafCode= leaves.length>1 ? leaves[leaves.length-1]: leaves[0].substring(1);
-				String fatherCode=leaves.length>1 ? contents[1].substring(0, contents[1].length()-leafCode.length()-1):contents[1].substring(0, contents[1].length()-leafCode.length());
-				System.out.println(fatherCode);
-				MeshNode node=new MeshNode(contents[0],Integer.parseInt(leafCode));
-				map.get(fatherCode).getChildrenList().add(node);
-				map.put(contents[1], node);
-				count++;
-				if(count==20) break;
+				String[] leaves=contents[1].split(".");
+				MeshNode node=null;
+				if(leaves.length!=0){
+					String leafCode=leaves[leaves.length-1];		
+					node=new MeshNode(contents[0],Integer.parseInt(leafCode));
+				}else{
+					node=new MeshNode(contents[0],Integer.parseInt(contents[1].substring(1)));
+				}
 				
 			}
 		} catch (FileNotFoundException e) {
@@ -102,7 +99,7 @@ public class BuildMeshTree {
 	public static void main(String[] args){
 		BuildMeshTree bmTree=new BuildMeshTree();
 		MeshNode root=bmTree.build();
-		bmTree.traverse(root);
+//		bmTree.traverse(root);
 //		bmTree.printMap();
 		
 	}

@@ -1,0 +1,20 @@
+package prep;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+public class MeshNode {
+	private String name=null;
+	private String code=null;
+	private ArrayList<MeshNode> childrenList=null;
+	
+	public MeshNode(String name,String code){
+		this.name = name;
+		this.code = code;
+		this.childrenList = new ArrayList<MeshNode>();
+	}
+	
+	public void 
+	
+	
+}

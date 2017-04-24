@@ -102,8 +102,8 @@ public class BuildMeshTree {
 	public static void main(String[] args){
 		BuildMeshTree bmTree=new BuildMeshTree();
 		MeshNode root=bmTree.build();
-		bmTree.traverse(root);
-//		bmTree.printMap();
+//		bmTree.traverse(root);
+		bmTree.printMap();
 		
 	}
 	
