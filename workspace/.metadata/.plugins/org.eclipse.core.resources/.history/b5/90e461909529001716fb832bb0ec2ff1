@@ -16,14 +16,9 @@ public class MeshNode {
 		this.childrenList = new ArrayList<MeshNode>();
 	}
 	
-	public void setNum(int x){
-		this.number=x;
-	}
-	
 	public void setChild(ArrayList<MeshNode> list){
 		this.childrenList=list;
 	}
-	
 	
 	public String getName(){return this.name;}
 	public String getCode(){return this.code;}

@@ -38,7 +38,7 @@ public class BuildMeshTree {
 				if(letter!= contents[1].charAt(0)){
 					letter=contents[1].charAt(0);
 					node=new MeshNode(frstlvlMap.get(letter),letter+"",count);
-					map.get("root").getChildrenList().add(node);
+					map.get("R").getChildrenList().add(node);
 					map.put(contents[1], node);
 				}else{
 					String[] leaves=contents[1].split("\\.");// split \\. not . 
