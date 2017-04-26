@@ -43,6 +43,7 @@ public class BuildMeshTree {
 					
 					node=new MeshNode(frstlvlMap.get(letter+""),letter+"",count);
 					map.get("root").getChildrenList().add(node);
+					System.out.println(letter+" letter is "+frstlvlMap.get(letter+""));
 					map.put(letter+"", node);
 					count++;
 				}
@@ -68,7 +69,9 @@ public class BuildMeshTree {
 			// TODO Auto-generated catch block
 			System.out.println("Error in reading file!");
 		}
-	
+		
+		
+		
 		return root;
 	}
 	
@@ -128,14 +131,13 @@ public class BuildMeshTree {
 	
 	
 	
-	public void traverse(MeshNode root,String fileName){
+	public void traverse(MeshNode root){
 //		System.out.print("name: "+root.getName()+"	----	");
 //		System.out.println("code: "+root.getCode());
 		
 		try {
-			Random random=new Random();
-			BufferedWriter bWriter=new BufferedWriter(new FileWriter(Config.localPath+fileName+".txt",true));
-			bWriter.write(root.getName()+"	"+root.getCode()+"	"+root.getNum());
+			BufferedWriter bWriter=new BufferedWriter(new FileWriter(Config.localPath+"out.txt",true));
+			bWriter.write("name "+root.getName()+" number "+root.getNum());
 			bWriter.newLine();
 			bWriter.flush();
 			bWriter.close();
@@ -143,16 +145,17 @@ public class BuildMeshTree {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 //		System.out.println("name "+root.getName()+" number "+root.getNum());
 		
 		ArrayList<MeshNode> list =root.getChildrenList();
-		for(MeshNode node:list) traverse(node,fileName);
+		for(MeshNode node:list) traverse(node);
 	}
 	
 	public static void main(String[] args){
 		BuildMeshTree bmTree=new BuildMeshTree();
 		MeshNode root=bmTree.build();
-		bmTree.traverse(root,"MeshTree");
+//		bmTree.traverse(root);
 //		bmTree.printMap();
 		
 	}
