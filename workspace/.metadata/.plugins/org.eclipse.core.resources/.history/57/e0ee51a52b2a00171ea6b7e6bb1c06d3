@@ -36,7 +36,7 @@ public class BuildMeshTree {
 				String[] contents=line.split(";");
 				MeshNode node=null;
 				if(letter!= contents[1].charAt(0)){
-					//build the first level taxon ie,A-Z 16 taxa
+					//build the first level taxon. ie,A-Z 16 taxa
 					letter=contents[1].charAt(0);
 					node=new MeshNode(frstlvlMap.get(letter),letter+"",count);
 					map.get("root").getChildrenList().add(node);
@@ -44,24 +44,31 @@ public class BuildMeshTree {
 					map.put(letter+"", node);
 					count++;
 					
-					
-					node=new MeshNode(contents[0],contents[1],count);
-					map.get(letter+"").getChildrenList().add(node);
-					map.put(contents[1], node);
-					count++;
+//					node=new MeshNode(contents[0],contents[1],count);
+//					map.get(letter+"").getChildrenList().add(node);
+//					map.put(contents[1], node);
+//					count++;
 					
 				}else{
-					String[] leaves=contents[1].split("\\.");// split \\. not . 
-					//get last code of keyword such as 111 of A01.111; 01 of A01
-					String leafCode= leaves.length>1 ? leaves[leaves.length-1]: leaves[0].substring(1);
-					String fatherCode=leaves.length>1 ? contents[1].substring(0, contents[1].length()-leafCode.length()-1):contents[1].substring(0, contents[1].length()-leafCode.length());
-					System.out.println(fatherCode);
-					node=new MeshNode(contents[0],contents[1],count);
-					map.get(fatherCode).getChildrenList().add(node);
-					map.put(contents[1], node);
-					count++;
+//					String[] leaves=contents[1].split("\\.");// split \\. not . 
+//					//get last code of keyword such as 111 of A01.111; 01 of A01
+//					String leafCode= leaves.length>1 ? leaves[leaves.length-1]: leaves[0].substring(1);
+//					String fatherCode=leaves.length>1 ? contents[1].substring(0, contents[1].length()-leafCode.length()-1):contents[1].substring(0, contents[1].length()-leafCode.length());
+//					System.out.println(fatherCode);
+//					node=new MeshNode(contents[0],contents[1],count);
+//					map.get(fatherCode).getChildrenList().add(node);
+//					map.put(contents[1], node);
+//					count++;
 				}
-				
+				String[] leaves=contents[1].split("\\.");// split \\. not . 
+				//get last code of keyword such as 111 of A01.111; 01 of A01
+				String leafCode= leaves.length>1 ? leaves[leaves.length-1]: leaves[0].substring(1);
+				String fatherCode=leaves.length>1 ? contents[1].substring(0, contents[1].length()-leafCode.length()-1):contents[1].substring(0, contents[1].length()-leafCode.length());
+				System.out.println(fatherCode);
+				node=new MeshNode(contents[0],contents[1],count);
+				map.get(fatherCode).getChildrenList().add(node);
+				map.put(contents[1], node);
+				count++;
 			}
 			
 			System.out.println("count number "+count);

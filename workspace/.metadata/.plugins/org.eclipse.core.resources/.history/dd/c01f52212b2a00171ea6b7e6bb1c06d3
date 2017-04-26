@@ -36,19 +36,15 @@ public class BuildMeshTree {
 				String[] contents=line.split(";");
 				MeshNode node=null;
 				if(letter!= contents[1].charAt(0)){
-					//build the first level taxon ie,A-Z 16 taxa
 					letter=contents[1].charAt(0);
 					node=new MeshNode(frstlvlMap.get(letter),letter+"",count);
 					map.get("root").getChildrenList().add(node);
 					System.out.println(letter+" letter is ");
 					map.put(letter+"", node);
-					count++;
-					
 					
 					node=new MeshNode(contents[0],contents[1],count);
 					map.get(letter+"").getChildrenList().add(node);
 					map.put(contents[1], node);
-					count++;
 					
 				}else{
 					String[] leaves=contents[1].split("\\.");// split \\. not . 
@@ -59,12 +55,11 @@ public class BuildMeshTree {
 					node=new MeshNode(contents[0],contents[1],count);
 					map.get(fatherCode).getChildrenList().add(node);
 					map.put(contents[1], node);
-					count++;
 				}
+				count++;
+				
 				
 			}
-			
-			System.out.println("count number "+count);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println("File not found!");
