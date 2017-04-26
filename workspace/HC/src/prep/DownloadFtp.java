@@ -5,6 +5,11 @@ import org.apache.commons.net.ftp.*;
 import org.omg.PortableInterceptor.SUCCESSFUL;
 
 import config.Config;
+/**
+ * 
+ * @author chenyankai
+ * @date Apr 26, 2017
+ */
 
 public class DownloadFtp {
 	private String ftpHost=null;

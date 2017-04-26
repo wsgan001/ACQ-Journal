@@ -4,6 +4,12 @@ import java.io.IOException;
 
 import config.*;
 
+/**
+ * 
+ * @author chenyankai
+ * @date Apr 26, 2017
+ */
+
 public class Extract {
 	public static int pubMedSize=10;
 	

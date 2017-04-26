@@ -1,0 +1,16 @@
+import csv
+import Config
+import pandas as pd
+
+
+def readFile(fileName):
+    print(Config.localPath)
+    csvReader = pd.read_csv(Config.localPath+fileName);
+    dict={};
+    for index,row in csvReader.iterrows():
+        print(csvReader.ix[index]+csvReader.ix[row]);
+
+
+
+        
+readFile("listening_history.csv");

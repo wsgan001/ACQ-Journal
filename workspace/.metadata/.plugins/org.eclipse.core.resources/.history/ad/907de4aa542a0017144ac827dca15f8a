@@ -1,0 +1,15 @@
+import csv
+import Config
+import pandas as pd
+from blaze.expr.collections import head
+
+
+def readFile(fileName):
+    print(Config.localPath)
+    csvReader = pd.read_csv(Config.localPath+fileName,head=1);
+    dict={};
+    for index,row in csvReader.head(100).iterrows():
+        print(csvReader.ix[index]);
+
+        
+readFile("listening_history.csv");

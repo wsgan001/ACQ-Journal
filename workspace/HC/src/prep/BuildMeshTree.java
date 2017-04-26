@@ -1,22 +1,19 @@
 package prep;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
-
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 import config.Config;
+/**
+ * 
+ * @author chenyankai
+ * @date Apr 26, 2017
+ */
 
 public class BuildMeshTree {
-	private Map<String, MeshNode> map=null;
+	private Map<String, MeshNode> map=null;// key:Node.code  value:meshNode
 	private MeshNode root=null;
 	private String treeFile=null;
-	private Map<String, String> frstlvlMap=null;
+	private Map<String, String> frstlvlMap=null;//store the first level taxa: A-Z
 	
 	public BuildMeshTree(){
 		this.map=new HashMap<String,MeshNode>();
@@ -24,10 +21,14 @@ public class BuildMeshTree {
 		
 	}
 	
+	public Map<String, MeshNode> getMap(){return this.map;}
+
+	
 	public MeshNode build(){
 		preBuildMap();
 		this.root=new MeshNode("root","R",0);
-		map.put("root", root);
+		root.setCode("0");
+		map.put("R", root);
 //		build1stLvl();
 		try {
 			BufferedReader bReader = new BufferedReader(new FileReader(treeFile));
@@ -42,7 +43,7 @@ public class BuildMeshTree {
 					letter=contents[1].charAt(0);
 					
 					node=new MeshNode(frstlvlMap.get(letter+""),letter+"",count);
-					map.get("root").getChildrenList().add(node);
+					map.get("R").getChildrenList().add(node);
 					map.put(letter+"", node);
 					count++;
 				}
@@ -68,34 +69,11 @@ public class BuildMeshTree {
 			// TODO Auto-generated catch block
 			System.out.println("Error in reading file!");
 		}
-	
 		return root;
 	}
 	
 	//build the first level taxa of the meshTree
-	public ArrayList<MeshNode> build1stLvl(){
-		ArrayList<MeshNode> list=new ArrayList<MeshNode>();
-//		list.add(new MeshNode("Anatomy","A",1));
-//		list.add(new MeshNode("Organisms","B",2));
-//		list.add(new MeshNode("Diseases","C",3));
-//		list.add(new MeshNode("Chemicals and Drugs","D",4));
-//		list.add(new MeshNode("Analytical, Diagnostic and Therapeutic Techniques, and Equipment","E",5));
-//		list.add(new MeshNode("Psychiatry and Psychology","F",6));
-//		list.add(new MeshNode("Phenomena and Processes","G",7));
-//		list.add(new MeshNode("Disciplines and Occupations","H",7));
-//		list.add(new MeshNode("Anthropology, Education, Sociology, and Social Phenomena","I",8));
-//		list.add(new MeshNode(,9));
-//		list.add(new MeshNode("Humanities","K",10));
-//		list.add(new MeshNode("Information Science","L",11));
-//		list.add(new MeshNode(,12));
-//		list.add(new MeshNode(,13));
-//		list.add(new MeshNode("Publication Characteristics","V",14));
-//		list.add(new MeshNode(,15));
-		root.setChild(list);
-		map.put("root", root);
-		for(MeshNode node:list) map.put(node.getCode(), node);
-		return list;
-	}
+	
 	
 	private void preBuildMap(){
 		this.frstlvlMap=new HashMap<String,String>();
@@ -131,11 +109,9 @@ public class BuildMeshTree {
 	public void traverse(MeshNode root,String fileName){
 //		System.out.print("name: "+root.getName()+"	----	");
 //		System.out.println("code: "+root.getCode());
-		
 		try {
-			Random random=new Random();
-			BufferedWriter bWriter=new BufferedWriter(new FileWriter(Config.localPath+fileName+".txt",true));
-			bWriter.write(root.getName()+"	"+root.getCode()+"	"+root.getNum());
+			BufferedWriter bWriter=new BufferedWriter(new FileWriter(Config.localPath+fileName+".txt",true));//continue to write
+			bWriter.write(root.getName()+"	"+root.getoldCode()+"	"+root.getNewCode());
 			bWriter.newLine();
 			bWriter.flush();
 			bWriter.close();
@@ -149,9 +125,26 @@ public class BuildMeshTree {
 		for(MeshNode node:list) traverse(node,fileName);
 	}
 	
+	
+	public void reCode(MeshNode root){
+		String code=root.getNewCode()+"";
+		int count=1;
+		for(MeshNode node:root.getChildrenList()){
+//			node.setNum(count);
+			node.setCode(code+"."+count);
+			count++;
+		}
+		for(MeshNode node:root.getChildrenList()){ reCode(node);}
+	}
+	
+	
+	
+	
+	
 	public static void main(String[] args){
 		BuildMeshTree bmTree=new BuildMeshTree();
 		MeshNode root=bmTree.build();
+		bmTree.reCode(root);
 		bmTree.traverse(root,"MeshTree");
 //		bmTree.printMap();
 		

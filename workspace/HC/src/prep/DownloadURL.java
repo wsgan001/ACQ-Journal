@@ -4,7 +4,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import config.Config;
-
+/**
+ * 
+ * 
+ * @author chenyankai
+ * @date Apr 26, 2017
+ */
 public class DownloadURL {
 	String URL=null;
 	String localPath=null;

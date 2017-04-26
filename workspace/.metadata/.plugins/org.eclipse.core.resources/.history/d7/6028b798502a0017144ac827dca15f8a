@@ -1,0 +1,11 @@
+import csv
+import Config
+
+
+def readFile(fileName):
+    
+    csvFile = file(Config.localpath+fileName);
+    print(Config.localpath)
+#     reader = csv.reader(csvFile);
+        
+readFile("listening_history.csv");

@@ -81,21 +81,17 @@ public class MeSHPrep {
 									name=node.getFirstChild().getNodeValue()+","+name;
 								}
 							}		
-							
 							if(name!=null) {
 								nameList.add(name);
 								Set<String> set=new HashSet<String>();
 								line.put(name,set);
-								System.out.print(name+"   ");
 							}
 					}
-					System.out.println();
 				}
-				//find all the meshCode
-				if(flag==true&&MeshKeyListNode!=null){
-					Set<String> set=new HashSet<String>();
-					System.out.print("Mesh: ");
-					String string="";
+				//find all the meshCode with mesh
+				if(flag==true){
+					Set<String> set=new HashSet<String>();	
+					if(MeshKeyListNode!=null){ //if one man has at least one keywords
 					NodeList meshList=MeshKeyListNode.getElementsByTagName("DescriptorName");					
 					for(int k=0;k<meshList.getLength();k++){
 						Element mesh=(Element) meshList.item(k);
@@ -104,37 +100,31 @@ public class MeSHPrep {
 						if(map.containsKey(meshValue)){
 							key = map.get(meshValue);
 						}
-						else{	System.out.println("No Mesh keyword!"+meshValue);}
 						if(key!=null) {
-//							System.out.print(key+"-");
-//							string=string+"-"+key;
-							set.add(key);
+							set.add("R"+key);
 						}
-//						else System.out.print("null对应的mesh"+mesh.getFirstChild().getNodeValue());
-//						keyList.add(mesh.getFirstChild().getNodeValue());
-						
 					}
-//					string=string.substring(1);
+					}else{//one man has no keywords
+						set.add("R");
+					}
 					for(String x:nameList){
 						if(line.containsKey(x)){
-							
 							line.get(x).addAll(set);
 						}else{
 							line.put(x,set);
 						}
-					}
-					System.out.println();
-					System.out.println("mesh String  "+set.toString());
-					System.out.println();
+					}	
 				}
-
-				
 			}
 			
 			for(String x:line.keySet()){
 				String write=line.get(x).toString();
-				bfWriter.write(x+"\t"+write.substring(1, write.length()-1));
-				bfWriter.newLine();
+					if(write.length()>2){
+					bfWriter.write(x+"\t"+write.substring(1, write.length()-1));
+					}else{
+						bfWriter.write(x+"\t");
+					}
+					bfWriter.newLine();
 			}
 			bfWriter.flush();
 			bfWriter.close();

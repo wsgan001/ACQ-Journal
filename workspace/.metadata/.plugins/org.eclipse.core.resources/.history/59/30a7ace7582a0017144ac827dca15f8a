@@ -1,0 +1,24 @@
+import csv
+import Config
+import pandas as pd
+
+
+def readFile(fileName):
+    csvReader = pd.read_csv(Config.localPath+fileName);
+    dict={};
+    for index,row in csvReader.iterrows():
+       id=row['sub'];
+       songId=row['song'];
+       if(dict.__contains__(id)):
+           dict1=dict.get(id);
+           if(dict1.__contains__(songId)):
+               dict1.update(songId:dict1.get(SongId)+1);
+            else:
+                dict.get(id).update(songId:1)
+        else:
+         dict.update(id:{});   
+                       
+        
+
+        
+readFile("listening_history.csv");
