@@ -17,23 +17,29 @@ import config.Config;
 
 public class MeSHPrep {
 	String xmlFile=null;
-	String outFile=null;
 	Map<String, String> map=null;//store the MeshTree code key:name value:code
 	
-	public MeSHPrep(String xmlfile,String outFile){
+	public MeSHPrep(String xmlfile){
 		this.xmlFile=Config.localPath+xmlfile;
-		this.outFile=Config.localPath+outFile;
 		this.map=new HashMap<String,String>();
 		
 	}
 	
-	private void readMeshTree(){
+	private void readMeshTree(String fileName){
 		try {
-			BufferedReader bfReader=new BufferedReader(new FileReader(Config.localPath+"mtrees2017.txt"));
-			String line=null;
-			while((line=bfReader.readLine())!=null){
-				String[] s=line.split(";");
-				map.put(s[0], s[1]);
+			BufferedReader bfReader=new BufferedReader(new FileReader(Config.localPath+fileName));
+			if(fileName=="mtrees2017.txt"){
+				String line=null;
+				while((line=bfReader.readLine())!=null){
+					String[] s=line.split(";");
+					map.put(s[0], s[1]);
+				}
+			}else{
+				String line=null;
+				while((line=bfReader.readLine())!=null){
+					String[] s=line.split("\t");
+					map.put(s[0], s[2]);
+				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -44,7 +50,7 @@ public class MeSHPrep {
 	}
 	
 	//extract one tag
-	public void domMeSH(){
+	public void domMeSH(String outFile){
 		try {
 			DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder=factory.newDocumentBuilder();
@@ -66,7 +72,6 @@ public class MeSHPrep {
 				if(authorListNode!=null){
 					flag=true;
 					NodeList autherList= authorListNode.getElementsByTagName("Author");
-					System.out.print("name: ");
 					nameList=new ArrayList<String>();
 					for(int j=0;j<autherList.getLength();j++){
 						Element author=(Element) autherList.item(j);
@@ -101,11 +106,11 @@ public class MeSHPrep {
 							key = map.get(meshValue);
 						}
 						if(key!=null) {
-							set.add("R"+key);
+							set.add(key);
 						}
 					}
 					}else{//one man has no keywords
-						set.add("R");
+						set.add("0");
 					}
 					for(String x:nameList){
 						if(line.containsKey(x)){
@@ -136,12 +141,12 @@ public class MeSHPrep {
 		
 	}
 	
+
+	
 	
 	public static void main(String[] a){
 		
-	
-		MeSHPrep meSHPrep=new MeSHPrep("medsample1.xml","test.txt");
-		meSHPrep.readMeshTree();
-		meSHPrep.domMeSH();
+		MeSHPrep meSHPrep=new MeSHPrep("medsample1.xml");
+		meSHPrep.domMeSH("test.txt");
 	}
 }

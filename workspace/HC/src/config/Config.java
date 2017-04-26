@@ -11,7 +11,7 @@ public class Config {
 	
 	public static String pubMedUsr="anonymous";
 	
-	public static String pubMedPswrd="ykai1238@hku.hk";
+	public static String pubMedPswrd="yka1238@hku.hk";
 	
 	public static int pubMedPort=21;
 	
