@@ -85,7 +85,7 @@ public class Extract {
 	}
 	
 	public void testRandomAccess(String file,int targetLine){
-		int currentLine=0;
+		int currentLine=-1;
 		String line=null;
 		try {
 			RandomAccessFile rAccessFile=new RandomAccessFile(file, "rw");
@@ -95,16 +95,14 @@ public class Extract {
 			}
 			currentLine++;
 			}
-			rAccessFile.writeBytes("testetetetettetete   ");
+			rAccessFile.write("new input".getBytes());
 			rAccessFile.close();
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			System.out.println("file not found!");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Io exception!");
 			e.printStackTrace();
 		}
 		
@@ -114,8 +112,8 @@ public class Extract {
 	
 	public static void main(String[] a){
 		Extract extract=new Extract(2);
-//		extract.process();
-		extract.testRandomAccess(Config.localPath+"test.txt",1 );
+		extract.process();
+		extract.testRandomAccess(Config.localPath+"test.txt",2 );
 		
 	}
 //		

@@ -95,7 +95,7 @@ public class Extract {
 			}
 			currentLine++;
 			}
-			rAccessFile.writeBytes("testetetetettetete   ");
+			rAccessFile.writeBytes("new input");
 			rAccessFile.close();
 			
 		} catch (FileNotFoundException e) {

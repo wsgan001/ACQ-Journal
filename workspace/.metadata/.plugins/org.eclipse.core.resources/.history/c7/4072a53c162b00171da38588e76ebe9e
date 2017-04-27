@@ -80,42 +80,15 @@ public class Extract {
 			
 			msg=downFtp.getFtpState()+"\t"+"download status: "+flag1+"\t"+"unzip state: "+flag2+"\t"+"doMesh state: "+flag4+"\t"
 					+"delete gz file and unzip file states: "+flag3+"\t"+flag4;
-			log.log(msg);		
-		}
-	}
-	
-	public void testRandomAccess(String file,int targetLine){
-		int currentLine=0;
-		String line=null;
-		try {
-			RandomAccessFile rAccessFile=new RandomAccessFile(file, "rw");
-			while((line=rAccessFile.readLine())!=null){
-			if(currentLine==targetLine){
-				break;
-			}
-			currentLine++;
-			}
-			rAccessFile.writeBytes("testetetetettetete   ");
-			rAccessFile.close();
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println("file not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Io exception!");
-			e.printStackTrace();
+			log.log(msg);
+//				
 		}
 		
-		
 	}
-	
 	
 	public static void main(String[] a){
 		Extract extract=new Extract(2);
-//		extract.process();
-		extract.testRandomAccess(Config.localPath+"test.txt",1 );
+		extract.process();
 		
 	}
 //		
