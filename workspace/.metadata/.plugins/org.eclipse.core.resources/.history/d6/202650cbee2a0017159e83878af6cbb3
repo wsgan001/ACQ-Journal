@@ -1,0 +1,12 @@
+package config;
+
+/**
+ * 
+ * @author chenyankai
+ * @date Apr 27, 2017
+ */
+
+public class Log {
+	private String logFile=Config.home;
+}
+

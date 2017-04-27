@@ -15,5 +15,6 @@ public class Config {
 	
 	public static int pubMedPort=21;
 	
+	public static String logFileName=home+System.currentTimeMillis();
 	
 }

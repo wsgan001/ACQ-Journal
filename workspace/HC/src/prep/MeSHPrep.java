@@ -19,9 +19,10 @@ public class MeSHPrep {
 	String xmlFile=null;
 	Map<String, String> map=null;//store the MeshTree code key:name value:code
 	
-	public MeSHPrep(String xmlfile){
+	public MeSHPrep(String xmlfile,String treeFile){
 		this.xmlFile=Config.localPath+xmlfile;
 		this.map=new HashMap<String,String>();
+		readMeshTree(treeFile);
 		
 	}
 	
@@ -50,13 +51,14 @@ public class MeSHPrep {
 	}
 	
 	//extract one tag
-	public void domMeSH(String outFile){
+	public boolean domMeSH(String outFile){
+		boolean state=true;
 		try {
 			DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder=factory.newDocumentBuilder();
 			Document doc=builder.parse(new File(xmlFile));
 			Element element=doc.getDocumentElement();
-			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(outFile));
+			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(Config.localPath+outFile));
 			Map<String, Set<String>> line=new HashMap<String, Set<String>>();
 
 			NodeList nodes=element.getElementsByTagName("PubmedArticle");
@@ -136,9 +138,10 @@ public class MeSHPrep {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("error!!!");
+			state=false;
+//			System.out.println("error!!!");
 		}
-		
+		return state;
 	}
 	
 
@@ -146,7 +149,7 @@ public class MeSHPrep {
 	
 	public static void main(String[] a){
 		
-		MeSHPrep meSHPrep=new MeSHPrep("medsample1.xml");
+		MeSHPrep meSHPrep=new MeSHPrep("medsample1.xml","MeshTree.txt");
 		meSHPrep.domMeSH("test.txt");
 	}
 }

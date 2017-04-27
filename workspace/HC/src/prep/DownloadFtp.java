@@ -18,6 +18,7 @@ public class DownloadFtp {
 	private int port=-1;
 	private String ftpPath=null;
 	private String localpath=null;
+	private String ftpState=null;
 	
 	public DownloadFtp(String host, String usrname, String password, int port, String ftpPath, String localPath){
 		this.ftpHost=host;
@@ -28,29 +29,33 @@ public class DownloadFtp {
 		this.localpath=localPath;
 	}
 	
+	public String getFtpState(){return this.ftpState;}
 	
-	public FTPClient getFTPClient(){
+	private FTPClient getFTPClient(){
 		FTPClient ftpClient=null;
 		try {
 			ftpClient=new FTPClient();
-			System.out.println(1);
+//			System.out.println(1);
 			ftpClient.connect(ftpHost,21);//connect to ftp
-			System.out.println(2);
+//			System.out.println(2);
 			ftpClient.login(userName, password);
-			System.out.println(3);
+//			System.out.println(3);
 			
 			int replyCode = ftpClient.getReplyCode();
 		    if(!FTPReply.isPositiveCompletion(replyCode)){
-		    	 System.out.println("failed ");
+//		    	 System.out.println("failed ");
+		    	ftpState="ftpreply failed.";
 		      }
 		    else{ 
-		    	  System.out.println(ftpClient.getReplyString());
-		    	  System.out.println("succeed in login");	
+//		    	  System.out.println(ftpClient.getReplyString());
+//		    	  System.out.println("succeed in login");	
+		    	  ftpState="succeed in login____________"+ftpClient.getReplyString();
 		    	  }
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("error in login");
+//			System.out.println("error in login");
+			ftpState="error in login.";
 		}
 		return ftpClient;
 	}
@@ -61,8 +66,9 @@ public class DownloadFtp {
 		return "medline17n"+id+".xml.gz";
 	}
 	
-	public void downloadFile(String fileName){
+	public boolean downloadFile(String fileName){
 		FTPClient ftpClient=null;
+		ftpState=fileName+"	state:	"+ftpState;
 		try {
 			ftpClient=getFTPClient();
 			ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
@@ -73,12 +79,14 @@ public class DownloadFtp {
 	        ftpClient.retrieveFile(fileName, os);  
 	        os.close();
 	        ftpClient.logout();
-			
+			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("error");
+//			System.out.println("error");
+			return false;
 		}		
 	}
+	
 	
 	
 	

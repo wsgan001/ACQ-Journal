@@ -1,0 +1,1569 @@
+G,Vasseur	0
+M,Margoni	0
+JH,Panetta	0
+RD,Nishimura	
+LL,Chen	
+MD,Sokoloff	0
+J,Brau	0
+E,Charles	0
+JP,Ornato	
+T,Ubuka	
+JR,Hwu	
+WS,Lockman	0
+RC,Field	0
+C,Despres	
+T,Wright	
+M,Dickopp	0
+P,Rankin	0
+E,Carceller	
+P,Hyytiä	
+I,Adam	0
+M,Posocco	0
+NJ,Gunawardane	0
+K,Arisaka	0
+MJ,Proctor	
+P,Bork	
+VG,Tevzadze	
+Y,Pan	0
+S,Ricciardi	0
+T,Izumi	
+M,Carroll	0
+F,Taylor	0
+J,Nielsen	0
+D,Kirkby	0
+AP,Abola	
+D,Grafham	
+SL,Naylor	
+M,Ozsarac	
+G,Vuagnin	0
+PJ,Wisoff	0
+E,Lamanna	0
+AN,Yushkov	0
+Z,KOREN	
+G,Eigen	0
+G,De Nardo	0
+WH,Toki	0
+J,Wallis	
+L,Piemontese	0
+SP,Kunapuli	
+TA,Gabriel	0
+M,Iwasaki	0
+M,Francolini	
+EW,Varnes	0
+YI,Wolf	
+GW,Brice	
+AA,Grillo	0
+JF,Cheng	
+JW,Deckers	
+M,Wagenaar	
+S,Otto	0
+LA,Fulton	
+SC,Reston	
+S,Menke	0
+SG,Shim	
+P,Predki	
+AH,Child	
+RM,Bionta	0
+JS,Hahm	
+HM,Belmont	
+MR,Vickers	
+F,Granata	
+J,Cochran	0
+R,Heilig	
+KH,Wolfe	
+SC,Mok	
+SL,Chissoe	
+WJ,Kent	
+J,Schwiening	0
+ER,Korpi	
+F,Martinez-Vidal	0
+RK,Yamamoto	0
+D,Boutigny	0
+WJ,Killoy	
+JD,RIVES	
+N,Carter	
+JY,Nief	0
+M,Dickson	
+T,Adye	0
+E,Stupka	
+A,Jendryczko	
+S,Takahashi	
+KC,Light	
+A,Donzelli	
+H,Pan	
+ML,Metzker	
+XC,Lou	0
+GA,Evans	
+GS,Griffiths	
+K,Paick	0
+F,Fabozzi	0
+K,Dickstein	
+V,Tisserand	0
+RJ,Budhu	
+RR,Lobb	
+MG,Pia	0
+KH,Pepin	
+P,Richardson	
+AL,Leonard	
+M,Macri	0
+P,Datta	
+D,Strom	0
+BH,Hahn	
+JV,Moran	
+SH,Jung	
+N,Young	
+M,Leslie	
+ET,Crosby	
+L,Jahodár	
+Y,Sakaki	
+S,de Weert	
+M,Cranston	
+SH,Chiu	
+V,Miller	0
+SP,Yang	
+WJ,Kimberling	
+R,Henderson	0
+S,Manzi	
+M,Cristina Regondi	
+D,Smith	0
+T,Kopajtic	
+R,Nishimura	
+PR,Burchat	0
+DG,Hitlin	0
+IM,Peruzzi	0
+T,Barrett	
+S,Sasayama	
+N,Takeda	
+J,Gu	
+T,Doerks	
+S,Gregory	
+DN,Brown	0
+MG,Green	0
+M,Francesco	
+PY,Chhatbar	0
+ES,Schaeffner	0
+I,Eschrich	0
+D,Bernard	0
+JA,Bailey	
+OJ,Kim	
+SS,Girdler	
+R,Musenich	0
+M,Weaver	0
+B,Di Girolamo	0
+NP,Carter	
+M,Sekiguchi	
+CR,Woese	
+V,RULLI	
+U,Mallik	0
+P,Taras	0
+B,Riegel	
+PD,Dauncey	0
+YS,Zhu	0
+N,Dyce	0
+T,Haferlach	
+ED,Frank	0
+M,Rajbhandari	
+R,Kaul	
+R,Kroeger	0
+SR,Eddy	
+R,Schultz	
+MG,Wilson	0
+F,Muheim	0
+F,Somuncu	
+B,Aubert	0
+C,Chinkin	
+DA,Sanders	0
+RA,Gibbs	
+B,Spaan	0
+M,Zito	0
+J,Tang	0
+P,Comeglio	
+ES,Lander	
+AR,Gross	
+LS,Johnson	
+S,Dittongo	0
+M,Fahnestock	
+A,Olsen	
+A,Hauke	0
+A,De Luca	
+WT,Meyer	0
+M,Metra	
+MH,Schoenberg	
+MK,Nyholm	0
+I,Kitayama	0
+A,Soffer	0
+PB,Vidal	0
+MI,Williams	0
+Y,Shapir	
+F,Artiguenave	
+S,Koefoed	
+MK,Young	0
+JM,Gaillard	0
+CM,Hawkes	0
+MN,Swartz	
+FF,Wilson	0
+T,Peña Miguel	
+L,Hederstedt	
+J,Martínez-Laso	
+PA,Schaffer	0
+EM,Antman	
+C,Frassoni	
+DB,Tyan	
+J,Button-Shafer	0
+K,Justus	
+A,Gulino	
+A,Pompili	0
+PJ,Oddone	0
+GW,London	0
+MA,Giorgi	0
+GM,Weinstock	
+JL,Katz	
+Y,Hayashizaki	
+E,Gabathuler	0
+K,Harris	
+JT,Seeman	0
+A,Soha	0
+F,Moore	0
+W,Jang	
+EM,McGowan	
+DM,Muzny	
+M,Ross	
+M,Witherell	0
+W,Kozanecki	0
+R,Mishra	
+F,Huang	
+GD,Hartman	
+DE,Wagoner	0
+K,Tsutsui	
+WC,van Hoek	0
+J,Peterson	
+W,WIRTH	
+K,Utsunomiya	
+CH,Goldsmith	
+PJ,Donaldson	
+A,Kaspryzk	
+W,Saurin	
+N,Suciu-Foca	0
+RM,Satava	
+TA,Libby	
+M,Morandin	0
+NI,Geddes	0
+DJ,Lange	0
+A,Farbin	0
+JP,Tillement	
+SE,Scherer	
+MY,Kim	
+L,GABBRIELLI	
+P,Johnson	
+D,Wallom	0
+F,Galeazzi	0
+DL,Nelson	
+G,Crosetti	0
+S,Jolly	0
+G,Weiss	
+JP,Long	
+NA,Roe	0
+CW,Cremers	
+G,Rossetti	
+JF,Kral	0
+PF,Harrison	0
+A,Morato Arnáiz	
+C,Silvera	
+DP,Stoker	0
+YS,Chao	
+S,Prell	0
+M,Haire	0
+W,Halczenko	
+M,Tölle	0
+SF,Chen	
+JB,Kramer	
+MS,Guyer	
+S,Bagnasco	0
+M,George	0
+EJ,Sodergren	
+G,Triggiani	0
+A,Moriarty	
+A,Valassi	0
+G,Michelon	0
+VB,Golubev	0
+AR,Clark	0
+A,Caputo	
+C,Robb-Nicholson	
+L,Matthews	
+B,Stugu	0
+C,Sougnez	
+M,van der Giet	0
+HW,Shorthouse	0
+CB,Dane	0
+K,van Bibber	0
+K,Kawasaki	
+AA,Korol	0
+JT,Boyd	0
+MA,Dooley	
+DR,Muller	0
+TI,Meyer	0
+AB,Breon	0
+AP,Onuchin	0
+M,Matsuzaki	
+E,Pelletier	
+H,Nicholson	0
+N,Cavallo	0
+C,Miranda	
+H,Schmuecker	0
+M,Rosetti	
+TS,Mattison	0
+MK,Sullivan	0
+PD,Berry	
+JM,Prieto	
+L,Bosisio	0
+SA,Podzorova	
+R,Mount	0
+D,Zanin	0
+J,Dubois	
+P,Bloom	0
+LH,STRUG	
+N,Elaiwa	
+PL,Reinertsen	0
+A,Zimran	
+IuIu,Vilin	
+AP,De Boer	
+RW,Davis	
+V,Marigliano	0
+S,T'Jampens	0
+RW,Kadel	0
+DR,Johnson	0
+D,Falciai	0
+M,Schuchardt	0
+T,Himel	0
+AL,Bronckers	
+Ch,Yèche	0
+YL,Son	
+H,Park	0
+K,Ingman	
+GP,Dubois-Felsmann	0
+AC,Roberts	
+R,Hargreaves	
+EE,Eichler	
+M,Platzer	
+C,Dallapiccola	0
+J,Tinslay	0
+T,Shimosegawa	
+A,Perazzo	0
+MA,Fox	
+J,Lory	0
+M,Sala	
+WJ,McCune	
+W,Cui	
+JR,Johnson	0
+G,Cavoto	0
+S,Schnittger	
+J,Morais	
+M,Pripstein	0
+RS,Kucherlapati	
+C,Patrignani	0
+C,Lu	0
+R,PARLIER	
+M,Kay	0
+DB,MacFarlane	0
+SM,Spanier	0
+LQ,Sun	
+AH,MacLennan	
+CI,Reich	
+A,Lusiani	0
+M,Iwabuchi	
+B,Lüderitz	
+M,Hess	
+A,Buzzo	0
+CP,O'Grady	0
+D,Ford	
+DM,Beare	
+R,Wheeler	
+S,Metzler	0
+R,CRUISE	
+AM,Eisner	0
+MO,Huttunen	
+DR,Cox	
+G,Calderini	0
+S,Humphray	
+J,Basu	
+F,Manning	
+YT,Lau	
+J,Yu	
+A,LICHTWITZ	
+D,Morin	
+SD,Thomas	
+GS,Alarcón	
+C,Bula	0
+F,Anulli	0
+G,Fossati	
+H,Cohn	0
+C,Voci	0
+V,Luth	0
+TW,Meade	
+MJ,Morgan	
+ES,Masuda	
+JB,Barengoltz	
+N,Dedhia	
+ME,Levi	0
+V,COLAVOLPE	
+JG,Branson	0
+T,Hryn'ova	0
+DG,Brown	
+GP,Chen	0
+E,Högfeldt	0
+D,Lancet	
+LT,Kerth	0
+TS,Furey	
+A,Coulson	
+SF,Ganzhur	0
+V,Esposito	
+PM,Kelley	
+P,Elmer	0
+K,Mandl	0
+A,Frey	0
+RJ,Whitely	0
+MO,Dima	0
+K,Peters	0
+S,Raab	
+D,Aston	0
+N,Doggett	
+JL,Zamorano	
+RJ,Oko	
+F,Chen	
+A,Budaj	
+JL,Gilfillan	
+KC,Worley	
+N,Savva	
+K,Dewar	
+M,Milek	0
+SR,Wagner	0
+D,Bentley	
+N,Kuznetsova	0
+JG,Smith	0
+JH,Weatherall	0
+H,Shapiro	
+O,Long	0
+RE,Goldstein	0
+S,Robeck	
+RK,Wilson	
+JJ,Uri	
+N,Mielke	0
+HG,Kiss	
+B,Arda	
+FK,Tittel	0
+P,Kotharu	0
+RF,Yeh	
+M,Kunze	0
+S,Yang	0
+J,Kadyk	0
+A,Rump	
+R,de Sangro	0
+A,Kitabatake	
+DA,Roberts	0
+AM,van der Woude	
+JA,McKenna	0
+JL,Anderson	
+G,Zannino	0
+M,Cornebise	
+M,Krishnamurthy	0
+K,Hasegawa	
+S,Gumrukcu	
+K,Kawamura	
+H,PHILLIPS	
+M,Yokoyama	
+JD,McPherson	
+M,Eichler	0
+M,Benkebil	0
+S,Kuriyama	
+OY,Lee	
+M,Turri	0
+A,Bacarelli	
+JJ,Bower	
+S,Bhakta	
+R,Santos	
+YI,Skovpen	0
+G,Huang	
+F,Bulos	0
+D,Luffer-Atlas	
+C,LeClerc	0
+R,Lewis	0
+A,Fujiyama	
+JH,Gorrell	
+JS,Imagire	
+KE,Goldmeier	
+JP,Lees	0
+M,Morganti	0
+T,Barillari	0
+P,Kara	0
+N,Dushku	
+S,Jayatilleke	0
+N,Copty	0
+S,Laplace	0
+SJ,Giovannoni	0
+PJ,Clark	0
+E,Gómez-Casado	
+RS,Dubitzky	0
+A,Tumanov	0
+F,Dal Corso	0
+A,Romosan	0
+W,FitzHugh	
+RJ,Myerburg	
+J,Zhang	0
+JC,Andress	0
+M,Bona	0
+R,Mayor	
+C,Sciacca	0
+M,Morii	0
+N,Mulder	
+CC,Lin	
+BT,Meadows	0
+S,Minoshima	
+AM,Boyarski	0
+O,Jakob	0
+GL,Godfrey	0
+JJ,Blanc	
+AJ,Weinstein	0
+CM,Brown	0
+AJ,van Winkelhoff	
+CP,Dorn	
+D,Gage	
+PR,Klokkevold	
+SJ,Scales	
+M,Kawana	
+V,Dean	
+S,Mercer	
+AT,Chinwalla	
+M,Verderi	0
+R,Bartoldus	0
+AR,Williams	
+JL,Harton	0
+E,Paoloni	0
+MA,Marra	
+D,Thiessen	0
+A,Santroni	0
+LM,Linton	
+ND,Qi	0
+MA,Petri	
+JM,Rothstein	
+WR,McCombie	
+A,Khan	0
+JE,Swain	0
+T,Liu	0
+CH,Cheng	0
+A,Lehtonen	
+CM,Glazener	
+A,Oriente	
+LE,Fayad	
+G,Gregoratos	
+L,Bily	
+CP,Ponting	
+BA,Hesser	
+DP,Zipes	
+G,Lynch	0
+M,Weisser	
+RT,Dorsam	
+D,Brown	0
+KJ,Osinga	0
+FD,Tattersall	
+EA,Kravchenko	0
+S,Dadgostari	
+JB,Kim	
+J,Lehoczky	
+CB,Burge	
+C,Campagnari	0
+L,Lista	0
+EN,Houben	
+E,Diaz-Rubio	
+N,Sabeti	
+J,Ortiz	
+F,Ferrarotto	0
+A,Dvoretskii	0
+J,Brose	0
+G,Slater	
+A,Höcker	0
+H,Watanabe	
+CP,Jessop	0
+E,Dean	
+C,Hast	0
+L,Turnbull	0
+WJ,Wisniewski	0
+MH,Schune	0
+VN,Ivanchenko	0
+M,Santini	
+L,Aravind	
+R,Kofler	0
+S,Petrak	0
+S,Luitz	0
+M,Doser	0
+M,Weiss	
+S,Versillé	0
+MV,Purohit	0
+R,Contri	0
+S,Ferrag	0
+DL,Wagner	0
+P,Nygren	
+HD,Hinz	0
+JJ,Strik	
+KM,Grewen	
+B,Dahmes	0
+S,Morganti	0
+AW,Borgland	0
+JD,Johnson	
+A,Snyder	0
+J,Hyne	
+RH,Scheller	
+R,CESAREBASILE	
+GN,Russell	
+D,Cuttitta	
+M,Matsumoto	
+JI,de Granda Orive	
+G,Schuler	
+M,Bondioli	0
+S,Wenning	
+ML,Aspinwall	0
+M,Ackerman	
+H,Marsiske	0
+J,Trischuk	0
+C,Simon	0
+L,Behr	0
+L,Boursier	
+L,Cerutti	
+P,McGrath	0
+MA,Mazzoni	0
+SS,Pelin	
+D,Pavan-Langston	0
+DH,Wright	0
+C,Clee	
+M,Mugge	0
+SP,Adams	
+A,Rostom	
+JJ,Hale	
+F,Hagemeister	
+TL,Geld	0
+R,LeVine	
+L,Cappabianca	
+J,Kim	
+A,Gaidot	0
+R,Poreba	
+D,Kulp	
+CD,Adams	
+KM,Lau	
+NG,Fohtung	
+J,Baldwin	
+G,Troisi	0
+R,Liu	0
+DH,Coward	0
+F,Catena	0
+D,Wyman	
+J,Szustakowki	
+JL,Tamargo	
+L,Lanceri	0
+R,Faccini	0
+M,Hiroe	
+S,Kennedy	
+R,Prepost	0
+RP,Johnson	0
+D,Gamba	0
+T,Pulliam	0
+H,Koch	0
+S,Rohde	0
+L,Hood	
+DG,Gillam	
+R,Hamilton	0
+T,Dignan	0
+JA,Nash	0
+F,Moccia	
+IM,ESSRIG	
+A,McMurray	
+R,Seitz	0
+Y,Seko	
+C,Tracy	
+GJ,van Beek	
+G,Klein	
+U,Langenegger	0
+J,García-Rafanell	
+P,Papugová	
+H,Briand	0
+JJ,Catanese	
+K,Goetzen	0
+R,Morini	
+L,Tafaro	0
+JE,Davies	
+JR,Alsmiller	0
+F,Jackson	0
+K,Hornischer	
+B,Gunnars	
+BA,Roe	
+AD,Bukin	0
+JL,Ríos	
+BS,Moore	
+L,Bracciale	
+ML,Evans	
+M,Benayoun	0
+S,George	0
+M,Savage	0
+B,Fabri	
+CT,Cassetty	
+R,Nagai	
+C,Tamura	0
+E,Uberbacher	
+JG,Gilbert	
+RH,Waterston	
+NA,Federspiel	
+SG,Jacobson	
+F,Licciardi	
+C,Bulut	0
+M,Thamer	
+JP,Buyon	
+Y,Funayama	
+TM,Coleman	
+L,Sigler	
+I,Dunham	
+WC,Lee	
+HV,Westerhoff	
+S,Farinon	0
+D,del Re	0
+G,Nyakatura	
+M,Steinke	0
+RC,Penny	0
+EI,Rosenberg	0
+F,Palombo	0
+H,Lehrach	
+F,Le Diberder	0
+V,Re	0
+C,Webster	
+K,Abe	0
+Y,Xie	0
+Y,Stange-Thomann	
+C,Buchanan	0
+S,Milne	
+G,Filippone	
+SC,Tsay	
+RM,Myers	
+W,Rycroft	
+JA,Alvarez	
+A,Capucci	
+S,Taudien	
+D,Church	
+J,Stelzer	0
+XH,Liu	0
+DW,Leith	0
+M,Pallavicini	0
+PF,Manfredi	0
+J,Chauveau	0
+M,Colatigli	
+A,Jawahery	0
+S,Bettarini	0
+L,Wilden	0
+I,Sasaki	
+J,Godino	
+FM,Ross	0
+K,McGregor	
+L,FERGOLA-MIRAVET	
+WR,Gish	
+H,Staengle	0
+R,Shownkeen	
+T,Kuopio	
+RH,Hardy	
+I,Tsuji	
+S,Sen	0
+Y,Saka	0
+VE,Blinov	0
+NR,Barlow	0
+AR,Mackay	
+C,Haferlach	
+M,Rama	0
+S,Batzoglou	
+E,Leonardi	0
+M,Polásek	
+J,Burton	
+S,Kluth	0
+JD,Cox	
+T,Hawkins	
+HM,Lee	
+AB,Meyer	0
+AW,Cripps	0
+H,Tanaka	
+K,Woodfine	
+RJ,Arceci	
+W,Walkowiak	0
+IR,Zerbo	
+J,Rogers	
+TJ,Harrison	0
+JM,Izen	0
+P,Kitts	
+H,Fiegler	
+W,Verkerke	0
+M,Fromer	
+U,Egede	0
+K,Hokamp	
+Y,PFEIFER	
+G,Sciolla	0
+JH,von Wimmersperg-Toeller	0
+N,Savvas	0
+O,Kayser	
+U,Wienands	0
+G,Mooney	
+L,Annunziato	
+R,Gamet	0
+G,Vasileiadis	0
+RM,Giner	
+R,Cauda	
+K,Valji	
+C,Ayrik	
+NK,Watson	0
+RL,Tatarsky	0
+G,Wormser	0
+H,Sadrozinski	0
+R,Baldini-Ferroli	0
+AR,Buzykaev	0
+H,Inoko	
+E,Menna	
+AN,Keller	0
+G,Altarescu	
+T,Mikkelsen	
+SA,Hunt	
+D,Piccolo	0
+BN,Ratcliff	0
+HC,Chen	
+S,Sims	
+E,Theveneau	
+M,Fioravanti	0
+M,Athanasiou	
+MA,Wolman	0
+JR,Fry	0
+M,Booke	0
+S,Yellin	0
+SS,Hertzbach	0
+EC,Dunkel	0
+IH,Suh	
+T,Bruls	
+DJ,Orten	
+F,Bianchi	0
+SM,Husbands	
+A,Matsumori	
+P,Strother	0
+G,Rong	0
+N,Hawkes	
+H,Shizuya	
+K,Baird	0
+R,Chunara	0
+M,Hattori	
+D,HIOCO	
+GT,Park	
+T,Caldés	
+RJ,Potter	0
+PA,Fischer	0
+B,Franek	0
+S,Emery	0
+GR,Bonneaud	0
+TR,Su	
+A,Sheridan	
+H,Yang	
+T,Hofmann	0
+AE,Buxton	
+CH,Fürstenberg	0
+NB,Sinev	0
+K,Ikeda	0
+J,Fullwood	0
+S,Qiu	
+F,Collins	
+JD,Richman	0
+C,Lloyd	
+P,Wincker	
+G,COHEN-BAZIRE	
+R,Lousberg	
+VI,Telnov	0
+K,Fratini	0
+B,Chaitman	
+MS,Soon	
+I,Escamilla	
+LS,Rochester	0
+P,Perrone-Filardi	
+AK,Jacobs	
+B,Brau	0
+A,Lakkaraju	0
+M,Taglialatela	
+F,Di Lodovico	0
+M,Piccolo	0
+C,Voena	0
+D,Su	0
+CD,Wilson	
+A,Younes	
+D,Best	0
+S,Qin	
+R,Kowalewski	0
+M,Langer	0
+A,Arnaiz-Villena	
+SH,Robertson	0
+JR,REES	
+CP,Kindregan	
+SM,Ho	
+HB,Crawley	0
+M,Mandelkern	0
+I,Korf	
+Y,Hasegawa	
+PL,Anthony	0
+AJ,Lankford	0
+DJ,Summers	0
+K,Weinstock	
+J,Lekakis	
+AL,Evans	
+J,Dorfan	0
+T,Kuroki	
+MH,Lee	
+A,Mungall	
+G,Scita	
+H,Hu	0
+A,Whitty	
+J,Grossman	
+F,Simonetto	0
+A,Delehaunty	
+IG,Needleman	
+JR,Schieck	0
+G,Nordsiek	
+E,Bloom	0
+AC,Forti	0
+M,Serra	0
+R,Biswas	
+V,Trapani	
+AK,McKemey	0
+R,Agarwala	
+C,Przybyla	
+ME,Duggan	
+L,Del Buono	0
+S,Dasu	0
+JC,Mullikin	
+A,Ryd	0
+V,Lillard	0
+CS,Sutton	0
+T,Schöpke	
+CA,Heusch	0
+SG,Priori	
+E,Ber	
+E,Coren	
+B,Lewandowski	0
+S,Plaszczynski	0
+DE,Azzopardi	0
+DM,Roden	
+E,Branscomb	
+J,Roy	0
+G,Dahlinger	0
+G,Fadda	
+V,Jullien	
+YH,Kim	
+S,Debernardi	
+JL,Halperin	
+J,Moscoso	
+A,Heaford	
+S,Christ	0
+K,Devon	
+GS,Abrams	0
+M,Cronin	
+GL,Buldak	
+N,Ebert	0
+DJ,Payne	0
+JH,Badger	
+TA,Jones	
+G,Tedeschi	0
+H,Singh	0
+VJ,Pollara	
+AJ,Mungall	
+SW,O'Neale	0
+R,Frey	0
+T,Nehashi	
+A,Madan	
+HS,Choi	
+DM,Wright	0
+J,Forn	
+TH,Lee	
+MA,Quinones	
+KD,Delehaunty	
+N,Chevalier	0
+OS,Lin	
+J,Howland	
+D,Maher	0
+AV,Telnov	0
+TB,Moore	0
+Z,Yu	0
+R,Messner	0
+M,Colafigli	
+CC,Young	0
+A,Hicheur	0
+MR,Monge	0
+J,Reidy	0
+FX,Yumiceva	0
+A,Disanza	
+H,Zobernig	0
+E,Treadwell	0
+RN,Hauer 	
+V,Hunt	
+M,Hansson	
+T,Yada	
+RN,Cahn	0
+V,Wenning	0
+SF,Schaffner	0
+A,Rosenthal	
+P,Paolucci	0
+Y,Groysman	0
+JS,Brownstein	0
+L,Roos	0
+JJ,Bookstein	
+D,Thierry-Mieg	
+H,Blöcker	
+AF,Smit	
+M,Benito	
+JT,Merrill	
+R,Plumb	
+BA,Lawton	
+J,Stark	0
+A,McLysaght	
+A,Dorigo	0
+L,Fei	
+C,Cartaro	0
+A,Elimadi	
+A,Bateman	
+M,MacPherson	0
+M,Block	
+M,Frazier	
+M,Momayezi	0
+F,Lanni	0
+DK,Dunn-Walters	
+A,Arias	
+M,Triggiani	
+SJ,Gowdy	0
+A,Grant	
+AJ,Welton	
+W,Kroeger	0
+G,Grosdidier	0
+F,Sandrelli	0
+M,Grothe	0
+C,Hearty	0
+GP,Gopal	0
+RJ,Wilson	0
+N,De Groot	0
+R,Bostedor	
+H,Takahashi	
+GJ,Olsen	
+P,Sanders	0
+A,Palano	0
+AW,Alberts	
+PA,Hart	0
+TW,Reid	
+Y,Sugishita	
+S,Raychaudhuri	
+G,De Domenico	0
+RJ,Sloane	0
+D,Thurman	
+D,Davey	
+F,Brochard	0
+JJ,Back	0
+J,Krug	0
+G,del Genio	
+G,Piredda	0
+WR,Innes	0
+KW,Schwarz	0
+L,Sammaritano	
+RB,Aul	
+S,McMahon	0
+DA,Bukin	0
+M,Gentile	
+G,Batignani	0
+T,Taylor	
+RH,Schindler	0
+GD,Lafferty	0
+S,Murugappan	
+PF,Giraud	0
+P,Brottier	
+L,Li	
+I,Scott	0
+RJ,Whitley	0
+P,Wang	0
+RB,Wilder	
+G,Raven	0
+A,Lu	0
+J,Barlow	
+P,McEwan	
+AT,Watson	0
+CE,Marker	0
+SJ,Sekula	0
+MV,Olson	
+AM,Lutz	0
+P,Schäfer	
+TE,Sharp	0
+P,David	0
+RC,Edgar	
+HN,Newman	
+A,Soricelli	
+E,Pierazzo	
+M,Lockshin	
+JY,Lu	
+D,Haussler	
+MS,Zisman	0
+JJ,TeSlaa	0
+T,Schietinger	0
+MC,Zody	
+P,Kim	0
+P,Varela	
+FC,Pastore	0
+D,O'Connor	
+KA,Toops	0
+MC,Wendl	
+S,Perry	
+J,Wachs	
+BG,Moon	
+D,Wilbur	
+V,Zacek	0
+BA,Schumm	0
+A,Hunt	
+MT,Ronan	0
+L,French	
+V,Sharma	0
+N,Ohi	
+D,Solomon	
+E,Aliot	
+H,Vainionpää	
+BJ,Dean	
+J,Von Feldt	
+C,Gatto	0
+J,Ramser	
+O,Karcioglu	
+F,Martini	
+G,Simi	0
+M,Doi	0
+AR,Farina	
+J,Olsen	0
+L,Wagner	
+DP,Coupal	0
+SM,Yu	
+Y,Karyotakis	0
+PE,Finke	
+JG,Kim	
+Q,Zhu	0
+J,Albert	0
+CR,Wuest	0
+MD,Weston	
+A,Toyoda	
+J,Ramis	
+LM,Payne	
+F,Colecchia	0
+SC,Smith	
+M,Orlando	
+IE,Katina	
+D,Calvigioni	
+G,Blaylock	0
+D,Scott	
+A,Zallo	0
+J,Blouw	0
+JP,Berger	0
+J,de Graaff	
+T,Schalk	0
+JB,Bouck	
+F,Salvatore	0
+W,Bugg	0
+V,Eschenburg	0
+A,Patrinos	
+L,Pace	
+Ch,de La Vaissière	0
+T,Glanzman	0
+DI,Scheer	0
+SH,Chuang	
+WN,Reijnders	
+S,Devmal	0
+G,Cowan	0
+HS,Cho	
+L,Gladney	0
+TL,Miner	
+JC,Chen	0
+PJ,Schlembach	
+J,Schultz	
+F,Squame	
+F,Liu	
+C,Roat	0
+A,Calcaterra	0
+G,Vaitsas	0
+VG,Shelkov	0
+M,Turcotte	0
+CS,Ha	
+AJ,Moss	
+S,Fahey	0
+C,Nicolini	
+R,Ainscough	
+KR,Schubert	0
+B,Mayer	0
+J,Lamsa	0
+ET,Simopoulos	0
+TJ,Wenaus	0
+M,Meloun	0
+DC,Williams	0
+GR,Schinella	
+BJ,Anderson	
+CL,Davis	0
+DR,Smith	
+KC,Moffeit	0
+PJ,Minx	
+P,Cattani	
+C,Angelini	0
+A,Ahsan	0
+H,Quinn	0
+L,Doucette-Stamm	
+J,Beringer	0
+R,Cowan	0
+T,Deppermann	0
+GS,Schultz	
+ON,Lebedev	
+JM,Metzger	
+AS,Reddy	
+A,Osterspey	
+JM,Roney	0
+LW,Hillier	
+G,Finocchiaro	0
+T,Chatterjee	
+Y,Totoki	
+R,Spector	
+R,Parodi	0
+D,Kaufman	
+A,Williams	
+HM,Lacker	0
+VV,Serbo	0
+DA,Stone	0
+F,Ferroni	0
+KT,Flood	0
+T,Handler	0
+R,Müller-Pfefferkorn	0
+LL,Cook	
+M,Falbo	0
+P,de Jong	
+V,Miftakov	0
+T,Hubbard	
+RE,Schmitz	0
+A,Felsenfeld	
+C,Harmon	
+C,Indolfi	
+T,Eto	
+F,Safai Tehrani	0
+M,MacCoss	
+CA,Cassa	0
+AK,Corsi	
+S,Sadowski	
+N,Shimizu	
+K,Ichimura	
+A,Halder	
+SW,Clifton	
+J,Meldrim	
+PM,Patel	0
+NH,Cho	
+E,Chen	0
+R,Stroili	0
+P,Radermacher	
+T,Slezak	
+WP,Feeney	
+A,Tacconelli	
+S,Lucas	
+KY,King	
+J,Galagan	
+G,Szabó	0
+BA,Tan	
+J,Dusková	
+CM,Yang	
+RL,Page	
+VP,Collins	
+P,Deloukas	
+M,Sherman	
+C,Nusbaum	
+Y,Kinouchi	
+M,Perl	0
+B,Serfass	0
+K,Shimotohno	
+C,Kawagoe	
+AJ,Camm	
+D,Judd	0
+A,Dunham	
+A,Dasgupta	
+A,Smol	0
+EH,Burger	
+F,Pizza	
+M,STRAUSS	
+R,Waldi	0
+RC,Petter	
+M,Hearth-Holmes	
+B,Glimelius	
+T,Colberg	0
+A,Roodman	0
+RS,Fulton	
+RD,Pace	
+AM,Eichenbaum	0
+J,Schmutz	
+CB,Cohen	
+V,Lepeltier	0
+A,del Genio	
+KA,Wetterstrand	
+U,Nauenberg	0
+J,Ross	
+NM,Rupniak	
+J,Spencer	
+M,Carpinelli	0
+M,Doyle	
+S,DE SEZE	
+TM,Kordich	0
+RJ,Van Spanning	
+J,Milerad	
+NF,Saunders	
+C,Elkin	
+R,Deadman	
+A,Samuel	0
+E,Roussot	0
+P,Cicconetti	0
+K,Osoegawa	
+RS,Panvini	0
+L,Allende	
+C,Touramanis	0
+M,Prastaro	
+YJ,Chen	
+J,Allison	0
+J,Naylor	
+EC,Cheriex	
+ER,Mardis	
+H,Lobl	0
+R,Bernet	0
+A,Braca	
+MA,Cascieri	
+G,Chen	
+R,Aleksan	0
+A,Kimura	
+J,Oyang	0
+J,Thierry-Mieg	
+SI,Serednyakov	0
+M,Prey	
+M,Chiariello	
+J,Martin	
+PD,Aker	
+DA,Bowerman	0
+X,Shi	0
+HA,Tanaka	0
+WA,Wenzel	0
+SM,Xella	0
+J,Bertolini	0
+D,Elstein	
+Y,Grinblat	0
+G,Hamel Monchenault	0
+FC,Porter	0
+M,Giral	
+EV,Koonin	
+A,Olivas	0
+S,Playfer	0
+RT,Abboud	
+KC,Kalunian	
+C,Bozzi	0
+E,Torassa	0
+F,Forti	0
+J,Grimwood	
+S,Beck	
+P,Fabbricatore	0
+W,Morris	
+C,Rauh-Adelmann	
+M,Tan	
+O,Hamon	0
+JL,Wennström	
+C,Priano	0
+R,Funke	
+JI,Germershausen	
+E,Birney	
+ML,Kocian	0
+P,Martus	0
+J,Weissenbach	
+W,Bhimji	0
+A,Subramanian	
+RG,Jacobsen	0
+A,Anjomshoaa	0
+N,Stojanovic	
+P,Patteri	0
+D,Jones	
+J,Walsh	0
+AJ,Smith	0
+PE,Vardas	
+FG,SULMAN	
+S,Zambetti	
+P,Grosso	0
+T,Crisci	
+MR,Convery	0
+G,PALMBORG	
+JM,LoSecco	0
+JM,Bauer	0
+R,Durbin	
+B,Birren	
+QH,Guo	0
+M,Clamp	
+H,Neal	0
+M,Salvatore	
+S,Takagi	
+WL,Wilson	0
+WI,Weir	
+J,Bennison	
+GL,de Lange	
+J,Va'vra	0
+M,Rubenfield	
+D,Lavin	0
+WT,Ford	0
+M,Hori	
+MK,Kuhlmann	0
+V,Speziali	0
+B,Wiedenhöfer	0
+G,Rizzo	0
+A,Kurup	0
+N,Hiwatashi	
+T,Imaizumi	
+OW,Boonstra	
+C,Pinnetti	
+B,Aoki	
+GN,COHEN	
+TM,Lowe	
+AV,Gritsan	0
+B,Foster	0
+HR,Band	0
+VV,Brigljević	0
+S,Garrett	
+A,Honkanen	
+C,Robert	
+CP,Sabatino	
+R,Kurman	
+G,Marone	
+J,Wang	
+K,Takihara	
+MJ,Silka	
+SE,Huskey	
+GG,Chicchi	
+L,Rowen	
+GR,Adams	
+RJ,Barlow	0
+F,Cabanillas	
+M,Bartos	0
+KL,Park	
+A,De Silva	0
+MM,Kurtz	
+P,Fontelo	
+P,Poropat	0
+AD,Askanase	
+T,Brandt	0
+I,Sedykh	0
+Ch,Thiebaux	0
+J,Leung	
+WN,Cottingham	0
+CM,Rives	
+J,Cohen-Tanugi	0
+D,Feifel	
+M,Merlos	
+S,Kumar	
+RY,Zhu	0
+P,Leruste	0
+J,Salas	
+S,Di Giambenedetto	
+R,Schwierz	0
+HL,Lynch	0
+S,Choi	
+Y,Tobari	
+BW,Poovaiah	
+T,Reza	
+DE,MacIntyre	
+M,Folegani	0
+J,Gaedeke	0
+SG,Mills	
+E,Maly	0
+DL,Johnson	
+S,Kasif	
+S,Betocchi	
+R,Claus	0
+D,Braida	
+M,Matteoli	
+Z,Ding	
+R,Edgar	
+DJ,Knowles	0
+E,Bromfield	
+PG,Bright-Thomas	0
+Sh,Rahatlou	0
+MH,Kelsey	0
+JD,McFall	0
+RH,Richards	
+J,Sulston	
+MS,Gill	0
+L,Kann	
+F,Piscione	
+W,Dunwoodie	0
+S,Martella	0
+C,Pannetti	
+I,Pastena	0
+AW,Weidemann	0
+M,Prosperi	
+L,Krok	
+G,Jones	
+AA,Salnikov	0
+N,Neri	0
+A,Secondo	
+YG,Kolomensky	0
+KT,McDonald	0
+T,Itoh	
+P,BORDIER	
+H,Järveläinen	
+A,Seiden	0
+M,de La Hoya	
+M,Jones	
+C,Borean	0
+JP,Martin	0
+SL,Levy	0
+RR,Copley	
+SK,Ray	
+SP,Mahon	
+HM,Van Praag	
+FR,Blume	
+ML,Latash	0
+A,Bader	
+SR,MacNeill	
+M,Borggrefe	
+SL,Wu	0
+L,Pattini	
+L,Brusciano	
+TH,Ottenhoff	
+M,Rotondo	0
+K,McKernan	
+PJ,Haney	
+S,Passaggio	0
+M,Lo Vetere	0
+RA,Reamer	
+X,Ma	0
+P,Peloso	
+M,de la Bastide	
+N,Ohashi	
+MK,John	
+HJ,Melosh	
+S,Chun	0
+M,Tanaka	
+SK,Meredith	
+TR,McMahon	0
+P,Dixon	0
+S,Trincaz-Duvoid	0
+C,Raymond	
+K,Kojima	
+L,Cremaldi	0
+BV,Krylov	
+M,Jackson	
+JP,Mesirov	
+G,Wang	
+AH,Newman	
+SS,Theander	
+R,Ferrando	
+DE,Dorfan	0
+MH,Seo	
+S,Willocq	0
+B,Abbott	0
+A,Friedman	
+G,Della Ricca	0
+H,Yokoyama	
+IJ,Scott	0
+A,Honig	
+P,Robbe	0
+E,Robutti	0
+ME,Huffer	0
+R,Reinhardt	
+H,Hermjakob	
+G,Mancinelli	0
+RB,Pepinsky	
