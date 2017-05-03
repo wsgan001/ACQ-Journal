@@ -1,9 +1,7 @@
 package prep;
 
-import java.awt.geom.Area;
 import java.io.*;
 import java.util.*;
-
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 
@@ -18,6 +16,7 @@ import config.Config;
 public class MeSHPrep {
 	String xmlFile=null;
 	Map<String, String> map=null;//store the MeshTree code key:name value:code
+	
 	
 	public MeSHPrep(String xmlfile,String treeFile){
 		this.xmlFile=Config.localPath+xmlfile;
@@ -50,7 +49,7 @@ public class MeSHPrep {
 		
 	}
 	
-	//extract one tag
+	//extract one tag and create profiled attributes and edges
 	public boolean domMeSH(String outFile){
 		boolean state=true;
 		try {
@@ -59,8 +58,9 @@ public class MeSHPrep {
 			Document doc=builder.parse(new File(xmlFile));
 			Element element=doc.getDocumentElement();
 			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(Config.localPath+outFile));
-			Map<String, Set<String>> line=new HashMap<String, Set<String>>();
-
+			Map<String, Set<String>> line = new HashMap<String, Set<String>>();//for output the name-attributes
+			Map<String, Set<String>> nameMap=new HashMap<String,Set<String>>();//for output the name-edges
+			
 			NodeList nodes=element.getElementsByTagName("PubmedArticle");
 			System.out.println(nodes.getLength()+" 1 ");
 			for(int i=0;i<nodes.getLength();i++){
@@ -91,50 +91,87 @@ public class MeSHPrep {
 							if(name!=null) {
 								nameList.add(name);
 								Set<String> set=new HashSet<String>();
-								line.put(name,set);
+								line.put(name,set);			
 							}
 					}
 				}
+				
 				//find all the meshCode with mesh
 				if(flag==true){
 					Set<String> set=new HashSet<String>();	
 					if(MeshKeyListNode!=null){ //if one man has at least one keywords
-					NodeList meshList=MeshKeyListNode.getElementsByTagName("DescriptorName");					
-					for(int k=0;k<meshList.getLength();k++){
-						Element mesh=(Element) meshList.item(k);
-						String key=null;
-						String meshValue=mesh.getFirstChild().getNodeValue();
-						if(map.containsKey(meshValue)){
-							key = map.get(meshValue);
+						NodeList meshList=MeshKeyListNode.getElementsByTagName("DescriptorName");					
+						for(int k=0;k<meshList.getLength();k++){
+							Element mesh=(Element) meshList.item(k);
+							String key=null;
+							String meshValue=mesh.getFirstChild().getNodeValue();
+							if(map.containsKey(meshValue)){
+								key = map.get(meshValue);
+							}
+							if(key!=null){
+								set.add(key);
+							}
 						}
-						if(key!=null) {
-							set.add(key);
-						}
-					}
-					}else{//one man has no keywords
-						set.add("0");
-					}
-					for(String x:nameList){
+			
+						for(String x:nameList){
 						if(line.containsKey(x)){
-							line.get(x).addAll(set);
-						}else{
-							line.put(x,set);
+								line.get(x).addAll(set);
+							}else{
+								line.put(x,set);								
+							}
+						}
+						//create edges 
+						createEdge(nameMap, nameList);
+						
+					}
+					//if one man has no keyword.We do not record it.
+					else{
+						for(String x:nameList){
+							line.remove(x);
+							nameMap.remove(x);
 						}
 					}	
 				}
-			}
 			
+			}
+			Map<String,Integer> nameIdMap=new HashMap<String,Integer>();
+			//write into the file (attributes)
+			int id1=1;
 			for(String x:line.keySet()){
-				String write=line.get(x).toString();
-					if(write.length()>2){
-					bfWriter.write(x+"\t"+write.substring(1, write.length()-1));
-					}else{
-						bfWriter.write(x+"\t");
-					}
-					bfWriter.newLine();
+				String write=line.get(x).toString();	
+					nameIdMap.put(x, id1);
+					
+					bfWriter.write((id1++)+"\t"+x+"\t"+write.substring(1, write.length()-1));
+					bfWriter.newLine();	
 			}
 			bfWriter.flush();
 			bfWriter.close();
+			
+			
+			BufferedWriter bWriter1=new BufferedWriter(new FileWriter(Config.localPath+"edge.txt"));
+			
+			for(String x:nameMap.keySet()){
+//				Set<Integer> tmpset=new HashSet<Integer>();
+				String string="";
+				for(String y:nameMap.get(x)){
+//					tmpset.add(nameIdMap.get(y));
+					string+=","+nameIdMap.get(y);
+				}
+				bWriter1.write(x+"\t"+nameIdMap.get(x)+"\t"+string);
+				bWriter1.newLine();
+				
+			}
+			bWriter1.flush();
+			bWriter1.close();
+			
+//			//test name map
+//			BufferedWriter b1=new BufferedWriter(new FileWriter(Config.localPath+"name.txt"));
+//			for(String x:nameMap.keySet()){
+//				b1.write("id "+nameMap.get(x)+"\t"+x);
+//				b1.newLine();
+//			}
+//			b1.flush();
+//			b1.close();
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -144,12 +181,28 @@ public class MeSHPrep {
 		return state;
 	}
 	
-
+	private void createEdge(Map<String, Set<String>> map, ArrayList<String> set){
+		for(String x:set){
+			if(map.containsKey(x)){
+				for(String y:set){
+					if(x!=y){map.get(x).add(y);}
+				}
+			}else{
+				Set<String> tmp=new HashSet<String>();
+				for(String y:set){
+					if(x!=y){tmp.add(y);}
+				}
+				map.put(x, tmp);
+			}
+		}
+		
+	}
 	
 	
 	public static void main(String[] a){
 		
 		MeSHPrep meSHPrep=new MeSHPrep("medsample1.xml","MeshTree.txt");
 		meSHPrep.domMeSH("test.txt");
+	
 	}
 }

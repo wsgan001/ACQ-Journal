@@ -1,0 +1,33 @@
+import java.io.*;
+
+public class TextProcess {
+	
+	public void process(String fileName){
+		
+		try {
+			BufferedReader bReader=new BufferedReader(new FileReader(fileName));
+			String line=null;
+			while((line=bReader.readLine())!=null){
+				System.out.println(line);
+				
+			}
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+
+	public static void main(String[] args){
+		TextProcess process=new TextProcess();
+		process.process("/Users/chenyankai/Desktop/companylist.csv");
+	
+	}
+	
+	
+}

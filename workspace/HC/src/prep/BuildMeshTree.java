@@ -17,7 +17,7 @@ public class BuildMeshTree {
 	
 	public BuildMeshTree(){
 		this.map=new HashMap<String,MeshNode>();
-		this.treeFile=Config.localPath+"mtrees2017.txt";
+		this.treeFile=Config.localPath+"mtreeSimple.txt";
 		
 	}
 	
@@ -60,8 +60,7 @@ public class BuildMeshTree {
 				count++;	
 			}
 			System.out.println("count number "+count);
-			System.out.println(frstlvlMap.get("Z"));
-			System.out.println(frstlvlMap.get('Z'+""));
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println("File not found!");

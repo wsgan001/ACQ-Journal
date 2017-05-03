@@ -3,6 +3,8 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.apache.commons.net.PrintCommandListener;
+
 import config.Config;
 /**
  * 
@@ -22,13 +24,17 @@ public class DownloadURL {
 	
 	private void downloadFile(String fileName){
 		try {
-			URL url=new URL(URL);
+			
+			
+//			URL url=new URL(URL);
+			URL url=new URL("http://akka.io");
 			System.out.println(url);
 			HttpURLConnection connection=(HttpURLConnection)url.openConnection();
 			connection.setConnectTimeout(10*1000);
 			System.out.println(1);
 //			connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)"); 
 			int code=connection.getResponseCode();
+			System.out.println(code);
 			 if (code != HttpURLConnection.HTTP_OK) {
 				  throw new Exception("文件读取失败");
 			        }
@@ -77,7 +83,8 @@ public class DownloadURL {
 public static void main(String[]a){
 	String url="ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/medline17n0001.xml.gz";
 	DownloadURL dUrl=new DownloadURL(url, Config.localPath);
-	dUrl.batchDown(1);
+//	dUrl.batchDown(1);
+	dUrl.downloadFile("aa.txt");
 }
 	
 }

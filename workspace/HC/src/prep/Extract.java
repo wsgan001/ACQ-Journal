@@ -84,6 +84,7 @@ public class Extract {
 		}
 	}
 	
+	
 	public void testRandomAccess(String file,int targetLine){
 		int currentLine=0;
 		String line=null;
@@ -114,8 +115,8 @@ public class Extract {
 	
 	public static void main(String[] a){
 		Extract extract=new Extract(2);
-//		extract.process();
-		extract.testRandomAccess(Config.localPath+"test.txt",1 );
+		extract.process();
+//		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		
 	}
 //		

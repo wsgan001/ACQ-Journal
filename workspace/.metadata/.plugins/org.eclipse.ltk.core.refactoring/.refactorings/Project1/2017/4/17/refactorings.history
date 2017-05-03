@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Project1/4.28/clisquare.py&apos; to &apos;chisquare.py&apos;" description="Rename resource &apos;clisquare.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="4.28/clisquare.py" name="chisquare.py" stamp="1493376356585" updateReferences="true"/>
+</session>
