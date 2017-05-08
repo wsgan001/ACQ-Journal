@@ -14,16 +14,22 @@ import config.Config;
  */
 
 public class MeSHPrep {
-	String xmlFile=null;
+//	String xmlFile=null;
+	String nodeFile=null;
+	String edgeFile=null;
+	int id1=-1;
 	Map<String, String> map=null;//store the MeshTree code key:name value:code
 	
 	
-	public MeSHPrep(String xmlfile,String treeFile){
-		this.xmlFile=Config.localPath+xmlfile;
+	public MeSHPrep(String nodeFile,String edgeFile,String treeFile){
+//		this.xmlFile=Config.localPath+xmlfile;
+		this.nodeFile=Config.localPath+nodeFile;
+		this.edgeFile=Config.localPath+edgeFile;
+		this.id1=1;
 		this.map=new HashMap<String,String>();
 		readMeshTree(treeFile);
-		
 	}
+	
 	
 	private void readMeshTree(String fileName){
 		try {
@@ -44,25 +50,25 @@ public class MeSHPrep {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		
+		}	
 	}
 	
 	//extract one tag and create profiled attributes and edges
-	public boolean domMeSH(String outFile){
+	public boolean domMeSH(String xmlFile){
 		boolean state=true;
 		try {
 			DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder=factory.newDocumentBuilder();
-			Document doc=builder.parse(new File(xmlFile));
+			Document doc=builder.parse(new File(Config.localPath+xmlFile));
 			Element element=doc.getDocumentElement();
-			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(Config.localPath+outFile));
+//			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(Config.localPath+outFile,true));//append the content at the end of the file
+			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(nodeFile,true));//append the content at the end of the file
+
 			Map<String, Set<String>> line = new HashMap<String, Set<String>>();//for output the name-attributes
 			Map<String, Set<String>> nameMap=new HashMap<String,Set<String>>();//for output the name-edges
 			
 			NodeList nodes=element.getElementsByTagName("PubmedArticle");
-			System.out.println(nodes.getLength()+" 1 ");
+			System.out.println("number of citatios: "+nodes.getLength());
 			for(int i=0;i<nodes.getLength();i++){
 				Element Article=(Element) nodes.item(i);
 				Element MedlineCitation=(Element) Article.getElementsByTagName("MedlineCitation").item(0);
@@ -136,28 +142,35 @@ public class MeSHPrep {
 			}
 			Map<String,Integer> nameIdMap=new HashMap<String,Integer>();
 			//write into the file (attributes)
-			int id1=1;
+			
 			for(String x:line.keySet()){
 				String write=line.get(x).toString();	
 					nameIdMap.put(x, id1);
-					
-					bfWriter.write((id1++)+"\t"+x+"\t"+write.substring(1, write.length()-1));
+//					System.out.println(id1+" "+write.substring(1, write.length()-1));
+//					bfWriter.write((id1++)+"\t"+x+"\t"+write.substring(1, write.length()-1).replace(",", ""));
+					bfWriter.write((id1++)+"\t"+write.substring(1, write.length()-1).replace(",", ""));
 					bfWriter.newLine();	
 			}
 			bfWriter.flush();
 			bfWriter.close();
 			
 			
-			BufferedWriter bWriter1=new BufferedWriter(new FileWriter(Config.localPath+"edge.txt"));
-			
+//			BufferedWriter bWriter1=new BufferedWriter(new FileWriter(Config.localPath+"edge.txt",true));
+			BufferedWriter bWriter1=new BufferedWriter(new FileWriter(edgeFile,true));
+
 			for(String x:nameMap.keySet()){
-//				Set<Integer> tmpset=new HashSet<Integer>();
 				String string="";
 				for(String y:nameMap.get(x)){
-//					tmpset.add(nameIdMap.get(y));
-					string+=","+nameIdMap.get(y);
+					string+=" "+nameIdMap.get(y);
 				}
-				bWriter1.write(x+"\t"+nameIdMap.get(x)+"\t"+string);
+			
+				if(string.length()>2){
+//					bWriter1.write(x+"\t"+nameIdMap.get(x)+"\t"+string.substring(1, string.length()));
+					bWriter1.write(nameIdMap.get(x)+"\t"+string.substring(1, string.length()));
+				}else{
+//					bWriter1.write(x+"\t"+nameIdMap.get(x)+"\t");
+					bWriter1.write(nameIdMap.get(x)+"\t");
+				}
 				bWriter1.newLine();
 				
 			}
@@ -176,7 +189,7 @@ public class MeSHPrep {
 		} catch (Exception e) {
 			// TODO: handle exception
 			state=false;
-//			System.out.println("error!!!");
+			System.out.println("error!!!");
 		}
 		return state;
 	}
@@ -199,10 +212,11 @@ public class MeSHPrep {
 	}
 	
 	
-	public static void main(String[] a){
+	public static void main(String[] args){
+		MeSHPrep meSHPrep=new MeSHPrep("nodeTest.txt","edgeTest.txt","MeshTree.txt");
+		meSHPrep.domMeSH("medsample1.xml");
+//		String string=" abc";
+//		System.out.println(string.substring(1,string.length()));
 		
-		MeSHPrep meSHPrep=new MeSHPrep("medsample1.xml","MeshTree.txt");
-		meSHPrep.domMeSH("test.txt");
-	
 	}
 }

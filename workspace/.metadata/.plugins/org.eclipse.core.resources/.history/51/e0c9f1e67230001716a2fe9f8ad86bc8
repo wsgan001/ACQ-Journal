@@ -1,0 +1,37 @@
+import pandas as pd
+import pandas_datareader as web   # Package and modules for importing data; this code may change depending on pandas version
+import datetime
+import matplotlib.pyplot as plt
+import numpy as np 
+from matplotlib.dates import DateFormatter, WeekdayLocator,\
+    DayLocator, MONDAY,date2num
+from matplotlib.finance import candlestick_ohlc
+ 
+
+
+# We will look at stock prices over the past year, starting at January 1, 2016
+start = datetime.datetime(2017,4,4)
+# end = datetime.date.today()
+end= datetime.datetime(2017,4,28)
+apple = web.DataReader("AAPL","yahoo", start, end)
+print(apple.head())
+
+
+def ohlc_adj(dat):
+    """
+    :param dat: pandas DataFrame with stock data, including "Open", "High", "Low", "Close", and "Adj Close", with "Adj Close" containing adjusted closing prices
+  
+    :return: pandas DataFrame with adjusted stock data
+  
+    This function adjusts stock data for splits, dividends, etc., returning a data frame with
+    "Open", "High", "Low" and "Close" columns. The input DataFrame is similar to that returned
+    by pandas Yahoo! Finance API.
+    """
+    return pd.DataFrame({"Open": dat["Open"] * dat["Adj Close"] / dat["Close"],
+                       "High": dat["High"] * dat["Adj Close"] / dat["Close"],
+                       "Low": dat["Low"] * dat["Adj Close"] / dat["Close"],
+                       "Close": dat["Adj Close"] } )
+
+app_adj=ohlc_adj(apple)
+
+print(app_adj.head(10))

@@ -3,6 +3,8 @@ package prep;
 import java.io.*;
 import java.util.zip.GZIPInputStream;
 
+import javax.management.loading.PrivateClassLoader;
+
 import config.*;
 
 /**
@@ -13,10 +15,15 @@ import config.*;
 
 public class Extract {
 	private int pubMedSize=-1;
+	private String nodeFile=null;
+	private String edgeFile=null;
 	
 	
-	public Extract(int x){
+	
+	public Extract(int x,String nodeFile,String edgeNode){
 		this.pubMedSize=x;
+		this.nodeFile=nodeFile;
+		this.edgeFile=Config.localPath+edgeNode;
 		
 	}
 	
@@ -66,16 +73,17 @@ public class Extract {
 	
 	public void process(){
 		DownloadFtp downFtp=new DownloadFtp(Config.pubMedHost,Config.pubMedUsr,Config.pubMedPswrd, Config.pubMedPort, Config.ftpPath, Config.localPath);
-		MeSHPrep meSHPrep=null;
+		MeSHPrep meSHPrep=new MeSHPrep(nodeFile,edgeFile,"MeshTree.txt");
+
 		Log log=new Log();
+		
 		for(int i=1;i<=pubMedSize;i++){
 			String msg=null;
 			String name=downFtp.GeneFileName(i);
 			boolean flag1=downFtp.downloadFile(name);
 			boolean flag2=Unzip(name);
 			boolean flag3=deleteFile(name);
-			meSHPrep=new MeSHPrep(name.substring(0,name.length()-3),"MeshTree.txt");
-			boolean flag4=meSHPrep.domMeSH(i+".txt");
+			boolean flag4=meSHPrep.domMeSH(name.substring(0,name.length()-3));
 			boolean flag5=deleteFile(name.substring(0,name.length()-3));
 			
 			msg=downFtp.getFtpState()+"\t"+"download status: "+flag1+"\t"+"unzip state: "+flag2+"\t"+"doMesh state: "+flag4+"\t"
@@ -114,7 +122,7 @@ public class Extract {
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(2);
+		Extract extract=new Extract(1,"node.txt","edge.txt");
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		
