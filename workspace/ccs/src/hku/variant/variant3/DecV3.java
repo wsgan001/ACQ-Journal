@@ -235,7 +235,7 @@ public class DecV3 {
 				ccsSet = finder.findRobustCCS();
 				if(ccsSet.size() > 1){
 					rsList.add(ccsSet);
-//					System.out.println("A community with size = " + ccsSet.size() + "   Time cost:" + (System.currentTimeMillis() - startT));
+					System.out.println("A community with size = " + ccsSet.size() + "   Time cost:" + (System.currentTimeMillis() - startT));
 				}
 			}
 		}

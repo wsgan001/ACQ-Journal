@@ -1,0 +1,39 @@
+\clearpage
+\section{hardness of the problem}
+\label{PCQharness}
+
+\subsection{Preliminaries}
+In computational complexity theory and computability theory, a counting problem is a problem only returns the number of all solutions. A counting problem that can be computed by nondeterministic Turing machine running in polynomial time is categorised in the class $\#$P~\cite{valiant} which was firstly introduced by Valiant. Valiant further defined the class $\#$P-complete as the ``hardest" problem in $\#$P as the concept of NP-complete is introduced in NP problems. Garey et al.~\cite{garey1979guide} and Papadimitriou et al.~\cite{papadimitriou2003computational} proved that if a counting problem is $\#$P-complete, then its associated problem of mining all solutions must be NP-hard. Based on above conclusion, GuiZhen Yang has proved that mining frequent itemsets including subtrees is NP-hard~\cite{yang2004complexity}. As for our problem which holds three property defined in Problem~\ref{PCQ}, all validated communities are required to computed. Thus we follow the same principle that if we can prove that (in worst case) counting the number of all required communities is $\#$P-complete, then our problem is NP-hard. 
+
+{\bf Bipartite graph.}
+A bipartite graph can be denoted as a triple, $G=(U,V,E)$, where vertices can be partitioned to two disjoint sets $U$ and $V$, and $E$ is the set of edges between vertices in $U$ and $V$, i.e., $E\subseteq U\times V$.  
+
+A bipartite clique is a subgraph of a bipartite graph such that every vertices in two distinct vertex sets are adjacent. Furthermore, a bipartite clique $G'=(U',V',E')$ is a maximal bipartite clique in a given bipartite graph, if there exists no other bipartite clique $G''=(U'',V'',E'')$ such that $U'\subseteq U''$, $V'\subseteq V''$, $E'\subseteq E''$ simultaneously. 
+
+{\bf Construction of bipartite graph.}
+Since each node in P-tree is unique and has fixed location in P-tree, knowing all p-tree nodes is enough to reconstruct the original P-tree. Then we can simply construct a bipartite graph $G=(U,V,E)$ from the profiled graph where $U$ is the set of all users in the profiled graph and $V$ is the set of all unique P-tree nodes. Edges in $E$ represent that users in $U$ own the P-tree nodes in $V$. The construction process can be done in linear time. Note that this constructed bipartite graph is not equivalent to the associated profiled graph, because connectiveity of vertices in the profiled graph is not presented in $G=(U,V,E)$. But in the case that the profiled graph is a clique which means each induced subgraph is complete, the profiled graph can be constructed to a bipartite graph without losing generality. 
+
+Based on the assumation and this one-to-one correspondence, we can reduce the problem of computing the number of all maximal bipartite cliques containing query node $q$ in the bipartite graph to the problem of computing the number of communities shared maximal common subtrees with $q$ in the profiled graph. The former one is shown in Theorem~\ref{bipartiteclique}, then the latter one will be proved $\#$P-complete.
+
+\subsection{Proof}
+ \begin{theorem}[~\cite{provan1983complexity}]
+\label{bipartiteclique}
+The problem of counting the number of maiximal bipartite cliques in a given bipartite graph is $\#$P-complete.
+\end{theorem}
+
+Let $C_i(G)$ and $M_i(G)$ denote two sets of qualified communities in which shared maximal common subtrees is unique and $C_c \in C_i(G)$, $|C_c|=i$ and $C_m \in M_i(G)$, $|C_m|\geq i$. 
+Based on Theorem~\ref{bipartiteclique}, we have Lemma~\ref{countingPCQ}. 
+
+\begin{lemma}
+\label{countingPCQ}
+It is $\#$p-complete to counting the number $\sum_{i=1}^{|G|}{|C_i(G)|}$.
+\end{lemma}
+
+Before 
+Now we construct a new bipartite graph $G^+=(U^+,V^+,E^+)$ followed the strategy in \cite{yang2004complexity} and represent it as a martix. Since the required community contains $q$, the maximal common subtree of the community must be the subtree of $q$. Let $V=\{v_1,v_2,...,v_n\}$ be the set of $q$'s P-tree nodes and $U=\{u_1,u_2,...,u_m\}$ be all vertices in the profiled graph. Then, we generate $m$ new items namely $L=\{l_1,l_2,...,l_m\}$. Let $S(u)$ denotes the subtree of $u$ in $G^+$. $G^+$ is constructed as follows: (1). $U^+=U \cup S$ where $|S|=m$. (2). for $i\in [1,m]$, $S(u_i)=$
+
+
+
+
+
+

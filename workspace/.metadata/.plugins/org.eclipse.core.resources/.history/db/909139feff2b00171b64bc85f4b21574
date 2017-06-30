@@ -1,7 +1,0 @@
-import scipy
-from scipy.stats import chisquare as st 
-import numpy as np
-
-observe=np.array([25,38,40,20,37,44]);
-expect=st.chisquare(observe);
-print(expect);

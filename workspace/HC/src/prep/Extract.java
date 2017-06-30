@@ -23,7 +23,7 @@ public class Extract {
 	public Extract(int x,String nodeFile,String edgeNode){
 		this.pubMedSize=x;
 		this.nodeFile=nodeFile;
-		this.edgeFile=Config.localPath+edgeNode;
+		this.edgeFile=edgeNode;
 		
 	}
 	
@@ -60,12 +60,8 @@ public class Extract {
 	private boolean deleteFile(String fileName){
 		File file=new File(Config.localPath+fileName);
 		if(file.exists()&&file.isFile()){
-			file.delete();
-			
-//			System.out.println("d");
-			return true;
+			return file.delete();
 		}else{
-//			System.out.println("File does not exist!");
 			return false;
 		}
 	}
@@ -84,7 +80,7 @@ public class Extract {
 			boolean flag2=Unzip(name);
 			boolean flag3=deleteFile(name);
 			boolean flag4=meSHPrep.domMeSH(name.substring(0,name.length()-3));
-			boolean flag5=deleteFile(name.substring(0,name.length()-3));
+			deleteFile(name.substring(0,name.length()-3));
 			
 			msg=downFtp.getFtpState()+"\t"+"download status: "+flag1+"\t"+"unzip state: "+flag2+"\t"+"doMesh state: "+flag4+"\t"
 					+"delete gz file and unzip file states: "+flag3+"\t"+flag4;
@@ -122,7 +118,7 @@ public class Extract {
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(1,"node.txt","edge.txt");
+		Extract extract=new Extract(20,"node.txt","edge.txt");
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		

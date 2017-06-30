@@ -76,10 +76,10 @@ public class DownloadFtp {
 		      
 			File localFile = new File(localpath + fileName);  
 	        OutputStream os = new FileOutputStream(localFile);  
-	        ftpClient.retrieveFile(fileName, os);  
+	        boolean flag=ftpClient.retrieveFile(fileName, os);  
 	        os.close();
 	        ftpClient.logout();
-			return true;
+			return flag;
 		} catch (Exception e) {
 			// TODO: handle exception
 //			System.out.println("error");

@@ -154,7 +154,7 @@ public class MeSHPrep {
 			bfWriter.flush();
 			bfWriter.close();
 			
-			
+			//edge 
 //			BufferedWriter bWriter1=new BufferedWriter(new FileWriter(Config.localPath+"edge.txt",true));
 			BufferedWriter bWriter1=new BufferedWriter(new FileWriter(edgeFile,true));
 
@@ -163,7 +163,6 @@ public class MeSHPrep {
 				for(String y:nameMap.get(x)){
 					string+=" "+nameIdMap.get(y);
 				}
-			
 				if(string.length()>2){
 //					bWriter1.write(x+"\t"+nameIdMap.get(x)+"\t"+string.substring(1, string.length()));
 					bWriter1.write(nameIdMap.get(x)+"\t"+string.substring(1, string.length()));
@@ -215,6 +214,7 @@ public class MeSHPrep {
 	public static void main(String[] args){
 		MeSHPrep meSHPrep=new MeSHPrep("nodeTest.txt","edgeTest.txt","MeshTree.txt");
 		meSHPrep.domMeSH("medsample1.xml");
+//		meSHPrep.domMeSH("medline17n0001.xml");
 //		String string=" abc";
 //		System.out.println(string.substring(1,string.length()));
 		

@@ -13,6 +13,9 @@ import java.util.Date;
 public class Log {
 	private String logFile=Config.logFileName;
 	
+	public Log(){
+		
+	} 
 	
 	public void log(String msg){
 		try {

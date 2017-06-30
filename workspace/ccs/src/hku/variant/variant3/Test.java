@@ -21,7 +21,7 @@ public class Test {
 		int core[] = index.getCore();
 		System.out.println("index construction finished !");
 		
-		int queryId = 15238;
+		int queryId = 152532;
 		String inKws[] = {"data", "mine", "analysis", "network"};
 		
 		BasicGV3 bg3 = new BasicGV3(graph, nodes);
