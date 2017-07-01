@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.8)  30 JUN 2017 20:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.8)  1 JUL 2017 20:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -461,24 +461,25 @@ Package: times 2005/04/12 PSNFSS-v9.2a (SPQR)
 \c@lemma=\count144
 \c@proposition=\count145
 \c@theorem=\count146
+\c@corollary=\count147
  (./pcq.aux)
 \openout1 = `pcq.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 29.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -518,16 +519,16 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count147
+\scratchcounter=\count148
 \scratchdimen=\dimen150
 \scratchbox=\box33
-\nofMPsegments=\count148
-\nofMParguments=\count149
+\nofMPsegments=\count149
+\nofMParguments=\count150
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count150
+\MPscratchCnt=\count151
 \MPscratchDim=\dimen151
-\MPnumerator=\count151
-\makeMPintoPDFobject=\count152
+\MPnumerator=\count152
+\makeMPintoPDFobject=\count153
 \everyMPtoPDFconversion=\toks41
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -545,7 +546,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box34
-Package hyperref Info: Link coloring OFF on input line 28.
+Package hyperref Info: Link coloring OFF on input line 29.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -553,39 +554,39 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count153
+\c@section@level=\count154
 )
-LaTeX Info: Redefining \ref on input line 28.
-LaTeX Info: Redefining \pageref on input line 28.
-LaTeX Info: Redefining \nameref on input line 28.
+LaTeX Info: Redefining \ref on input line 29.
+LaTeX Info: Redefining \pageref on input line 29.
+LaTeX Info: Redefining \nameref on input line 29.
 
 (./pcq.out) (./pcq.out)
 \@outlinefile=\write3
 \openout3 = `pcq.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+LaTeX Font Info:    Try loading font information for U+msa on input line 37.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 36.
+LaTeX Font Info:    Try loading font information for U+msb on input line 37.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 36.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 37.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 36.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 37.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 36.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 37.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 36.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 37.
 
-Underfull \hbox (badness 2245) in paragraph at lines 36--36
+Underfull \hbox (badness 2245) in paragraph at lines 37--37
 []\crnotice This work is li-censed un-der the Cre-ative Com-mons Attribution-
  []
 
@@ -612,50 +613,62 @@ Overfull \hbox (1.09622pt too wide) in paragraph at lines 52--53
 
 
 ]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
+Overfull \hbox (4.47496pt too wide) in paragraph at lines 7--8
+[]\OT1/ptm/m/it/9 A count-ing prob-lem that can be com-
+ []
 
-Overfull \hbox (5.56674pt too wide) in paragraph at lines 21--22
+
+Overfull \hbox (14.0545pt too wide) in paragraph at lines 15--16
+[]\OT1/ptm/m/it/9 A prob-lem is $\OT1/cmr/m/n/9 #$\OT1/ptm/m/it/9 P-complete
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
+
+Overfull \hbox (5.56674pt too wide) in paragraph at lines 33--34
 \OT1/ptm/m/it/9 maix-i-mal bi-par-tite cliques in a given bi-par-tite graph is 
 $\OT1/cmr/m/n/9 #$\OT1/ptm/m/it/9 P-complete. 
  []
 
 
-Overfull \hbox (19.90186pt too wide) in paragraph at lines 29--30
-[]\OT1/ptm/m/it/9 It is $\OT1/cmr/m/n/9 #$\OT1/ptm/m/it/9 p-complete to count-i
-ng the num-ber $[][] []$. 
+Overfull \hbox (10.01059pt too wide) in paragraph at lines 41--42
+[]\OT1/ptm/m/it/9 It is $\OT1/cmr/m/n/9 #$\OT1/ptm/m/it/9 P-complete to count-i
+ng the $[][] []$. 
  []
 
 
-Overfull \hbox (18.65152pt too wide) in paragraph at lines 32--34
-[]\OT1/ptm/m/n/9 Before Now we con-struct a new bi-par-tite graph $\OML/cmm/m/i
-t/9 G[] \OT1/cmr/m/n/9 = (\OML/cmm/m/it/9 U[]; V[]; E[]\OT1/cmr/m/n/9 )$
- []
+LaTeX Warning: Reference `Figure' on page 3 undefined on input line 45.
 
-) [3
+[3
+
+]) [4
 
 ] (./pcq.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 48.
- [4
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
+ [5
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 48.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
  (./pcq.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 48.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 48.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
 Package rerunfilecheck Info: File `pcq.out' has not changed.
 (rerunfilecheck)             Checksum: 8773E74ABC7BE9E425DBD892F6AD6C95;269.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 48.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
  ) 
 Here is how much of TeX's memory you used:
- 8148 strings out of 493014
- 118420 string characters out of 6133352
- 225029 words of memory out of 5000000
- 11500 multiletter control sequences out of 15000+600000
+ 8167 strings out of 493014
+ 118611 string characters out of 6133352
+ 229179 words of memory out of 5000000
+ 11511 multiletter control sequences out of 15000+600000
  35840 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,29p,1188b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,9n,29p,1012b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/
@@ -671,10 +684,10 @@ s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/ur
 w/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on pcq.pdf (4 pages, 150086 bytes).
+Output written on pcq.pdf (5 pages, 163090 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
+ 156 PDF objects out of 1000 (max. 8388607)
+ 133 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

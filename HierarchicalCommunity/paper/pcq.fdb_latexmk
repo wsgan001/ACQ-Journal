@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex pcq"] 1498823655 "pcq.aux" "pcq.bbl" "pcq" 1498824422
+["bibtex pcq"] 1498910748 "pcq.aux" "pcq.bbl" "pcq" 1498912764
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/abbrv.bst" 1292289607 20329 b5fed53e10044d0f8112183785c759b1 ""
   "lac.bib" 1498716301 1629 d15f908c402dcbe36f2a6a5006c0d1ec ""
-  "pcq.aux" 1498824422 1941 8df47de23a10362a41c6d1b7918300c1 ""
+  "pcq.aux" 1498912764 2118 11e8db891afc286b307a01b30c6cba49 ""
   "pcq.bcf" 0 -1 0 ""
   (generated)
-  "pcq.bbl"
   "pcq.blg"
-["pdflatex"] 1498824421 "pcq.tex" "pcq.pdf" "pcq" 1498824422
+  "pcq.bbl"
+["pdflatex"] 1498912763 "pcq.tex" "pcq.pdf" "pcq" 1498912764
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvb.tfm" 1136768653 2300 14616918391efa49ac8b481a75fbdc1a ""
@@ -142,15 +142,15 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1486569144 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1486569181 3873396 d90160026fd3d5ceb358e6e0244e36e8 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "hardness.tex" 1498739344 4328 990332439408f8cca5d82606fa9024c6 ""
-  "pcq.aux" 1498824422 1941 8df47de23a10362a41c6d1b7918300c1 ""
-  "pcq.bbl" 1498823655 1301 4a4714d3cefb5004398e8c79a8736a9e "bibtex pcq"
-  "pcq.out" 1498824422 269 8773e74abc7be9e425dbd892f6ad6c95 ""
-  "pcq.tex" 1498823654 917 34da04a16837ea7926174778c270ae2c ""
-  "problem.tex" 1498824419 2772 bca800c0ca57a11363f9da9f5c91b228 ""
+  "hardness.tex" 1498912762 9306 90aef34f8dae5d7c28c76725cf78ac51 ""
+  "pcq.aux" 1498912764 2118 11e8db891afc286b307a01b30c6cba49 ""
+  "pcq.bbl" 1498910748 1301 4a4714d3cefb5004398e8c79a8736a9e "bibtex pcq"
+  "pcq.out" 1498912764 269 8773e74abc7be9e425dbd892f6ad6c95 ""
+  "pcq.tex" 1498902466 952 e04b017607bad96112bdcef57b370069 ""
+  "problem.tex" 1498882418 2772 bca800c0ca57a11363f9da9f5c91b228 ""
   "vldb.cls" 1498622226 48240 b75146a9bb7b55395cead566f285d86b ""
   (generated)
+  "pcq.pdf"
   "pcq.aux"
   "pcq.log"
-  "pcq.pdf"
   "pcq.out"
