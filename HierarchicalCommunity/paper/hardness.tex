@@ -41,12 +41,39 @@ Based on Theorem~\ref{bipartiteclique}, we have Corollary~\ref{countingPCQ}.
 It is $\#$P-complete to counting the $\sum_{i=1}^{|G|}{|C_i(G)|}$.
 \end{corollary}
 
-Now we construct a new bipartite graph followed the strategy in \cite{yang2004complexity} and represent it as a martix. 
-Since the required community contains $q$, the maxinum common subtree of the community must be the subtree of $q$'s. Let $V=\{v_1,v_2,...,v_n\}$ be the set of $q$'s P-tree nodes and $U=\{u_1,u_2,...,u_m\}$ be all vertices in the profiled graph. $D$ denotes the database which recording the relationship between $U$ and corresponding tree nodes $V$. Note that the construcution of $D$ can be done from the original profiled graph in polynomial time. Then, we generate $m$ new items namely $L=\{l_1,l_2,...,l_m\}$ and $m$ new vertices $S=\{s_1,s_2,...,s_m\}$. Let function $w$ denote expanded items of the vertex in $U^+$. As shown in Figures~\ref{Figure}, the new bipartite graph $D^+$ is constructed as follows: 
+Now we construct a new bipartite graph followed the strategy in \cite{yang2004complexity} and represent it as a binary martix. 
+Since the required community contains $q$, the maxinum common subtree of the community must be the subtree of $q$'s. Let $V=\{v_1,v_2,...,v_n\}$ be the set of $q$'s P-tree nodes and $U=\{u_1,u_2,...,u_m\}$ be all vertices in the profiled graph. $D$ denotes the database which recording the relationship between $U$ and corresponding tree nodes $V$. Note that the construcution of $D$ can be done from the original profiled graph in polynomial time. Then, we generate $m$ new items namely $L=\{l_1,l_2,...,l_m\}$ and $m$ new vertices $S=\{s_1,s_2,...,s_m\}$. Let function $w$ denote expanded items of the vertex in $U^+$. As shown in Figures~\ref{fig:newMatrix}, the new bipartite graph $D^+$ is constructed as follows: 
 
 (1). $U^+=U \cup S$. 
 
 (2). For $i\in [1,m], W(u_i)=D_i \cup L, W(s_i)=V \cup (L-{l_i})$. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.88\linewidth]{Figures/ExpandMatrix}
+	\caption{Binary matrix representation of bipartite graph $D^+$.}
+	\label{fig:newMatrix}
+\end{figure} 
+
+
+\iffalse
+\begin{tabular}{|l|cccc|cccc|l|}
+\hline
+&$v_1$ & $v_2$ & $\cdots$ & $v_n$ & $l_1$ & $l_2$ & $\cdots$ & $l_m$ \\
+\hline
+$u_1$ 	 & \multicolumn{4}{c|}{\multirow{4}*{{$D$}}}		&    1	   &     1	  & $\cdots$ &     1    \\
+$u_2$ 	 &&&&												&    1 	   &     1	  & $\cdots$ &     1    \\
+$\vdots$ &&&&												& $\vdots$ & $\vdots$ & $\cdots$ & $\vdots$ \\
+$u_m$ 	 &&&&												&    1 	   &     1	  & $\cdots$ &     1    \\
+\hline
+$s_1$ 		&	   1	  &     1	  & $\cdots$ &     1	&    0	   &     1	  & $\cdots$ &     1    \\
+$s_2$ 		&	   1	  &     1	  & $\cdots$ &     1	&    1 	   &     0	  & $\cdots$ &     1    \\
+$\vdots$ 	&  $\vdots$   & $\vdots$  & $\cdots$ & $\vdots$ & 		   & 		  & $\ddots$ &  		\\
+$s_m$ 		&      1	  &     1	  & $\cdots$ &     1	&    1 	   &     1	  & $\cdots$ &     0    \\
+\hline
+\end{tabular}
+\fi
+
 
 \begin{lemma}
 \label{expandGraph}
@@ -84,6 +111,7 @@ $|M_{\sigma +m}(D^+)| = \displaystyle{\sum_{a=0}^{m-\sigma}}|C_{\sigma +a}(D)| \
 \begin{theorem}
 $G={U,V}$ denotes the profiled graph, $|U|=m$, the problem of computing $|M_k(G)|$ where $k \in [1,m]$, is $\#P$-complete.
 \end{theorem}
+
 
 \begin{proof}
 Checking whether a community is satisfying all properties or not can be done in polynomial time. Therefore, the problem of computing $|M_k(G)|$ is in $\#$P. We now reduce the problem of counting the number of $\sum_{i=1}^{|G|}{|C_i(G)|}$ as stated in Corollary~\ref{countingPCQ} to the problem of the counting of computing $|M_k(G)|$, thereby proving that the latter one is $\#$P-hard.
