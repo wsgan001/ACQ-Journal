@@ -1,0 +1,64 @@
+package algorithm;
+
+/**
+@author chenyankai
+@Date	11:57:58 AM
+*vertex IDs range from 1 to n;
+*/
+public class K_core {
+	private int[][] graph=null;
+	private int n=-1; //(size-1) of the vertices in graph
+	private int[] degree=null;
+	
+	public K_core(int[][] graph){
+		this.graph=graph;
+		this.n=graph.length-1;
+	}
+	
+	public int[] decompose(){
+		degree=new int[n+1];
+		
+		//step 1:get the degree and the maximum degree
+		int maxD=-1;
+		for(int i=1;i<n+1;i++){
+			degree[i]=graph[i].length;
+			maxD= (degree[i]>maxD)?degree[i]:maxD;
+		}
+	
+		//step 2:fill the bin
+		int[] bin=new int[maxD+1];
+		for(int i=1;i<n+1;i++){
+			bin[degree[i]]+=1;
+		}
+		
+		//step 3:update the bin
+		int start=1;
+		for(int d=0;d<maxD+1;d++){
+		int num=bin[d];
+		bin[d]=start;
+		start+=num;
+		}
+		
+		//step 4:find the position
+		int pos[]=new int[n+1];
+		int ver[]=new int[n+1];
+		for(int v=1;v<n+1;v++){
+			ver[pos[v]]=v;
+			bin[degree[v]]+=1;
+		}
+		
+		for(int d=maxD;d>=1;d--){
+			bin[d]=bin[d-1];
+		}
+		
+		bin[0]=1;
+		
+		//step 5:decompose
+		
+		
+		
+		return degree;
+	}
+	
+	
+}
