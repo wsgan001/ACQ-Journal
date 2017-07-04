@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.8)  1 JUL 2017 23:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.8)  3 JUL 2017 16:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -711,13 +711,38 @@ Overfull \hbox (14.0545pt too wide) in paragraph at lines 15--16
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
 
-Overfull \hbox (5.56674pt too wide) in paragraph at lines 33--34
+Overfull \hbox (8.67381pt too wide) in paragraph at lines 30--31
+[]\OT1/ptm/m/it/9 The pro-filed graph and cor-re-spond-ing P-tree forests
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./figures/profileG.pdf): PDF inclusion: found PD
+F version <1.7>, but at most version <1.5> allowed
+<figures/profileG.pdf, id=67, 247.69037pt x 361.35202pt>
+File: figures/profileG.pdf Graphic file (type pdf)
+
+<use figures/profileG.pdf>
+Package pdftex.def Info: figures/profileG.pdf used on input line 44.
+(pdftex.def)             Requested size: 95.99854pt x 140.05002pt.
+
+
+pdfTeX warning: pdflatex (file ./figures/bipartiteG.pdf): PDF inclusion: found 
+PDF version <1.7>, but at most version <1.5> allowed
+<figures/bipartiteG.pdf, id=68, 340.00095pt x 419.82747pt>
+File: figures/bipartiteG.pdf Graphic file (type pdf)
+
+<use figures/bipartiteG.pdf>
+Package pdftex.def Info: figures/bipartiteG.pdf used on input line 44.
+(pdftex.def)             Requested size: 107.99927pt x 133.3546pt.
+
+Overfull \hbox (5.56674pt too wide) in paragraph at lines 55--56
 \OT1/ptm/m/it/9 maix-i-mal bi-par-tite cliques in a given bi-par-tite graph is 
 $\OT1/cmr/m/n/9 #$\OT1/ptm/m/it/9 P-complete. 
  []
 
 
-Overfull \hbox (10.01059pt too wide) in paragraph at lines 41--42
+Overfull \hbox (10.01059pt too wide) in paragraph at lines 63--64
 []\OT1/ptm/m/it/9 It is $\OT1/cmr/m/n/9 #$\OT1/ptm/m/it/9 P-complete to count-i
 ng the $[][] []$. 
  []
@@ -726,17 +751,19 @@ ng the $[][] []$.
 
 pdfTeX warning: pdflatex (file ./Figures/ExpandMatrix.pdf): PDF inclusion: foun
 d PDF version <1.6>, but at most version <1.5> allowed
-<Figures/ExpandMatrix.pdf, id=68, 188.55945pt x 126.80074pt>
+<Figures/ExpandMatrix.pdf, id=74, 188.55945pt x 126.80074pt>
 File: Figures/ExpandMatrix.pdf Graphic file (type pdf)
 
 <use Figures/ExpandMatrix.pdf>
-Package pdftex.def Info: Figures/ExpandMatrix.pdf used on input line 53.
+Package pdftex.def Info: Figures/ExpandMatrix.pdf used on input line 75.
 (pdftex.def)             Requested size: 211.20117pt x 142.03519pt.
  [3
 
- <./Figures/ExpandMatrix.pdf>]) [4
+ <./figures/profileG.pdf> <./figures/bipartiteG.pdf
 
-] (./pcq.bbl)
+pdfTeX warning: pdflatex (file ./figures/bipartiteG.pdf): PDF inclusion: multip
+le pdfs with page group included in a single page
+> <./Figures/ExpandMatrix.pdf>]) [4] (./pcq.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 50.
  [5
 
@@ -751,13 +778,13 @@ Package rerunfilecheck Info: File `pcq.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 50.
  ) 
 Here is how much of TeX's memory you used:
- 9094 strings out of 493014
- 129663 string characters out of 6133352
- 258824 words of memory out of 5000000
- 12382 multiletter control sequences out of 15000+600000
- 35840 words of font info for 75 fonts, out of 8000000 for 9000
+ 9120 strings out of 493014
+ 130066 string characters out of 6133352
+ 265093 words of memory out of 5000000
+ 12399 multiletter control sequences out of 15000+600000
+ 37425 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,29p,1012b,376s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,9n,29p,1012b,390s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/
@@ -773,10 +800,10 @@ s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/ur
 w/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on pcq.pdf (5 pages, 175463 bytes).
+Output written on pcq.pdf (5 pages, 498873 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 176 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 725 PDF objects out of 1000 (max. 8388607)
+ 212 compressed objects within 3 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -48,11 +48,6 @@ W.~Fan, X.~Wang, Y.~Wu, and J.~Xu.
 \newblock Association rules with graph patterns.
 \newblock {\em PVLDB}, 8(12):1502--1513, 2015.
 
-\bibitem{fangeffective}
-Y.~Fang, R.~Cheng, X.~Li, S.~Luo, and J.~Hu.
-\newblock Effective community search over large spatial graphs.
-\newblock {\em PVLDB}, 10(6):709--720, 2017.
-
 \bibitem{fang2016effective}
 Y.~Fang, R.~Cheng, S.~Luo, and J.~Hu.
 \newblock Effective community search for large attributed graphs.

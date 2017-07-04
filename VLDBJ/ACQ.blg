@@ -1,4 +1,6 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: ACQ.aux
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: ACQ.aux
 The style file: abbrv.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: ACQ.bib
@@ -12,4 +14,45 @@ Repeated entry---line 388 of file ACQ.bib
  :                                   ,
 I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in unionFind
+You've used 42 entries,
+            2118 wiz_defined-function locations,
+            697 strings with 9388 characters,
+and the built_in function-call counts, 14235 in all, are:
+= -- 1304
+> -- 796
+< -- 5
++ -- 318
+- -- 272
+* -- 970
+:= -- 2382
+add.period$ -- 124
+call.type$ -- 42
+change.case$ -- 259
+chr.to.int$ -- 0
+cite$ -- 43
+duplicate$ -- 559
+empty$ -- 1127
+format.name$ -- 272
+if$ -- 2950
+int.to.chr$ -- 0
+int.to.str$ -- 42
+missing$ -- 41
+newline$ -- 211
+num.names$ -- 82
+pop$ -- 330
+preamble$ -- 1
+purify$ -- 220
+quote$ -- 0
+skip$ -- 364
+stack$ -- 0
+substring$ -- 646
+swap$ -- 110
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 166
+warning$ -- 1
+while$ -- 116
+width$ -- 44
+write$ -- 433
 (There were 2 error messages)

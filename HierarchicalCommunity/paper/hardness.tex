@@ -23,9 +23,31 @@ A bipartite graph can be denoted as a triple, $G=(U,V,E)$, where vertices can be
 A bipartite clique is a subgraph of a bipartite graph such that every vertices in two distinct vertex sets are adjacent. Furthermore, a bipartite clique $G'=(U',V',E')$ is a maximal bipartite clique in a given bipartite graph, if there exists no other bipartite clique $G''=(U'',V'',E'')$ such that $U'\subseteq U''$, $V'\subseteq V''$, $E'\subseteq E''$ simultaneously. 
 
 {\bf Construction of bipartite graph.}
-Since each node in P-tree is unique and has fixed location in P-tree, knowing all p-tree nodes is enough to reconstruct the original P-tree. Then we can simply construct a bipartite graph $G=(U,V,E)$ from the profiled graph where $U$ is the set of all users in the profiled graph and $V$ is the set of all unique P-tree nodes. Edges in $E$ represent that users in $U$ own the P-tree nodes in $V$. The construction process can be done in linear time. Note that this constructed bipartite graph is not equivalent to the associated profiled graph, because connectiveity of vertices in the profiled graph is not presented in $G=(U,V,E)$. But in the case that the profiled graph is a complete graph which means each induced subgraph is a clique, the profiled graph can be constructed to a bipartite graph without losing generality. 
+Since each node in P-tree is unique and has fixed location in P-tree, knowing all p-tree nodes is enough to reconstruct the original P-tree. Then we can simply construct a bipartite graph $G=(U,V,E)$ from the profiled graph where $U$ is the set of all users in the profiled graph and $V$ is the set of all unique P-tree nodes. Edges in $E$ represent that users in $U$ own the P-tree nodes in $V$. The construction process can be done in linear time. Note that this constructed bipartite graph is not equivalent to the associated profiled graph, because connectiveity of vertices in the profiled graph is not presented in $G=(U,V,E)$. But in the case that the profiled graph is a complete graph which means each induced subgraph is a clique, the profiled graph can be constructed to a bipartite graph without losing generality. We illustrute it in Example~\ref{eg:example}.
 
-Based on the assumption and this one-to-one correspondence, we can reduce the problem of computing the number of all maximal bipartite cliques containing query node $q$ in the bipartite graph to the problem of computing the number of required communities with $q$ in the profiled graph. The former one is shown in Theorem~\ref{bipartiteclique}, then the latter one will be proved $\#$P-complete.
+\begin{example}
+\label{eg:example}
+The profiled graph and corresponding P-tree forests are shown in Figure~\ref{fig:PG}. Since original graph is a complete graph, every subgraph is connected. Thus the constructed bipartite graph shown in Figure~\ref{fig:BG} is exactly equivalent to the orginal profiled graph.
+\end{example}
+
+\begin{figure}
+\mbox{
+        \subfigure[Profiled graph]{
+            \includegraphics[width=.40\columnwidth]{figures/profileG}
+            \label{fig:PG}
+        }
+        \hspace{1ex}
+        \subfigure[Bipartite graph]{
+            \includegraphics[width=.45\columnwidth]{figures/bipartiteG}
+            \label{fig:BG}
+        }
+}
+\caption{Construction of the bipartite graph}\label{fig:construction}
+\end{figure} 
+
+
+Based on the assumption and this one-to-one correspondence, we can reduce the problem of computing the number of all maximal bipartite cliques containing query node $q$ in the bipartite graph to the problem of computing the number of required communities with $q$ in the profiled graph. The latter problem will be proved $\#$P-complete. 
+
 
 \subsection{Proof}
  \begin{theorem}[~\cite{provan1983complexity}]
@@ -42,13 +64,13 @@ It is $\#$P-complete to counting the $\sum_{i=1}^{|G|}{|C_i(G)|}$.
 \end{corollary}
 
 Now we construct a new bipartite graph followed the strategy in \cite{yang2004complexity} and represent it as a binary martix. 
-Since the required community contains $q$, the maxinum common subtree of the community must be the subtree of $q$'s. Let $V=\{v_1,v_2,...,v_n\}$ be the set of $q$'s P-tree nodes and $U=\{u_1,u_2,...,u_m\}$ be all vertices in the profiled graph. $D$ denotes the database which recording the relationship between $U$ and corresponding tree nodes $V$. Note that the construcution of $D$ can be done from the original profiled graph in polynomial time. Then, we generate $m$ new items namely $L=\{l_1,l_2,...,l_m\}$ and $m$ new vertices $S=\{s_1,s_2,...,s_m\}$. Let function $w$ denote expanded items of the vertex in $U^+$. As shown in Figures~\ref{fig:newMatrix}, the new bipartite graph $D^+$ is constructed as follows: 
+Since the required community contains $q$, the maxinum common subtree of the community must be the subtree of $q$'s. To make sure that the returned communities includes $q$. Let $V=\{v_1,v_2,...,v_n\}$ be the set of $q$'s P-tree nodes and $U=\{u_1,u_2,...,u_m\}$ be all vertices in the profiled graph. $D$ denotes the database which only recording the relationship between $U$ and corresponding tree nodes $V$. Note that the construcution of $D$ can be done from the original profiled graph in polynomial time. Then, we generate $m$ new items namely $L=\{l_1,l_2,...,l_m\}$ and $m$ new vertices $S=\{s_1,s_2,...,s_m\}$. Let function $w$ denote expanded items of the vertex in $U^+$. As shown in Figures~\ref{fig:newMatrix}, the new bipartite graph $D^+$ is constructed as follows: 
 
 (1). $U^+=U \cup S$. 
 
 (2). For $i\in [1,m], W(u_i)=D_i \cup L, W(s_i)=V \cup (L-{l_i})$. 
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.88\linewidth]{Figures/ExpandMatrix}
 	\caption{Binary matrix representation of bipartite graph $D^+$.}
@@ -74,6 +96,19 @@ $s_m$ 		&      1	  &     1	  & $\cdots$ &     1	&    1 	   &     1	  & $\cdots$ 
 \end{tabular}
 \fi
 
+\iffalse
+\begin{tabular}{|l|ccc|}
+\hline
+&$v_1$ & $v_2$ & $v_3$ 			\\
+\hline
+$u_1$ 	 & 	1 	& 	1  	& 	0 	\\
+$u_2$ 	 &  1  	&	1  	&	1	\\
+$u_3$ 	 &  1  	&	1  	&	1	\\										 
+$u_4$ 	 &  0  	&	0  	&	1	\\										    
+$u_5$ 	 &  0  	&	0  	&	1	\\										    
+\hline
+\end{tabular}
+\fi
 
 \begin{lemma}
 \label{expandGraph}
