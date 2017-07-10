@@ -3,6 +3,8 @@ package config;
 import java.io.*;
 import java.util.Date;
 
+import prep.ConfigPubmed;
+
 
 /**
  * 
@@ -11,7 +13,7 @@ import java.util.Date;
  */
 
 public class Log {
-	private String logFile=Config.logFileName;
+	private String logFile=ConfigPubmed.logFileName;
 	
 	public Log(){
 		

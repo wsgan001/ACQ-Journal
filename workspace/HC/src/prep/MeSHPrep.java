@@ -5,8 +5,6 @@ import java.util.*;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 
-import config.Config;
-
 /**
  * 
  * @author chenyankai
@@ -23,8 +21,8 @@ public class MeSHPrep {
 	
 	public MeSHPrep(String nodeFile,String edgeFile,String treeFile){
 //		this.xmlFile=Config.localPath+xmlfile;
-		this.nodeFile=Config.localPath+nodeFile;
-		this.edgeFile=Config.localPath+edgeFile;
+		this.nodeFile=ConfigPubmed.localPath+nodeFile;
+		this.edgeFile=ConfigPubmed.localPath+edgeFile;
 		this.id1=1;
 		this.map=new HashMap<String,String>();
 		readMeshTree(treeFile);
@@ -33,7 +31,7 @@ public class MeSHPrep {
 	
 	private void readMeshTree(String fileName){
 		try {
-			BufferedReader bfReader=new BufferedReader(new FileReader(Config.localPath+fileName));
+			BufferedReader bfReader=new BufferedReader(new FileReader(ConfigPubmed.localPath+fileName));
 			if(fileName=="mtrees2017.txt"){
 				String line=null;
 				while((line=bfReader.readLine())!=null){
@@ -59,7 +57,7 @@ public class MeSHPrep {
 		try {
 			DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder=factory.newDocumentBuilder();
-			Document doc=builder.parse(new File(Config.localPath+xmlFile));
+			Document doc=builder.parse(new File(ConfigPubmed.localPath+xmlFile));
 			Element element=doc.getDocumentElement();
 //			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(Config.localPath+outFile,true));//append the content at the end of the file
 			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(nodeFile,true));//append the content at the end of the file

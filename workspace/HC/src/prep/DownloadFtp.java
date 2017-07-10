@@ -3,8 +3,6 @@ import java.io.*;
 
 import org.apache.commons.net.ftp.*;
 import org.omg.PortableInterceptor.SUCCESSFUL;
-
-import config.Config;
 /**
  * 
  * @author chenyankai

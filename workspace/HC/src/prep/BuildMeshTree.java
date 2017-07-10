@@ -2,7 +2,6 @@ package prep;
 
 import java.io.*;
 import java.util.*;
-import config.Config;
 /**
  * 
  * @author chenyankai
@@ -17,7 +16,7 @@ public class BuildMeshTree {
 	
 	public BuildMeshTree(){
 		this.map=new HashMap<String,MeshNode>();
-		this.treeFile=Config.localPath+"mtreeSimple.txt";
+		this.treeFile=ConfigPubmed.localPath+"mtreeSimple.txt";
 		
 	}
 	
@@ -109,7 +108,7 @@ public class BuildMeshTree {
 //		System.out.print("name: "+root.getName()+"	----	");
 //		System.out.println("code: "+root.getCode());
 		try {
-			BufferedWriter bWriter=new BufferedWriter(new FileWriter(Config.localPath+fileName+".txt",true));//continue to write
+			BufferedWriter bWriter=new BufferedWriter(new FileWriter(ConfigPubmed.localPath+fileName+".txt",true));//continue to write
 			bWriter.write(root.getName()+"	"+root.getoldCode()+"	"+root.getNewCode());
 			bWriter.newLine();
 			bWriter.flush();

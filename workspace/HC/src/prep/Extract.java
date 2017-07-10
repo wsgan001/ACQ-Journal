@@ -31,10 +31,10 @@ public class Extract {
 	private boolean Unzip(String fileName){
 		String outName=null;
 		try {
-			GZIPInputStream gzInput=new GZIPInputStream(new FileInputStream(Config.localPath+fileName));
+			GZIPInputStream gzInput=new GZIPInputStream(new FileInputStream(ConfigPubmed.localPath+fileName));
 			
 			outName = fileName.substring(0,fileName.length()-3);
-			FileOutputStream fout=new FileOutputStream(Config.localPath+outName);
+			FileOutputStream fout=new FileOutputStream(ConfigPubmed.localPath+outName);
 			
 			int num;
 			byte[] buf=new byte[1024];
@@ -58,7 +58,7 @@ public class Extract {
 	
 	//delete a file 
 	private boolean deleteFile(String fileName){
-		File file=new File(Config.localPath+fileName);
+		File file=new File(ConfigPubmed.localPath+fileName);
 		if(file.exists()&&file.isFile()){
 			return file.delete();
 		}else{
@@ -68,7 +68,7 @@ public class Extract {
 	
 	
 	public void process(){
-		DownloadFtp downFtp=new DownloadFtp(Config.pubMedHost,Config.pubMedUsr,Config.pubMedPswrd, Config.pubMedPort, Config.ftpPath, Config.localPath);
+		DownloadFtp downFtp=new DownloadFtp(ConfigPubmed.pubMedHost,ConfigPubmed.pubMedUsr,ConfigPubmed.pubMedPswrd, ConfigPubmed.pubMedPort, ConfigPubmed.ftpPath, ConfigPubmed.localPath);
 		MeSHPrep meSHPrep=new MeSHPrep(nodeFile,edgeFile,"MeshTree.txt");
 
 		Log log=new Log();
