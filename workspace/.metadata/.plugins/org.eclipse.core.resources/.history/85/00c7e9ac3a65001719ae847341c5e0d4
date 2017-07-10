@@ -31,10 +31,6 @@ public class BasicAlgo {
 		}
 		
 		//step 1:find the connected k-core containing queryId
-		FindCKCore findCKCore=new FindCKCore();
-		int[] CKC=findCKCore.findCKC(graph, core, queryId);
-		
-		//step 2:
 		
 	}
 	
