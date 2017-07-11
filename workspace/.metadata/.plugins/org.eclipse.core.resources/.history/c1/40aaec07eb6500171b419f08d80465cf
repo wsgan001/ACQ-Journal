@@ -28,7 +28,7 @@ public class LCS {
 	
 	public static void main(String[] args){
 		int[] a={1,2,3,5,6,7};
-		int[] b={1,2,3,6,8,9,11};
+		int[] b={};
 		LCS lcs=new LCS();
 		int[] seq=lcs.lcs(a, b);
 		for(int x:seq) System.out.println(x);

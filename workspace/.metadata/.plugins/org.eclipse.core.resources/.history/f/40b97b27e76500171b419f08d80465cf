@@ -4,10 +4,10 @@ import java.util.*;
 
 public class LCS {
 	
-	public int[] lcs(int[]querySeq,int[]seq){
+	public ArrayList<Integer> lcs(int[]querySeq,int[]seq){
 		ArrayList<Integer> commonSeq=new ArrayList<Integer>();
+		Set<Integer> set=new HashSet<Integer>();
 		if(querySeq.length!=0 && seq.length!=0){
-			Set<Integer> set=new HashSet<Integer>();
 			for(int x:querySeq) set.add(x);
 			for(int x:seq){
 				if(set.contains(x)){
@@ -21,16 +21,15 @@ public class LCS {
 		else{
 			System.out.println("compared sequence is null.");
 		}
-		int[] rtn=new int[commonSeq.size()];
-		for(int i=0;i<rtn.length;i++) rtn[i]=commonSeq.get(i);
-		return rtn;
+		
+		return commonSeq;
 	}
 	
 	public static void main(String[] args){
 		int[] a={1,2,3,5,6,7};
-		int[] b={1,2,3,6,8,9,11};
+		int[] b={1,4,5,6,9};
 		LCS lcs=new LCS();
-		int[] seq=lcs.lcs(a, b);
+		ArrayList<Integer> seq=lcs.lcs(a, b);
 		for(int x:seq) System.out.println(x);
 		
 	}

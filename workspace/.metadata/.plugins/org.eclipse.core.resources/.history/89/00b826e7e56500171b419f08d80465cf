@@ -1,0 +1,37 @@
+package algorithm;
+
+import java.util.*;
+
+public class LCS {
+	
+	public ArrayList<Integer> lcs(int[]querySeq,int[]seq){
+		ArrayList<Integer> commonSeq=null;
+		Set<Integer> set=new HashSet<Integer>();
+		if(querySeq.length==0){
+			System.out.println("query sequence is null");
+			return commonSeq;
+		}
+		
+		if(seq.length==0) return commonSeq;
+		
+		commonSeq=new ArrayList<Integer>();
+		for(int x:querySeq) set.add(x);
+		
+		for(int x:seq){
+			if(set.contains(x)){
+				commonSeq.add(x);
+			}
+		}
+		return commonSeq;
+	}
+	
+	public static void main(String[] args){
+		int[] a={1,2,3,5,6,7};
+		int[] b={1,3,5,6,7,8,9};
+		LCS lcs=new LCS();
+		ArrayList<Integer> seq=lcs.lcs(a, b);
+		for(int x:seq) System.out.println(x);
+		
+	}
+	
+}
