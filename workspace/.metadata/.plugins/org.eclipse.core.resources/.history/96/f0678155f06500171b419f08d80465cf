@@ -42,6 +42,8 @@ public class FindCKCore {
 		int index=0;
 		while(iter.hasNext()){
 			output[index++]=iter.next();
+			
+//			System.out.println(output[index]);
 		}
 		return output;	
 	}

@@ -29,6 +29,7 @@ public class FindCKCore {
 			int cur=queue.poll();
 			for(int i=0;i<graph[cur].length;i++){
 				int neighbor=graph[cur][i];
+				System.out.println(neighbor);
 				if(!visited.contains(neighbor) && core[neighbor]>=Config.k){
 					queue.add(neighbor);
 					visited.add(neighbor);
@@ -41,7 +42,7 @@ public class FindCKCore {
 		Iterator<Integer> iter=visited.iterator();
 		int index=0;
 		while(iter.hasNext()){
-			output[index++]=iter.next();
+			output[index]=iter.next();
 		}
 		return output;	
 	}

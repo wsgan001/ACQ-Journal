@@ -56,7 +56,6 @@ public class BasicAlgo {
 			int [] tmp=midRslt.get(x);
 			System.out.println(x+": ");
 			for(int y:tmp) System.out.print(y+"  ");
-			System.out.println();
 		}
 		
 		
