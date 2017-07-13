@@ -46,8 +46,10 @@ public class BasicAlgo {
 		Map<Integer, int[]> midRslt=new HashMap<Integer, int[]>();
 		for(int vertex:CKC){
 //			System.out.println(queryId+" __ "+vertex+" __ "+nodes[queryId]+"_____"+nodes[vertex]);
-			int[] tmp=lcs.lcs(nodes[queryId], nodes[vertex]);
-			if(tmp.length!=0) midRslt.put(vertex, tmp);
+			if(vertex!=queryId){
+				int[] tmp=lcs.lcs(nodes[queryId], nodes[vertex]);
+				if(tmp.length!=0) midRslt.put(vertex, tmp);
+			}
 		}
 		if(midRslt.size()<Config.k+1) return;
 		
@@ -58,7 +60,6 @@ public class BasicAlgo {
 			for(int y:tmp) System.out.print(y+"  ");
 			System.out.println();
 		}
-		
 		
 		//step 3: mining all maximal common subsequences
 		
