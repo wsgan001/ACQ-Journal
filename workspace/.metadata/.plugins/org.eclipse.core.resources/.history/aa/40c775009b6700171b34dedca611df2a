@@ -1,0 +1,38 @@
+package algorithm.FPTreeAlgo;
+
+public class FPNode {
+	private int item=-1;
+	private int count=-1;
+	private FPNode father=null;
+	private FPNode child=null;
+	
+	public FPNode(int item,int count){
+		this.item=item;
+		this.count=count;
+	}
+	
+	public void linkFather(FPNode node){
+		this.father=node;
+	}
+	
+	public void linkChild(FPNode node){
+		this.child=node;
+	}
+	
+	public boolean hasChild(){
+		return child!=null;
+	}
+	
+	public FPNode getchild(){
+		return child;
+	}
+	
+	public int getItem(){
+		return item;
+	}
+	
+	public void IncCount(){
+		 count++;
+	}
+	
+}
