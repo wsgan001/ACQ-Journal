@@ -133,7 +133,7 @@ public class FPGrowth {
 	public void mining(FPNode root,int a){
 		
 		if(singlePath(root)){
-		
+			
 		}
 	}
 	

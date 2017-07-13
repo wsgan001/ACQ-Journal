@@ -50,7 +50,7 @@ public class FPGrowth {
 				insert(list, child);
 			}
 			else{
-//			System.out.println((char)head+"  null");
+//				System.out.println((char)head+"  null");
 				FPNode node =new FPNode(head, 1);
 				node.linkFather(father);
 				father.linkChild(node);
@@ -133,7 +133,7 @@ public class FPGrowth {
 	public void mining(FPNode root,int a){
 		
 		if(singlePath(root)){
-		
+			
 		}
 	}
 	

@@ -16,7 +16,6 @@ public class FPNode {
 	private Set<FPNode> childSet=null;
 	private FPNode brother=null;
 	
-	
 	public FPNode(int item,int count){
 		this.item=item;
 		this.count=count;

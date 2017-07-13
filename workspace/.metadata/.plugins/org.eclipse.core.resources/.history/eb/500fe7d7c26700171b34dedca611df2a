@@ -30,7 +30,7 @@ public class FPGrowth {
 		for(int index:keySet){
 			int[] seq=database.get(index);
 			LinkedList<Integer> list=select_sort(seq, countingMap);
-//			for(int x:list) System.out.println((char)x);
+			for(int x:list) System.out.println((char)x);
 			insert(list,root);
 		}
 //		traverse(root);
@@ -45,12 +45,12 @@ public class FPGrowth {
 			FPNode child=father.hasChild(head);
 			
 			if(child!=null){
-//				System.out.println("now "+(char)child.getItem()+"  "+(char)head+"  !null");
+				System.out.println("now "+(char)child.getItem()+"  "+(char)head+"  !null");
 				child.IncCount();
 				insert(list, child);
 			}
 			else{
-//			System.out.println((char)head+"  null");
+				System.out.println((char)head+"  null");
 				FPNode node =new FPNode(head, 1);
 				node.linkFather(father);
 				father.linkChild(node);
@@ -96,9 +96,9 @@ public class FPGrowth {
 			}
 		});
 //		
-//		for(Map.Entry<Integer, Integer> map:tmpList){
-//			System.out.println(map.getKey()+" times "+map.getValue());
-//		}
+		for(Map.Entry<Integer, Integer> map:tmpList){
+			System.out.println(map.getKey()+" times "+map.getValue());
+		}
 //		
 		//step4: return list
 		Map<Integer, Integer> countingMap=new HashMap<Integer,Integer>(); //Key-items, value-order
@@ -131,10 +131,10 @@ public class FPGrowth {
 // mining algorithm
 	
 	public void mining(FPNode root,int a){
-		
 		if(singlePath(root)){
-		
+			
 		}
+		
 	}
 	
 	private boolean singlePath(FPNode root){
