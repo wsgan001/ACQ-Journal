@@ -154,7 +154,7 @@ public class FPTree {
 				// if the item is not frequent we skip it
 				if(mapSupportBeta.get(pathItem.getItem()) >= relativeMinsup){
 		
-					// check if there is a node already in the FP-Tree
+					// look if there is a node already in the FP-Tree
 					FPNode child = currentNode.hasChild(pathItem.getItem());
 					if(child == null){ 
 						// there is no node, we create a new one
@@ -163,7 +163,7 @@ public class FPTree {
 						currentNode.linkChild(newNode);
 						
 						currentNode = newNode;
-						// update the header table.
+						// We update the header table.
 						// and the node links
 						UpdateNodeLinks(pathItem.getItem(), newNode);
 

@@ -280,19 +280,11 @@
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_jhcJtGXwEeewjMcsOpnFiw" elementId="org.eclipse.ui.editorss" selectedElement="_WeBFQGuCEeeu8MOqJ9pJIQ">
       <children xsi:type="basic:PartSashContainer" xmi:id="_WeBFQGuCEeeu8MOqJ9pJIQ" selectedElement="_jhcJtmXwEeewjMcsOpnFiw" horizontal="true">
-        <children xsi:type="basic:PartStack" xmi:id="_jhcJtmXwEeewjMcsOpnFiw" elementId="org.eclipse.e4.primaryDataStack" containerData="5000" selectedElement="_umft0Gd0Eee-P_p0ihcp5A">
+        <children xsi:type="basic:PartStack" xmi:id="_jhcJtmXwEeewjMcsOpnFiw" elementId="org.eclipse.e4.primaryDataStack" containerData="5000" selectedElement="_HXenIGuGEeeu8MOqJ9pJIQ">
           <tags>newtablook</tags>
           <tags>org.eclipse.e4.primaryDataStack</tags>
           <tags>EditorStack</tags>
           <tags>active</tags>
-          <children xsi:type="basic:Part" xmi:id="_umft0Gd0Eee-P_p0ihcp5A" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FPGrowth.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FPGrowth.java&quot; partName=&quot;FPGrowth.java&quot; title=&quot;FPGrowth.java&quot; tooltip=&quot;HC/src/algorithm/FPTreeAlgo/FPGrowth.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/HC/src/algorithm/FPTreeAlgo/FPGrowth.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;148&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
-            <tags>Editor</tags>
-            <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-            <tags>removeOnHide</tags>
-            <tags>active</tags>
-            <tags>activeOnClose</tags>
-          </children>
           <children xsi:type="basic:Part" xmi:id="_tHOkYGd9Eee-P_p0ihcp5A" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FPNode.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
             <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FPNode.java&quot; partName=&quot;FPNode.java&quot; title=&quot;FPNode.java&quot; tooltip=&quot;HC/src/algorithm/FPTreeAlgo/FPNode.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/HC/src/algorithm/FPTreeAlgo/FPNode.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;649&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
@@ -306,21 +298,23 @@
             <tags>removeOnHide</tags>
           </children>
           <children xsi:type="basic:Part" xmi:id="_HXenIGuGEeeu8MOqJ9pJIQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FPTree.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FPTree.java&quot; partName=&quot;FPTree.java&quot; title=&quot;FPTree.java&quot; tooltip=&quot;HC/src/algorithm/FPTreeAlgo/FPTree.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/HC/src/algorithm/FPTreeAlgo/FPTree.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;146&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FPTree.java&quot; partName=&quot;FPTree.java&quot; title=&quot;FPTree.java&quot; tooltip=&quot;HC/src/algorithm/FPTreeAlgo/FPTree.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/HC/src/algorithm/FPTreeAlgo/FPTree.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4862&quot; selectionTopPixel=&quot;1208&quot;/>&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
             <tags>removeOnHide</tags>
+            <tags>active</tags>
+            <tags>activeOnClose</tags>
           </children>
         </children>
-        <children xsi:type="basic:PartStack" xmi:id="_WeBFQWuCEeeu8MOqJ9pJIQ" elementId="PartStack@1aa18a5d" containerData="5000" selectedElement="_ZQgbAGuCEeeu8MOqJ9pJIQ">
+        <children xsi:type="basic:PartStack" xmi:id="_WeBFQWuCEeeu8MOqJ9pJIQ" elementId="PartStack@1aa18a5d" containerData="5000" selectedElement="_Y1JUsGuCEeeu8MOqJ9pJIQ">
           <children xsi:type="basic:Part" xmi:id="_VVPfUGuCEeeu8MOqJ9pJIQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FPNode.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FPNode.java&quot; partName=&quot;FPNode.java&quot; title=&quot;FPNode.java&quot; tooltip=&quot;SPMFAlgo/src/ca/pfv/spmf/algorithms/frequentpatterns/fpgrowth/FPNode.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SPMFAlgo/src/ca/pfv/spmf/algorithms/frequentpatterns/fpgrowth/FPNode.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1764&quot; selectionTopPixel=&quot;642&quot;/>&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FPNode.java&quot; partName=&quot;FPNode.java&quot; title=&quot;FPNode.java&quot; tooltip=&quot;SPMFAlgo/src/ca/pfv/spmf/algorithms/frequentpatterns/fpgrowth/FPNode.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SPMFAlgo/src/ca/pfv/spmf/algorithms/frequentpatterns/fpgrowth/FPNode.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1764&quot; selectionTopPixel=&quot;125&quot;/>&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
             <tags>removeOnHide</tags>
           </children>
           <children xsi:type="basic:Part" xmi:id="_Y1JUsGuCEeeu8MOqJ9pJIQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FPTree.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FPTree.java&quot; partName=&quot;FPTree.java&quot; title=&quot;FPTree.java&quot; tooltip=&quot;SPMFAlgo/src/ca/pfv/spmf/algorithms/frequentpatterns/fpgrowth/FPTree.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SPMFAlgo/src/ca/pfv/spmf/algorithms/frequentpatterns/fpgrowth/FPTree.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;6&quot; selectionLength=&quot;12&quot; selectionOffset=&quot;5489&quot; selectionTopPixel=&quot;1695&quot;/>&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FPTree.java&quot; partName=&quot;FPTree.java&quot; title=&quot;FPTree.java&quot; tooltip=&quot;SPMFAlgo/src/ca/pfv/spmf/algorithms/frequentpatterns/fpgrowth/FPTree.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SPMFAlgo/src/ca/pfv/spmf/algorithms/frequentpatterns/fpgrowth/FPTree.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;37&quot; selectionOffset=&quot;3624&quot; selectionTopPixel=&quot;946&quot;/>&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
             <tags>removeOnHide</tags>
@@ -1005,7 +999,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jhcK_WXwEeewjMcsOpnFiw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_dvReoGt9Eeeu8MOqJ9pJIQ" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_jhd-y2XwEeewjMcsOpnFiw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_NNrpEGvUEeeynf2DfcYdrA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_jhd-y2XwEeewjMcsOpnFiw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jhcLCmXwEeewjMcsOpnFiw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1035,7 +1029,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jhcvV2XwEeewjMcsOpnFiw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_dvTT02t9Eeeu8MOqJ9pJIQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_jhdZkmXwEeewjMcsOpnFiw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_NNusYGvUEeeynf2DfcYdrA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_jhdZkmXwEeewjMcsOpnFiw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jhcvYmXwEeewjMcsOpnFiw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1456,7 +1450,7 @@
     <bindings xmi:id="_jhcwU2XwEeewjMcsOpnFiw" keySequence="COMMAND+SHIFT+V" command="_jhd_oWXwEeewjMcsOpnFiw"/>
     <bindings xmi:id="_jhcwVGXwEeewjMcsOpnFiw" keySequence="ALT+COMMAND+X G" command="_jhd__WXwEeewjMcsOpnFiw"/>
     <bindings xmi:id="_jhcwVWXwEeewjMcsOpnFiw" keySequence="ALT+COMMAND+R" command="_jheAnGXwEeewjMcsOpnFiw"/>
-    <bindings xmi:id="_dU9hMWt9Eeeu8MOqJ9pJIQ" keySequence="COMMAND+CTRL+F" command="_jheADWXwEeewjMcsOpnFiw"/>
+    <bindings xmi:id="_M23rkWvUEeeynf2DfcYdrA" keySequence="COMMAND+CTRL+F" command="_jheADWXwEeewjMcsOpnFiw"/>
   </bindingTables>
   <bindingTables xmi:id="_jhcwV2XwEeewjMcsOpnFiw" elementId="org.eclipse.ui.textEditorScope" bindingContext="_jhcxTWXwEeewjMcsOpnFiw">
     <bindings xmi:id="_jhcwWGXwEeewjMcsOpnFiw" keySequence="ALT+ARROW_DOWN" command="_jhd-bWXwEeewjMcsOpnFiw"/>
@@ -1705,7 +1699,7 @@
     <bindings xmi:id="_jhcxC2XwEeewjMcsOpnFiw" keySequence="COMMAND+1" command="_jheABWXwEeewjMcsOpnFiw"/>
   </bindingTables>
   <bindingTables xmi:id="_jhcxDGXwEeewjMcsOpnFiw" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_jhcxamXwEeewjMcsOpnFiw">
-    <bindings xmi:id="_dU-IQGt9Eeeu8MOqJ9pJIQ" keySequence="M1+W" command="_jheAD2XwEeewjMcsOpnFiw"/>
+    <bindings xmi:id="_M24SoGvUEeeynf2DfcYdrA" keySequence="M1+W" command="_jheAD2XwEeewjMcsOpnFiw"/>
   </bindingTables>
   <bindingTables xmi:id="_jhcxDmXwEeewjMcsOpnFiw" bindingContext="_jhcxp2XwEeewjMcsOpnFiw"/>
   <bindingTables xmi:id="_jhcxD2XwEeewjMcsOpnFiw" elementId="org.python.pydev.ui.editor.scope" bindingContext="_jhcxZGXwEeewjMcsOpnFiw">

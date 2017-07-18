@@ -3,6 +3,8 @@ package algorithm.FPTreeAlgo;
 import java.util.*;
 import java.util.Map.Entry;
 
+import ca.pfv.spmf.algorithms.frequentpatterns.fpgrowth.FPNode;
+
 /**
 @author chenyankai
 @Date	Jul 18, 2017
@@ -142,7 +144,7 @@ public class FPTree {
 	
  
  // add a prefixpath to a fp-tree.
- private void addPrefixPath(List<FPNode> prefixPath, Map<Integer, Integer> mapSupportBeta, int relativeMinsup){
+ private void addPrefixPath(List<FPNode> prefixPath, Map<Integer, Integer> mapSupportBeta, int relativeMinsupp){
 	// the first element of the prefix path contains the path support
 			int pathCount = prefixPath.get(0).getCount();  
 			
@@ -152,24 +154,24 @@ public class FPTree {
 			for(int i = prefixPath.size() -1; i >=1; i--){ 
 				FPNode pathItem = prefixPath.get(i);
 				// if the item is not frequent we skip it
-				if(mapSupportBeta.get(pathItem.getItem()) >= relativeMinsup){
+				if(mapSupportBeta.get(pathItem.getItem()) >= relativeMinsupp){
 		
-					// check if there is a node already in the FP-Tree
-					FPNode child = currentNode.hasChild(pathItem.getItem());
+					// look if there is a node already in the FP-Tree
+					FPNode child = currentNode.getChildWithID(pathItem.getItem());
 					if(child == null){ 
 						// there is no node, we create a new one
-						FPNode newNode = new FPNode(pathItem.getItem(),pathCount);
-						newNode.linkFather(currentNode);
-						currentNode.linkChild(newNode);
-						
+						FPNode newNode = new FPNode();
+						newNode.itemID = pathItem.itemID;
+						newNode.parent = currentNode;
+						newNode.counter = pathCount;  // set its support
+						currentNode.childs.add(newNode);
 						currentNode = newNode;
-						// update the header table.
+						// We update the header table.
 						// and the node links
-						UpdateNodeLinks(pathItem.getItem(), newNode);
-
+						fixNodeLinks(pathItem.itemID, newNode);		
 					}else{ 
 						// there is a node already, we update it
-						child.IncCount();
+						child.counter += pathCount;
 						currentNode = child;
 					}
 				}
