@@ -1,0 +1,120 @@
+package algorithm.FPTreeAlgo;
+
+import java.util.*;
+import java.util.Map.Entry;
+
+/**
+@author chenyankai
+@Date	Jul 18, 2017
+
+*/
+
+public class FPTree {
+ private FPNode root=null;
+ 
+ //use core number of k-core as the minSup
+ private int k=-1;
+ 
+ //list of items in the header table with descending order
+ private List<Integer> headerList=null;
+ 
+ //map of Entry<item, FPNode> of the header table 
+ private Map<Integer, FPNode> itemNodeMap=null;
+ 
+ //map of Entry<item, Last_FPNode> of the header table 
+ //for fast locate the last FPNode of the header table
+ private Map<Integer, FPNode> itemLastNodeMap=null;
+ 
+ 
+ public FPTree(int k){
+	 this.root = new FPNode(-1, 0);
+	 this.k=k-1;
+	 this.itemNodeMap = new HashMap<Integer,FPNode>();
+	 this.itemLastNodeMap = new HashMap<Integer,FPNode>();
+	  
+ }
+  
+ //insert one transaction in the FP-tree
+ public void insert(List<Integer> transaction){
+	 FPNode currentNode = root;
+	 for(int item : transaction){
+		 FPNode child = currentNode.hasChild(item);
+		 if(child == null ){
+//			 System.out.println((char)item+"  null");
+				FPNode node =new FPNode(item, 1);	
+				node.linkFather(currentNode);
+				currentNode.linkChild(node);
+				UpdateNodeLinks(item, node);
+				
+				currentNode=node;
+		 }
+		 else{
+				child.IncCount();
+				currentNode=child;
+		 }
+		 
+	 } 
+ }
+ 
+ public List<Integer> Scan(Map<Integer, int[]> database){
+	//step1: counting tree nodes and its support
+		Map<Integer, Integer> SupMap=new HashMap<Integer,Integer>();
+		Iterator<Integer> it=database.keySet().iterator();
+		while(it.hasNext()){
+			int index=it.next();
+			for(int x:database.get(index)){
+				if(SupMap.containsKey(x)) SupMap.put(x, SupMap.get(x)+1);
+				else SupMap.put(x, 1);
+			}
+		}
+			//step2: clear out those whose sup <=k
+		Iterator<Integer> it1=SupMap.keySet().iterator();
+		while(it1.hasNext()){
+			int index=it1.next();
+			if(SupMap.get(index)<=k) it1.remove();// note here should use iterator to delete items
+		}
+			
+		//step3: sort frequent items with descending order sup and return 
+		headerList = new LinkedList<Integer>(SupMap.keySet());
+		Collections.sort(headerList,new Comparator<Integer>() {
+			@Override
+			public int compare( Integer o1, Integer o2) {
+				// TODO Auto-generated method stub
+				//descending order
+				return o1.()>o2.getValue()?-1:1;
+			}
+			});
+//			
+//		for(Map.Entry<Integer, Integer> map:tmpList){
+//			System.out.println(map.getKey()+" times "+map.getValue());
+//		}
+//			
+			
+		return headerList;
+ }
+ 
+
+ 
+ 
+ //maintain two Map:itemNodeMap and itemLastNodeMap
+ private void UpdateNodeLinks(int item, FPNode newNode){
+	 if(itemLastNodeMap.containsKey(item)){
+		 FPNode lastNode=itemLastNodeMap.get(item);
+		 lastNode.linkBrother(newNode);
+	 }
+	 //update the itemLastMap with newNode
+	itemLastNodeMap.put(item, newNode);
+	
+	//put <item,newNode> itmeNodeMap if it does not contains item
+	FPNode headNode= itemNodeMap.get(item);
+	if(headNode == null){ itemNodeMap.put(item, newNode); }
+	
+	
+	
+	
+	
+ }
+	
+	
+ 
+}

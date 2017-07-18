@@ -5,7 +5,7 @@ import java.util.Map.Entry;
 /**
 @author chenyankai
 @Date	Jul 11, 2017
-
+old version of FPTree.java 
 */
 public class FPGrowth {
 
@@ -33,7 +33,7 @@ public class FPGrowth {
 //			for(int x:list) System.out.println((char)x);
 			insert(list,root);
 		}
-//		traverse(root);
+		traverse(root);
 		return root;
 	}
 	
@@ -200,7 +200,9 @@ public class FPGrowth {
 		FPGrowth fpTree=new FPGrowth(map2, 3);
 		FPNode root=fpTree.Construct();
 //		fpTree.printMap();
-		System.out.println(fpTree.singlePath(root));	
+//		System.out.println(fpTree.singlePath(root));	
+		
+		
 		}
 	
 	

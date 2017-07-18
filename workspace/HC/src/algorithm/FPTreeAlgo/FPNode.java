@@ -35,6 +35,8 @@ public class FPNode {
 		this.brother=node;
 	}
 	
+	
+	// get the specific child, if there is no such child, return null.
 	public FPNode hasChild(int item){
 			for(FPNode node:childSet){
 				if(node.getItem()==item) return node;

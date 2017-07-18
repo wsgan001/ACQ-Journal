@@ -1,0 +1,26 @@
+package algorithm.FPTreeAlgo;
+/**
+@author chenyankai
+@Date	Jul 18, 2017
+this class represents an itemset 
+implement as an array of integers with a variable to store the support number 
+
+*/
+public class ItemSet {
+	private int[] itemset=null;
+	private int support=0;
+	
+	public int[] getItems(){ return itemset; }
+	public int getSupport(){ return support; }
+
+	
+	public ItemSet(){ itemset=new int[]{};}
+	
+	public ItemSet(int item){ itemset=new int[]{item}; }
+	
+	
+	
+	
+	
+	
+}

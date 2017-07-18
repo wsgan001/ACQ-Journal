@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex ACQ"] 1499055206 "ACQ.aux" "ACQ.bbl" "ACQ" 1499069960
+["bibtex ACQ"] 1499055206 "ACQ.aux" "ACQ.bbl" "ACQ" 1500363388
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/abbrv.bst" 1292289607 20329 b5fed53e10044d0f8112183785c759b1 ""
   "ACQ.aux" 1499055207 23518 cff34a5599f82484e5c7771ca37343c8 ""
   "ACQ.bcf" 0 -1 0 ""
   "ACQ.bib" 1490413383 14092 16c115d17d621dd7e41f6d5cda53292c ""
   "appendix.aux" 1499055207 4315 3736c130ddfcf11b2e2531f65c5f845c ""
   (generated)
-  "ACQ.bbl"
   "ACQ.blg"
-["pdflatex"] 1499055206 "ACQ.tex" "ACQ.pdf" "ACQ" 1499069960
+  "ACQ.bbl"
+["pdflatex"] 1499055206 "ACQ.tex" "ACQ.pdf" "ACQ" 1500363388
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -233,10 +233,10 @@
   "svjour3.cls" 1222790400 47679 e70406260d62f66f2e7794a095f721ff ""
   "variant.tex" 1490416061 5590 891d593987fa74311ad2fc55ffe07703 ""
   (generated)
-  "/Users/chenyankai/GitDefault/VLDBJ/ACQ.pdf"
+  "/Users/chenyankai/GitDefault/VLDBJ/ACQ.log"
   "ACQ.pdf"
   "ACQ.log"
   "ACQ.out"
-  "ACQ.aux"
   "appendix.aux"
-  "/Users/chenyankai/GitDefault/VLDBJ/ACQ.log"
+  "ACQ.aux"
+  "/Users/chenyankai/GitDefault/VLDBJ/ACQ.pdf"
