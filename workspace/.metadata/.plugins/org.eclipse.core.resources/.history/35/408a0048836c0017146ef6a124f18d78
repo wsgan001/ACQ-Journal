@@ -57,10 +57,6 @@ public class FPNode {
 		return brother;
 	}
 	
-	public FPNode getFather(){
-		return father;
-	}
-	
 	public int getItem(){
 		return item;
 	}

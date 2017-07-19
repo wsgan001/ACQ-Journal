@@ -30,7 +30,7 @@ public class FPTree {
  
  
  public FPTree(int k){
-	 this.root = new FPNode(0, 0);
+	 this.root = new FPNode(-1, 0);
 	 this.minSup=k+1;
 	 headerFreMap=new HashMap<Integer,Integer>();
 	 this.itemNodeMap = new HashMap<Integer,FPNode>();
@@ -40,12 +40,9 @@ public class FPTree {
   
  public FPNode getRoot(){ return root; }
  
- public Map<Integer, Integer> getFreMap() { return headerFreMap;}
- 
- public Map<Integer, FPNode> getItemNodeMap(){return itemNodeMap;}
- 
- public Map<Integer, FPNode> getItemLastNodeMap(){return itemLastNodeMap;}
 
+ 
+ public Map<Integer, Integer> getFreMap() { return headerFreMap;}
  
  public List<Integer> getHeaderList(){
 	List<Integer> headerList=new ArrayList<Integer>(headerFreMap.keySet());

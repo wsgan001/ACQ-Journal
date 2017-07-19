@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.Map.Entry;
 
 import ca.pfv.spmf.algorithms.frequentpatterns.fpgrowth.FPNode;
-import ca.pfv.spmf.algorithms.frequentpatterns.fpgrowth.FPTree;
 
 /**
 @author chenyankai
@@ -136,46 +135,16 @@ public class FPMax {
 					}
 				}
 				
-				// Sort Beta(head) U tail according to the original header list total order on items
-				// sort item in the transaction by descending order of support
-				Collections.sort(headWithP, descendingOrder);
-				
-				// CHECK IF HEAD U P IS A SUBSET OF A MFI ACCORDING TO THE MFI-TREE
-				if(mfiTree.passSubsetChecking(headWithP)) {
-					
-					// (B) Construct beta's conditional FP-Tree using its prefix path
-					// Create the tree.
-					FPTree treeBeta = new FPTree();
-					// Add each prefixpath in the FP-tree.
-					for(List<FPNode> prefixPath : prefixPaths){
-						treeBeta.addPrefixPath(prefixPath, mapSupportBeta, minSupportRelative); 
-					}  
-					// Mine recursively the Beta tree if the root has child(s)
-					if(treeBeta.root.childs.size() > 0){
-
-						// Create the header list.
-						treeBeta.createHeaderList(originalMapSupport); 
-						
-						// recursive call
-						fpMax(treeBeta, prefix, prefixLength+1, betaSupport, mapSupportBeta);
-					}
-					
-					// ======= After that, we still need to check if beta is a maximal itemset ====
-					List<Integer> temp = new ArrayList<Integer>(mapSupportBeta.size() + prefixLength+1);
-					for(int z=0; z < prefixLength+1; z++) {
-						temp.add(prefix[z]);
-					}
-					Collections.sort(temp, comparatorOriginalOrder);
-					// if beta pass the test, we save it
-					if(mfiTree.passSubsetChecking(temp)) {
-						saveItemset(prefix, prefixLength+1, betaSupport);
-					}
-					//===========================================================
-				}
 				
 			
-			}	
-		}	
+			}
+			
+			
+		}
+		
+		
+		
+		
 	}
 	
 	
