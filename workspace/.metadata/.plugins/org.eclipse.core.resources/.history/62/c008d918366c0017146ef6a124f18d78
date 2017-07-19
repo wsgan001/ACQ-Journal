@@ -1,0 +1,78 @@
+package algorithm.FPTreeAlgo;
+
+import java.util.*;
+
+
+/**
+@author chenyankai
+@Date	Jul 19, 2017
+This is an implementation of a MFITree as used by the FPMax algorithm.
+*/
+
+public class MFPTree {
+private MFPNode root=null;
+//use core number of k-core as the minSup
+private int k=-1;
+	 
+//list of items in the header table with descending order
+private Map<Integer,Integer> headerMap=null;
+	 
+//map of Entry<item, FPNode> of the header table 
+private Map<Integer, MFPNode> itemNodeMap=null;
+	 
+//map of Entry<item, Last_FPNode> of the header table 
+//for fast locate the last FPNode of the header table
+private Map<Integer, MFPNode> itemLastNodeMap=null;
+
+// last added itemset
+MFPNode lastAddedItemsetNode = null;
+	
+public MFPTree(int k){
+	 this.root = new MFPNode(-1,0);
+	 this.k=k-1;
+	 headerMap = new HashMap<Integer,Integer>();
+	 this.itemNodeMap = new HashMap<Integer,MFPNode>();
+	 this.itemLastNodeMap = new HashMap<Integer,MFPNode>(); 
+}
+
+
+//insert one transaction in the MFP-tree
+private void insert(int[] itemset,int support){
+	 MFPNode currentNode = root;
+	 for(int i=0; i< itemset.length;i++){
+		 int item=itemset[i];
+		 //check if there is a node already in the MFP-tree
+		 MFPNode child = currentNode.hasChild(item);
+		 if(child == null ){
+//			 System.out.println((char)item+"  null");
+				MFPNode node =new MFPNode(item, i+1);	
+				node.linkFather(currentNode);
+				currentNode.linkChild(node);
+				UpdateNodeLinks(item, node);
+				
+				currentNode=node;
+		 }
+		 else{
+				currentNode=child;
+		 } 
+	 } 
+}
+	 
+//maintain two Map:itemNodeMap and itemLastNodeMap
+private void UpdateNodeLinks(int item, MFPNode newNode){
+	 if(itemLastNodeMap.containsKey(item)){
+		 MFPNode lastNode=itemLastNodeMap.get(item);
+		 lastNode.linkBrother(newNode);
+	 }
+	 //update the itemLastMap with newNode
+	itemLastNodeMap.put(item, newNode);
+	
+	//put <item,newNode> itmeNodeMap if it does not contains item
+	MFPNode headNode= itemNodeMap.get(item);
+	if(headNode == null){ itemNodeMap.put(item, newNode); }
+}
+
+
+
+	 
+}

@@ -1,0 +1,28 @@
+package algorithm.FPTreeAlgo;
+
+import java.util.Map;
+
+/**
+@author chenyankai
+@Date	Jul 19, 2017
+This is an implementation of a MFITree as used by the FPMax algorithm.
+*/
+
+public class MFPTree {
+private MFPNode root=null;
+//use core number of k-core as the minSup
+private int k=-1;
+	 
+//list of items in the header table with descending order
+private Map<Integer,Integer> headerMap=null;
+	 
+//map of Entry<item, FPNode> of the header table 
+private Map<Integer, FPNode> itemNodeMap=null;
+	 
+//map of Entry<item, Last_FPNode> of the header table 
+//for fast locate the last FPNode of the header table
+private Map<Integer, FPNode> itemLastNodeMap=null;
+	
+	 
+	 
+}
