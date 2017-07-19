@@ -1,0 +1,22 @@
+package algorithm.FPTreeAlgo;
+
+/**
+@author chenyankai
+@Date	Jul 19, 2017
+
+This is an implementation of the FPMax algorithm (Grahne et al., 2004).
+High Performance Mining of Maximal Frequent Itemsets (with J. Zhu).
+*/
+public class FPMax {
+	
+	public FPMax(){
+		
+	}
+	
+	
+	public void fpMax(){
+		
+		
+	}
+	
+}

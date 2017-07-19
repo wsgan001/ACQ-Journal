@@ -482,7 +482,6 @@ public class AlgoFPMax {
 				}
 			}
 		}
-
 	}
 
 

@@ -31,22 +31,22 @@ MFPNode lastAddedItemsetNode = null;
 public MFPTree(int k){
 	 this.root = new MFPNode(-1,0);
 	 this.k=k-1;
-	 headerMap = new HashMap<Integer,Integer>();
+//	 headerMap = new HashMap<Integer,Integer>();
 	 this.itemNodeMap = new HashMap<Integer,MFPNode>();
 	 this.itemLastNodeMap = new HashMap<Integer,MFPNode>(); 
 }
 
 
 //insert one possible MFP in the MFP-tree
-private void insert(int[] itemset,int support){
+public void insert(List<Integer> itemset,int support){
 	 MFPNode currentNode = root;
-	 for(int i=0; i< itemset.length;i++){
-		 int item=itemset[i];
+	 int i=1;
+	 for(int item:itemset){
 		 //check if there is a node already in the MFP-tree
 		 MFPNode child = currentNode.hasChild(item);
 		 if(child == null ){
 //			 System.out.println((char)item+"  null");
-				MFPNode node =new MFPNode(item, i+1);	
+				MFPNode node =new MFPNode(item, i++);	
 				node.linkFather(currentNode);
 				currentNode.linkChild(node);
 				UpdateNodeLinks(item, node);
@@ -83,7 +83,7 @@ public boolean SubsetChecking(List<Integer> headWithP) {
 	// OPTIMIZATION:
 	// We first check against the last added itemset
 	if(lastAddedItemsetNode != null) {
-		boolean isSubset = issASubsetOfPrefixPath(headWithP, lastAddedItemsetNode);
+		boolean isSubset = isASubsetOfPath(headWithP, lastAddedItemsetNode);
 		// if the itemset is a subset of the last added itemset, we do not need to check further
 		if(isSubset) {
 			return false;
@@ -94,27 +94,26 @@ public boolean SubsetChecking(List<Integer> headWithP) {
 	MFPNode node = itemNodeMap.get(lastItem);
 	// if that last item is not yet in the MFP-tree, it means that "itemset" is not a subset 
 	// of some itemset already in the tree
-	if(node == null) {
-		return true;
-	}
-	// we will loop over each node by following node links
+	if(node == null) { return true;}
+	
+	// else we will loop over each node by following node links
 	do {
 		// for a node, we will check if "headwithP" is a subset of the path ending at node
-		boolean isSubset = issASubsetOfPrefixPath(headWithP, node);
-		// if it is a subset, then "headWithP" is in the MFI-tree, we return false
+		boolean isSubset = isASubsetOfPath(headWithP, node);
+		// if it is a subset, then "headWithP" is in the MFP-tree, we return false
 		if(isSubset) {   
 			return false;
 		}
-		// go to the next itemset to test
+		// go to the next itemset to check
 		node = node.getBro();
 	}while(node != null);
 
-	// the itemset is not in the MFI-TREE.  Itemset passed the test!
+	// the itemset is not in the MFP-tree.
 	return true;
 }
 
-
-private boolean issASubsetOfPrefixPath(List<Integer> headWithP,	MFPNode node) {
+// to check headWithP is a subset of the path bottom-up from the node
+private boolean isASubsetOfPath(List<Integer> headWithP, MFPNode node) {
 	// optimization proposed in the fpmax* paper: if there is less than itemset node in that branch,
 	// we don't need to check it
 	if(node.getLevel() >= headWithP.size()) {
@@ -122,17 +121,16 @@ private boolean issASubsetOfPrefixPath(List<Integer> headWithP,	MFPNode node) {
 		// We will start comparing from the parent of "node" in the prefix path since
 		// the last item of itemset is "node".
 		MFPNode nodeToCheck = node;
-		int positionInItemset = headWithP.size()-1;
-		int itemToLookFor = headWithP.get(positionInItemset);
+		int positionInHead = headWithP.size()-1;
+		int itemToLookFor = headWithP.get(positionInHead);
+		
 		// for each item in itemset
 		do {
 			if(nodeToCheck.getItem() == itemToLookFor) {
-				positionInItemset--;
+				positionInHead--;
 				// we found the itemset completely, so the subset check test is failed
-				if(positionInItemset <0) {
-					return true;
-				}
-				itemToLookFor = headWithP.get(positionInItemset);
+				if(positionInHead < 0) { return true;}
+				itemToLookFor = headWithP.get(positionInHead);
 			}
 			nodeToCheck = nodeToCheck.getFather();
 		}while(nodeToCheck != null);
@@ -140,6 +138,26 @@ private boolean issASubsetOfPrefixPath(List<Integer> headWithP,	MFPNode node) {
 	return false;
 }
 
+//check is single path or not
+private boolean singlePath(FPNode root){
+	boolean flag=true;
+	if(root.getChild().size()==0) return false;
+	
+	while(root.getChild().size()!=0){
+		if(root.getChild().size()!=1) {
+			flag=false;
+			break;
+		}
+		root=root.getChild().iterator().next();
+	}
+	return flag;
+}
 
-	 
+
+
+
+public static void main(String[] args){
+
+	
+}
 }

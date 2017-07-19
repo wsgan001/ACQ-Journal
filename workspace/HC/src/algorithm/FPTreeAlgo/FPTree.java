@@ -14,11 +14,13 @@ public class FPTree {
  private FPNode root=null;
  
  //use core number of k-core as the minSup
- private int k=-1;
+ private int minSup=-1;
  
  //list of items in the header table with descending order
- private Map<Integer,Integer> headerMap=null;
+// private Map<Integer,Integer> headerMap=null;
  
+ private Map<Integer, Integer> headerFreMap=null;
+  
  //map of Entry<item, FPNode> of the header table 
  private Map<Integer, FPNode> itemNodeMap=null;
  
@@ -29,15 +31,41 @@ public class FPTree {
  
  public FPTree(int k){
 	 this.root = new FPNode(-1, 0);
-	 this.k=k-1;
-	 headerMap = new HashMap<Integer,Integer>();
+	 this.minSup=k+1;
+	 headerFreMap=new HashMap<Integer,Integer>();
 	 this.itemNodeMap = new HashMap<Integer,FPNode>();
 	 this.itemLastNodeMap = new HashMap<Integer,FPNode>();
 	  
  }
+  
+ public FPNode getRoot(){ return root; }
+ 
+
+ 
+ public Map<Integer, Integer> getFreMap() { return headerFreMap;}
+ 
+ public List<Integer> getHeaderList(){
+	List<Integer> headerList=new ArrayList<Integer>(headerFreMap.keySet());
+	Collections.sort(headerList,new Comparator<Integer>() {
+		@Override
+		public int compare(Integer o1,Integer o2) {	
+		// TODO Auto-generated method stub
+		// compare the frequency
+			int compare = headerList.get(o2) - headerList.get(o1);
+		// if the same frequency, we check the lexical ordering!
+			if(compare == 0){ 
+			compare = (o1 - o2);
+			return compare;
+			}
+			return compare;
+		}
+	});
+	
+	return headerList; 
+}
  
  
- 
+
  public FPNode construct(Map<Integer, int[]> database){
 	//step 1: scan the DB can obtain frequent items 
 			Scan(database);
@@ -46,7 +74,7 @@ public class FPTree {
 			for(int index:keySet){
 				int[] seq=database.get(index);
 				List<Integer> list=selectSort(seq);
-//				for(int x:list) System.out.println((char)x);
+				for(int x:list) System.out.println((char)x);
 				insert(list);
 			}
 			return root;
@@ -56,52 +84,44 @@ public class FPTree {
  //scan the database and create headerList
  private void Scan(Map<Integer, int[]> database){
 		//step1: counting tree nodes and its support
-			Map<Integer, Integer> SupMap=new HashMap<Integer,Integer>();
 			Iterator<Integer> it=database.keySet().iterator();
 			while(it.hasNext()){
 				int index=it.next();
 				for(int x:database.get(index)){
-					if(SupMap.containsKey(x)) SupMap.put(x, SupMap.get(x)+1);
-					else SupMap.put(x, 1);
+					if(headerFreMap.containsKey(x)) headerFreMap.put(x, headerFreMap.get(x)+1);
+					else headerFreMap.put(x, 1);
 				}
 			}
-				//step2: clear out those whose sup <=k
-			Iterator<Integer> it1=SupMap.keySet().iterator();
+				//step2: clear out those whose sup <minSup
+			Iterator<Integer> it1=headerFreMap.keySet().iterator();
 			while(it1.hasNext()){
 				int index=it1.next();
-				if(SupMap.get(index)<=k) it1.remove();// note here should use iterator to delete items
-			}
-				
-			//step3: sort frequent items with descending order sup and return 
-			List<Map.Entry<Integer, Integer>> tmpList=new LinkedList<Map.Entry<Integer,Integer>>(SupMap.entrySet());
-			Collections.sort(tmpList,new Comparator<Map.Entry<Integer, Integer>>() {
-				@Override
-				public int compare(Entry<Integer, Integer> o1, Entry<Integer, Integer> o2) {
-					// TODO Auto-generated method stub
-					//descending order
-					return o1.getValue()>o2.getValue()?-1:1;
-				}
-			});
-			
-			//step 4: return 
-			int order=0;
-			for(Entry<Integer, Integer> entry:tmpList)  headerMap.put(entry.getKey(),order++);
-			
+				if(headerFreMap.get(index)<minSup) it1.remove();// note here should use iterator to delete items
+			}				
 	 }
   
+ 
+ 
  private List<Integer> selectSort(int[] seq){
-		
-		int[] tmp=new int[headerMap.size()];
+		List<Integer> fixedSeq=new LinkedList<Integer>();
+		//select frequent items in seq
 		for(int x:seq){
-			if(headerMap.containsKey(x)){
-				tmp[headerMap.get(x)]=x;
-			}
+			if(headerFreMap.containsKey(x)) fixedSeq.add(x);
 		}
-		List<Integer> list=new LinkedList<Integer>();
-		for(int x:tmp){
-			if(x!=0) list.add(x);
-		} 
-		return  list;
+		//sort with descending order
+		Collections.sort(fixedSeq, new Comparator<Integer>() {
+
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				// TODO Auto-generated method stub
+				int compare=headerFreMap.get(o2)-headerFreMap.get(o1);
+				if(compare==0) return o1-o2;
+				return compare;
+						
+					
+			}
+		});
+		return fixedSeq;
 	}
  
  //insert one transaction in the FP-tree
@@ -125,6 +145,7 @@ public class FPTree {
 		 
 	 } 
  }
+ 
  
  //maintain two Map:itemNodeMap and itemLastNodeMap
  private void UpdateNodeLinks(int item, FPNode newNode){
@@ -177,6 +198,43 @@ public class FPTree {
  }
  
  
+ //check is single path or not 
+ public boolean singlePath(FPNode root){
+		boolean flag=true;
+		if(root.getChild().size()==0) return false;
+		
+		while(root.getChild().size()!=0){
+			if(root.getChild().size()!=1) {
+				flag=false;
+				break;
+			}
+			root=root.getChild().iterator().next();
+		}
+		return flag;
+	}
+ 
+ 
+ //index 0:mark the single property: 1 means single; 
+ //index 1: record the support of the single path if there exists one 
+ private int[] isSingleAndMiniSup(FPNode root){
+	 	int[] result=new int[2];
+	 	result[0]=1;
+		if(root.getChild().size()==0) {
+			result[0]=0;
+			return result;
+		}
+		
+		while(root.getChild().size()!=0){
+			if(root.getChild().size()!=1) {
+				result[0]=0;
+				break;
+			}
+			root=root.getChild().iterator().next();
+			result[1]=root.getCount();
+		}
+		return result;
+	}
+ 
  public void traverse(FPNode root){
 		System.out.println("item "+(char)root.getItem()+" count "+root.getCount());
 		Set<FPNode> nodeSet=root.getChild(); 
@@ -200,12 +258,18 @@ public class FPTree {
 		int[] b4={'b','c','k','s','p'}; map2.put(4, b4);
 		int[] b5={'a','f','c','e','l','p','m','n'}; map2.put(5, b5);
 
-		FPTree fpTree=new FPTree(3);
+		FPTree fpTree=new FPTree(1);
 		fpTree.construct(map2);
+		fpTree.traverse(fpTree.getRoot());
+//		int a[]= fpTree.getHeaderList();
+//		for(int x:a) System.out.println((char)x);
 //		fpTree.printMap();
 //		System.out.println(fpTree.singlePath(root));	
 		
 		}
-	
+
+
+
+
  
 }
