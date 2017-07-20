@@ -1,7 +1,6 @@
 package algorithm.FPTreeAlgo;
 
 import java.util.*;
-import java.util.Map.Entry;
 
 /**
 @author chenyankai
@@ -11,6 +10,7 @@ construction of FP-tree
 */
 
 public class FPTree {
+// o mark the root node
  private FPNode root=null;
  
  //use core number of k-core as the minSup
@@ -18,8 +18,9 @@ public class FPTree {
  
  //list of items in the header table with descending order
 // private Map<Integer,Integer> headerMap=null;
+// private Map<Integer, Integer> headerFreMap=null;
  
- private Map<Integer, Integer> headerFreMap=null;
+ private List<Integer> headerList= null;
   
  //map of Entry<item, FPNode> of the header table 
  private Map<Integer, FPNode> itemNodeMap=null;
@@ -32,7 +33,7 @@ public class FPTree {
  public FPTree(int k){
 	 this.root = new FPNode(0, 0);
 	 this.minSup=k+1;
-	 headerFreMap=new HashMap<Integer,Integer>();
+//	 headerFreMap=new HashMap<Integer,Integer>();
 	 this.itemNodeMap = new HashMap<Integer,FPNode>();
 	 this.itemLastNodeMap = new HashMap<Integer,FPNode>();
 	  
@@ -40,95 +41,53 @@ public class FPTree {
   
  public FPNode getRoot(){ return root; }
  
- public Map<Integer, Integer> getFreMap() { return headerFreMap;}
+// public Map<Integer, Integer> getFreMap() { return headerFreMap;}
+ 
+ public List<Integer> getHeaderList(){return headerList;}
  
  public Map<Integer, FPNode> getItemNodeMap(){return itemNodeMap;}
  
  public Map<Integer, FPNode> getItemLastNodeMap(){return itemLastNodeMap;}
 
+// public List<Integer> getHeaderList(){
+//	List<Integer> headerList=new ArrayList<Integer>(headerFreMap.keySet());
+//	Collections.sort(headerList,new Comparator<Integer>() {
+//		@Override
+//		public int compare(Integer o1,Integer o2) {	
+//		// TODO Auto-generated method stub
+//		// compare the frequency
+//			int compare = headerFreMap.get(o2) - headerFreMap.get(o1);
+//		// if the same frequency, we check the lexical ordering!
+//			if(compare == 0){ 
+//			compare = (o1 - o2);
+//			return compare;
+//			}
+//			return compare;
+//		}
+//	});
+//	
+//	return headerList; 
+//}
  
- public List<Integer> getHeaderList(){
-	List<Integer> headerList=new ArrayList<Integer>(headerFreMap.keySet());
-	Collections.sort(headerList,new Comparator<Integer>() {
-		@Override
-		public int compare(Integer o1,Integer o2) {	
-		// TODO Auto-generated method stub
-		// compare the frequency
-			int compare = headerList.get(o2) - headerList.get(o1);
-		// if the same frequency, we check the lexical ordering!
-			if(compare == 0){ 
-			compare = (o1 - o2);
-			return compare;
-			}
-			return compare;
-		}
-	});
-	
-	return headerList; 
-}
- 
+ //better implement it in FP-growth Algo
+// public FPNode construct(Map<Integer, int[]> database){
+//	//step 1: scan the DB can obtain frequent items 
+//			Scan(database);
+//	//step 2:construct fp-tree
+//			Set<Integer> keySet=database.keySet();
+//			for(int index:keySet){
+//				int[] seq=database.get(index);
+//				List<Integer> list=selectSort(seq);
+//				for(int x:list) System.out.println((char)x);
+//				insert(list);
+//			}
+//			return root; 
+// }
  
 
- public FPNode construct(Map<Integer, int[]> database){
-	//step 1: scan the DB can obtain frequent items 
-			Scan(database);
-	//step 2:construct fp-tree
-			Set<Integer> keySet=database.keySet();
-			for(int index:keySet){
-				int[] seq=database.get(index);
-				List<Integer> list=selectSort(seq);
-				for(int x:list) System.out.println((char)x);
-				insert(list);
-			}
-			return root;
-	 
- }
- 
- //scan the database and create headerList
- private void Scan(Map<Integer, int[]> database){
-		//step1: counting tree nodes and its support
-			Iterator<Integer> it=database.keySet().iterator();
-			while(it.hasNext()){
-				int index=it.next();
-				for(int x:database.get(index)){
-					if(headerFreMap.containsKey(x)) headerFreMap.put(x, headerFreMap.get(x)+1);
-					else headerFreMap.put(x, 1);
-				}
-			}
-				//step2: clear out those whose sup <minSup
-			Iterator<Integer> it1=headerFreMap.keySet().iterator();
-			while(it1.hasNext()){
-				int index=it1.next();
-				if(headerFreMap.get(index)<minSup) it1.remove();// note here should use iterator to delete items
-			}				
-	 }
-  
- 
- 
- private List<Integer> selectSort(int[] seq){
-		List<Integer> fixedSeq=new LinkedList<Integer>();
-		//select frequent items in seq
-		for(int x:seq){
-			if(headerFreMap.containsKey(x)) fixedSeq.add(x);
-		}
-		//sort with descending order
-		Collections.sort(fixedSeq, new Comparator<Integer>() {
-
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				// TODO Auto-generated method stub
-				int compare=headerFreMap.get(o2)-headerFreMap.get(o1);
-				if(compare==0) return o1-o2;
-				return compare;
-						
-					
-			}
-		});
-		return fixedSeq;
-	}
  
  //insert one transaction in the FP-tree
- private void insert(List<Integer> transaction){
+ public void insert(List<Integer> transaction){
 	 FPNode currentNode = root;
 	 for(int item : transaction){
 		 FPNode child = currentNode.hasChild(item);
@@ -165,8 +124,9 @@ public class FPTree {
  }
 	
  
+ 
  // add a prefixpath to a fp-tree.
- private void addPrefixPath(List<FPNode> prefixPath, Map<Integer, Integer> mapSupportBeta, int relativeMinsup){
+ void addPrefixPath(List<FPNode> prefixPath, Map<Integer, Integer> mapSupportBeta, int relativeMinsup){
 	// the first element of the prefix path contains the path support
 			int pathCount = prefixPath.get(0).getCount();  
 			
@@ -216,6 +176,24 @@ public class FPTree {
 		return flag;
 	}
  
+ //create headerList according to mapsupport's (key,value).
+ public void createHeaderList(final Map<Integer, Integer> mapSupport){
+		// create an array to store the header list with
+		// all the items stored in the map received as parameter
+		headerList =  new ArrayList<Integer>(itemNodeMap.keySet());
+		
+		// sort the header table by decreasing order of support
+		Collections.sort(headerList, new Comparator<Integer>(){
+			public int compare(Integer id1, Integer id2){
+				// compare the support
+				int compare = mapSupport.get(id2) - mapSupport.get(id1);
+				// if the same frequency, we check the lexical ordering!
+				// otherwise we use the support
+				return (compare == 0) ? (id1 - id2) : compare;
+			}
+		});
+	}
+ 
  
  //index 0:mark the single property: 1 means single; 
  //index 1: record the support of the single path if there exists one 
@@ -262,15 +240,24 @@ public class FPTree {
 		int[] b5={'a','f','c','e','l','p','m','n'}; map2.put(5, b5);
 
 		FPTree fpTree=new FPTree(1);
-		fpTree.construct(map2);
-		fpTree.traverse(fpTree.getRoot());
+//		fpTree.construct(map2);
+//		fpTree.traverse(fpTree.getRoot());
 //		int a[]= fpTree.getHeaderList();
 //		for(int x:a) System.out.println((char)x);
 //		fpTree.printMap();
 //		System.out.println(fpTree.singlePath(root));	
+		fpTree.test(1);
+		
+		
 		
 		}
 
+public void test(int i){
+	if(i!=10) {
+		System.out.println(i);
+		test(++i);}
+	System.out.println("check"+i);
+}
 
 
 

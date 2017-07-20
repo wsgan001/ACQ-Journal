@@ -380,14 +380,17 @@ public class AlgoFPMax {
 					}  
 					// Mine recursively the Beta tree if the root has child(s)
 					if(treeBeta.root.childs.size() > 0){
-
-						// Create the header list.
+						// Create the header list. 
+//**********************  Jul 20, 2017 CYK:  must follow the orginal global headerList order
+						// to sort the conditional pattern base!
 						treeBeta.createHeaderList(originalMapSupport); 
 						
 						// recursive call
 						fpMax(treeBeta, prefix, prefixLength+1, betaSupport, mapSupportBeta);
 					}
 					
+					
+					//??why check beta 
 					// ======= After that, we still need to check if beta is a maximal itemset ====
 					List<Integer> temp = new ArrayList<Integer>(mapSupportBeta.size() + prefixLength+1);
 					for(int z=0; z < prefixLength+1; z++) {

@@ -36,6 +36,7 @@ public MFPTree(int k){
 	 this.itemLastNodeMap = new HashMap<Integer,MFPNode>(); 
 }
 
+public MFPNode getRoot(){ return root;}
 
 //insert one possible MFP in the MFP-tree
 public void insert(List<Integer> itemset,int support){
@@ -153,7 +154,16 @@ private boolean singlePath(FPNode root){
 	return flag;
 }
 
-
+public void traverse(MFPNode root){
+	System.out.print("item ");
+	System.out.print((char)root.getItem()+"  ");
+	
+	Set<MFPNode> nodeSet=root.getChild(); 
+	for(MFPNode node:nodeSet) {
+		System.out.println("%%%%%%%%%%");
+		traverse(node);
+	}
+}
 
 
 public static void main(String[] args){
