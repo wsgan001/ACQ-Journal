@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -86,7 +87,7 @@ public class AlgoFPMax {
 	private Map<Integer, Integer> originalMapSupport = null;
 	
 	// If set to true, the algorithm will show  information for debugging in the console
-	private final boolean DEBUG = false;
+	private final boolean DEBUG = true;
 	
 	// Comparator to compare the items based on the order of decreasing support in the original DB.
 	Comparator<Integer> comparatorOriginalOrder = new Comparator<Integer>(){
@@ -118,7 +119,7 @@ public class AlgoFPMax {
 	 * @return the result if no output file path is provided.
 	 * @throws IOException exception if error reading or writing files
 	 */
-	public Itemsets runAlgorithm(String input, String output, double minsupp) throws FileNotFoundException, IOException {
+	public Itemsets runAlgorithm(String input, String output, int minsupp) throws FileNotFoundException, IOException {
 		// record start time
 		startTimestamp = System.currentTimeMillis();
 		// number of itemsets found
@@ -144,7 +145,7 @@ public class AlgoFPMax {
 
 		// convert the minimum support as percentage to a
 		// relative minimum support
-		this.minSupportRelative = (int) Math.ceil(minsupp * transactionCount);
+		this.minSupportRelative = minsupp;
 		
 
 		// Create the MFI Tree
@@ -173,7 +174,10 @@ public class AlgoFPMax {
 			
 			// for each item in the transaction
 			for(String itemString : lineSplited){  
-				Integer item = Integer.parseInt(itemString);
+//				System.out.println(itemString);
+				
+//				Integer item = Integer.parseInt();
+				int item = itemString.charAt(0);
 				// only add items that have the minimum support
 				if(originalMapSupport.get(item) >= minSupportRelative){
 					transaction.add(item);	
@@ -196,7 +200,7 @@ public class AlgoFPMax {
 		// (5) We start to mine the FP-Tree by calling the recursive method.
 		// Initially, the prefix alpha is empty.
 		// if at least an item is frequent
-		if(tree.headerList.size() > 0) {
+		if(tree.headerList.size() > 0){
 			// initialize the buffer for storing the current itemset
 			itemsetBuffer = new int[BUFFERS_SIZE];
 			// Next we will recursively generate frequent itemsets using the fp-tree
@@ -218,6 +222,7 @@ public class AlgoFPMax {
 	}
 
 	
+	
 	/**
 	 * Mine an FP-Tree having more than one path.
 	 * @param tree  the FP-tree
@@ -230,7 +235,7 @@ public class AlgoFPMax {
 		if(DEBUG) {
 			System.out.print("###### Prefix: ");
 			for(int k=0; k< prefixLength; k++) {
-				System.out.print(prefix[k] + "  ");
+				System.out.print((char)prefix[k] + "  ");
 			}
 			System.out.println("\n");
 			System.out.println(tree);
@@ -281,7 +286,14 @@ public class AlgoFPMax {
 			for(int i = tree.headerList.size()-1; i>=0; i--){
 				// get the item
 				Integer item = tree.headerList.get(i);
-				
+				System.out.println("prefix on: "+item);
+				System.out.print("prefix now:  ");
+				for(int x:prefix){
+					if (x!=0)
+					System.out.print("  "+x);
+				}
+				System.out.println();
+
 				// get the item support
 				int support = mapSupport.get(item);
 
@@ -345,6 +357,9 @@ public class AlgoFPMax {
 				// concatenate the prefix
 				for(int z=0; z < prefixLength+1; z++) {
 					headWithP.add(prefix[z]);
+				}
+				if(DEBUG) {
+					System.out.println(" CHECK1 : " + headWithP);
 				}
 				// concatenate the other FREQUENT items in the pattern base
 				// for each item
@@ -445,7 +460,7 @@ public class AlgoFPMax {
 			StringBuilder buffer = new StringBuilder();
 			// write the items of the itemset
 			for(int i=0; i< itemsetLength; i++){
-				buffer.append(itemsetCopy[i]);
+				buffer.append((char)itemsetCopy[i]);
 				if(i != itemsetLength-1){
 					buffer.append(' ');
 				}
@@ -514,7 +529,8 @@ public class AlgoFPMax {
 			// for each item
 			for(String itemString : lineSplited){  
 				// increase the support count of the item
-				Integer item = Integer.parseInt(itemString);
+//				Integer item = Integer.parseInt(itemString);
+				int item=itemString.charAt(0);
 				// increase the support count of the item
 				Integer count = mapSupport.get(item);
 				if(count == null){
@@ -553,4 +569,7 @@ public class AlgoFPMax {
 	public int getDatabaseSize() {
 		return transactionCount;
 	}
+	
+	
+	
 }

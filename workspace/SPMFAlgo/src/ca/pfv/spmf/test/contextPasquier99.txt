@@ -1,5 +1,5 @@
-1 3 4
-2 3 5
-1 2 3 5
-2 5 
-1 2 3 5 
+f a c d g i m p
+a b c f l m o
+b f h j o
+b c k s p
+a f c e l p m n

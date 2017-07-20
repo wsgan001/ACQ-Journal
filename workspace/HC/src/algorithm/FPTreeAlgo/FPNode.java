@@ -74,4 +74,21 @@ public class FPNode {
 		 count++;
 	}
 	
+	//for output tree
+	public String toString(String indent){
+		StringBuilder output = new StringBuilder();
+		output.append(""+ this.item);
+		output.append(" (count="+this.count);
+		output.append(")\n");
+		String newIndent = indent + "   ";
+		for (FPNode child : childSet) {
+			output.append(newIndent+ child.toString(newIndent));
+		}
+		return output.toString();
+	}
+	
+	public String toString() {
+		return ""+this.item;
+	}
+	
 }

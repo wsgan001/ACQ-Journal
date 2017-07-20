@@ -2,6 +2,7 @@ package algorithm.FPTreeAlgo;
 
 import java.util.*;
 
+
 /**
 @author chenyankai
 @Date	Jul 18, 2017
@@ -219,8 +220,18 @@ public class FPTree {
  public void traverse(FPNode root){
 		System.out.println("item "+(char)root.getItem()+" count "+root.getCount());
 		Set<FPNode> nodeSet=root.getChild(); 
-		for(FPNode node:nodeSet) traverse(node);
-		
+		for(FPNode node:nodeSet) traverse(node);	
+	}
+ 
+ 
+  // overwrite for string output of the tree
+	public String toString() {
+		String temp = "F";
+		// append header list
+		temp += " HeaderList: "+ headerList + "\n";
+		// append child nodes
+		temp += root.toString("");
+		return temp;
 	}
  
  public static void main(String[] args){
@@ -240,25 +251,17 @@ public class FPTree {
 		int[] b5={'a','f','c','e','l','p','m','n'}; map2.put(5, b5);
 
 		FPTree fpTree=new FPTree(1);
-//		fpTree.construct(map2);
+		
 //		fpTree.traverse(fpTree.getRoot());
 //		int a[]= fpTree.getHeaderList();
 //		for(int x:a) System.out.println((char)x);
 //		fpTree.printMap();
 //		System.out.println(fpTree.singlePath(root));	
-		fpTree.test(1);
+		
 		
 		
 		
 		}
-
-public void test(int i){
-	if(i!=10) {
-		System.out.println(i);
-		test(++i);}
-	System.out.println("check"+i);
-}
-
 
 
  

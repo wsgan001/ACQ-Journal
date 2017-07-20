@@ -56,6 +56,7 @@ public class FPMax {
 		globalFreMap=Scan(database);
 		FPTree fpTree=new FPTree(this.minSup-1);
 		this.fpRoot=fpTree.getRoot();
+		
 		//second scan to build the FP-tree
 		Iterator<Integer> it=database.keySet().iterator();
 		while(it.hasNext()){
@@ -63,18 +64,25 @@ public class FPMax {
 			List<Integer> fixedSeq=SelectSort(database.get(index));
 			fpTree.insert(fixedSeq);		
 		}
+//		System.out.println(fpTree);
 		fpTree.createHeaderList(globalFreMap);
 //		for(int x:itemBuffer) System.out.print(x+ "   ");
 		if(fpTree.getHeaderList().size()>0){
 			
 			fpMax(fpTree, itemBuffer, database.size(), globalFreMap);
 		}
-		
 	}
 	
 	
 	//prefix:head+ i 
 	public void fpMax(FPTree fpTree,List<Integer> prefix,int prefixSup,Map<Integer, Integer> mapSupport){
+		System.out.print("###### Prefix: ");
+		for(int k=0; k< prefix.size(); k++){
+			System.out.print( prefix.get(k)+"  ");
+		}
+		System.out.println();
+		System.out.println(fpTree);
+		
 		//get the result of single path property 
 		//and get the support of the single path if there exists one
 		FPNode root=fpTree.getRoot();
@@ -86,7 +94,13 @@ public class FPMax {
 		//case 1:the FPtree contains a single path
 		if(singlePath && singlePathSup>=minSup){
 			mfpTree.insert(itemBuffer, singlePathSup);
+			System.out.print(" ##### SAVING : ");
+			for(int i=0; i< itemBuffer.size(); i++) {
+				System.out.print(itemBuffer.get(i) + "  ");
+			}
+			System.out.println("\n");
 		}
+		
 		//case 2: the fptree contains more than a single path 
 		else{
 			List<Integer> headerList=fpTree.getHeaderList();
@@ -96,9 +110,9 @@ public class FPMax {
 			for(int i=headerList.size()-1;i>=0;i--){
 				int item=headerList.get(i);
 				int support=mapSupport.get(item);
-				
 				//Beta = ai U a (i U Head as described in paper); 
 				//caculate the support of Beta
+				System.out.println("prefix on: "+item+" prefix now:"+prefix);
 				prefix.add(item);
 				
 				int betaSupport=support>prefixSup?prefixSup:support;
@@ -157,7 +171,7 @@ public class FPMax {
 					headWithP.add(prefix.get(z));
 					
 				}
-				
+				System.out.println(" CHECK1 : " + headWithP);
 				// concatenate the other FREQUENT items in the pattern base
 				// for each item
 				for(Entry<Integer,Integer> entry: BetaSupportMap.entrySet()) {
@@ -170,10 +184,11 @@ public class FPMax {
 				// Sort Beta(head) U tail according to the original header list total order on items
 				// sort item in the transaction by descending order of support
 				Collections.sort(headWithP, descendingOrder);
-				
+				System.out.println(" CHECK2 : " + headWithP);
 				
 				// CHECK IF HEAD U P IS A SUBSET OF A MFP ACCORDING TO THE MF-TREE
 				if(mfpTree.SubsetChecking(headWithP)) {
+					System.out.println("    passed!");
 					// (B) Construct beta's conditional FP-Tree using its prefix path
 					// Create the tree.
 					FPTree treeBeta = new FPTree(0);
@@ -201,9 +216,7 @@ public class FPMax {
 //						saveItemset(prefix, prefixLength+1, betaSupport);
 //					}
 					//===========================================================
-				}
-				
-			
+				}	
 			}	
 		}	
 	}
@@ -242,22 +255,21 @@ public class FPMax {
 		return fixedSeq;
 	}
 	
-	
 //index 0:mark the single property: 1 means single; 
 //index 1: record the support of the single path if there exists one
 //in the meanwhile, use itemBuffer to store the items in the single path
 	private int[] isSingleAndMiniSup(FPNode root){
-	  		
 		 	int[] result=new int[2];
-		 	result[0]=1;
-			if(root.getChild().size()==0) {
-				result[0]=0;
+		 	//check root node 
+			if(root.getChild().size()==0 ||root.getChild().size()>1) {
 				//clear the buffer
-				itemBuffer.clear();
 				return result;
 			}
-			root=root.getChild().iterator().next();
-			
+			else{
+				result[0]=1;
+				root=root.getChild().iterator().next();
+			}
+			//recursively check its child 
 			while(root.getChild().size()!=0){
 				if(root.getChild().size()!=1) {
 					result[0]=0;
