@@ -67,19 +67,20 @@ public class FPMax {
 //		System.out.println(fpTree);
 		fpTree.createHeaderList(globalFreMap);
 //		for(int x:itemBuffer) System.out.print(x+ "   ");
-		List<Integer> list=new ArrayList<Integer>();
+		List<Integer> list=fpTree.getHeaderList();
+		
 		if(fpTree.getHeaderList().size()>0){
-			fpMax(fpTree, list, database.size(), globalFreMap);
+			fpMax(fpTree, itemBuffer,0, database.size(), globalFreMap);
 		}
 	}
 	
 	
 	//prefix:head+ i 
-	public void fpMax(FPTree fpTree,List<Integer> prefix,int prefixSup,Map<Integer, Integer> mapSupport){
+	public void fpMax(FPTree fpTree,List<Integer> prefix,int prefixLen,int prefixSup,Map<Integer, Integer> mapSupport){
 		System.out.println("*****************************************");
 		System.out.println("prefix size: "+prefix.size());
 		System.out.print("###### Prefix:   ");
-		for(int k=0; k< prefix.size(); k++){
+		for(int k=0; k< prefixLen; k++){
 			System.out.print( prefix.get(k)+"  ");
 		}
 		System.out.println();
@@ -88,13 +89,13 @@ public class FPMax {
 		//get the result of single path property 
 		//and get the support of the single path if there exists one
 		FPNode root=fpTree.getRoot();
-		int[] result=isSingleAndMiniSup(root,prefix.size());
+		int[] result=isSingleAndMiniSup(root,prefixLen);
 		boolean singlePath=result[0]==1? true:false;
 		int singlePathSup=result[1];
 		int position=result[2];
 //		for(int x:prefix) System.out.print(x+"  ");
 //		System.out.println(result[0]+"      result   "+result[1]+"  next");
-
+		
 		//case 1:the FPtree contains a single path
 		if(singlePath && singlePathSup>=minSup){
 			System.out.println("case 1");
@@ -102,7 +103,6 @@ public class FPMax {
 				if(x!=0) System.out.print(x+"  ");
 			}
 			List<Integer> list=new LinkedList<Integer>(itemBuffer);
-			list.addAll(prefix);
 			Collections.sort(list, descendingOrder);
 			
 			System.out.print(" ##### SAVING : ");
@@ -133,11 +133,10 @@ public class FPMax {
 				System.out.println("prefix on: "+item);
 //				if(prefix.size()>0) prefix.remove(0);
 //				
-//				if(prefix.size()>prefix.size()) prefix.set(prefix.size()-1, item);
-//				else {
-//					prefix.add(item);
-//				}
-				prefix.add(item);
+				if(prefix.size()>prefixLen) prefix.set(prefixLen, item);
+				else {
+					prefix.add(item);
+				}
 				System.out.println(" prefix now:"+prefix);
 
 				int betaSupport=(support>prefixSup)?prefixSup:support;
@@ -193,7 +192,7 @@ public class FPMax {
 				// 3: headWithP= Head U tail
 				List<Integer> headWithP = new ArrayList<Integer>(BetaSupportMap.size() + prefix.size());
 				// concatenate the prefix
-				for(int z=0; z < prefix.size(); z++){
+				for(int z=0; z < prefixLen+1; z++){
 					headWithP.add(prefix.get(z));
 				}
 				System.out.println(" CHECK1 : " + headWithP);
@@ -227,7 +226,7 @@ public class FPMax {
 						// Create the header list.
 						treeBeta.createHeaderList(globalFreMap); 	
 						// recursive call
-						fpMax(treeBeta, prefix,betaSupport, BetaSupportMap);
+						fpMax(treeBeta, prefix, prefixLen+1,betaSupport, BetaSupportMap);
 					}
 					
 					// ======= After that, we still need to check if beta is a maximal itemset ====
@@ -242,7 +241,7 @@ public class FPMax {
 //					}
 					//===========================================================
 				}else{System.out.println("    failed!");}	
-				prefix.remove(prefix.size()-1);
+//				prefix.remove(prefix.size()-1);
 			}	
 			
 		}	
@@ -286,7 +285,7 @@ public class FPMax {
 //index 1: record the support of the single path if there exists one
 //in the meanwhile, use itemBuffer to store the items in the single path
 	private int[] isSingleAndMiniSup(FPNode root,int position){
-			itemBuffer.clear();
+			
 		 	int[] result=new int[3];
 		 	//check root node 
 			if(root.getChild().size()==0||root.getChild().size()>1) {

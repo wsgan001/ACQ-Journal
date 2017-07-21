@@ -67,9 +67,10 @@ public class FPMax {
 //		System.out.println(fpTree);
 		fpTree.createHeaderList(globalFreMap);
 //		for(int x:itemBuffer) System.out.print(x+ "   ");
-		List<Integer> list=new ArrayList<Integer>();
+		List<Integer> list=fpTree.getHeaderList();
+		
 		if(fpTree.getHeaderList().size()>0){
-			fpMax(fpTree, list, database.size(), globalFreMap);
+			fpMax(fpTree, itemBuffer, database.size(), globalFreMap);
 		}
 	}
 	
@@ -94,7 +95,7 @@ public class FPMax {
 		int position=result[2];
 //		for(int x:prefix) System.out.print(x+"  ");
 //		System.out.println(result[0]+"      result   "+result[1]+"  next");
-
+		
 		//case 1:the FPtree contains a single path
 		if(singlePath && singlePathSup>=minSup){
 			System.out.println("case 1");
@@ -102,7 +103,6 @@ public class FPMax {
 				if(x!=0) System.out.print(x+"  ");
 			}
 			List<Integer> list=new LinkedList<Integer>(itemBuffer);
-			list.addAll(prefix);
 			Collections.sort(list, descendingOrder);
 			
 			System.out.print(" ##### SAVING : ");
@@ -286,7 +286,7 @@ public class FPMax {
 //index 1: record the support of the single path if there exists one
 //in the meanwhile, use itemBuffer to store the items in the single path
 	private int[] isSingleAndMiniSup(FPNode root,int position){
-			itemBuffer.clear();
+			
 		 	int[] result=new int[3];
 		 	//check root node 
 			if(root.getChild().size()==0||root.getChild().size()>1) {
