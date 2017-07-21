@@ -233,6 +233,8 @@ public class AlgoFPMax {
 	private void fpMax(FPTree tree, int [] prefix, int prefixLength, int prefixSupport, Map<Integer, Integer> mapSupport) throws IOException {
 //		======= DEBUG ========
 		if(DEBUG) {
+			int count=0; for(int x:prefix){if(x!=0) count++;}
+			System.out.println("prefix size check: "+count+" parma: "+ prefixLength);
 			System.out.print("###### Prefix: ");
 			for(int k=0; k< prefixLength; k++) {
 				System.out.print((char)prefix[k] + "  ");
@@ -275,18 +277,29 @@ public class AlgoFPMax {
 			}
 		}
 		
+		
 		// Case 1: the FPtree contains a single path
 		if(singlePath && singlePathSupport >= minSupportRelative){	
 			// We save the path, because it is a maximal itemset
+			for(int x:itemsetBuffer){
+				if(x!=0) System.out.print(x+"  ");
+			}
 			saveItemset(itemsetBuffer, position, singlePathSupport);
 		}else {
 			// Case 2: There are multiple paths.
-			
+			System.out.println("!!! "+tree.headerList.size());
+
 			// For each frequent item in the header table list of the tree in reverse order. (in decreasing order of support...)
 			for(int i = tree.headerList.size()-1; i>=0; i--){
+				for(int x:itemsetBuffer){
+					if(x!=0) System.out.print(x+"  ");
+				}
 				// get the item
 				Integer item = tree.headerList.get(i);
 				System.out.println("prefix on: "+item);
+				
+				prefix[prefixLength] = item;
+				
 				System.out.print("prefix now:  ");
 				for(int x:prefix){
 					if (x!=0)
@@ -298,7 +311,7 @@ public class AlgoFPMax {
 				int support = mapSupport.get(item);
 
 				// Create Beta by concatening item to the current prefix  alpha
-				prefix[prefixLength] = item;
+				
 				
 				// calculate the support of the new prefix beta
 				int betaSupport = (prefixSupport < support) ? prefixSupport: support;
@@ -380,6 +393,7 @@ public class AlgoFPMax {
 				}
 				//========== END DEBUG =======
 				
+				
 				// CHECK IF HEAD U P IS A SUBSET OF A MFI ACCORDING TO THE MFI-TREE
 				if(mfiTree.passSubsetChecking(headWithP)) {
 					
@@ -401,21 +415,22 @@ public class AlgoFPMax {
 						treeBeta.createHeaderList(originalMapSupport); 
 						
 						// recursive call
+						System.out.println("going to fpmax");
 						fpMax(treeBeta, prefix, prefixLength+1, betaSupport, mapSupportBeta);
 					}
 					
 					
 					//??why check beta 
 					// ======= After that, we still need to check if beta is a maximal itemset ====
-					List<Integer> temp = new ArrayList<Integer>(mapSupportBeta.size() + prefixLength+1);
-					for(int z=0; z < prefixLength+1; z++) {
-						temp.add(prefix[z]);
-					}
-					Collections.sort(temp, comparatorOriginalOrder);
-					// if beta pass the test, we save it
-					if(mfiTree.passSubsetChecking(temp)) {
-						saveItemset(prefix, prefixLength+1, betaSupport);
-					}
+//					List<Integer> temp = new ArrayList<Integer>(mapSupportBeta.size() + prefixLength+1);
+//					for(int z=0; z < prefixLength+1; z++) {
+//						temp.add(prefix[z]);
+//					}
+//					Collections.sort(temp, comparatorOriginalOrder);
+//					// if beta pass the test, we save it
+//					if(mfiTree.passSubsetChecking(temp)) {
+//						saveItemset(prefix, prefixLength+1, betaSupport);
+//					}
 					//===========================================================
 				}
 				else if (DEBUG){

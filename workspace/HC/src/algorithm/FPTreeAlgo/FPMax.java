@@ -67,17 +67,19 @@ public class FPMax {
 //		System.out.println(fpTree);
 		fpTree.createHeaderList(globalFreMap);
 //		for(int x:itemBuffer) System.out.print(x+ "   ");
+		List<Integer> list=fpTree.getHeaderList();
+		
 		if(fpTree.getHeaderList().size()>0){
-			
-			fpMax(fpTree, itemBuffer, database.size(), globalFreMap);
+			fpMax(fpTree, itemBuffer,0, database.size(), globalFreMap);
 		}
 	}
 	
 	
 	//prefix:head+ i 
-	public void fpMax(FPTree fpTree,List<Integer> prefix,int prefixSup,Map<Integer, Integer> mapSupport){
-		System.out.print("###### Prefix: ");
-		for(int k=0; k< prefix.size(); k++){
+	public void fpMax(FPTree fpTree,List<Integer> prefix,int prefixLen,int prefixSup,Map<Integer, Integer> mapSupport){
+		System.out.println("prefix size: "+prefix.size());
+		System.out.print("###### Prefix:   ");
+		for(int k=0; k< prefixLen; k++){
 			System.out.print( prefix.get(k)+"  ");
 		}
 		System.out.println();
@@ -86,36 +88,58 @@ public class FPMax {
 		//get the result of single path property 
 		//and get the support of the single path if there exists one
 		FPNode root=fpTree.getRoot();
-		int[] result=isSingleAndMiniSup(root);
+		int[] result=isSingleAndMiniSup(root,prefixLen);
 		boolean singlePath=result[0]==1? true:false;
 		int singlePathSup=result[1];
+		int position=result[2];
 //		for(int x:prefix) System.out.print(x+"  ");
+		System.out.println(result[0]+"      result   "+result[1]+"  next");
 		
 		//case 1:the FPtree contains a single path
 		if(singlePath && singlePathSup>=minSup){
-			mfpTree.insert(itemBuffer, singlePathSup);
-			System.out.print(" ##### SAVING : ");
-			for(int i=0; i< itemBuffer.size(); i++) {
-				System.out.print(itemBuffer.get(i) + "  ");
+			
+			for(int x:itemBuffer){
+				if(x!=0) System.out.print(x+"  ");
 			}
+			List<Integer> list=new LinkedList<Integer>(itemBuffer);
+			Collections.sort(list, descendingOrder);
+			
+			System.out.print(" ##### SAVING : ");
+			for(int i:list) { System.out.print(i + "  ");}
 			System.out.println("\n");
+			mfpTree.insert(list,result[2] ,singlePathSup);
 		}
 		
 		//case 2: the fptree contains more than a single path 
 		else{
+			
+			
 			List<Integer> headerList=fpTree.getHeaderList();
+		
 //			Map<Integer, Integer> FreMap=fpTree.getFreMap();
 			//for each frequent item in the header list in reverse order
-			
+			System.out.println("!!! "+headerList.size());
 			for(int i=headerList.size()-1;i>=0;i--){
+				
+				for(int x:itemBuffer){
+					if(x!=0) System.out.print(x+"  ");
+				}
+				
+				
 				int item=headerList.get(i);
 				int support=mapSupport.get(item);
 				//Beta = ai U a (i U Head as described in paper); 
 				//caculate the support of Beta
-				System.out.println("prefix on: "+item+" prefix now:"+prefix);
-				prefix.add(item);
-				
-				int betaSupport=support>prefixSup?prefixSup:support;
+				System.out.println("prefix on: "+item);
+//				if(prefix.size()>0) prefix.remove(0);
+//				
+				if(prefix.size()>prefixLen) prefix.set(prefixLen, item);
+				else {
+					prefix.add(item);
+				}
+				System.out.println(" prefix now:"+prefix);
+
+				int betaSupport=(support>prefixSup)?prefixSup:support;
 				
 				//Step 1: construct Beta's conditional pattern base
 				List<List<FPNode>> prefixPaths= new ArrayList<List<FPNode>>();
@@ -127,6 +151,7 @@ public class FPMax {
 				
 				while(pathStart != null){
 					// if the path is not just the root node and itself 
+					//still unconfirmed
 					if(pathStart.getItem() != 0){
 						// create the prefixpath
 						List<FPNode> prefixPath = new ArrayList<FPNode>();
@@ -167,7 +192,7 @@ public class FPMax {
 				// 3: headWithP= Head U tail
 				List<Integer> headWithP = new ArrayList<Integer>(BetaSupportMap.size() + prefix.size());
 				// concatenate the prefix
-				for(int z=0; z < prefix.size(); z++) {
+				for(int z=0; z < prefixLen+1; z++) {
 					headWithP.add(prefix.get(z));
 					
 				}
@@ -197,12 +222,14 @@ public class FPMax {
 						treeBeta.addPrefixPath(prefixPath, BetaSupportMap, minSup); 
 					}  
 					// Mine recursively the Beta tree if the root has child(s)
-					if(treeBeta.singlePath(treeBeta.getRoot()) ){
+//					if(treeBeta.singlePath(treeBeta.getRoot()) ){
+					if(treeBeta.getRoot().getChild().size()>0){
+
 						// Create the header list.
 						treeBeta.createHeaderList(globalFreMap); 
 						
 						// recursive call
-						fpMax(treeBeta, prefix, betaSupport, BetaSupportMap);
+						fpMax(treeBeta, prefix, prefixLen+1,betaSupport, BetaSupportMap);
 					}
 					
 					// ======= After that, we still need to check if beta is a maximal itemset ====
@@ -216,8 +243,9 @@ public class FPMax {
 //						saveItemset(prefix, prefixLength+1, betaSupport);
 //					}
 					//===========================================================
-				}	
+				}else{System.out.println("    failed!");}	
 			}	
+//			prefix.remove(prefix.size()-1);
 		}	
 	}
 	
@@ -258,10 +286,11 @@ public class FPMax {
 //index 0:mark the single property: 1 means single; 
 //index 1: record the support of the single path if there exists one
 //in the meanwhile, use itemBuffer to store the items in the single path
-	private int[] isSingleAndMiniSup(FPNode root){
-		 	int[] result=new int[2];
+	private int[] isSingleAndMiniSup(FPNode root,int position){
+			
+		 	int[] result=new int[3];
 		 	//check root node 
-			if(root.getChild().size()==0 ||root.getChild().size()>1) {
+			if(root.getChild().size()==0||root.getChild().size()>1) {
 				//clear the buffer
 				return result;
 			}
@@ -269,17 +298,23 @@ public class FPMax {
 				result[0]=1;
 				root=root.getChild().iterator().next();
 			}
+			
 			//recursively check its child 
-			while(root.getChild().size()!=0){
-				if(root.getChild().size()!=1) {
+			while(true){
+				if(root.getChild().size()>1) {
 					result[0]=0;
 					//clear the buffer
 					itemBuffer.clear();
 					break;
 				}
-				itemBuffer.add(root.getItem());
-				root=root.getChild().iterator().next();
+				if(itemBuffer.size()>position) itemBuffer.set(position, root.getItem());
+				else itemBuffer.add(root.getItem());
+				position++;
 				result[1]=root.getCount();
+				if(root.getChild().size()==0){break;}
+				
+				root=root.getChild().iterator().next();
+				result[2]=position;
 			}
 			return result;
 }

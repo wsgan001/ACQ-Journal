@@ -124,8 +124,6 @@ public class FPTree {
 	if(headNode == null){ itemNodeMap.put(item, newNode); }
  }
 	
- 
- 
  // add a prefixpath to a fp-tree.
  void addPrefixPath(List<FPNode> prefixPath, Map<Integer, Integer> mapSupportBeta, int relativeMinsup){
 	// the first element of the prefix path contains the path support

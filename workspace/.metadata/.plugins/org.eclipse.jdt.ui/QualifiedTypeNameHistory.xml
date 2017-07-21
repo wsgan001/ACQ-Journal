@@ -51,13 +51,13 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="algorithm.FPTreeAlgo.FPMax"/>
 <fullyQualifiedTypeName name="algorithm.FPTreeAlgo.MFPTree"/>
 <fullyQualifiedTypeName name="algorithm.FPTreeAlgo.MFPNode"/>
 <fullyQualifiedTypeName name="algorithm.FPTreeAlgo.FPTree"/>
 <fullyQualifiedTypeName name="org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParser"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

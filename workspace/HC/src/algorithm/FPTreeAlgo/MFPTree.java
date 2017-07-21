@@ -39,15 +39,16 @@ public MFPTree(int k){
 public MFPNode getRoot(){ return root;}
 
 //insert one possible MFP in the MFP-tree
-public void insert(List<Integer> itemset,int support){
+public void insert(List<Integer> itemset,int itemsetLen,int support){
 	 MFPNode currentNode = root;
-	 int i=1;
-	 for(int item:itemset){
+	
+	 for(int i=0;i<=itemsetLen;i++){
+		 int item=itemset.get(i);
 		 //check if there is a node already in the MFP-tree
 		 MFPNode child = currentNode.hasChild(item);
 		 if(child == null ){
 //			 System.out.println((char)item+"  null");
-				MFPNode node =new MFPNode(item, i++);	
+				MFPNode node =new MFPNode(item, i+1);	
 				node.linkFather(currentNode);
 				currentNode.linkChild(node);
 				UpdateNodeLinks(item, node);
