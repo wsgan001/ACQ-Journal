@@ -65,7 +65,7 @@ public static void main(String []args){
 	
 	String nodes[][] = new String[7][];
 	String k1[] = {"A", "x", "y"};nodes[1] = k1;
-	String k2[] = {"B", "x", "y"};				nodes[2] = k2;
+	String k2[] = {"B", "x","y"};				nodes[2] = k2;
 	String k3[] = {"C", "x"};			nodes[3] = k3;
 	String k4[] = {"D", "x"};		nodes[4] = k4;
 	String k5[] = {"E", "y"};			nodes[5] = k5;
