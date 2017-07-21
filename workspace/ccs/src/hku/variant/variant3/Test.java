@@ -24,11 +24,11 @@ public class Test {
 		int queryId = 152532;
 		String inKws[] = {"data", "mine", "analysis", "network"};
 		
-		BasicGV3 bg3 = new BasicGV3(graph, nodes);
-		bg3.query(queryId, inKws);
-		
-		BasicWV3 bw3 = new BasicWV3(graph, nodes);
-		bw3.query(queryId, inKws);
+//		BasicGV3 bg3 = new BasicGV3(graph, nodes);
+//		bg3.query(queryId, inKws);
+//		
+//		BasicWV3 bw3 = new BasicWV3(graph, nodes);
+//		bw3.query(queryId, inKws);
 		
 		DecV3 dv3 = new DecV3(graph, nodes, root, core);
 		dv3.query(queryId, inKws);

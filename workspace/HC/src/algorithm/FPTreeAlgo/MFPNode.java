@@ -3,6 +3,7 @@ package algorithm.FPTreeAlgo;
 
 import java.util.*;
 
+
 /**
 @author chenyankai
 @Date	Jul 19, 2017
@@ -72,6 +73,25 @@ public class MFPNode {
 
 	public void IncLevel(){
 		this.level++;
+	}
+	
+	/**
+	 * Method for getting a string representation of this tree 
+	 * (to be used for debugging purposes).
+	 * @param an indentation
+	 * @return a string
+	 */
+	public String toString(String indent) {
+		StringBuilder output = new StringBuilder();
+		output.append(""+ (char)this.item);
+//		output.append(" (count="+ counter);
+		output.append(" (level="+ level);
+		output.append(")\n");
+		String newIndent = indent + "   ";
+		for (MFPNode child : childSet) {
+			output.append(newIndent+ child.toString(newIndent));
+		}
+		return output.toString();
 	}
 	
 }

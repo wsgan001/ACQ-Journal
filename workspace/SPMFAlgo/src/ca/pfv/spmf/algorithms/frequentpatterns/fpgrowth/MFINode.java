@@ -77,7 +77,7 @@ public class MFINode {
 		StringBuilder output = new StringBuilder();
 		output.append(""+ itemID);
 //		output.append(" (count="+ counter);
-		output.append(" level="+ level);
+		output.append(" (level="+ level);
 		output.append(")\n");
 		String newIndent = indent + "   ";
 		for (MFINode child : childs) {

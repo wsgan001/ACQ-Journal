@@ -130,12 +130,12 @@ public class Dec {
 				qualifiedCC = ccsList.size();
 //				System.out.println("we have found " + ccsList.size() + " acs len:" + len);
 //				System.out.println(ccsList.toString());
-//				for(String[] s:kwList) for(int i=0;i<s.length;i++ )System.out.println(s[i]);
-				break;
+//				for(String[] s:kwList) for(int i=0;i<s.length;i++ ) System.out.println(s[i]);
+//				break;
 			}
 		}
 		
-//		System.out.println(ccsList.toString());
+		System.out.println(ccsList.size());
 		return ccsList;
 		
 	}
@@ -254,7 +254,7 @@ public class Dec {
 				ccsSet = finder.findRobustCCS();
 				if(ccsSet.size() > 1){
 					rsList.add(ccsSet);
-//					System.out.println("A community with size = " + ccsSet.size() + "   Time cost:" + (System.currentTimeMillis() - startT));
+					System.out.println("A community with size = " + ccsSet.toString() + "   Time cost:" + (System.currentTimeMillis() - startT));
 				}
 			}
 		}

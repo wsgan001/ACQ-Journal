@@ -1,3 +1,4 @@
-c p #SUP: 3
-c f a m #SUP: 3
-b #SUP: 3
+f b o #SUP: 2
+c f a m l #SUP: 2
+c f a m p #SUP: 2
+c b #SUP: 2

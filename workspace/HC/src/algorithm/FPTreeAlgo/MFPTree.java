@@ -39,10 +39,10 @@ public MFPTree(int k){
 public MFPNode getRoot(){ return root;}
 
 //insert one possible MFP in the MFP-tree
-public void insert(List<Integer> itemset,int itemsetLen,int support){
+public void insert(List<Integer> itemset,int support){
 	 MFPNode currentNode = root;
 	
-	 for(int i=0;i<=itemsetLen;i++){
+	 for(int i=0;i<itemset.size();i++){
 		 int item=itemset.get(i);
 		 //check if there is a node already in the MFP-tree
 		 MFPNode child = currentNode.hasChild(item);
@@ -59,7 +59,6 @@ public void insert(List<Integer> itemset,int itemsetLen,int support){
 				currentNode=child;
 		 } 
 	 } 
-	 System.out.println("insert done");
 }
 	 
 //maintain two Map:itemNodeMap and itemLastNodeMap
@@ -167,6 +166,15 @@ public void traverse(MFPNode root){
 	}
 }
 
+@Override
+/**
+ * Method for getting a string representation of the CP-tree 
+ * (to be used for debugging purposes).
+ * @return a string
+ */
+public String toString() {
+	return "M"+root.toString("");
+}
 
 public static void main(String[] args){
 

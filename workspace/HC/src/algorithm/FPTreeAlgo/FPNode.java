@@ -77,7 +77,7 @@ public class FPNode {
 	//for output tree
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();
-		output.append(""+ this.item);
+		output.append(""+ (char)this.item);
 		output.append(" (count="+this.count);
 		output.append(")\n");
 		String newIndent = indent + "   ";

@@ -422,15 +422,15 @@ public class AlgoFPMax {
 					
 					//??why check beta 
 					// ======= After that, we still need to check if beta is a maximal itemset ====
-//					List<Integer> temp = new ArrayList<Integer>(mapSupportBeta.size() + prefixLength+1);
-//					for(int z=0; z < prefixLength+1; z++) {
-//						temp.add(prefix[z]);
-//					}
-//					Collections.sort(temp, comparatorOriginalOrder);
-//					// if beta pass the test, we save it
-//					if(mfiTree.passSubsetChecking(temp)) {
-//						saveItemset(prefix, prefixLength+1, betaSupport);
-//					}
+					List<Integer> temp = new ArrayList<Integer>(mapSupportBeta.size() + prefixLength+1);
+					for(int z=0; z < prefixLength+1; z++) {
+						temp.add(prefix[z]);
+					}
+					Collections.sort(temp, comparatorOriginalOrder);
+					// if beta pass the test, we save it
+					if(mfiTree.passSubsetChecking(temp)) {
+						saveItemset(prefix, prefixLength+1, betaSupport);
+					}
 					//===========================================================
 				}
 				else if (DEBUG){

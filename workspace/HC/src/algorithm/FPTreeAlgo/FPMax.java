@@ -18,7 +18,9 @@ public class FPMax {
  private FPNode fpRoot=null;
  private List<Integer> itemBuffer=null;
 // private Map<Integer,Integer> headerFreMap=null;
+ private Boolean DEBUG=true;
 
+ 
  //record the global frequent items and corresponding support
  private Map<Integer,Integer> globalFreMap=null;
  
@@ -28,8 +30,6 @@ public class FPMax {
 	public int compare(Integer o1,Integer o2) {	
 		// TODO Auto-generated method stub
 		// compare the frequency
-//		System.out.println(o1+"  "+o2);
-//		System.out.println(globalFreMap.containsKey(o1)+"  "+globalFreMap.containsKey(o2));
 		int compare = globalFreMap.get(o2) - globalFreMap.get(o1);
 		// if the same frequency, we check the lexical ordering!
 		if(compare == 0){ 
@@ -45,9 +45,7 @@ public class FPMax {
 		this.minSup=k+1;
 		this.mfpTree=new MFPTree(k);
 		this.itemBuffer=new ArrayList<Integer>();
-//		this.headerFreMap=fpTree.getFreMap();
-//		this.globalSupMap=new HashMap<Integer,Integer>();
-		
+
 	}
 	
 	
@@ -64,9 +62,9 @@ public class FPMax {
 			List<Integer> fixedSeq=SelectSort(database.get(index));
 			fpTree.insert(fixedSeq);		
 		}
-//		System.out.println(fpTree);
+		System.out.println(fpTree);
 		fpTree.createHeaderList(globalFreMap);
-//		for(int x:itemBuffer) System.out.print(x+ "   ");
+		
 		List<Integer> list=new ArrayList<Integer>();
 		if(fpTree.getHeaderList().size()>0){
 			fpMax(fpTree, list, database.size(), globalFreMap);
@@ -76,69 +74,82 @@ public class FPMax {
 	
 	//prefix:head+ i 
 	public void fpMax(FPTree fpTree,List<Integer> prefix,int prefixSup,Map<Integer, Integer> mapSupport){
-		System.out.println("*****************************************");
-		System.out.println("prefix size: "+prefix.size());
-		System.out.print("###### Prefix:   ");
-		for(int k=0; k< prefix.size(); k++){
-			System.out.print( prefix.get(k)+"  ");
+
+		//-----------------------DEBUG-------------------------------
+		if(DEBUG){
+			System.out.println("*****************************************");
+			System.out.println("prefix size: "+prefix.size());
+			System.out.print("###### Prefix:   ");
+			for(int k=0; k< prefix.size(); k++){
+				System.out.print( prefix.get(k)+"  ");
+				}
+			System.out.println();
+			System.out.println(fpTree);
 		}
-		System.out.println();
-		System.out.println(fpTree);
+		//---------------------END DEBUG-----------------------------
 		
 		//get the result of single path property 
 		//and get the support of the single path if there exists one
 		FPNode root=fpTree.getRoot();
-		int[] result=isSingleAndMiniSup(root,prefix.size());
+		int[] result=isSingleAndMiniSup(root);
 		boolean singlePath=result[0]==1? true:false;
 		int singlePathSup=result[1];
-		int position=result[2];
 //		for(int x:prefix) System.out.print(x+"  ");
 //		System.out.println(result[0]+"      result   "+result[1]+"  next");
 
 		//case 1:the FPtree contains a single path
 		if(singlePath && singlePathSup>=minSup){
-			System.out.println("case 1");
-			for(int x:itemBuffer){
-				if(x!=0) System.out.print(x+"  ");
-			}
+			
 			List<Integer> list=new LinkedList<Integer>(itemBuffer);
 			list.addAll(prefix);
 			Collections.sort(list, descendingOrder);
+			mfpTree.insert(list,singlePathSup);
 			
-			System.out.print(" ##### SAVING : ");
-			for(int i:list) { System.out.print(i + "  ");}
-			System.out.println("\n");
-			mfpTree.insert(list,position,singlePathSup);
+			//-----------------------DEBUG-------------------------------
+			if(DEBUG){
+				System.out.println("case 1");
+				System.out.print("itemBuffer: ");
+				for(int x:itemBuffer){
+					if(x!=0) System.out.print(x+"  ");
+				}
+				System.out.println();
+				System.out.print(" ##### SAVING : ");
+				for(int i:list) { System.out.print(i + "  ");}
+				System.out.println("\n");
+			}
+			//---------------------END DEBUG-----------------------------
+			
 		}
 		
 		//case 2: the fptree contains more than a single path 
 		else{
-			System.out.println("case 2");
+			//-----------------------DEBUG-------------------------------
+			if(DEBUG) System.out.println("case 2");
+			//---------------------END DEBUG-----------------------------
 			
 			List<Integer> headerList=fpTree.getHeaderList();
 		
 //			Map<Integer, Integer> FreMap=fpTree.getFreMap();
 			//for each frequent item in the header list in reverse order
 			for(int i=headerList.size()-1;i>=0;i--){
-				
-				for(int x:itemBuffer){
-					if(x!=0) System.out.print(x+"  ");
-				}
-				
-				
 				int item=headerList.get(i);
 				int support=mapSupport.get(item);
 				//Beta = ai U a (i U Head as described in paper); 
 				//caculate the support of Beta
-				System.out.println("prefix on: "+item);
-//				if(prefix.size()>0) prefix.remove(0);
-//				
-//				if(prefix.size()>prefix.size()) prefix.set(prefix.size()-1, item);
-//				else {
-//					prefix.add(item);
-//				}
 				prefix.add(item);
-				System.out.println(" prefix now:"+prefix);
+				
+				//-----------------------DEBUG-------------------------------
+				if(DEBUG){
+					System.out.print("itemBuffer: ");
+					for(int x:itemBuffer){
+						if(x!=0) System.out.print(x+"  ");
+					}
+					System.out.println();
+					System.out.println("prefix on: "+item);
+					System.out.println(" prefix now:"+prefix);
+				}
+				//---------------------END DEBUG-----------------------------
+		
 
 				int betaSupport=(support>prefixSup)?prefixSup:support;
 				
@@ -186,6 +197,8 @@ public class FPMax {
 				}
 				
 				
+				if(DEBUG) System.out.println(fpTree.getItemNodeMap().get(item) +" condition base: "+ prefixPaths.size());
+				
 	
 				// ===== FPMAX ======
 				// 1: Get tail={frequent items in base}
@@ -196,7 +209,10 @@ public class FPMax {
 				for(int z=0; z < prefix.size(); z++){
 					headWithP.add(prefix.get(z));
 				}
-				System.out.println(" CHECK1 : " + headWithP);
+				//-----------------------DEBUG-------------------------------
+				if(DEBUG) System.out.println(" CHECK1 : " + headWithP);
+				//---------------------END DEBUG-----------------------------
+				
 				// concatenate the other FREQUENT items in the pattern base
 				// for each item
 				for(Entry<Integer,Integer> entry: BetaSupportMap.entrySet()) {
@@ -209,11 +225,16 @@ public class FPMax {
 				// Sort Beta(head) U tail according to the original header list total order on items
 				// sort item in the transaction by descending order of support
 				Collections.sort(headWithP, descendingOrder);
-				System.out.println(" CHECK2 : " + headWithP);
+				//-----------------------DEBUG-------------------------------
+				if(DEBUG) System.out.println(" CHECK2 : " + headWithP);
+				//---------------------END DEBUG-----------------------------
 				
 				// CHECK IF HEAD U P IS A SUBSET OF A MFP ACCORDING TO THE MF-TREE
 				if(mfpTree.SubsetChecking(headWithP)) {
-					System.out.println("    passed!");
+					//-----------------------DEBUG-------------------------------
+					if(DEBUG) System.out.println("    passed!");
+					//---------------------END DEBUG-----------------------------
+					
 					// (B) Construct beta's conditional FP-Tree using its prefix path
 					// Create the tree.
 					FPTree treeBeta = new FPTree(0);
@@ -221,30 +242,23 @@ public class FPMax {
 					for(List<FPNode> prefixPath : prefixPaths){
 						treeBeta.addPrefixPath(prefixPath, BetaSupportMap, minSup); 
 					}  
-					// Mine recursively the Beta tree if it is not a single root
-//					if(treeBeta.singlePath(treeBeta.getRoot()) ){
+					// Mine recursively the Beta tree if it is not a single node with root
 					if(treeBeta.getRoot().getChild().size()>0){
 						// Create the header list.
 						treeBeta.createHeaderList(globalFreMap); 	
 						// recursive call
-						fpMax(treeBeta, prefix,betaSupport, BetaSupportMap);
+						fpMax(treeBeta,prefix,betaSupport, BetaSupportMap);
 					}
-					
-					// ======= After that, we still need to check if beta is a maximal itemset ====
-//					List<Integer> temp = new ArrayList<Integer>(mapSupportBeta.size() + prefixLength+1);
-//					for(int z=0; z < prefixLength+1; z++) {
-//						temp.add(prefix[z]);
-//					}
-//					Collections.sort(temp, comparatorOriginalOrder);
-//					// if beta pass the test, we save it
-//					if(mfiTree.passSubsetChecking(temp)) {
-//						saveItemset(prefix, prefixLength+1, betaSupport);
-//					}
-					//===========================================================
-				}else{System.out.println("    failed!");}	
+					//if Beta is a single node like(root->node)
+					else mfpTree.insert(prefix, betaSupport);	
+				}
+				//-----------------------DEBUG-------------------------------
+				else if(DEBUG){System.out.println("    failed!");}	
+				//---------------------END DEBUG-----------------------------
+				
 				prefix.remove(prefix.size()-1);
-			}	
 			
+			}	
 		}	
 	}
 	
@@ -284,10 +298,11 @@ public class FPMax {
 	
 //index 0:mark the single property: 1 means single; 
 //index 1: record the support of the single path if there exists one
+//index 2: 
 //in the meanwhile, use itemBuffer to store the items in the single path
-	private int[] isSingleAndMiniSup(FPNode root,int position){
+	private int[] isSingleAndMiniSup(FPNode root){
 			itemBuffer.clear();
-		 	int[] result=new int[3];
+		 	int[] result=new int[2];
 		 	//check root node 
 			if(root.getChild().size()==0||root.getChild().size()>1) {
 				//clear the buffer
@@ -306,14 +321,15 @@ public class FPMax {
 					itemBuffer.clear();
 					break;
 				}
-				if(itemBuffer.size()>position) itemBuffer.set(position, root.getItem());
-				else itemBuffer.add(root.getItem());
-				position++;
+//				if(itemBuffer.size()>position) itemBuffer.set(position, root.getItem());
+//				else itemBuffer.add(root.getItem());
+//				position++;
+				itemBuffer.add(root.getItem());
 				result[1]=root.getCount();
 				if(root.getChild().size()==0){break;}
 				
 				root=root.getChild().iterator().next();
-				result[2]=position;
+			
 			}
 			return result;
 }
@@ -333,6 +349,20 @@ public class FPMax {
 		}
   
 	public static void main(String[] atgs){
+		
+		Map<Integer, int[]> map1=new HashMap<Integer,int[]>();
+		int[] a1={'a','b','c','e','f','o'}; map1.put(1, a1);
+		int[] a2={'a','c','g'}; map1.put(2, a2);
+		int[] a3={'e','i'}; map1.put(3, a3);
+		int[] a4={'a','c','d','e','g'}; map1.put(4, a4);
+		int[] a5={'a','c','e','g','l'}; map1.put(5, a5);
+		int[] a6={'e','j'}; map1.put(6, a6);
+		int[] a7={'a','b','c','e','f','p'}; map1.put(7, a7);
+		int[] a8={'a','c','d'}; map1.put(8, a8);
+		int[] a9={'a','c','e','g','m'}; map1.put(9, a9);
+		int[] a10={'a','c','e','g','n'}; map1.put(10, a10);
+		
+		
 		Map<Integer, int[]> map2=new HashMap<Integer,int[]>();
 		int[] b1={'f','a','c','d','g','i','m','p'}; map2.put(1, b1);
 		int[] b2={'a','b','c','f','l','m','o'}; map2.put(2, b2);
@@ -341,12 +371,12 @@ public class FPMax {
 		int[] b5={'a','f','c','e','l','p','m','n'}; map2.put(5, b5);
 		
 		
-		int k=2;
+		int k=1;
 		FPMax fpMax=new FPMax(k);
-		fpMax.runAlgo(map2);
-		fpMax.traverseMFP(fpMax.mfpTree.getRoot());
+		fpMax.runAlgo(map1);
+	
+		System.out.println(fpMax.mfpTree);
 		
-//		fpMax.traverseFP(fpMax.fpRoot);
 		
 	}
 	
