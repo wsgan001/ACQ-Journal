@@ -97,7 +97,6 @@ public void insert(List<Integer> itemset,int itemsetLen,int support){
 				currentNode=child;
 		 } 
 	 } 
-	 System.out.println("insert done");
 }
 	 
 //maintain two Map:itemNodeMap and itemLastNodeMap
