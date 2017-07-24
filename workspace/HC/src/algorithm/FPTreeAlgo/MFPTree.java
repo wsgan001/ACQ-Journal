@@ -62,30 +62,18 @@ public MFPNode getRoot(){ return root;}
 //}
 
 //insert one possible MFP in the MFP-tree
-<<<<<<< HEAD
-<<<<<<< HEAD
-public void insert(Map<Integer,Set<Integer>> itemUser,int support){
-	 MFPNode currentNode = root;
-	Iterator<Integer> iterator=itemUser.keySet().iterator();
-//	 for(int i=0;i<itemUser.size();i++){
-	int level=1;
-	while(iterator.hasNext()){
-		int item=iterator.next();
-=======
-=======
->>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
-public void insert(List<Integer> itemset,int itemsetLen,int support){
+public void insert(List<Integer> itemset,int support){
 	 MFPNode currentNode = root;
 	
-	 for(int i=0;i<=itemsetLen;i++){
+	 for(int i=0;i<itemset.size();i++){
 		 int item=itemset.get(i);
->>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 		 //check if there is a node already in the MFP-tree
 		 MFPNode child = currentNode.hasChild(item);
 		 if(child == null ){
 //			 System.out.println((char)item+"  null");
-				MFPNode node =new MFPNode(item, level++);	
-				node.addUserSet(itemUser.get(item));
+//				MFPNode node =new MFPNode(item, level++);
+			 	MFPNode node =new MFPNode(item,i+1);
+//				node.addUserSet(itemUser.get(item));
 				node.linkFather(currentNode);
 				currentNode.linkChild(node);
 				UpdateNodeLinks(item, node);
@@ -93,10 +81,11 @@ public void insert(List<Integer> itemset,int itemsetLen,int support){
 				currentNode=node;
 		 }
 		 else{
-			 	child.addUserSet(itemUser.get(item));
+//			 	child.addUserSet(itemUser.get(item));
 				currentNode=child;
 		 } 
 	 } 
+//	 System.out.println("insert done");
 }
 	 
 //maintain two Map:itemNodeMap and itemLastNodeMap
@@ -204,10 +193,16 @@ public void traverse(MFPNode root){
 	}
 }
 
-
-public static void main(String[] args){
-
-	
-	
+@Override
+/**
+ * Method for getting a string representation of the CP-tree 
+ * (to be used for debugging purposes).
+ * @return a string
+ */
+public String toString() {
+	return "M"+root.toString("");
 }
+
+
+
 }

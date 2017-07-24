@@ -17,6 +17,7 @@ public class T {
 	public static void main(String[] args) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //		DataReader dataReader = new DataReader(Config.dblpGraph, Config.dblpNode);
 //		int graph[][] = dataReader.readGraph();
 //		String nodes[][] = dataReader.readNode();
@@ -61,6 +62,11 @@ public class T {
 		Config.k = 3;
 		Dec dec2=new Dec(graph, nodes, root1);
 		dec2.query(1);
+=======
+		DataReader dataReader = new DataReader(Config.dblpGraph, Config.dblpNode);
+		int graph[][] = dataReader.readGraph();
+		String nodes[][] = dataReader.readNode();
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 =======
 		DataReader dataReader = new DataReader(Config.dblpGraph, Config.dblpNode);
 		int graph[][] = dataReader.readGraph();
