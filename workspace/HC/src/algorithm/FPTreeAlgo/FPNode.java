@@ -15,12 +15,15 @@ public class FPNode {
 	private FPNode father=null;
 	private Set<FPNode> childSet=null;
 	private FPNode brother=null;
+	//store the users' ID
+	private Set<Integer> userSet=null;
 	
 	
 	public FPNode(int item,int count){
 		this.item=item;
 		this.count=count;
 		this.childSet=new HashSet<FPNode>();
+		this.userSet=new HashSet<Integer>();
 	}
 	
 	public void linkFather(FPNode node){
@@ -35,6 +38,19 @@ public class FPNode {
 		this.brother=node;
 	}
 	
+	public void addUser(int i){this.userSet.add(i);}
+	
+	public void addUserSet(Set<Integer> set){
+		if(set.size()>userSet.size()){
+			set.addAll(userSet);
+			this.userSet=set;
+		}
+		else{
+			this.userSet.addAll(set);
+		}
+	}
+	
+	public Set<Integer> getUser(){ return this.userSet;}
 	
 	// get the specific child, if there is no such child, return null.
 	public FPNode hasChild(int item){
@@ -77,9 +93,9 @@ public class FPNode {
 	//for output tree
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();
-		output.append(""+ (char)this.item);
-		output.append(" (count="+this.count);
-		output.append(")\n");
+		output.append(""+ (char)this.item+" (count="+this.count+" userID: "+this.userSet.toString() +")\n");
+		
+		
 		String newIndent = indent + "   ";
 		for (FPNode child : childSet) {
 			output.append(newIndent+ child.toString(newIndent));

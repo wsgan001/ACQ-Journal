@@ -88,7 +88,7 @@ public class FPTree {
 
  
  //insert one transaction in the FP-tree
- public void insert(List<Integer> transaction){
+ public void insert(List<Integer> transaction,int userId){
 	 FPNode currentNode = root;
 	 for(int item : transaction){
 		 FPNode child = currentNode.hasChild(item);
@@ -96,6 +96,7 @@ public class FPTree {
 //			 System.out.println((char)item+"  null");
 				FPNode node =new FPNode(item, 1);	
 				node.linkFather(currentNode);
+				node.addUser(userId);
 				currentNode.linkChild(node);
 				UpdateNodeLinks(item, node);
 				
@@ -103,6 +104,7 @@ public class FPTree {
 		 }
 		 else{
 				child.IncCount();
+				child.addUser(userId);
 				currentNode=child;
 		 }
 		 
@@ -136,12 +138,12 @@ public class FPTree {
 				FPNode pathItem = prefixPath.get(i);
 				// if the item is not frequent we skip it
 				if(mapSupportBeta.get(pathItem.getItem()) >= relativeMinsup){
-		
 					// check if there is a node already in the FP-Tree
 					FPNode child = currentNode.hasChild(pathItem.getItem());
 					if(child == null){ 
 						// there is no node, we create a new one
 						FPNode newNode = new FPNode(pathItem.getItem(),pathCount);
+						newNode.addUserSet(pathItem.getUser());
 						newNode.linkFather(currentNode);
 						currentNode.linkChild(newNode);
 						
@@ -153,6 +155,7 @@ public class FPTree {
 					}else{ 
 						// there is a node already, we update it
 						child.IncCount();
+						child.addUserSet(pathItem.getUser());
 						currentNode = child;
 					}
 				}

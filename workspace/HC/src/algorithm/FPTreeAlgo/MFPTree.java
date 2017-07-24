@@ -38,17 +38,43 @@ public MFPTree(int k){
 
 public MFPNode getRoot(){ return root;}
 
+////insert one possible MFP in the MFP-tree
+//public void insert(List<Integer> itemset,int support){
+//	 MFPNode currentNode = root;
+//	
+//	 for(int i=0;i<itemset.size();i++){
+//		 int item=itemset.get(i);
+//		 //check if there is a node already in the MFP-tree
+//		 MFPNode child = currentNode.hasChild(item);
+//		 if(child == null ){
+////			 System.out.println((char)item+"  null");
+//				MFPNode node =new MFPNode(item, i+1);	
+//				node.linkFather(currentNode);
+//				currentNode.linkChild(node);
+//				UpdateNodeLinks(item, node);
+//				
+//				currentNode=node;
+//		 }
+//		 else{
+//				currentNode=child;
+//		 } 
+//	 } 
+//}
+
 //insert one possible MFP in the MFP-tree
-public void insert(List<Integer> itemset,int support){
+public void insert(Map<Integer,Set<Integer>> itemUser,int support){
 	 MFPNode currentNode = root;
-	
-	 for(int i=0;i<itemset.size();i++){
-		 int item=itemset.get(i);
+	Iterator<Integer> iterator=itemUser.keySet().iterator();
+//	 for(int i=0;i<itemUser.size();i++){
+	int level=1;
+	while(iterator.hasNext()){
+		int item=iterator.next();
 		 //check if there is a node already in the MFP-tree
 		 MFPNode child = currentNode.hasChild(item);
 		 if(child == null ){
 //			 System.out.println((char)item+"  null");
-				MFPNode node =new MFPNode(item, i+1);	
+				MFPNode node =new MFPNode(item, level++);	
+				node.addUserSet(itemUser.get(item));
 				node.linkFather(currentNode);
 				currentNode.linkChild(node);
 				UpdateNodeLinks(item, node);
@@ -56,6 +82,7 @@ public void insert(List<Integer> itemset,int support){
 				currentNode=node;
 		 }
 		 else{
+			 	child.addUserSet(itemUser.get(item));
 				currentNode=child;
 		 } 
 	 } 
@@ -178,6 +205,7 @@ public String toString() {
 
 public static void main(String[] args){
 
+	
 	
 }
 }

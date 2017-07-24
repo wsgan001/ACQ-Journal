@@ -17,12 +17,15 @@ public class MFPNode {
 	private MFPNode father=null;
 	private Set<MFPNode> childSet=null;
 	private MFPNode brother=null;
+	//store the users' ID 
+	private Set<Integer> userSet=null;
 	
 	
 	public MFPNode(int item,int level){
 		this.item=item;
 		this.level=level;
 		this.childSet=new HashSet<MFPNode>();
+		this.userSet= new HashSet<Integer>();
 	}
 	
 	public void linkFather(MFPNode node){
@@ -37,6 +40,19 @@ public class MFPNode {
 		this.brother=node;
 	}
 	
+	public void addUser(int i){this.userSet.add(i);}
+	
+	public void addUserSet(Set<Integer> set){
+		if(this.userSet.size()>set.size()){
+			this.userSet.addAll(set);
+		}else{
+			set.addAll(this.userSet);
+			this.userSet=set;
+		}
+	}
+	
+	
+	public Set<Integer> getUsers(){return this.userSet;}
 	
 	// get the specific child, if there is no such child, return null.
 	public MFPNode hasChild(int item){
