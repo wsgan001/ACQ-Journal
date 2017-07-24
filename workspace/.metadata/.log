@@ -14616,6 +14616,7 @@ Binding(ALT+COMMAND+R,
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,cocoa,system)
 <<<<<<< HEAD
+<<<<<<< HEAD
 !SESSION 2017-07-21 18:15:58.633 -----------------------------------------------
 eclipse.buildId=4.6.1.M20160907-1200
 java.version=1.8.0_111
@@ -14997,3 +14998,5 @@ org.xml.sax.SAXParseException; lineNumber: 6; columnNumber: 2; The content of el
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+=======
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;

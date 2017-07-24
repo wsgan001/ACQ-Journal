@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.awt.geom.Area"/>
@@ -59,6 +62,7 @@
 <fullyQualifiedTypeName name="algorithm.FPTreeAlgo.FPTree"/>
 <fullyQualifiedTypeName name="org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParser"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -81,6 +85,11 @@
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.MissingFormatArgumentException"/>
+=======
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 =======
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.List"/>

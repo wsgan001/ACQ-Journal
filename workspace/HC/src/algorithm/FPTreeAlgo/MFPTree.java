@@ -63,6 +63,7 @@ public MFPNode getRoot(){ return root;}
 
 //insert one possible MFP in the MFP-tree
 <<<<<<< HEAD
+<<<<<<< HEAD
 public void insert(Map<Integer,Set<Integer>> itemUser,int support){
 	 MFPNode currentNode = root;
 	Iterator<Integer> iterator=itemUser.keySet().iterator();
@@ -71,6 +72,8 @@ public void insert(Map<Integer,Set<Integer>> itemUser,int support){
 	while(iterator.hasNext()){
 		int item=iterator.next();
 =======
+=======
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 public void insert(List<Integer> itemset,int itemsetLen,int support){
 	 MFPNode currentNode = root;
 	

@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [[{"location":"/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"]]
+=======
+[[{"location":"/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"],[{"location":"/Users/chenyankai/GitDefault/workspace/HC","type":"PROJECT","hints":{"PROJECT_NAME":"HC"}},"ABSENT"]]
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 =======
 [[{"location":"/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"],[{"location":"/Users/chenyankai/GitDefault/workspace/HC","type":"PROJECT","hints":{"PROJECT_NAME":"HC"}},"ABSENT"]]
 >>>>>>> parent of af30940... 1. FPMax algo finished confirmed;

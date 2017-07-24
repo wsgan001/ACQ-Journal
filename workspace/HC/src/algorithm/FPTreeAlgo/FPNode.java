@@ -94,10 +94,13 @@ public class FPNode {
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();
 <<<<<<< HEAD
+<<<<<<< HEAD
 		output.append(""+ (char)this.item+" (count="+this.count+" userID: "+this.userSet.toString() +")\n");
 		
 		
 =======
+=======
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 		output.append(""+ this.item);
 		output.append(" (count="+this.count);
 		output.append(")\n");
