@@ -339,15 +339,31 @@ public class FPMax {
 					itemBuffer.clear();
 					break;
 				}
+//				if(itemBuffer.size()>position) itemBuffer.set(position, root.getItem());
 				else itemBuffer.add(root.getItem());
+//				position++;
 				result[1]=root.getCount();
 				if(root.getChild().size()==0){break;}
 				root=root.getChild().iterator().next();
 			
 			}
+			
 			return result;
 }
 	
+	
+	public void traverseMFP(MFPNode root){
+		System.out.println("item "+(char)root.getItem()+" level "+root.getLevel());
+		Set<MFPNode> nodeSet=root.getChild(); 
+		for(MFPNode node:nodeSet) traverseMFP(node);
+		
+	}
+	
+	 public void traverseFP(FPNode root){
+			System.out.println("item "+(char)root.getItem()+" count "+root.getCount());
+			Set<FPNode> nodeSet=root.getChild(); 
+			for(FPNode node:nodeSet) traverseFP(node);	
+		}
 	 
 	 public void testSortMap(){
 		 globalFreMap=new HashMap<Integer,Integer>();

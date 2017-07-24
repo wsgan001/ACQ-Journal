@@ -141,7 +141,6 @@ public class FPMax {
 			}
 			//---------------------END DEBUG-----------------------------
 		}
-		
 		//case 2: the fptree contains more than a single path 
 		else{
 			//------------------------DEBUG------------------------------
@@ -149,11 +148,13 @@ public class FPMax {
 			//----------------------END DEBUG----------------------------
 			
 			List<Integer> headerList=fpTree.getHeaderList();
-			
+		
+//			Map<Integer, Integer> FreMap=fpTree.getFreMap();
 			//for each frequent item in the header list in reverse order
 			for(int i=headerList.size()-1;i>=0;i--){
 				int item=headerList.get(i);
 				int support=mapSupport.get(item);
+				Set<Integer> userSet=itemUserMap.get(item);
 				//Beta = ai U a (i U Head as described in paper); 
 				//caculate the support of Beta
 				prefix.add(item);
@@ -192,6 +193,7 @@ public class FPMax {
 						// actually it should not be part of the prefixPath
 						int pathCount = pathStart.getCount();
 						
+						
 						//Recursively add all the parents of this node.
 						FPNode father = pathStart.getFather();
 						while(father.getItem() != 0){
@@ -215,6 +217,8 @@ public class FPMax {
 					pathStart = pathStart.getBro();
 				}
 				
+				
+	
 				// ===== FPMAX ======
 				// 1: Get tail={frequent items in base}
 				// 2: concatenate Beta(head) with all the frequent itemsets in the pattern base
@@ -261,18 +265,32 @@ public class FPMax {
 					}  
 
 					// Mine recursively the Beta tree if the root has child(s)
+
+//					if(treeBeta.singlePath(treeBeta.getRoot()) ){
 					if(treeBeta.getRoot().getChild().size()>0){
+
 						// Create the header list.
 						treeBeta.createHeaderList(globalFreMap); 
+						
 						// recursive call
+
 						fpMax(treeBeta, prefix,betaSupport, BetaSupportMap);
 
 					}
 					
-				}
-				//------------------------DEBUG------------------------------
-				else if(DEBUG){ System.out.println("    failed!");}	
-				//----------------------END DEBUG----------------------------
+					// ======= After that, we still need to check if beta is a maximal itemset ====
+//					List<Integer> temp = new ArrayList<Integer>(mapSupportBeta.size() + prefixLength+1);
+//					for(int z=0; z < prefixLength+1; z++) {
+//						temp.add(prefix[z]);
+//					}
+//					Collections.sort(temp, comparatorOriginalOrder);
+//					// if beta pass the test, we save it
+//					if(mfiTree.passSubsetChecking(temp)) {
+//						saveItemset(prefix, prefixLength+1, betaSupport);
+//					}
+					//===========================================================
+				}else{System.out.println("    failed!");}	
+
 				prefix.remove(prefix.size()-1);
 			}	
 		}	
@@ -289,6 +307,14 @@ public class FPMax {
 				//record the item->support
 				if(globalFreMap.containsKey(x)) globalFreMap.put(x, globalFreMap.get(x)+1);
 				else globalFreMap.put(x, 1);
+				
+				//record the item->users
+				if(itemUserMap.containsKey(x)) itemUserMap.get(x).add(index);
+				else {
+					Set<Integer> tmp=new HashSet<Integer>();
+					tmp.add(index);
+					itemUserMap.put(x,tmp);
+				}
 			}
 		}
 		//step2: clear out those whose sup <minSup
@@ -297,6 +323,7 @@ public class FPMax {
 			int index=it1.next();
 			if(globalFreMap.get(index)<minSup) {
 				it1.remove();// note here should use iterator to delete items
+				itemUserMap.remove(index);
 			}
 		}		
 	}
@@ -312,7 +339,6 @@ public class FPMax {
 		Collections.sort(fixedSeq,descendingOrder);
 		return fixedSeq;
 	}
-	
 	
 //index 0:mark the single property: 1 means single; 
 //index 1: record the support of the single path if there exists one
@@ -336,18 +362,35 @@ public class FPMax {
 				if(root.getChild().size()>1) {
 					result[0]=0;
 					//clear the buffer
-					itemBuffer.clear();
+					itemUserSetBuffer.clear();
+					usersBuffer.clear();
 					break;
 				}
+//				if(itemBuffer.size()>position) itemBuffer.set(position, root.getItem());
 				else itemBuffer.add(root.getItem());
+//				position++;
 				result[1]=root.getCount();
 				if(root.getChild().size()==0){break;}
 				root=root.getChild().iterator().next();
 			
 			}
+			
 			return result;
 }
 	
+	
+	public void traverseMFP(MFPNode root){
+		System.out.println("item "+(char)root.getItem()+" level "+root.getLevel());
+		Set<MFPNode> nodeSet=root.getChild(); 
+		for(MFPNode node:nodeSet) traverseMFP(node);
+		
+	}
+	
+	 public void traverseFP(FPNode root){
+			System.out.println("item "+(char)root.getItem()+" count "+root.getCount());
+			Set<FPNode> nodeSet=root.getChild(); 
+			for(FPNode node:nodeSet) traverseFP(node);	
+		}
 	 
 	 public void testSortMap(){
 		 globalFreMap=new HashMap<Integer,Integer>();
