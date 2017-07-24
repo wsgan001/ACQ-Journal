@@ -6,7 +6,6 @@
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="hku.variant.variant1.SW"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="ccs"/>
 </launchConfiguration>

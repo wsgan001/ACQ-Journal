@@ -46,7 +46,7 @@ public class Test {
 		DecRevision decr = new DecRevision(graph, nodes, root, core, null);
 		Set<Integer> set = decr.query(2);
 		if(set == null)   System.out.println("null");
-		else          for(int id:set)   System.out.print(id + " ");
+		else              for(int id:set)   System.out.print(id + " ");
 		System.out.println();
 	}
 }

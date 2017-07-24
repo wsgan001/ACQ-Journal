@@ -15,6 +15,7 @@ import hku.util.Log;
 public class T {
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 //		DataReader dataReader = new DataReader(Config.dblpGraph, Config.dblpNode);
 //		int graph[][] = dataReader.readGraph();
 //		String nodes[][] = dataReader.readNode();
@@ -59,8 +60,22 @@ public class T {
 		Config.k = 3;
 		Dec dec2=new Dec(graph, nodes, root1);
 		dec2.query(1);
+=======
+		DataReader dataReader = new DataReader(Config.dblpGraph, Config.dblpNode);
+		int graph[][] = dataReader.readGraph();
+		String nodes[][] = dataReader.readNode();
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 		
+		AdvancedIndex index = new AdvancedIndex(graph, nodes);
+		TNode root = index.build();
+		int core[] = index.getCore();
+		System.out.println("index construction finished !");
 		
+		String node[] = {"data", "mine"};
+		nodes[15238] = node;
 		
+		Config.k = 4;
+		DecShare dec = new DecShare(graph, nodes, root, core, null);
+		dec.query(15238);
 	}
 }

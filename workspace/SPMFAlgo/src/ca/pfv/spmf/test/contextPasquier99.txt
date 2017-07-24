@@ -1,10 +1,5 @@
-a b c e f o
-a c g
-e i 
-a c d e g
-a c e g l
-e j
-a b c e f p
-a c d
-a c e g m
-a c e g n
+f a c d g i m p
+a b c f l m o
+b f h j o
+b c k s p
+a f c e l p m n

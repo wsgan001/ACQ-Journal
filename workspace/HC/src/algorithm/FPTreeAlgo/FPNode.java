@@ -93,9 +93,15 @@ public class FPNode {
 	//for output tree
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();
+<<<<<<< HEAD
 		output.append(""+ (char)this.item+" (count="+this.count+" userID: "+this.userSet.toString() +")\n");
 		
 		
+=======
+		output.append(""+ this.item);
+		output.append(" (count="+this.count);
+		output.append(")\n");
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 		String newIndent = indent + "   ";
 		for (FPNode child : childSet) {
 			output.append(newIndent+ child.toString(newIndent));

@@ -19,7 +19,7 @@ public class MainTestFPMax_saveToFile {
 		String input = fileToPath("contextPasquier99.txt");  // the database
 		String output = ".//output.txt";  // the path for saving the frequent itemsets found
 		
-		int minsup = 2; // means a minsup of 2 transaction (we used a relative support)
+		int minsup = 3; // means a minsup of 2 transaction (we used a relative support)
 
 		// Applying the FPMax algorithm
 		AlgoFPMax algo = new AlgoFPMax();

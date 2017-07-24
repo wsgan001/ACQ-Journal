@@ -19,20 +19,20 @@ public class BasicV3Test {
 public static void main(String []args){
 	
 //	DataReader dataReader=new DataReader(Config.flickrGraph, Config.flickrNode);
-//	DataReader dataReader=new DataReader(Config.dblpGraph, Config.dblpNode);
-//	int[][] g=dataReader.readGraph();
-//	String[][] n=dataReader.readNode();
-//	
-//	Config.k=4;
-//	int queryset[]={152532};//152532:jim gary 16704:Gerhard Weikum
-//	String[] kwStrings={"art","research","test","data" ,"management","system","transaction"};
-//		
-//	Long time1=System.nanoTime();
-//	BasicGV3_V2  basicGV3_V2=new BasicGV3_V2(n, g);
-//	basicGV3_V2.query(kwStrings, queryset);
-//	Long time2=System.nanoTime()-time1;
-//	System.out.println(time2/1000000);
-//	basicGV3_V2.testOutput();
+	DataReader dataReader=new DataReader(Config.dblpGraph, Config.dblpNode);
+	int[][] g=dataReader.readGraph();
+	String[][] n=dataReader.readNode();
+	
+	Config.k=4;
+	int queryset[]={152532};//152532:jim gary 16704:Gerhard Weikum
+	String[] kwStrings={"art","research","test","data" ,"management","system","transaction"};
+		
+	Long time1=System.nanoTime();
+	BasicGV3_V2  basicGV3_V2=new BasicGV3_V2(n, g);
+	basicGV3_V2.query(kwStrings, queryset);
+	Long time2=System.nanoTime()-time1;
+	System.out.println(time2/1000000);
+	basicGV3_V2.testOutput();
 	
 //	BasicWV3_V2 basicWV3_V2=new BasicWV3_V2(n, g);
 //	Long time3=System.nanoTime();
@@ -44,11 +44,12 @@ public static void main(String []args){
 //	AdvancedIndex advancedIndex=new AdvancedIndex(g, n);
 //	TNode root=advancedIndex.build();
 //	SW_V2 s1=new SW_V2(n,g,root);
-////	Long time5=System.nanoTime();
+//	Long time5=System.nanoTime();
 //	s1.query(queryset, kwStrings);
-////	Long time6=System.nanoTime()-time5;
-////	System.out.println(time6/1000000);
+//	Long time6=System.nanoTime()-time5;
+//	System.out.println(time6/1000000);
 //	s1.testOutput();
+<<<<<<< HEAD
 	
 	
 	
@@ -82,5 +83,7 @@ public static void main(String []args){
 	String[] kw={"x","y"};
 	sw_V2.query(query,kw);
 	sw_V2.testOutput();
+=======
+>>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 }
 }

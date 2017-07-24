@@ -174,7 +174,7 @@ public class SW_V2 {
 				for(TNode tnode:node.getChildList()){
 					if(findCK(tnode, queryId)){
 						rs=true;
-//						break;
+						break;
 					}
 				}
 			}
