@@ -1,0 +1,14 @@
+package algorithm.MineMaxPC;
+/**
+@author chenyankai
+@Date	Jul 24, 2017
+this is the data structure for profile tree node
+*/
+public class PNode {
+private String Attribute=null;
+private int ID=-1;
+private Set<Integer> sub
+
+public PNode
+	
+}

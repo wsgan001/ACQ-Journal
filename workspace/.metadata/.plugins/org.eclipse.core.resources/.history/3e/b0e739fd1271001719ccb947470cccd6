@@ -1,0 +1,34 @@
+package algorithm.basic;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import algorithm.MineMaxPC.PNode;
+
+public class PTree {
+	private Map<Integer, PNode> pTree=null;
+	
+	public PTree(){
+		this.pTree=new HashMap<Integer,PNode>();
+	}
+	
+	public void add(int id,PNode node){
+		pTree.put(id,node);
+	}
+	
+	public Map<Integer, PNode> getPtree(){
+		return this.pTree;
+	} 
+	
+	public void loadPTree(){
+		
+	}
+	
+	public void test(){
+		PNode[] nodes=new PNode[10];
+		
+		
+	}
+	
+	
+}

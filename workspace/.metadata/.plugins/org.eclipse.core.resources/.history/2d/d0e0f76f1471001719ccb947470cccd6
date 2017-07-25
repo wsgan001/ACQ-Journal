@@ -1,0 +1,29 @@
+package algorithm.basic;
+
+import java.util.*;
+
+/**
+@author chenyankai
+@Date	Jul 24, 2017
+this is the data structure for profile tree node
+*/
+public class PNode {
+	private String Attribute=null;
+	private int ID=-1;
+	private List<PNode> childPNode=null;
+	private int childSize=-1;
+
+	public PNode(int id){
+		this.ID=id;
+	}
+	
+	public List<PNode> getChildlist(){
+		return this.childPNode;
+	}
+	
+	public void addPNode(PNode node){
+		this.childPNode.add(node);
+		childSize=childPNode.size();
+	}
+	
+}
