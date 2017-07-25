@@ -21,7 +21,7 @@ public class FPMax {
  //record the global frequent items and corresponding support
  private Map<Integer,Integer> globalFreMap=null;
 //for debug use
- private Boolean DEBUG=false;
+ private Boolean DEBUG=true;
 
 
  //define the Comparator the sort all sequence following the descending order of support
@@ -29,9 +29,6 @@ public class FPMax {
 	@Override
 	public int compare(Integer o1,Integer o2) {	
 		// TODO Auto-generated method stub
-		// compare the frequency
-//		System.out.println(o1+"  "+o2);
-//		System.out.println(globalFreMap.containsKey(o1)+"  "+globalFreMap.containsKey(o2));
 		int compare = globalFreMap.get(o2) - globalFreMap.get(o1);
 		// if the same frequency, we check the lexical ordering!
 		if(compare == 0){ 
@@ -85,7 +82,7 @@ public class FPMax {
 		while(it.hasNext()){
 			int index=it.next();
 			List<Integer> fixedSeq=SelectSort(database.get(index));
-			fpTree.insert(fixedSeq,index);		
+			fpTree.insert(fixedSeq);		
 		}
 		//------------------------DEBUG------------------------------
 		if(DEBUG) System.out.println(fpTree);

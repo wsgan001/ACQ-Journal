@@ -16,11 +16,7 @@ public class FPTree {
  
  //use core number of k-core as the minSup
  private int minSup=-1;
- 
- //list of items in the header table with descending order
-// private Map<Integer,Integer> headerMap=null;
-// private Map<Integer, Integer> headerFreMap=null;
- 
+  
  private List<Integer> headerList= null;
   
  //map of Entry<item, FPNode> of the header table 
@@ -88,7 +84,7 @@ public class FPTree {
 
  
  //insert one transaction in the FP-tree
- public void insert(List<Integer> transaction,int userId){
+ public void insert(List<Integer> transaction){
 	 FPNode currentNode = root;
 	 for(int item : transaction){
 		 FPNode child = currentNode.hasChild(item);
@@ -96,7 +92,6 @@ public class FPTree {
 //			 System.out.println((char)item+"  null");
 				FPNode node =new FPNode(item, 1);	
 				node.linkFather(currentNode);
-				node.addUser(userId);
 				currentNode.linkChild(node);
 				UpdateNodeLinks(item, node);
 				
@@ -104,7 +99,6 @@ public class FPTree {
 		 }
 		 else{
 				child.IncCount();
-				child.addUser(userId);
 				currentNode=child;
 		 }
 		 
@@ -143,7 +137,6 @@ public class FPTree {
 					if(child == null){ 
 						// there is no node, we create a new one
 						FPNode newNode = new FPNode(pathItem.getItem(),pathCount);
-						newNode.addUserSet(pathItem.getUser());
 						newNode.linkFather(currentNode);
 						currentNode.linkChild(newNode);
 						
@@ -155,7 +148,6 @@ public class FPTree {
 					}else{ 
 						// there is a node already, we update it
 						child.IncCount();
-						child.addUserSet(pathItem.getUser());
 						currentNode = child;
 					}
 				}
