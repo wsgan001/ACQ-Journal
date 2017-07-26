@@ -102,6 +102,13 @@ public class BasicAlgorithm {
 
 	}
 	
+	//check one particular pattern can return all users that share it 
+	private List<Integer> check(int[]){
+		
+		
+	}
+	
+	
 	//generate a new subtree from a subtree by add an node in the right most path
 	private List<int[]>  geneSubtree(final int[] seq){
 		List<Integer> rightmostPath=getRightmostPath(seq);
