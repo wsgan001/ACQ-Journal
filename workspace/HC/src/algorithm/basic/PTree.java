@@ -2,39 +2,63 @@ package algorithm.basic;
 
 import java.util.*;
 
+
 public class PTree {
-	private Map<Integer, PNode> pTree=null;
+	private Map<Integer, PNode> pTree=null;// the complete P-tree 
 	private PNode root=null;
+	
 	
 	public PTree(){
 		this.pTree=new HashMap<Integer,PNode>();
 	}
 	
-	public void add(int id,PNode node){
-		pTree.put(id,node);
-	}
-	
-	public Map<Integer, PNode> getPtree(){
-		return this.pTree;
-	} 
-	
-	public void loadPTree(int[] seq){
-		System.out.println("loading");
-	}
-	
-	public List<Integer> tracePath(int x){
-		List<Integer> path=new ArrayList<Integer>();
-		while(pTree.get(x).getFather()!=null){
-			path.add(x);
-			x=pTree.get(x).getFather().getId();
+//	public void add(int id,PNode node){
+//		pTree.put(id,node);
+//	}
+		
+	//build p-tree from the complete P-tree
+	public Map<Integer,PNode> buildPtree(int[] items){
+		LoadTree();
+		
+		Map<Integer, PNode> queryPTree=new HashMap<Integer, PNode>();
+		
+		//build ptree in bottom-up manner
+		for(int i=items.length-1;i>0;i--){
+			int item=items[i];
+			int fatherItem=pTree.get(item).getFather().getId();
+			PNode node=null;
+			if(queryPTree.containsKey(item)) node=queryPTree.get(item);
+			else {
+				node=new PNode(item);
+				queryPTree.put(item, node);
+			}
+			
+			if(queryPTree.containsKey(fatherItem)){
+				
+				PNode father=queryPTree.get(fatherItem);
+				connectPNode(father, node);
+			}else{
+			
+				PNode father=new PNode(fatherItem);
+				connectPNode(father, node);
+				queryPTree.put(fatherItem, father);
+
+			}
+			
 		}
-		path.add(x);
-		Collections.reverse(path);
-		return path;
+		root=queryPTree.get(items[0]);
+		return queryPTree;	
 	}
 	
+	//for connect father node and child node 
+	private void connectPNode(PNode father,PNode child){
+		child.setFather(father);
+		father.addPNode(child);
+	}
 	
-	public Map<Integer, PNode> testLoadTree(){
+	//load the complete P-tree
+	private void LoadTree(){
+		//test data file: 
 		Map<Integer,int[]> map=new HashMap<Integer,int[]>();
 		int[]a1={2,3,10,12}; map.put(1, a1);
 		int[]a2={};map.put(2, a2);
@@ -59,8 +83,7 @@ public class PTree {
 				PNode node=new PNode(index);
 				for(int x:map.get(index)){
 					PNode xnode=new PNode(x);
-					xnode.setFather(node);
-					node.addPNode(xnode);
+					connectPNode(node,xnode);
 					pTree.put(x,xnode);
 				}
 				pTree.put(index,node);
@@ -69,24 +92,43 @@ public class PTree {
 				PNode node=pTree.get(index);
 				for(int x:map.get(index)){
 					PNode xnode=new PNode(x);
-					xnode.setFather(node);
-					node.addPNode(xnode);
+					connectPNode(node,xnode);
 					pTree.put(x,xnode);
 				}
 			}
 		}
-		root=pTree.get(1);
-		return pTree;
 	}
 	
-	public void testMap(){
+
+	public List<Integer> tracePath(int x){
+		List<Integer> path=new ArrayList<Integer>();
+		while(pTree.get(x).getFather()!=null){
+			path.add(x);
+			x=pTree.get(x).getFather().getId();
+		}
+		path.add(x);
+		Collections.reverse(path);
+		return path;
+	}
+	
+	
+	public void testMap(Map<Integer, PNode> pTree){
 		Iterator<Integer> it=pTree.keySet().iterator();
 		while(it.hasNext()){
 			int index=it.next();
-			System.out.println("ID: "+index+"  PNode "+pTree.get(index).getId());
+			System.out.println("PNode "+pTree.get(index).getId()+" childList "+pTree.get(index).getChildlist().size());
 			
 		}
 	}
+	
+	
+	
+	public void traverse(PNode root){
+		System.out.println("now checking "+root.getId()+" childList size "+root.getChildlist().size());
+		List<PNode> list=root.getChildlist();
+		for(PNode x:list) traverse(x);
+	}
+	
 	
 	public String toString() {
 		String temp ="";
@@ -97,10 +139,11 @@ public class PTree {
 	
 	public static void main(String[] args){
 		PTree pTree=new PTree();
-		pTree.testLoadTree();
-//		pTree.testMap();
-		List<Integer> list=pTree.tracePath(7);
-		System.out.println(list.toString());
+		int[] items={1,2,3,7,8,10,11,12,15};
+		pTree.buildPtree(items);
+		System.out.println(pTree);
+		
+		
 	}
 	
 }
