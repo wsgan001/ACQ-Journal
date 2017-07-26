@@ -119,7 +119,7 @@ public class AlgoFPMax {
 	 * @return the result if no output file path is provided.
 	 * @throws IOException exception if error reading or writing files
 	 */
-	public Itemsets runAlgorithm(String input, String output, int minsupp) throws FileNotFoundException, IOException {
+	public Itemsets runAlgorithm(String input, String output, double minsupp) throws FileNotFoundException, IOException {
 		// record start time
 		startTimestamp = System.currentTimeMillis();
 		// number of itemsets found
@@ -145,7 +145,7 @@ public class AlgoFPMax {
 
 		// convert the minimum support as percentage to a
 		// relative minimum support
-		this.minSupportRelative = minsupp;
+		this.minSupportRelative = (int) (minsupp*transactionCount);
 		
 
 		// Create the MFI Tree

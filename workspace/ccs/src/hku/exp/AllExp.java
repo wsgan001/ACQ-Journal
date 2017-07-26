@@ -37,7 +37,7 @@ public class AllExp {
 			exp5.exp(graphFile, nodeFile);
 			
 			VariantExp exp6 = new VariantExp();
-			exp6.exp(graphFile, nodeFile);
+//			exp6.exp(graphFile, nodeFile);
 			
 			KExp exp7 = new KExp();
 			exp7.expBasic(graphFile, nodeFile);

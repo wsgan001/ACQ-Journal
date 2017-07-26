@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.IntPredicate;
 
 import javax.swing.ListModel;
 
@@ -30,6 +31,8 @@ public class BasicAlgorithm {
 	private int minSup=Config.k+1;
 	private PTree pTree=null;
 	private Map<Integer, PNode> pTreeMap=null;
+	
+	private boolean DEBUG=false;
 	
 
 	public BasicAlgorithm(int graph[][],int nodes[][]){
@@ -80,20 +83,35 @@ public class BasicAlgorithm {
 	}
 	
 	
-	public void mineMaxSubtree(int[] seq){
+	public void mineMaxSubtree(){
 		pTree=new PTree();
 		pTreeMap=pTree.testLoadTree();
-		geneSubtree(seq);
+		int[]seq={1};
+		enumerate(seq);
 	}
 	
+	private void enumerate(int[] seq){
+		List<int[]> nextSeqList= geneSubtree(seq);
+		for(int[] nextSeq:nextSeqList){
+			if(nextSeq.length>6) break;
+			System.out.print("checking next seq:" );
+			for(int x:nextSeq) System.out.print(x+"  ");
+			System.out.println();
+			enumerate(nextSeq);
+		}
+
+	}
+	
+	//generate a new subtree from a subtree by add an node in the right most path
 	private List<int[]>  geneSubtree(final int[] seq){
 		List<Integer> rightmostPath=getRightmostPath(seq);
-		System.out.println("rightmost path:"+rightmostPath.toString() );
+		//------------------------DEBUG------------------------------
+		if(DEBUG) System.out.println("rightmost path:"+rightmostPath.toString() );
+		//----------------------END DEBUG----------------------------
 		List<int[]> nextSeq=new ArrayList<int[]>();
 		for(int i=0;i<rightmostPath.size()-1;i++){
 			int father=rightmostPath.get(i);
 			int child=rightmostPath.get(i+1);
-			System.out.println("father "+father+"  child:  "+child);
 			List<Integer> childSet=pTreeMap.get(father).getChildName();
 			if(child<childSet.get(childSet.size()-1)){
 				for(int x:childSet){
@@ -102,15 +120,20 @@ public class BasicAlgorithm {
 						System.arraycopy(seq, 0, b, 0, seq.length);
 						b[b.length-1]=x;
 						nextSeq.add(b);
-						for(int q:b) {
-							System.out.print(q+" ");
+						//------------------------DEBUG------------------------------
+						if(DEBUG){
+							System.out.print("new Array: ");
+							for(int q:b) {
+								System.out.print(q+" ");
+							}
+							System.out.println();
 						}
-						System.out.println();
+						//----------------------END DEBUG----------------------------
 					}
 				}
 			}
 		}
-		
+		//last node of in the right most path
 		int lastOne=rightmostPath.get(rightmostPath.size()-1);
 		List<Integer> childSet=pTreeMap.get(lastOne).getChildName();
 			for(int x:childSet){
@@ -118,10 +141,14 @@ public class BasicAlgorithm {
 					System.arraycopy(seq, 0, b, 0, seq.length);
 					b[b.length-1]=x;
 					nextSeq.add(b);
-					for(int q:b) {
-						System.out.print(q+" ");
+					//------------------------DEBUG------------------------------
+					if(DEBUG){
+						for(int q:b) {
+							System.out.print(q+" ");
+						}
+						System.out.println();
 					}
-					System.out.println();
+					//----------------------END DEBUG----------------------------
 			}
 	
 		
@@ -165,8 +192,8 @@ public class BasicAlgorithm {
 		Config.k=2;
 		
 //		bAlgo.query(1);
-		int[]seq={1,3,4,7,10,11};
-		bAlgo.mineMaxSubtree(seq);
+		int[]seq={1};
+		bAlgo.mineMaxSubtree();
 		
 	}
 	

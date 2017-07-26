@@ -49,9 +49,7 @@ public static void main(String []args){
 //	Long time6=System.nanoTime()-time5;
 //	System.out.println(time6/1000000);
 //	s1.testOutput();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	
 	
 	
@@ -85,11 +83,5 @@ public static void main(String []args){
 	String[] kw={"x","y"};
 	sw_V2.query(query,kw);
 	sw_V2.testOutput();
-=======
->>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
-=======
->>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
-=======
->>>>>>> parent of af30940... 1. FPMax algo finished confirmed;
 }
 }

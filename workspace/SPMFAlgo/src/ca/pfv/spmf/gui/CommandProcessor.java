@@ -33,7 +33,6 @@ import java.util.Set;
 
 import javax.swing.JOptionPane;
 
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Parameter;
 
 import ca.pfv.spmf.algorithmmanager.AlgorithmManager;
 import ca.pfv.spmf.algorithmmanager.DescriptionOfAlgorithm;
