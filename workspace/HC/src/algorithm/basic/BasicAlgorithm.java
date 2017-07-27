@@ -86,47 +86,33 @@ public class BasicAlgorithm {
 
 	
 	private void mine(int[] seq,Set<Integer> users){
-		
-		FindCKSubG findCKSG=new FindCKSubG(graph, users, queryId);
-		Set<Integer> CKSGUsers=findCKSG.findCKSG();
 		//------------------------DEBUG------------------------------
 		if(DEBUG){
 			System.out.println("------------------------------");
 			System.out.print("cksg: ");
-			for(int x:CKSGUsers) System.out.print(x+" ");
+			for(int x:users) System.out.print(x+" ");
 			System.out.println();
 		}
 		//----------------------END DEBUG----------------------------
-		if(CKSGUsers.size()<Config.k+1){
-			if(isNewItems(seq)){
-				output.put(CKSGUsers, seq);
-				//------------------------DEBUG------------------------------
-				if(DEBUG) System.out.println("saved");
-				//----------------------END DEBUG----------------------------
-			}
-			return;
-		}
+		if(users.size()<Config.k+1) return;
 		
 		
 		List<int[]> nextSeqList= geneSubtree(seq);
 		//if it has reach the maixmal pattern
 		if(nextSeqList.size()==0){
-			if(isNewItems(seq)){
-				output.put(CKSGUsers, seq);
+//			if(isNewItems(seq)){
+				output.put(users, seq);
 				//------------------------DEBUG------------------------------
 				if(DEBUG) System.out.println("saved");
 				//----------------------END DEBUG----------------------------
-			}
+//			}
 			return;
 		}
 		
 		//otherwise recursively mine
 		boolean finished=true;
 		for(int[] nextSeq:nextSeqList){
-//			Set<Integer> newUsers=check(nextSeq, users);
-			Set<Integer> newUsers=check(nextSeq, CKSGUsers);
-			
-
+			Set<Integer> newUsers=check(nextSeq, users);
 			//------------------------DEBUG------------------------------
 			if(DEBUG){
 				String append="checking next seq: ";
@@ -143,16 +129,16 @@ public class BasicAlgorithm {
 				mine(nextSeq,newUsers);
 			}
 		}
-		if(finished && isNewItems(seq)) {
+		if(finished && isNewItems(seq)){
 			//------------------------DEBUG------------------------------
 
 			//----------------------END DEBUG----------------------------
 			if(DEBUG){
-				System.out.print("finished recursion and saving: "+CKSGUsers.toString()+" items ");
+				System.out.print("finished recursion and saving: "+users.toString()+" items ");
 				for(int a:seq) 	System.out.print(a+"  ");
 				System.out.println();
 			}
-			output.put(CKSGUsers,seq);
+			output.put(users,seq);
 		}
 	}
 	
@@ -255,7 +241,8 @@ public class BasicAlgorithm {
 			System.out.println(append);
 		}
 		//----------------------END DEBUG----------------------------
-		return newUsers;
+		FindCKSubG findCKSG=new FindCKSubG(graph, newUsers, queryId); 
+		return findCKSG.findCKSG();
 	}	
 	
 
