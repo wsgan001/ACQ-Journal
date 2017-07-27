@@ -14,13 +14,23 @@ public class PNode {
 	private List<PNode> childPNode=null;
 	private List<Integer> childName=null;
 	private int childSize=-1;
+	
+	 //define the Comparator the sort all PNode following the ascending order of support
+	 Comparator<PNode> ascendingOrder= new Comparator<PNode>(){
+		@Override
+		public int compare(PNode o1,PNode o2){	
+			// TODO Auto-generated method stub
+			return o1.getId()-o2.getId();
+		}
+	};
+	
 
 	public PNode(int id){
 		this.ID=id;
 		this.childPNode=new ArrayList<PNode>();
 		this.childName=new ArrayList<Integer>();
 	}
-	
+
 	public void setFather(PNode node){
 		this.father=node;
 	}
@@ -31,6 +41,11 @@ public class PNode {
 	
 	public PNode getFather(){
 		return this.father;
+	}
+	
+	public void ascendOrder(){
+		Collections.reverse(childName);
+		Collections.reverse(childPNode);
 	}
 	
 	public List<PNode> getChildlist(){

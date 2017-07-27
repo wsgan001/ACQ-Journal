@@ -6,15 +6,15 @@ import config.Config;
 /**
 @author chenyankai
 @Date	Jul 8, 2017
+to find a connected component in a graph(k-core)
 
 */
 
 public class FindCKCore {
 	
-	public int[] findCKC(int graph[][], int core[], int queryId){
+	public Set<Integer> findCKC(int graph[][], int core[], int queryId){
 		if(core[queryId]<Config.k){
-			int[] tmp={queryId};
-			return tmp;
+			return null;
 		}
 		
 		Set<Integer> visited=new HashSet<Integer>();
@@ -24,7 +24,7 @@ public class FindCKCore {
 		queue.add(queryId);
 		visited.add(queryId);
 		
-		//step2 findCKC 
+		//step2 find connected component
 		while(queue.size()!=0){
 			int cur=queue.poll();
 			for(int i=0;i<graph[cur].length;i++){
@@ -37,14 +37,16 @@ public class FindCKCore {
 		}
 		
 		//step3 transform and output
-		int[] output=new int[visited.size()];
+		Set<Integer> output=new HashSet<Integer>(visited.size());
 		Iterator<Integer> iter=visited.iterator();
-		int index=0;
 		while(iter.hasNext()){
-			output[index++]=iter.next();
+			output.add(iter.next());
 		}
 		return output;	
 	}
+	
+	
+	
 	
 
 }

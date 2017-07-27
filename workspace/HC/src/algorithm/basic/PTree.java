@@ -32,7 +32,8 @@ public class PTree {
 				node=new PNode(item);
 				queryPTree.put(item, node);
 			}
-			
+			node.ascendOrder();
+
 			if(queryPTree.containsKey(fatherItem)){
 				
 				PNode father=queryPTree.get(fatherItem);
@@ -47,6 +48,7 @@ public class PTree {
 			
 		}
 		root=queryPTree.get(items[0]);
+		root.ascendOrder();
 		return queryPTree;	
 	}
 	
@@ -139,7 +141,7 @@ public class PTree {
 	
 	public static void main(String[] args){
 		PTree pTree=new PTree();
-		int[] items={1,2,3,7,8,10,11,12,15};
+		int[] items={1,2,3,7,8,10,11,12,13,15};
 		pTree.buildPtree(items);
 		System.out.println(pTree);
 		

@@ -3,6 +3,7 @@ package algorithm.basic;
 import java.util.*;
 import algorithm.DecomposeKCore;
 import algorithm.FindCKCore;
+import algorithm.FindCKSubG;
 import algorithm.LCS;
 import config.Config;
 
@@ -11,7 +12,7 @@ import config.Config;
 @Date	Jul 6, 2017
 		
 		DFS based search algorithm:
-steps:	(1) k-core and LCS to narrow down the search space; 
+steps:	(1) k-core to narrow down the search space; 
 	   	(2) generate subtrees of query vertex's tree; 
 	   	(3) checking (both k-core and maximal subtree). 
 */
@@ -21,7 +22,6 @@ public class BasicAlgorithm {
 	private int graph[][]=null;//graph structure;  starting from 1
 	private int nodes[][]=null;//the tree nodes of each node; starting from 1
 
-	private Map<Integer, int[]> simplifiedDB=null;
 	
 	private int core[]=null;
 	private int queryId=-1;
@@ -37,16 +37,14 @@ public class BasicAlgorithm {
 	public BasicAlgorithm(){
 		this.pTree=new PTree();
 		this.output=new HashMap<Set<Integer>, int[]>();
-		this.simplifiedDB=new HashMap<Integer,int[]>();
 	}
 	
 	public BasicAlgorithm(int graph[][],int nodes[][]){
 		this.graph=graph;
 		this.nodes=nodes;
-		DecomposeKCore kCore=new DecomposeKCore(graph);
+		DecomposeKCore kCore=new DecomposeKCore(this.graph);
 		core=kCore.decompose();
 		this.pTree=new PTree();
-		this.simplifiedDB=new HashMap<Integer,int[]>();
 		this.output=new HashMap<Set<Integer>, int[]>();
 
 	}
@@ -62,66 +60,72 @@ public class BasicAlgorithm {
 		
 		//step 1:find the connected k-core containing queryId
 		FindCKCore findCKCore=new FindCKCore();
-		int[] CKC=findCKCore.findCKC(graph, core, queryId);
-		if(CKC.length<Config.k+1) return; 
+		Set<Integer> CKC=findCKCore.findCKC(graph, core, queryId);
+		if(CKC.size()<Config.k+1) return; 
 		
-		//step 2:lcs and filter those shared no subsequences 
-		LCS lcs=new LCS();
-		for(int vertex:CKC){		
-			if(vertex!=queryId){
-				int[] tmp=lcs.lcs(nodes[queryId], nodes[vertex]);
-				if(tmp.length!=0) simplifiedDB.put(vertex, tmp);
-			}else{
-				simplifiedDB.put(queryId, nodes[queryId]);
-			}
-		}
-		if(simplifiedDB.size()<Config.k+1) return;
 		
 		//------------------------DEBUG------------------------------
 		if(DEBUG){
-			Set<Integer> key=simplifiedDB.keySet();
-			for(int x:key) {
-				String append="simplifiedDB users: "+x+" shared items: ";
-				int [] tmp=simplifiedDB.get(x);
-				for(int y:tmp) append+=y+"  ";
+			for(int x:CKC) {
+				String append="CKC users: "+x+" shared items: ";
+				for(int y:nodes[x]) append+=y+" ";
 				System.out.println(append);
 			}
 		}
 		//----------------------END DEBUG----------------------------
 		
 		
-		//step 3: mining all maximal common subsequences
+		//step 2: mining all maximal common subsequences
 		pTree=new PTree();
-		pTreeMap=pTree.buildPtree(simplifiedDB.get(queryId));
+		pTreeMap=pTree.buildPtree(nodes[queryId]);
 		int[] seqStart={nodes[queryId][0]};
-		mine(seqStart, simplifiedDB.keySet());
+		mine(seqStart, CKC);
 		printOutput();
 	}
 	
 
 	
 	private void mine(int[] seq,Set<Integer> users){
-		System.out.println("------------------------------");
-		//这里应该是找到CKcore 
-		Set<Integer> savedUsers=findcksubgraph(users);
-		if(savedUsers==null) 	return;
+		
+		FindCKSubG findCKSG=new FindCKSubG(graph, users, queryId);
+		Set<Integer> CKSGUsers=findCKSG.findCKSG();
+		//------------------------DEBUG------------------------------
+		if(DEBUG){
+			System.out.println("------------------------------");
+			System.out.print("cksg: ");
+			for(int x:CKSGUsers) System.out.print(x+" ");
+			System.out.println();
+		}
+		//----------------------END DEBUG----------------------------
+		if(CKSGUsers.size()<Config.k+1){
+			if(isNewItems(seq)){
+				output.put(CKSGUsers, seq);
+				//------------------------DEBUG------------------------------
+				if(DEBUG) System.out.println("saved");
+				//----------------------END DEBUG----------------------------
+			}
+			return;
+		}
+		
 		
 		List<int[]> nextSeqList= geneSubtree(seq);
 		//if it has reach the maixmal pattern
 		if(nextSeqList.size()==0){
 			if(isNewItems(seq)){
-				output.put(savedUsers, seq);
+				output.put(CKSGUsers, seq);
 				//------------------------DEBUG------------------------------
 				if(DEBUG) System.out.println("saved");
 				//----------------------END DEBUG----------------------------
-				return;
 			}
+			return;
 		}
 		
 		//otherwise recursively mine
+		boolean finished=true;
 		for(int[] nextSeq:nextSeqList){
 //			Set<Integer> newUsers=check(nextSeq, users);
-			Set<Integer> newUsers=check(nextSeq, savedUsers);
+			Set<Integer> newUsers=check(nextSeq, CKSGUsers);
+			
 
 			//------------------------DEBUG------------------------------
 			if(DEBUG){
@@ -134,17 +138,25 @@ public class BasicAlgorithm {
 				System.out.println(append);
 			}
 			//----------------------END DEBUG----------------------------
-			if(newUsers.size()>=Config.k){
+			if(newUsers.size()>=Config.k+1){
+				finished=false;
 				mine(nextSeq,newUsers);
 			}
+		}
+		if(finished && isNewItems(seq)) {
+			//------------------------DEBUG------------------------------
+
+			//----------------------END DEBUG----------------------------
+			if(DEBUG){
+				System.out.print("finished recursion and saving: "+CKSGUsers.toString()+" items ");
+				for(int a:seq) 	System.out.print(a+"  ");
+				System.out.println();
+			}
+			output.put(CKSGUsers,seq);
 		}
 	}
 	
 	
-	//check one particular pattern can return all users that share it 
-	//filter out users sharing seq[]
-	
-
 		//generate a new subtree from a subtree by add an node in the right most path
 	private List<int[]>  geneSubtree(final int[] seq){
 		List<Integer> rightmostPath=getRightmostPath(seq);
@@ -212,7 +224,10 @@ public class BasicAlgorithm {
 	//check users to get new users who share new subtrees 
 	private Set<Integer> check(int[] newSeq, final Set<Integer> users){
 		//------------------------DEBUG------------------------------
-		if(DEBUG)  System.out.println("users is not kcore");
+		if(!isCKCore(users)){
+			if(DEBUG)  System.out.println("users is not kcore");
+			return null;
+		}
 		//----------------------END DEBUG----------------------------
 		Set<Integer> newUsers=new HashSet<Integer>();
 		Iterator<Integer> iterator=users.iterator();
@@ -221,7 +236,7 @@ public class BasicAlgorithm {
 			boolean isContained=true;
 			
 			Set<Integer> userItemSet=new HashSet<Integer>();
-			for(int x:simplifiedDB.get(user)) userItemSet.add(x);
+			for(int x:nodes[user]) userItemSet.add(x);
 
 			for(int item:newSeq){
 				if(!userItemSet.contains(item)){
@@ -247,7 +262,7 @@ public class BasicAlgorithm {
 	//not finished
 	//checking whether satisfy connected and k-core 
 	private boolean isCKCore(Set<Integer> set){
-		if(set.size()>=Config.k) return true;
+		if(set.size()>=Config.k+1) return true;
 		else return false;
 	}
 
@@ -315,8 +330,8 @@ public class BasicAlgorithm {
 		
 		
 		int nodes[][] = new int[11][];
-		int k1[] = {1,2,3,4,6,7,12,14,15};	nodes[1] = k1;
-		int k2[] = {1,3,4,7,8,9,12,13,15};	nodes[2] = k2;
+		int k1[] = {1,2,3,4,6,7,12,13,14,15};	nodes[1] = k1;
+		int k2[] = {1,2,3,4,7,8,9,12,13,15};	nodes[2] = k2;
 		int k3[] = {1,3,4,5,6,10};			nodes[3] = k3;
 		int k4[] = {1,2,3,7,10,12};			nodes[4] = k4;
 		int k5[] = {1,3,4,7,8,9,10};		nodes[5] = k5;
