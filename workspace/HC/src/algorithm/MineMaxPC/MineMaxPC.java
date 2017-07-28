@@ -4,7 +4,7 @@ import java.util.Map.Entry;
 
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
-import algorithm.basic.PTree;
+import algorithm.ProfiledTree.PTree;
 
 /**
 @author chenyankai

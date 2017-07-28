@@ -1,4 +1,4 @@
-package algorithm.basic;
+package algorithm.ProfiledTree;
 
 import java.util.*;
 
@@ -8,11 +8,10 @@ import java.util.*;
 this is the data structure for profile tree node
 */
 public class PNode {
-	private String Attribute=null;
+//	private String Attribute=null;
 	private int ID=-1;
 	private PNode father=null;
 	private List<PNode> childPNode=null;
-	private List<Integer> childName=null;
 	private int childSize=-1;
 	
 	 //define the Comparator the sort all PNode following the ascending order of support
@@ -28,7 +27,6 @@ public class PNode {
 	public PNode(int id){
 		this.ID=id;
 		this.childPNode=new ArrayList<PNode>();
-		this.childName=new ArrayList<Integer>();
 	}
 
 	public void setFather(PNode node){
@@ -44,7 +42,6 @@ public class PNode {
 	}
 	
 	public void ascendOrder(){
-		Collections.reverse(childName);
 		Collections.reverse(childPNode);
 	}
 	
@@ -52,13 +49,11 @@ public class PNode {
 		return this.childPNode;
 	}
 	
-	public List<Integer> getChildName(){
-		return this.childName;
-	}
+
 	
 	public void addPNode(PNode node){
 		this.childPNode.add(node);
-		this.childName.add(node.getId());
+//		this.childName.add(node.getId());
 		childSize=childPNode.size();
 	}
 	

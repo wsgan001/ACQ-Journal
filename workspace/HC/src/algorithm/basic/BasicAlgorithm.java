@@ -1,10 +1,9 @@
 package algorithm.basic;
 
 import java.util.*;
-import algorithm.DecomposeKCore;
-import algorithm.FindCKCore;
-import algorithm.FindCKSubG;
-import algorithm.LCS;
+import algorithm.*;
+import algorithm.ProfiledTree.PNode;
+import algorithm.ProfiledTree.PTree;
 import config.Config;
 
 /**
@@ -76,7 +75,6 @@ public class BasicAlgorithm {
 		
 		
 		//step 2: mining all maximal common subsequences
-		pTree=new PTree();
 		pTreeMap=pTree.buildPtree(nodes[queryId]);
 		int[] seqStart={nodes[queryId][0]};
 		mine(seqStart, CKC);
@@ -154,9 +152,10 @@ public class BasicAlgorithm {
 		for(int i=0;i<rightmostPath.size()-1;i++){
 			int father=rightmostPath.get(i);
 			int child=rightmostPath.get(i+1);
-			List<Integer> childSet=pTreeMap.get(father).getChildName();
-			if(child<childSet.get(childSet.size()-1)){
-				for(int x:childSet){
+			List<PNode> childSet=pTreeMap.get(father).getChildlist();
+			if(child<childSet.get(childSet.size()-1).getId()){
+				for(PNode node:childSet){
+					int x=node.getId();
 					if(x>child){
 						int[] b=new int[seq.length+1];
 						System.arraycopy(seq, 0, b, 0, seq.length);
@@ -177,8 +176,9 @@ public class BasicAlgorithm {
 		}
 		//last node of in the right most path
 		int lastOne=rightmostPath.get(rightmostPath.size()-1);
-		List<Integer> childSet=pTreeMap.get(lastOne).getChildName();
-			for(int x:childSet){
+		List<PNode> childSet=pTreeMap.get(lastOne).getChildlist();
+			for(PNode node:childSet){
+				int x=node.getId();
 					int[] b=new int[seq.length+1];
 					System.arraycopy(seq, 0, b, 0, seq.length);
 					b[b.length-1]=x;
