@@ -92,7 +92,8 @@ public class BasicAlgorithm {
 			System.out.println();
 		}
 		//----------------------END DEBUG----------------------------
-		if(users.size()<Config.k+1) return;
+		if(users==null) return;
+//		if(!isNewItems(seq)) return;
 		
 		
 		List<int[]> nextSeqList= geneSubtree(seq);
@@ -111,18 +112,19 @@ public class BasicAlgorithm {
 		boolean finished=true;
 		for(int[] nextSeq:nextSeqList){
 			Set<Integer> newUsers=check(nextSeq, users);
-			//------------------------DEBUG------------------------------
-			if(DEBUG){
-				String append="checking next seq: ";
-				for(int x:nextSeq) append+=x+"  ";
-				System.out.println(append);
-				
-				append="now the users are: ";
-				for(int x:newUsers)append+= x+" ";
-				System.out.println(append);
-			}
-			//----------------------END DEBUG----------------------------
-			if(newUsers.size()>=Config.k+1){
+			
+			if(newUsers!=null){
+				//------------------------DEBUG------------------------------
+				if(DEBUG){
+					String append="checking next seq: ";
+					for(int x:nextSeq) append+=x+"  ";
+					System.out.println(append);
+					
+					append="now the users are: ";
+					for(int x:newUsers)append+= x+" ";
+					System.out.println(append);
+				}
+				//----------------------END DEBUG----------------------------
 				finished=false;
 				mine(nextSeq,newUsers);
 			}
@@ -333,9 +335,8 @@ public class BasicAlgorithm {
 	
 		bAlgo.query(1);
 		
-		
-		
-		
+		Set<Integer> set=null;
+		System.out.println(set==null);
 	}
 	
 

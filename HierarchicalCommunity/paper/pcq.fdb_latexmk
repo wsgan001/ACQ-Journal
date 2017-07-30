@@ -1,5 +1,5 @@
 # Fdb version 3
-["bibtex pcq"] 1501169680 "pcq.aux" "pcq.bbl" "pcq" 1501222583
+["bibtex pcq"] 1501169680 "pcq.aux" "pcq.bbl" "pcq" 1501321492
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/abbrv.bst" 1292289607 20329 b5fed53e10044d0f8112183785c759b1 ""
   "lac.bib" 1498716301 1629 d15f908c402dcbe36f2a6a5006c0d1ec ""
   "pcq.aux" 1501222582 3551 2e8c1fffe07e6088095cf0308e8fac96 ""
@@ -7,7 +7,7 @@
   (generated)
   "pcq.blg"
   "pcq.bbl"
-["pdflatex"] 1501222582 "pcq.tex" "pcq.pdf" "pcq" 1501222583
+["pdflatex"] 1501222582 "pcq.tex" "pcq.pdf" "pcq" 1501321492
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/helvetic/phvb.tfm" 1136768653 2300 14616918391efa49ac8b481a75fbdc1a ""
@@ -168,7 +168,7 @@
   "problem.tex" 1499060293 2799 3de11616ddda613b895c6647a98d7c22 ""
   "vldb.cls" 1498622226 48240 b75146a9bb7b55395cead566f285d86b ""
   (generated)
-  "pcq.aux"
   "pcq.pdf"
+  "pcq.aux"
   "pcq.log"
   "pcq.out"

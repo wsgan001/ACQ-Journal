@@ -55,6 +55,7 @@ public class BasicIndex {
 		}
 		
 		//step 3: build the tree recursively
+		//**********************  Jul 29, 2017 CYK:  why the last parameter is 1?  shouldn't be i?
 		buildChild(root, restNodeSet, 1);
 		
 		//step 4: delete empty nodes

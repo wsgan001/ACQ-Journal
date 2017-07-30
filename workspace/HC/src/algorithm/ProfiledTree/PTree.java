@@ -26,7 +26,9 @@ public class PTree {
 	
 		Map<Integer, PNode> queryPTree=new HashMap<Integer, PNode>();
 		
-		//build ptree in bottom-up manner
+		//build ptree in bottom-up manner 
+		//**********************  Jul 30, 2017 CYK:  actually it can be build in top-down manner
+		
 		for(int i=items.length-1;i>0;i--){
 			int item=items[i];
 			int fatherItem=cpTreeMap.get(item).getFather().getId();
