@@ -12,6 +12,7 @@ import java.util.Set;
 import hku.Config;
 import hku.algo.AprioriPruner;
 import hku.algo.FindCCS;
+import hku.algo.FindCC;
 import hku.algo.TNode;
 import hku.util.CCSSaver;
 import hku.algo.*;
@@ -54,7 +55,10 @@ public class Dec {
 		this.queryId = queryId;
 		int qualifiedCC = 0;
 		List<Set<Integer>> ccsList = null;
-		if (core[queryId] < Config.k)   return null;
+		if (core[queryId] < Config.k)   {
+			System.out.println("111111");
+			return null;
+		}
 		
 		// step 1: mine neighbor information
 		List<Integer> nghList = new ArrayList<Integer>();
@@ -62,14 +66,19 @@ public class Dec {
 		FPGrowthLocalFilter localFilter = new FPGrowthLocalFilter(graph, nodes, core, queryId, nghList);
 		List<List<String[]>> candKwList = localFilter.mine();
 		this.seedKwSet = localFilter.getSeedKwSet();
-		if(this.seedKwSet.size() == 0)   return null;
+		if(this.seedKwSet.size() == 0){
+//			System.out.println("22222");
+			FindCKCore  find=new FindCKCore();
+				int[] list=find.findCKCore(graph,core,queryId);
+				Set<Integer> set=new HashSet<Integer>();
+				for(int x:list) set.add(x);
+				ccsList=new ArrayList<Set<Integer>>();
+				ccsList.add(set);
+//				System.out.println(set.size());
+			return ccsList;
+		}
 //		System.out.println("candKwList.size=" + candKwList.size() + " seedKwSet.size=" + seedKwSet.size()
 //				+ " time:" + (System.currentTimeMillis() - startT));
-		
-		
-		
-		
-		
 		
 		// step 2: locate the node in the cck-core tree
 		TNode subRoot = locateAllCK(root);
@@ -107,7 +116,7 @@ public class Dec {
 		}
 		
 		// step 5: search starting from longer keyword combinations
-		for (int len = candKwList.size() - 1; len >= 1; len--) {
+		for (int len = candKwList.size() - 1; len >= 0; len--) {
 //			System.out.println("Dec queryId:" + queryId + " kws.len:" + len + " size:" + candKwList.get(len).size());
 			
 			List<Integer> nodeList = allLenList.get(len);
@@ -125,6 +134,12 @@ public class Dec {
 			}
 			
 			List<String[]> kwList = candKwList.get(len);
+			if(kwList==null){
+				Set<Integer> set=new HashSet<Integer>();
+				for(int x:nodeList) set.add(x);
+				ccsList.add(set);
+				break;
+			}
 			ccsList = findCCS(invMap, kwList);
 			if(ccsList.size() > 0){
 				qualifiedCC = ccsList.size();
@@ -133,13 +148,17 @@ public class Dec {
 //				for(String[] s:kwList) for(int i=0;i<s.length;i++ )System.out.println(s[i]);
 //				break;
 			}
+			
 		}
+//		System.out.println("queryId"+queryId+"  ccs "+ccsList.size());
 		
-//		System.out.println(ccsList.toString());
 		return ccsList;
 		
 	}
 
+	
+	//**********************  Aug 1, 2017 CYK: 
+	
 	
 	
 	// locate a list of tnodes, each of which has (1)coreness>=Config.k and (2) contains queryId
@@ -218,30 +237,43 @@ public class Dec {
 	
 	private List<Set<Integer>> findCCS(Map<String, List<Integer>> invMap, List<String[]> kwList) {
 		List<Set<Integer>> rsList = new ArrayList<Set<Integer>>();
-				
+		
 		// step 1: verify each keyword combination
 		for (String kws[] : kwList) {
-//			System.out.print("Dec we are considering: [" + kws[0]);
+//			System.out.println("Dec we are considering: [" + kws[0]);
 //			for (int ii = 1; ii < kws.length; ii++)   System.out.print(" " + kws[ii]);
 //			System.out.println("] time:" + (System.currentTimeMillis() - startT));
 
 			//select nodes satisfying the keyword constraint
+			
 			Set<Integer> nodeSet = new HashSet<Integer>(invMap.get(kws[0]));
-			for(int i = 1;i < kws.length;i ++){
+			for(int i = 0;i < kws.length;i ++){
 				Set<Integer> tmpSet = new HashSet<Integer>();
 				for(int id:invMap.get(kws[i])){
 					if(nodeSet.contains(id)){
 						tmpSet.add(id);
 					}
 				}
-				nodeSet = tmpSet;
+				//**********************  Aug 1, 2017 CYK: 
+				if( tmpSet.size()!=0) {
+					nodeSet = tmpSet;
+//					System.out.println(tmpSet.size());
+				}
+				else{
+					
+					for(List<Integer> x:invMap.values()){
+						nodeSet.addAll(x);
+					}
+				}
 			}
 			
 			// count the number of nodes and edges
 			FindCC findCC = new FindCC(graph, nodeSet, queryId);
 			Set<Integer> ccNodeSet = findCC.findCC();
+			
 			int nodeNum = ccNodeSet.size();
 			int edgeNum = findCC.getEdge();
+//			System.out.println(nodeNum);
 			
 			//find the ccs
 			Set<Integer> ccsSet = new HashSet<Integer>();
@@ -252,6 +284,7 @@ public class Dec {
 				
 				FindCCS finder = new FindCCS(graph, curList, queryId);
 				ccsSet = finder.findRobustCCS();
+//				System.out.println(ccsSet.size());
 				if(ccsSet.size() > 1){
 					rsList.add(ccsSet);
 //					System.out.println("A community with size = " + ccsSet.size() + "   Time cost:" + (System.currentTimeMillis() - startT));
