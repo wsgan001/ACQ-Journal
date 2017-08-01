@@ -131,7 +131,7 @@ public class Dec {
 //				System.out.println("we have found " + ccsList.size() + " acs len:" + len);
 //				System.out.println(ccsList.toString());
 //				for(String[] s:kwList) for(int i=0;i<s.length;i++ )System.out.println(s[i]);
-				break;
+//				break;
 			}
 		}
 		

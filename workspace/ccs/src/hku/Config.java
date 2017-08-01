@@ -43,11 +43,11 @@ public class Config {
 	//Dec 5, 2016 CYK: 
 	public static String dblpNode="/Users/chenyankai/Desktop/ACQ/yankai_data/dblp/dblp-node.txt";
 	public static String dblpGraph ="/Users/chenyankai/Desktop/ACQ/yankai_data/dblp/dblp-graph.txt";
-	public static String dblpquery="/Users/chenyankai/Desktop/yankai_data/dblp/dblp-graph-query=100.txt";
+	public static String dblpquery="/Users/chenyankai/Desktop/ACQ/yankai_data/dblp-graph-query=100";
 	
 	public static String flickrNode="/Users/chenyankai/Desktop/ACQ/yankai_data/flickr/flickr-node.txt";
 	public static String flickrGraph="/Users/chenyankai/Desktop/ACQ/yankai_data/flickr/flickr-graph.txt";
-
+	public static String flickrquery="/Users/chenyankai/Desktop/ACQ/yankai_data/flickr-graph-query=100";
 	
 	public static String DflickrGraph="/Users/chenyankai/Desktop/ACQ/yankai_data/DynamicGraph/flickr-graph.txt";
 	public static String DflickrNode="/Users/chenyankai/Desktop/ACQ/yankai_data/DynamicGraph/flickr-nodes.txt";

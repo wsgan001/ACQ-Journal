@@ -16,11 +16,9 @@
 <fullyQualifiedTypeName name="algorithm.DecomposeKCore"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="javax.xml.soap.Node"/>
-<fullyQualifiedTypeName name="javax.swing.ListModel"/>
 <fullyQualifiedTypeName name="algorithm.ProfiledTree.PNode"/>
 <fullyQualifiedTypeName name="algorithm.ProfiledTree.CPTree"/>
 <fullyQualifiedTypeName name="algorithm.Index.BasicIndex"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="algorithm.Index.KWTree"/>
 <fullyQualifiedTypeName name="java.util.concurrent.CopyOnWriteArraySet"/>
@@ -30,10 +28,21 @@
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="algorithm.Index.KWNode"/>
+<fullyQualifiedTypeName name="hku.algo.KCore"/>
+<fullyQualifiedTypeName name="hku.exp.FractionExp"/>
+<fullyQualifiedTypeName name="hku.algo.TNode"/>
+<fullyQualifiedTypeName name="hku.algo.DataReader"/>
+<fullyQualifiedTypeName name="hku.algo.index.AdvancedIndex"/>
+<fullyQualifiedTypeName name="hku.algo.query2.Dec"/>
+<fullyQualifiedTypeName name="javax.swing.ListModel"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="algorithm.Index.KWNode"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="hku.exp.CommunitySizeExp"/>
+<fullyQualifiedTypeName name="hku.Config"/>
 </qualifiedTypeNameHistroy>
