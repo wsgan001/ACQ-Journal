@@ -18,6 +18,7 @@ public class DecomposeKCore {
 		this.coreReverse=new int[n+1];
 	}
 	
+	
 	public int[] decompose(){
 		degree=new int[n+1];
 		
@@ -89,6 +90,7 @@ public class DecomposeKCore {
 	public int[] getReverseCore(){
 		return coreReverse;
 	}
+	
 	
 	public static void main(String[] args) {
 		int graph[][] = new int[11][];

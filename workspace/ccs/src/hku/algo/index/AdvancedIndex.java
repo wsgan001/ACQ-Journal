@@ -70,6 +70,7 @@ public class AdvancedIndex {
 				int nextIdx = idx + 1;
 				if(nextIdx < n){
 					int nextId = coreReverseFang[nextIdx];
+					
 					if(core[nextId] < curCoreNum){//**********************  Dec 6, 2016 CYK:  traverse to find the location of the last vertex which core is curCoreNum,and then
 												  //**********************  Dec 6, 2016 CYK:  -group them in a Tnode.
 						handleALevel(startIdx, idx, curCoreNum); //generate nodes of tree index using nodes in [startIdx, idx]
@@ -177,7 +178,7 @@ public class AdvancedIndex {
 			
 			//find childList
 			if(core[reId] > curCoreNum){
-				//**********************  Dec 9, 2016 CYK: differents between New parent and old parent:new one for same cores nodes and old one for child nodes! 
+//**********************  Dec 9, 2016 CYK: differences between New parent and old parent:new one for same cores nodes and old one for child nodes! 
 				
 				//**********************  Dec 9, 2016 CYK: outer union-find operation will do the work using unodearr[].
 				UNode oldParent = unodeArr[reId];//in the original union-find, reId is already an id of a parent node
