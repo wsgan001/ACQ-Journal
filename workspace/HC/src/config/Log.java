@@ -13,7 +13,7 @@ import prep.ConfigPubmed;
  */
 
 public class Log {
-	private String logFile=ConfigPubmed.logFileName;
+	private String logFile=Config.logFileName;
 	
 	public Log(){
 		

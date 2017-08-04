@@ -1,4 +1,7 @@
 package algorithm;
+
+import config.Config;
+
 /**
 @author chenyankai
 @Date	Jul 4, 2017
@@ -11,6 +14,7 @@ public class DecomposeKCore {
 	private int n=-1; //(size-1) of the vertices in graph
 	private int[] degree=null;
 	private int[] coreReverse=null;
+	private boolean debug=false;
 	
 	public DecomposeKCore(int[][] graph){
 		this.graph=graph;
@@ -24,7 +28,10 @@ public class DecomposeKCore {
 		
 		//step 1:get the degree and the maximum degree
 		int maxD=-1;
-		for(int i=1;i<n+1;i++){
+		for(int i=1;i<=n;i++){
+			//------------------------DEBUG------------------------------
+			if(debug) 	System.out.println(i);
+			//----------------------END DEBUG----------------------------
 			degree[i]=graph[i].length;
 			maxD= (degree[i]>maxD)?degree[i]:maxD;
 		}
@@ -92,6 +99,8 @@ public class DecomposeKCore {
 	}
 	
 	
+	
+	
 	public static void main(String[] args) {
 		int graph[][] = new int[11][];
 		int a1[] = {2, 3, 4, 5};	graph[1] = a1;
@@ -105,17 +114,22 @@ public class DecomposeKCore {
 		int a9[] = {8};	graph[9] = a9;
 		int a10[] = {};	graph[10] = a10;
 		
+		DataReader dReader=new DataReader(Config.pubMedGrah, Config.pubMedNode);
+		int[][] g=dReader.readGraph();
 		
-		
-		DecomposeKCore kcore = new DecomposeKCore(graph);
+		DecomposeKCore kcore = new DecomposeKCore(g);
 		kcore.decompose();
 		int reversecoreArr[] = kcore.getReverseCore();
 		int maxCore = kcore.obtainMaxCore();
-		for(int i = 1;i < reversecoreArr.length;i ++)   System.out.print("cor[" + i + "]=" + reversecoreArr[i] + " ");
-		System.out.println();
-		for(int i=1;i < kcore.degree.length;i++)
-			System.out.print("degree["+i+"]="+kcore.degree[i]+" ");
+		System.out.println(maxCore);
+//		for(int i = 1;i < reversecoreArr.length;i ++)   System.out.print("cor[" + i + "]=" + reversecoreArr[i] + " ");
+		
+		
 		//System.out.println("maxCore:" + maxCore);
+		
+		
+		
+		
 	}
 	
 	

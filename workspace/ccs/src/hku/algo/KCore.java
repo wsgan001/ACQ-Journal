@@ -1,5 +1,8 @@
 package hku.algo;
 
+
+
+
 /**
  * @author fangyixiang
  * @date Jul 24, 2015
@@ -129,8 +132,9 @@ public class KCore {
 		int a10[] = {};	graph[10] = a10;
 		
 		
-		
-		KCore kcore = new KCore(graph);
+		DataReader dReader=new DataReader("/Users/chenyankai/Documents/pubMed/edgeTest.txt", "/Users/chenyankai/Documents/pubMed/nodeTest.txt");
+		int[][] g=dReader.readGraph();
+		KCore kcore = new KCore(g);
 		kcore.decompose();
 		int reversecoreArr[] = kcore.obtainReverseCoreArr();
 		int maxCore = kcore.obtainMaxCore();

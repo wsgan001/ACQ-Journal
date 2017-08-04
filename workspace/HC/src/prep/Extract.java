@@ -69,7 +69,7 @@ public class Extract {
 	
 	public void process(){
 		DownloadFtp downFtp=new DownloadFtp(ConfigPubmed.pubMedHost,ConfigPubmed.pubMedUsr,ConfigPubmed.pubMedPswrd, ConfigPubmed.pubMedPort, ConfigPubmed.ftpPath, ConfigPubmed.localPath);
-		MeSHPrep meSHPrep=new MeSHPrep(nodeFile,edgeFile,"MeshTree.txt");
+		MeSHPrep meSHPrep=new MeSHPrep(nodeFile,edgeFile,"oldCodeMeshTree.txt");
 
 		Log log=new Log();
 		
@@ -81,11 +81,12 @@ public class Extract {
 			boolean flag3=deleteFile(name);
 			boolean flag4=meSHPrep.domMeSH(name.substring(0,name.length()-3));
 			deleteFile(name.substring(0,name.length()-3));
-			
+			System.out.println(meSHPrep.getnameMapSize());
 			msg=downFtp.getFtpState()+"\t"+"download status: "+flag1+"\t"+"unzip state: "+flag2+"\t"+"doMesh state: "+flag4+"\t"
 					+"delete gz file and unzip file states: "+flag3+"\t"+flag4;
 			log.log(msg);		
 		}
+		meSHPrep.writeFile();
 	}
 	
 	
@@ -118,7 +119,7 @@ public class Extract {
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(20,"node.txt","edge.txt");
+		Extract extract=new Extract(10,"node.txt","edge.txt");
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		

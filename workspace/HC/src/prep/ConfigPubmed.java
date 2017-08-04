@@ -1,7 +1,6 @@
 package prep;
 
 public class ConfigPubmed {
-	public static String home="/Users/chenyankai/GitDefault/workspace/HC/file/";
 	
 	public static String ftpPath="/pubmed/baseline/";
 	
@@ -14,7 +13,6 @@ public class ConfigPubmed {
 	public static String pubMedPswrd="yka1238@hku.hk";
 	
 	public static int pubMedPort=21;
-	
-	public static String logFileName=home+System.currentTimeMillis();
+
 	
 }
