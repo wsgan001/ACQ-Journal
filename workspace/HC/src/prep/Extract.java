@@ -87,6 +87,7 @@ public class Extract {
 			log.log(msg);		
 		}
 		meSHPrep.writeFile();
+//		meSHPrep.writeAllFile();
 	}
 	
 	
@@ -119,7 +120,7 @@ public class Extract {
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(10,"node.txt","edge.txt");
+		Extract extract=new Extract(20,"node.txt","edge.txt");
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		

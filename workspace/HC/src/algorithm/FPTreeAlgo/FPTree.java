@@ -101,7 +101,6 @@ public class FPTree {
 				child.IncCount();
 				currentNode=child;
 		 }
-		 
 	 } 
  }
  

@@ -4,9 +4,10 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
+import javax.swing.ListModel;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
-import org.w3c.tidy.AttrCheckImpl.CheckClear;
+import algorithm.ProfiledTree.PNode;
 
 /**
  * 
@@ -15,32 +16,37 @@ import org.w3c.tidy.AttrCheckImpl.CheckClear;
  */
 
 public class MeSHPrep {
-//	String xmlFile=null;
-	String nodeFile=null;
-	String edgeFile=null;
+	//	aggregated edges and nodes file.No vertices without items in P-tree are included.
+	private String nodeFile=null;
+	private String edgeFile=null;
+	
+	boolean type=true;
+	
 	int id1=-1;
 //	Map<String, String> map=null;//store the MeshTree code key:name value:old code
 	
-	Map<String, Integer> oldCodeDFSMap=null;//store the mesh old code and the DFS code
-	Map<String, Integer> nameVsDFSMap=null;//Store the name and DFS code
+	private Map<String, Integer> oldCodeDFSMap=null;//store the mesh old code and the DFS code
+	private Map<String, Integer> nameVsDFSMap=null;//Store the name and DFS code
 	
-	Map<String, Set<Integer>> line = null;//for output the name-attributes
-	Map<String, Set<String>> nameMap=null;//for output the name-edges
-	Map<String,Integer> nameIdMap=null;
+	private Map<String, Set<Integer>> line = null;//for output the name-attributes
+	private Map<String, Set<String>> nameMap=null;//for output the name-edges
+	private Map<String,Integer> nameIdMap=null;
+	private Map<Integer,PNode> cpTree=null;
 	
+	
+	//type 1:aggregated data type0: full data 
 	public MeSHPrep(String nodeFile,String edgeFile,String treeFile){
-//		this.xmlFile=Config.localPath+xmlfile;
-		this.nodeFile=ConfigPubmed.localPath+nodeFile;
-		this.edgeFile=ConfigPubmed.localPath+edgeFile;
 		
+			this.edgeFile=ConfigPubmed.localPath+edgeFile;
+			this.nodeFile=ConfigPubmed.localPath+nodeFile;
+			
+			File edgefile=new File(this.edgeFile);
+			if(edgefile.exists()) edgefile.delete();
+			File nodefile=new File(this.nodeFile);
+			if(nodefile.exists()) nodefile.delete();
 		
-		File edgefile=new File(this.edgeFile);
-		if(edgefile.exists()) edgefile.delete();
-		File nodefile=new File(this.nodeFile);
-		if(nodefile.exists()) nodefile.delete();
 		
 		this.id1=1;
-//		this.map=new HashMap<String,String>();
 		this.oldCodeDFSMap=new HashMap<String,Integer>();
 		this.nameVsDFSMap=new HashMap<String, Integer>();
 		
@@ -58,7 +64,11 @@ public class MeSHPrep {
 		BuildMeshTree bTree=new BuildMeshTree();
 		bTree.buildMeshTree();
 		this.oldCodeDFSMap=bTree.getOldCodeDFSMap();
+		this.cpTree=bTree.getCPTree();
 	}
+	
+	
+	
 	
 	
 	private void readMeshTree(String fileName){
@@ -202,26 +212,89 @@ public class MeSHPrep {
 		
 	}
 	
+	
+	public void writeAllFile(){
+		try{
+			BufferedWriter nodeWriter = new BufferedWriter(new FileWriter(nodeFile,true));
+			BufferedWriter edgeWriter = new BufferedWriter(new FileWriter(edgeFile,true));
+			//print out all qualified edges and nodes
+			//write into the file (attributes)
+			
+			for(String x:line.keySet()){
+				String write=line.get(x).toString();	
+				//**********************  Aug 5, 2017 CYK:  use nameIdMap to filter out those vertices without keywords
+				nameIdMap.put(x, id1);
+				write = write.substring(1, write.length()-1);
+	
+				//the format of writing files for debug 
+//				 nodeWriter.write(x+" "+(id1++)+"\t"+ fill(write));
+				 nodeWriter.write((id1++)+"\t"+ fill(write));
+				 nodeWriter.newLine();	
+						
+			}
+			 nodeWriter.flush();
+			 nodeWriter.close();
+			
+			//edge 
+				for(String x:nameMap.keySet()){
+					if(!nameIdMap.containsKey(x)) continue;
+					String string="";
+					for(String y:nameMap.get(x)){
+						if(nameIdMap.containsKey(y))
+							string+=" "+nameIdMap.get(y);
+					}
+					if(string.length()>2){
+						//the format of writing files for debug 
+//						edgeWriter.write(x+" "+nameIdMap.get(x)+"\t"+string.substring(1, string.length()));
+						edgeWriter.write(nameIdMap.get(x)+"\t"+string.substring(1, string.length()));
+
+					}
+					else{
+						//the format of writing files for debug 
+//						edgeWriter.write(x+" "+nameIdMap.get(x)+"\t");
+						edgeWriter.write(nameIdMap.get(x)+"\t");
+
+					}
+					edgeWriter.newLine();
+					
+				}
+				edgeWriter.flush();
+				edgeWriter.close();
+			
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	
+	//write the vertices and nodes and skip the vertices without any items in P-tree
 	public void writeFile(){
 		try {
-			BufferedWriter bfWriter = new BufferedWriter(new FileWriter(nodeFile,true));
-			BufferedWriter bWriter1=new BufferedWriter(new FileWriter(edgeFile,true));//write edge 
+			BufferedWriter nodeWriter = new BufferedWriter(new FileWriter(nodeFile,true));//write node
+			BufferedWriter edgeWriter = new BufferedWriter(new FileWriter(edgeFile,true));//write edge 
+			
 
 			//print out all qualified edges and nodes
 			//write into the file (attributes)
 			for(String x:line.keySet()){
-				String write=line.get(x).toString();	
+					
 					if(line.get(x).size()!=0){
+						
+						String write=line.get(x).toString();
+						write=write.substring(1, write.length()-1);
+				
 						//**********************  Aug 5, 2017 CYK:  use nameIdMap to filter out those vertices without keywords
 						nameIdMap.put(x, id1);
 						//the format of writing files for debug 
-//						bfWriter.write(x+" "+(id1++)+"\t"+write.substring(1, write.length()-1).replace(",", ""));
-						bfWriter.write((id1++)+"\t"+write.substring(1, write.length()-1).replace(",", ""));
-						bfWriter.newLine();	
+//						nodeWriter.write(x+" "+(id1++)+"\t"+fill(write));
+						nodeWriter.write((id1++)+"\t"+fill(write));
+						nodeWriter.newLine();	
 					}	
 			}
-			bfWriter.flush();
-			bfWriter.close();
+			nodeWriter.flush();
+			nodeWriter.close();
 			
 			
 			//edge 
@@ -235,18 +308,18 @@ public class MeSHPrep {
 				if(string.length()>2){
 					//the format of writing files for debug 
 //					bWriter1.write(x+" "+nameIdMap.get(x)+"\t"+string.substring(1, string.length()));
-					bWriter1.write(nameIdMap.get(x)+"\t"+string.substring(1, string.length()));
+					edgeWriter.write(nameIdMap.get(x)+"\t"+string.substring(1, string.length()));
 				}
 				else{
 					//the format of writing files for debug 
 //					bWriter1.write(x+" "+nameIdMap.get(x)+"\t");
-					bWriter1.write(nameIdMap.get(x)+"\t");
+					edgeWriter.write(nameIdMap.get(x)+"\t");
 				}
-				bWriter1.newLine();
+				edgeWriter.newLine();
 				
 			}
-			bWriter1.flush();
-			bWriter1.close();
+			edgeWriter.flush();
+			edgeWriter.close();
 			
 			
 		} catch (IOException e) {
@@ -257,11 +330,32 @@ public class MeSHPrep {
 	}
 	
 	
+	//use leaf nodes of p-tree to fill the its p-tree
+		private String fill(String write){
+			String output="";
+			String[] items=write.split(",");
+			List<Integer> list=new LinkedList<Integer>();
+			for(String item:items) tracePath(Integer.parseInt(item.trim()), list);
+			list.add(1);
+			Collections.sort(list);
+			for(int i:list) output +=i+" ";
+			return output;
+		}
+		// trace one leaf node and find its path to the root
+		private void tracePath(int leaf,List<Integer> list){
+			PNode node=cpTree.get(leaf);
+			while(leaf!=1){
+				if(!list.contains(leaf))	list.add(leaf);
+				node=node.getFather();
+				leaf=node.getId();
+			}
+		}
+	
 	
 	public static void main(String[] args){
 		MeSHPrep meSHPrep=new MeSHPrep("nodeTest.txt","edgeTest.txt","oldCodeMeshTree.txt");
 		meSHPrep.domMeSH("medsample1.xml");
-
+		meSHPrep.writeFile();
 		
 	}
 }
