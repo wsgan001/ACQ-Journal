@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.LinkedList"/>
-<fullyQualifiedTypeName name="hku.algo.KCore"/>
-<fullyQualifiedTypeName name="hku.exp.FractionExp"/>
 <fullyQualifiedTypeName name="hku.algo.TNode"/>
 <fullyQualifiedTypeName name="hku.algo.DataReader"/>
 <fullyQualifiedTypeName name="hku.algo.index.AdvancedIndex"/>
@@ -28,14 +25,11 @@
 <fullyQualifiedTypeName name="algorithm.Index.KWTree"/>
 <fullyQualifiedTypeName name="algorithm.Index.KWNode"/>
 <fullyQualifiedTypeName name="prep.ExportPTree"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="prep.ConfigPubmed"/>
 <fullyQualifiedTypeName name="algorithm.ProfiledTree.PNode"/>
 <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
 <fullyQualifiedTypeName name="prep.BuildMeshTree"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="prep.MeshNode"/>
 <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 <fullyQualifiedTypeName name="java.io.File"/>
@@ -50,14 +44,20 @@
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.lang.Void"/>
 <fullyQualifiedTypeName name="org.w3c.tidy.AttrCheckImpl.CheckClear"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="java.lang.SecurityManager"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Entity"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
-<fullyQualifiedTypeName name="java.util.Set"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.awt.GradientPaint"/>
+<fullyQualifiedTypeName name="java.lang.SecurityManager"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="algorithm.Index_v2.KWTree"/>
+<fullyQualifiedTypeName name="algorithm.Index_v2.KWNode"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

@@ -114,7 +114,8 @@ public class DecomposeKCore {
 		int a9[] = {8};	graph[9] = a9;
 		int a10[] = {};	graph[10] = a10;
 		
-		DataReader dReader=new DataReader(Config.pubMedGrah, Config.pubMedNode);
+//		DataReader dReader=new DataReader(Config.pubMedGrah, Config.pubMedNode);
+		DataReader dReader=new DataReader(Config.pubMedGraphTest, Config.pubMedNodeTest);
 		int[][] g=dReader.readGraph();
 		
 		DecomposeKCore kcore = new DecomposeKCore(g);

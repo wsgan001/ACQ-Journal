@@ -11,5 +11,8 @@ public class Config {
 	public static String pubMedGrah="/Users/chenyankai/Documents/pubMed/edge.txt";
 	public static String pubMedNode="/Users/chenyankai/Documents/pubMed/node.txt";
 
+	public static String pubMedGraphTest="/Users/chenyankai/Documents/pubMed/edgeTest.txt";
+	public static String pubMedNodeTest="/Users/chenyankai/Documents/pubMed/edgeTest.txt";
+	
 	
 }
