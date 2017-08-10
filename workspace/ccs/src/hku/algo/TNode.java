@@ -71,46 +71,7 @@ public class TNode implements Cloneable {
 		this.childList = childList;
 	}
 	 
-	protected TNode clone() throws CloneNotSupportedException{
-		TNode newnode=new TNode(this.core);
-		Set<Integer> set=new HashSet<Integer>();
-//		for(int x:nodeSet) set.add(x);
-		set=(Set<Integer>) ((HashSet<Integer>) nodeSet).clone();
-		newnode.setNodeSet(set);
-		List<TNode> newList=new ArrayList<TNode>();
-		for(TNode x:childList) newList.add(x.clone());
-		
-//		newList=(List<TNode>) ((ArrayList<TNode>) this.childList).clone();
-		newnode.setChildList(newList);
-		for(TNode x:newnode.getChildList()) x.setFather(newnode);
-		
-		newnode.setKwMap(this.kwMap);
-		return newnode;
-		
-	}
 	
-	public static void main(String[] args) throws CloneNotSupportedException {
-		TNode aNode=new TNode(1);
-		Set<Integer> set=new HashSet<Integer>();
-		for(int i=0;i<5;i++) set.add(i);
-		
-		aNode.setNodeSet(set);
-		for(int i=0;i<5;i++){
-			TNode newNode=new TNode(i);
-			aNode.getChildList().add(newNode);
-		}
-		aNode.setFather(aNode);
-		TNode bNode=(TNode) aNode.clone();
-		bNode.getNodeSet().add(10);
-//		TNode father=new TNode(11);
-		
-		System.out.println(aNode.getNodeSet());
-		System.out.println(bNode.getNodeSet());
-		
-		
-		
-		
-	}
 	
 }
 

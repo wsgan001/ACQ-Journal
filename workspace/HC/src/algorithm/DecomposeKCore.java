@@ -1,5 +1,9 @@
 package algorithm;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import algorithm.KWCoreIndex.KCoreTree;
 import config.Config;
 
 /**
@@ -115,22 +119,23 @@ public class DecomposeKCore {
 		int a10[] = {};	graph[10] = a10;
 		
 //		DataReader dReader=new DataReader(Config.pubMedGrah, Config.pubMedNode);
-		DataReader dReader=new DataReader(Config.pubMedGraphTest, Config.pubMedNodeTest);
-		int[][] g=dReader.readGraph();
-		int[][] n=dReader.readNodes();
+//		DataReader dReader=new DataReader(Config.pubMedGraphTest, Config.pubMedNodeTest);
+//		int[][] g=dReader.readGraph();
+//		int[][] n=dReader.readNodes();
 		
-		DecomposeKCore kcore = new DecomposeKCore(g);
-		kcore.decompose();
-		int reversecoreArr[] = kcore.getReverseCore();
-		int maxCore = kcore.obtainMaxCore();
-		System.out.println(maxCore);
+//		DecomposeKCore kcore = new DecomposeKCore(graph);
+//		int[] d=kcore.decompose();
+//		for(int x:d) System.out.println(x);
+
+//		int reversecoreArr[] = kcore.getReverseCore();
+//		int maxCore = kcore.obtainMaxCore();
+//		System.out.println(maxCore);
 //		for(int i = 1;i < reversecoreArr.length;i ++)   System.out.print("cor[" + i + "]=" + reversecoreArr[i] + " ");
 		
 		
 		//System.out.println("maxCore:" + maxCore);
 		
-		
-		
+
 		
 	}
 	

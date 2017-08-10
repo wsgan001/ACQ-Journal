@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/HC/src/algorithm/Index_v2/Test.java"/>
+<listEntry value="/HC/src/algorithm/KWCoreIndex/Test.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="algorithm.Index_v2.Test"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="algorithm.KWCoreIndex.Test"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="HC"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx6G"/>
 </launchConfiguration>
