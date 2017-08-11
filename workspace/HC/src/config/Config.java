@@ -2,7 +2,7 @@ package config;
 
 public class Config {
 
-	private static String workSpace="/Users/chenyankai/gitRepository/workspace/HC/file/";
+	public static String workSpace="/Users/chenyankai/gitRepository/workspace/HC/file/";
 	
 	public static int k=4;
 	
@@ -13,6 +13,8 @@ public class Config {
 
 	public static String pubMedGraphTest="/Users/chenyankai/Documents/pubMed/edgeTest.txt";
 	public static String pubMedNodeTest="/Users/chenyankai/Documents/pubMed/nodeTest.txt";
+	
+	
 	
 	
 }

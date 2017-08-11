@@ -94,16 +94,8 @@ public class BuildMeshTree {
 		frstlvlMap.put("F","Psychiatry and Psychology");
 		frstlvlMap.put("G","Phenomena and Processes");
 		frstlvlMap.put("H","Disciplines and Occupations");
-		
-//		frstlvlMap.put("I","Anthropology, Education, Sociology, and Social Phenomena");
-//		frstlvlMap.put("J","Technology, Industry, and Agriculture");
-//		frstlvlMap.put("K","Humanities");
-//		frstlvlMap.put("L","Information Science");
-//		frstlvlMap.put("M","Named Groups");
-//		frstlvlMap.put("N","Health Care");
-//		frstlvlMap.put("V","Publication Characteristics");
-//		frstlvlMap.put("Z","Geographicals");
-//		
+
+	
 	}
 	
 	public void printMap(){
@@ -249,7 +241,7 @@ public class BuildMeshTree {
 	public static void main(String[] args){
 		BuildMeshTree bmTree=new BuildMeshTree();
 		MeshNode root=bmTree.buildMeshTree();
-//		System.out.println(bmTree);
+		System.out.println(bmTree);
 //		bmTree.write();
 		bmTree.getCPTree();
 //		bmTree.writeCPTree(map.get(1));

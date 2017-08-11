@@ -43,6 +43,7 @@ import ca.pfv.spmf.tools.MemoryLogger;
  * FPGrowth is described here:
  * <br/><br/>
  * 
+ * 
  * High Performance Mining of Maximal Frequent Itemsets (with J. Zhu).
  *  6th International Workshop on High Performance Data Mining (HPDM '03)  * <br/><br/>
  * 
