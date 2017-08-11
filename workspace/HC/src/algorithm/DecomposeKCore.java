@@ -3,7 +3,6 @@ package algorithm;
 import java.util.HashSet;
 import java.util.Set;
 
-import algorithm.KWCoreIndex.KCoreTree;
 import config.Config;
 
 /**

@@ -44,7 +44,6 @@
 <fullyQualifiedTypeName name="algorithm.KWCoreIndex.KCoreNode"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="algorithm.KWCoreIndex.KWNode"/>
-<fullyQualifiedTypeName name="algorithm.KWCoreIndex.KNode"/>
 <fullyQualifiedTypeName name="java.util.function.IntPredicate"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -59,5 +58,6 @@
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="algorithm.KWCoreIndex.KNode"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
