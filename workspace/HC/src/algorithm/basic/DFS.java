@@ -17,7 +17,7 @@ steps:	(1) k-core to narrow down the search space;
 */
 
 
-public class BasicAlgorithm {
+public class DFS {
 	private int graph[][]=null;//graph structure;  starting from 1
 	private int nodes[][]=null;//the tree nodes of each node; starting from 1
 
@@ -30,15 +30,15 @@ public class BasicAlgorithm {
 	//record the outputs
 	private Map<Set<Integer>, int[]> output=null;
 	
-	private boolean DEBUG=true;
+	private boolean DEBUG=false;
 	
 
-	public BasicAlgorithm(){
+	public DFS(){
 		this.pTree=new PTree();
 		this.output=new HashMap<Set<Integer>, int[]>();
 	}
 	
-	public BasicAlgorithm(int graph[][],int nodes[][]){
+	public DFS(int graph[][],int nodes[][]){
 		this.graph=graph;
 		this.nodes=nodes;
 		DecomposeKCore kCore=new DecomposeKCore(this.graph);
@@ -78,7 +78,7 @@ public class BasicAlgorithm {
 		pTreeMap=pTree.buildPtree(nodes[queryId]);
 		int[] seqStart={nodes[queryId][0]};
 		mine(seqStart, CKC);
-		printOutput();
+//		printOutput();
 	}
 	
 
@@ -98,7 +98,9 @@ public class BasicAlgorithm {
 		
 		List<int[]> nextSeqList= geneSubtree(seq);
 		//if it has reach the maixmal pattern
-		if(nextSeqList.size()==0){
+		if(nextSeqList.size()==0 && isNewItems(seq)){
+//      8.24 debug: seq should be determined whether it is a new maximal pattern
+//		if(nextSeqList.size()==0){
 //			if(isNewItems(seq)){
 				output.put(users, seq);
 				//------------------------DEBUG------------------------------
@@ -212,7 +214,7 @@ public class BasicAlgorithm {
 	//check users to get new users who share new subtrees 
 	private Set<Integer> check(int[] newSeq, final Set<Integer> users){
 		//------------------------DEBUG------------------------------
-		if(!isCKCore(users)){
+		if(!isKCore(users)){
 			if(DEBUG)  System.out.println("users is not kcore");
 			return null;
 		}
@@ -248,9 +250,8 @@ public class BasicAlgorithm {
 	}	
 	
 
-	//not finished
-	//checking whether satisfy connected and k-core 
-	private boolean isCKCore(Set<Integer> set){
+		//checking whether satisfy connected and k-core 
+	private boolean isKCore(Set<Integer> set){
 		if(set.size()>=Config.k+1) return true;
 		else return false;
 	}
@@ -292,6 +293,7 @@ public class BasicAlgorithm {
 
 	//print all qualified community and its corresponding maximal subtrees
 		private void printOutput(){
+			System.out.println("Now testing DFS algorithm!");
 			System.out.println("output size"+output.size());
 			Iterator<Set<Integer>> iterator=output.keySet().iterator();
 			while(iterator.hasNext()){
@@ -302,42 +304,6 @@ public class BasicAlgorithm {
 				System.out.println(append);
 			}
 		}
-	
-	
-	public static void main(String[] args){
-		int graph[][] = new int[11][];
-		int a1[] = {2, 3, 4, 5};	graph[1] = a1;
-		int a2[] = {1, 3, 4, 5};	graph[2] = a2;
-		int a3[] = {1, 2, 4, 5};		graph[3] = a3;
-		int a4[] = {1, 2, 3,5,7};	graph[4] = a4;
-		int a5[] = {1, 2,3,4, 6};		graph[5] = a5;
-		int a6[] = {5};				graph[6] = a6;
-		int a7[] = {4};				graph[7] = a7;
-		int a8[] = {9};				graph[8] = a8;
-		int a9[] = {8};				graph[9] = a9;
-		int a10[] = {};				graph[10] = a10;
-		
-		
-		int nodes[][] = new int[11][];
-		int k1[] = {1,2,3,4,6,7,12,13,14,15};	nodes[1] = k1;
-		int k2[] = {1,2,3,4,7,8,9,12,13,15};	nodes[2] = k2;
-		int k3[] = {1,3,4,5,6,10};			nodes[3] = k3;
-		int k4[] = {1,2,3,7,10,12};			nodes[4] = k4;
-		int k5[] = {1,3,4,7,8,9,10};		nodes[5] = k5;
-		int k6[] = {1,2,3,4,10,12,13,14,15};nodes[6] = k6;
-		int k7[] = {1,3,7,8,9};				nodes[7] = k7;
-		int k8[] = {1,10,11,12,15};			nodes[8] = k8;
-		int k9[] = {1,2,3,4};				nodes[9] = k9;
-		int k10[] = {1,3,7,12};				nodes[10] = k10;
-		
-		BasicAlgorithm bAlgo=new BasicAlgorithm(graph,nodes);
-		Config.k=2;
-	
-		bAlgo.query(1);
-		
-		Set<Integer> set=null;
-		System.out.println(set==null);
-	}
 	
 
 	
