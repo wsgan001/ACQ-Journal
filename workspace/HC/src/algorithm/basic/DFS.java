@@ -10,10 +10,12 @@ import config.Config;
 @author chenyankai
 @Date	Jul 6, 2017
 		
-		DFS based search algorithm:
+		DFS based search algorithm
 steps:	(1) k-core to narrow down the search space; 
 	   	(2) generate subtrees of query vertex's tree; 
 	   	(3) checking (both k-core and maximal subtree). 
+	   	
+	   	
 */
 
 
