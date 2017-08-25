@@ -80,7 +80,7 @@ public class DFS {
 		pTreeMap=pTree.buildPtree(nodes[queryId]);
 		int[] seqStart={nodes[queryId][0]};
 		mine(seqStart, CKC);
-//		printOutput();
+		printOutput();
 	}
 	
 
