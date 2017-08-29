@@ -1,0 +1,13 @@
+package algorithm.KWCoreIndex.query1;
+
+import java.util.*;
+
+import algorithm.kwTree.KWTree;
+
+public class Query1 {
+	private KWTree kwTree = null;
+	
+	
+	
+	
+}

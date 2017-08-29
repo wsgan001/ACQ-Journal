@@ -1,0 +1,26 @@
+package algorithm.basic;
+
+import java.util.Map;
+import java.util.Set;
+
+import algorithm.ProfiledTree.*;
+
+/**
+@author chenyankai
+@Date	Aug 24, 2017
+
+*/
+public class BFS {
+	private int[][] graph = null;
+	private int[][] nodes = null;
+	private int core[] = null;
+	private int queryId= -1;
+	private PTree pTree = null;
+	private Map<Integer, PNode> pTreeMap=null;
+
+	private Map<Set<Integer>, int[]> output=null;
+
+	
+	
+	
+}

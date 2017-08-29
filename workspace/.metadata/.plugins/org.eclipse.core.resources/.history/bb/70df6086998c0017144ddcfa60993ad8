@@ -1,0 +1,13 @@
+package algorithm.kwIndex.Query1;
+/**
+@author chenyankai
+@Date	Aug 29, 2017
+	This class is the index-based query algorithm.
+	Details are derived from Query1_V3 and optimized.
+	
+	Difference between V2 and V3 is V3 :
+	dynamic computing userSets in obtain childSeq function
+*/
+public class Query1_V3 {
+
+}

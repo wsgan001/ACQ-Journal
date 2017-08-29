@@ -1,0 +1,44 @@
+package algorithm.kwIndex.Query1;
+
+import java.util.*;
+
+import algorithm.kwIndex.KWNode;
+import algorithm.kwIndex.KWTree;
+
+/**
+@author chenyankai
+@Date	Aug 29, 2017
+	Patterns are denoted by the leaf nodes instead of the whole P-trees
+*/
+public class Query1_V2 {
+	private int queryId = -1;
+	private int k = -1;
+	private KWTree kwTree = null;
+	private Map<Integer,KWNode> subKWTree = null;
+	//key:pattern  value users
+	private Map<Set<Integer>,Set<Integer>> lattice = null;
+	private Map<Set<Integer>, Set<Integer>> output=null;
+	private Set<Set<Integer>> visited = null;
+	
+	private boolean debug = true;
+	
+	public Query1_V2(KWTree kwTree){
+		this.kwTree = kwTree;
+		this.subKWTree = new HashMap<Integer,KWNode>();
+		this.lattice = new HashMap<Set<Integer>, Set<Integer>>();
+		this.output = new HashMap<Set<Integer>, Set<Integer>>();
+		this.visited=new HashSet<Set<Integer>>();
+	}
+	
+	public void print(){
+		Iterator<Set<Integer>> iter = output.keySet().iterator();
+		while(iter.hasNext()){
+			Set<Integer> pattern = iter.next();
+			Set<Integer> user = output.get(pattern);
+			System.out.println("pattern: "+pattern.toString()+" users: "+user);
+		}
+	}
+	
+	
+	
+}

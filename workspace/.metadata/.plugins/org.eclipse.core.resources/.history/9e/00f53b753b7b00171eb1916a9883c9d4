@@ -1,0 +1,227 @@
+package algorithm.Index_v2;
+import java.util.*;
+
+import algorithm.*;
+import algorithm.ProfiledTree.CPTree;
+import algorithm.ProfiledTree.PNode;
+import prep.BuildMeshTree;
+import tools.*;
+
+/**
+@author chenyankai
+@Date	Jul 28, 2017
+basic algorithm for indexing: (1) top down manner
+*/
+
+public class BasicIndex{
+	private int[][] graph=null;
+	private int[][] nodes=null;
+	private int[] core=null;
+	private int maxCore=-1;
+	private boolean debug=false;
+	
+	private Map<Integer, PNode> cpTree=null;
+	//root nodes of t kw trees in forests 
+	private Map<Integer,KWTree> kwIndexForest=null;
+ 
+	
+	
+	
+	public BasicIndex(int[][] g,int [][]n,Map<Integer, PNode> cpTree){
+		this.graph=g;
+		this.nodes=n;
+//		CPTree cpTree=new CPTree();
+//		this.cpTree=cpTree.LoadTree();
+		
+		this.cpTree=cpTree;
+		this.kwIndexForest=new HashMap<Integer,KWTree>();
+	} 
+	
+	
+	
+	public void build(){
+		//step 1:compute k-core
+		DecomposeKCore dCore=new DecomposeKCore(this.graph);
+		this.core=dCore.decompose();
+		this.maxCore=dCore.obtainMaxCore();
+		//------------------------DEBUG------------------------------
+		if(debug) 	System.out.println("k-core decomposition finished (maxCore= " + maxCore +  ").");
+		//----------------------END DEBUG----------------------------
+		
+		//step 2:iteratively build the index
+			int k=1;
+			
+			while(k<maxCore+1){
+			Set<Integer> kCore=new HashSet<Integer>();	
+				for(int x=1;x<core.length;x++){
+					if(core[x]>=k){
+						kCore.add(x);
+					}
+				}
+				MemoryLogger.getInstance().reset();
+				MemoryLogger.getInstance().checkMemory();
+				//------------------------DEBUG------------------------------
+				if(debug) System.out.println("k: "+k+" k-core:  "+kCore.toString());
+				//----------------------END DEBUG----------------------------
+				System.out.println(k);
+				buildKIndex(kCore, k);
+				System.out.print(" Max memory usage: " + MemoryLogger.getInstance().getMaxMemory() + " mb \n");
+				k++;
+				//update kcore users
+								
+
+			}
+	}
+	
+	
+	//handle k level index
+	private void buildKIndex(Set<Integer> kCore,int k){
+		//step 1:compute all ckcore for a specific k
+		KWTree kwTree=new KWTree(k);
+		List<Set<Integer>> cKCores=findCC(kCore, k);
+		kwTree.setCkCoreMap(cKCores);
+		System.out.println("step1");
+
+		//step 2:build the index 
+		for(int index=0;index<cKCores.size();index++){
+			Map<Integer, KWNode> tmpMap=new HashMap<Integer,KWNode>();
+			Set<Integer> cKCore=cKCores.get(index);
+			//------------------------DEBUG------------------------------
+			if(debug) System.out.println("k-core No.: "+index+"  users: "+cKCore.toString());
+			//----------------------END DEBUG----------------------------
+			for(int user:cKCore){
+				int[] seq=nodes[user];
+				kwTree.insert(seq, user,cpTree,tmpMap);
+			}
+			deleteAndRebuild(tmpMap);
+			
+			for(KWNode child:tmpMap.get(1).getChildList()){
+				child.setFather(kwTree.getRoot());
+				kwTree.getRoot().addChild(child);
+			}
+			tmpMap.put(1, kwTree.getRoot());
+		}
+		System.out.println("step2");
+
+		//step 3:delete empty nodes
+		kwIndexForest.put(k, kwTree);
+		
+		System.out.println("step3  ");
+
+	}
+	
+	
+
+	//find connected components in k-core
+	private List<Set<Integer>> findCC(Set<Integer> finalUserSet, int k){
+		List<Set<Integer>> rsList = new ArrayList<Set<Integer>>();
+		if(k==0){
+			rsList.add(finalUserSet);
+			return rsList;
+		} 
+		
+		//labling visited nodes
+		int arrNum = graph.length; //arrNum = nodeNum + 1; 
+		boolean visit[] = new boolean[arrNum];
+		Set<Integer> userSet=new HashSet<Integer>();
+		
+		userSet.addAll(finalUserSet);
+		Iterator<Integer> iterator=finalUserSet.iterator();
+		
+		while(userSet.size() > 0){
+			Set<Integer> ccSet = new HashSet<Integer>(); //this is a connected component
+			Queue<Integer> queue = new LinkedList<Integer>(); 
+				
+			int seedID = iterator.next();
+			if(!userSet.contains(seedID)) continue;
+		
+			//initialize
+			queue.add(seedID);
+			userSet.remove(seedID);
+			ccSet.add(seedID);
+			visit[seedID] = true;
+				
+			//search
+			while(queue.size() > 0){
+				int current = queue.poll();
+				for(int i = 0;i < graph[current].length;i ++){
+					int neighbor = graph[current][i];
+					if(visit[neighbor] == false && core[neighbor] >= k && userSet.contains(neighbor)){
+						queue.add(neighbor);
+						userSet.remove(neighbor);
+						ccSet.add(neighbor);							
+						visit[neighbor] = true;
+					}
+				}
+			}
+			rsList.add(ccSet);
+		}
+		
+		return rsList;
+	}
+	
+
+	
+	private void deleteAndRebuild(Map<Integer, KWNode> tmpMap){
+		Iterator<Integer> iter=tmpMap.keySet().iterator();
+		while(iter.hasNext()){
+			int item=iter.next();
+			KWNode node=tmpMap.get(item);
+			node.clearChild();
+			if(item!=1 && node.getUserSet().isEmpty()) {
+				iter.remove();
+			}
+		}
+		
+		Iterator<Integer> iterator=tmpMap.keySet().iterator();
+		while(iterator.hasNext()){
+			int item=iterator.next();
+			if(item==1) continue;
+			KWNode node=tmpMap.get(item);
+			int fatherItem=cpTree.get(item).getFather().getId();
+			while(true){
+				if(tmpMap.containsKey(fatherItem)){
+					KWNode father=tmpMap.get(fatherItem);
+					father.addChild(node);
+					node.setFather(father);
+					break;
+				}else{
+					fatherItem=cpTree.get(fatherItem).getFather().getId();
+					if(fatherItem==1) {
+						node.setFather(tmpMap.get(1));
+						tmpMap.get(1).addChild(node);
+						break;
+					}
+				}	
+			}
+			
+			
+			
+		}
+		
+	}
+	
+	
+	public void printForest(){
+		Iterator<Integer> it=kwIndexForest.keySet().iterator();
+		while(it.hasNext()){
+			int index=it.next();
+			System.out.println("k is: "+index);
+			System.out.println(kwIndexForest.get(index));
+			//------------------------DEBUG------------------------------
+			if(debug) 	kwIndexForest.get(index).checkVertexMap();
+			//----------------------END DEBUG----------------------------
+			
+		}
+	}
+	
+	 public void printIndex(){
+			Iterator<Integer> it=kwIndexForest.keySet().iterator();
+			while(it.hasNext()){
+				kwIndexForest.get(it.next()).getckCoreMap();
+			}
+		}
+	
+	
+	
+}

@@ -1,0 +1,13 @@
+package algorithm.kwIndex.Query1;
+import java.util.*;
+
+/**
+@author chenyankai
+@Date	Aug 26, 2017
+
+*/
+public class pattern {
+	Set<Integer> set = null;
+	
+	
+}

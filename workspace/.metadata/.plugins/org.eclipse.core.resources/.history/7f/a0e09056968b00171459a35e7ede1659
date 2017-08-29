@@ -1,0 +1,242 @@
+package algorithm.kwIndex.Query1;
+import java.util.*;
+import java.util.Map.Entry;
+
+import algorithm.FindCKSubG;
+import algorithm.kwIndex.KWNode;
+import algorithm.kwIndex.KWTree;
+
+public class query1 {
+	private int queryId = -1;
+	private int k = -1;
+	private KWTree kwTree = null;
+	//key:pattern  value users
+	private Map<Set<Integer>,Set<Integer>> lattice = null;
+
+	private Map<Integer,KWNode> subKWTree = null;
+	
+	private Map<Set<Integer>, Set<Integer>> output=null;
+	
+	private boolean debug = true;
+	
+	
+	public query1(KWTree kwTree){
+		this.kwTree = kwTree;
+		this.subKWTree = new HashMap<Integer,KWNode>();
+		this.lattice = new HashMap<Set<Integer>, Set<Integer>>();
+		
+		
+	}
+	
+	public void query(int queryId){
+		this.queryId = queryId;
+		
+		getSubTree();
+//		printMap();
+		int[] a={1,3,7};
+		Set<Integer> seq = new HashSet<Integer>();
+		for(int x:a) seq.add(x);
+//		Set<Set<Integer>> childSet=childSeq(seq);
+//		System.out.println(childSet.size());
+//		for(Set<Integer> child:childSet){
+//			System.out.println(child.toString());
+//		}
+		
+//		
+//		 System.out.println(getLeaves(seq).toString());
+//		Set<Set<Integer>> parentSet=parentSeq(seq);
+//		System.out.println(parentSet.size());
+//		for(Set<Integer> child:parentSet){
+//			System.out.println(child.toString());
+//		}
+		
+		obtainUserSet(seq); 
+		
+	}
+	
+	
+	//induce a KW-tree subtree and store it in a map
+	private void getSubTree(){
+		KWNode root = null;
+		int count=0;
+		for(KWNode node: kwTree.getHeadMap().get(queryId)){
+			
+			//------------------------DEBUG------------------------------
+//			if(debug) System.out.println("leaf node: "+node.itemId);
+			//----------------------END DEBUG----------------------------
+			
+			while(node.father!=node){
+				subKWTree.put(node.itemId,node);
+				
+				node = node.father;
+				root = node;
+			}
+		}
+		subKWTree.put(root.itemId, root);
+	}
+	
+	private void printMap(){
+		Iterator<Integer> iter = subKWTree.keySet().iterator();
+		while(iter.hasNext()){
+			KWNode node = subKWTree.get(iter.next());
+			System.out.println("item id: "+node.itemId);
+		}
+		
+	}
+	
+	//obtain all child patterns of the current pattern
+	private Set<Set<Integer>> childSeq(Set<Integer> seq){
+		Set<Set<Integer>> childSeq = new HashSet<Set<Integer>>();
+		for(int x:seq){
+			KWNode node = subKWTree.get(x);
+			if(node==null) continue;
+ 			for(KWNode child:node.childList){
+				int item = child.itemId;
+				if(!seq.contains(item)&&subKWTree.containsKey(item)){
+					Set<Integer> nextSeq = new HashSet<Integer>();
+					nextSeq.addAll(seq);
+					nextSeq.add(item);
+					childSeq.add(nextSeq);
+				}	
+			}
+		}
+		return childSeq;
+	}
+	
+	//obtain all parent patterns of the current pattern
+	private Set<Set<Integer>> parentSeq(Set<Integer> seq){
+		Set<Set<Integer>> parentSeq = new HashSet<Set<Integer>>();
+		if(seq.size()==1) return parentSeq;
+		Set<Integer> leaf = getLeaves(seq);
+		for(int x:leaf){
+			Set<Integer> set=new HashSet<Integer>();
+			for(int y:seq){
+				if(y!=x) set.add(y);
+			}
+			parentSeq.add(set);
+		}
+		return parentSeq;
+	}
+	
+	
+	private Set<Integer> findCommon(Set<Integer> seq1,set<Integer> seq2){
+		
+		
+	}
+	
+	
+	//search a feasible solution
+	private void initCross(){
+		
+		
+	}
+	
+	//expand a cross 
+	private void expandCross(Set<Integer> inFreSeq, Set<Integer> freSeq){
+		Set<Set<Integer>> parentSeqSet=parentSeq(inFreSeq);
+		if(parentSeqSet.isEmpty()) return;
+		
+		for(Iterator<Set<Integer>> it=parentSeqSet.iterator();it.hasNext();){
+			Set<Integer> parentSeq = it.next();
+			Set<Integer> userSet = obtainUserSet(parentSeq);
+			if(!userSet.isEmpty()){
+				checkMax(parentSeq);
+				Set<Set<Integer>> childOfParentSeq = childSeq(parentSeq);
+				for(Iterator<Set<Integer>> iter=childOfParentSeq.iterator();iter.hasNext();){
+					Set<Integer> element = iter.next();
+					Set<Integer> userOfElement = obtainUserSet(element);
+					if(userOfElement.isEmpty()){
+						expandCross(element, parentSeq);
+					}else{
+						
+					}
+				}
+				
+				
+				
+			}
+		}
+			
+	}
+	
+	//obtain a userSet with a specific seq
+	//if a seq corresponds to no community 		------>  userSet.size=0
+	//if lattice does not contain this pattern 	------>  userSet=null
+	private Set<Integer> obtainUserSet(Set<Integer> seq){
+		Set<Integer> userSet =lattice.get(seq);
+		if(userSet==null){
+			Set<Integer> leaf = getLeaves(seq);
+			Iterator<Integer> iter=leaf.iterator();
+			Set<Integer> users=subKWTree.get(iter.next()).KTree.get(queryId).getVertices();
+			//------------------------DEBUG------------------------------
+			if(debug) System.out.println("initial users: "+users.toString() );
+			//----------------------END DEBUG----------------------------
+			
+			while(iter.hasNext()){
+				int item = iter.next();
+				users.retainAll(subKWTree.get(item).KTree.get(queryId).getVertices());
+				//------------------------DEBUG------------------------------
+				if(debug) System.out.println("now users: "+users.toString() );
+				//----------------------END DEBUG----------------------------
+			}
+				//compute CKC
+				FindCKSubG findCKSG=new FindCKSubG(kwTree.graph, users, queryId);
+				userSet = findCKSG.findCKSG();
+				if(userSet==null) userSet = new HashSet<Integer>();
+				lattice.put(seq, userSet);
+				
+				//------------------------DEBUG------------------------------
+				if(debug) System.out.println("final CKC: "+userSet.toString() );
+				//----------------------END DEBUG----------------------------
+			
+		}
+		return userSet;
+	}
+	
+	//check one pattern is a maximal pattern whether or not in result set  
+	private void checkMax(Set<Integer> seq){
+		if(output.isEmpty()) {
+			output.put(seq, lattice.get(seq));
+			return;
+		}
+		if(output.containsKey(seq)) return;
+		
+		boolean flag = true;
+		Iterator<Set<Integer>> keyIter = output.keySet().iterator();
+		while(keyIter.hasNext()){
+			Set<Integer> key = keyIter.next();
+			if(key.size()>seq.size()){
+				if(key.containsAll(seq)){
+					flag=false;
+					break;
+				}
+			}else if(key.size()<seq.size()) {
+				if(seq.containsAll(key)){
+					keyIter.remove();
+				}
+			}
+		}
+		if(flag==true) output.put(seq, lattice.get(seq));
+	}
+	
+	//O(n) time complexity to obtain all leaf items
+	private Set<Integer> getLeaves(Set<Integer> seq){
+		Set<Integer> leaves = new HashSet<Integer>();
+		if(seq.size()==1) {
+			leaves.add(1);//root item
+			return leaves;
+		}
+		
+		Iterator<Integer> iter = seq.iterator();
+		int prevOne = iter.next();
+		while(iter.hasNext()){
+			int curOne = iter.next();
+			if(subKWTree.get(curOne).father.itemId!=prevOne)
+				leaves.add(prevOne);
+			prevOne=curOne;
+		}
+		leaves.add(prevOne);//add the last item
+		return leaves;
+	}
+	
+}

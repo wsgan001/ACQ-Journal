@@ -1,0 +1,30 @@
+package algorithm.KWCoreIndex;
+
+public class Test {
+
+private void testData(){
+	int[][] graph = new int[18][]; 
+	int[] a1={2,3}; graph[1]=a1;
+	int[] a2={}; graph[2]=a2;
+	int[] a3={}; graph[3]=a3;
+	int[] a4={}; graph[4]=a4;
+	int[] a5={}; graph[5]=a5;
+	int[] a6={}; graph[6]=a6;
+	int[] a7={}; graph[7]=a7;
+	int[] a8={}; graph[8]=a8;
+	int[] a9={}; graph[9]=a9;
+	int[] a10={}; graph[10]=a10;
+	int[] a11={}; graph[11]=a11;
+	int[] a12={}; graph[12]=a12;
+	int[] a13={}; graph[13]=a13;
+	int[] a14={}; graph[14]=a14;
+	int[] a15={}; graph[15]=a15;
+	int[] a16={}; graph[16]=a16;
+	int[] a17={}; graph[17]=a17;
+	
+	
+}
+	
+	
+	
+}

@@ -1,0 +1,9 @@
+package algorithm.ProfiledTree;
+/**
+@author chenyankai
+@Date	Jul 28, 2017
+This is a class to read and build the complete profiled tree
+*/
+public class CPTree {
+
+}

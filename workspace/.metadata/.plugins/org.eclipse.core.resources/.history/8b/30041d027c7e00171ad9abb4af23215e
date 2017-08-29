@@ -1,0 +1,205 @@
+package algorithm.KWCoreIndex;
+
+import java.awt.event.ItemEvent;
+import java.io.*;
+import java.util.*;
+import java.util.Map.Entry;
+
+import algorithm.DataReader;
+import algorithm.ProfiledTree.PNode;
+import config.Config;
+
+public class KWTree {
+	private int[][]graph = null;
+	private int[][]nodes = null;
+	private int n = -1; 
+	private KWNode root = null;
+	private PNode pRoot = null;
+	private Map<Integer, KWNode> itemMap = null;
+	
+	private String indexFile= Config.workSpace+"indexFile.txt";
+	
+	
+	public KWTree(int[][] graph,int[][]nodes,PNode pRoot){
+		this.graph = graph;
+		this.nodes = nodes;
+		this.n = graph.length;
+		this.pRoot = pRoot;
+		this.itemMap = new HashMap<Integer,KWNode>();
+	}
+	
+	public KWTree(String graphFile,String nodeFile,PNode pRoot){
+		DataReader dReader = new DataReader(graphFile, nodeFile);
+		this.graph = dReader.readGraph();
+		this.nodes = dReader.readNodes();
+		this.n = graph.length;
+		this.pRoot = pRoot;
+		this.itemMap = new HashMap<Integer,KWNode>();
+	}
+	
+	public void build(){
+//		long time=System.nanoTime();
+		//step 1: initialize the index
+		init(pRoot);
+		//step 2: scan the database 
+		int idx = 1;
+		while(idx<n){
+			for(int i=1; i< nodes[idx].length;i++){
+				itemMap.get(nodes[idx][i]).vertex.add(idx);
+			}
+			idx++;
+		}
+		
+		gc();
+		
+		//step 3:compress the index
+		refine();
+				
+		//step 4:build the K-tree for each kwnode
+		buildKTree();
+		
+//		System.out.println((System.nanoTime()-time)/1000000);
+	}
+	
+	
+		
+	private void buildKTree(){
+		Iterator<KWNode> iter = itemMap.values().iterator();
+		iter.next();//skip the root
+
+ 		while(iter.hasNext()){
+			KWNode node = iter.next();
+			List<List<Integer>> subgraph =getSubgraph(node.vertex);
+			node.gc();
+			System.out.println(subgraph);
+			KTree kTree = new KTree(subgraph);
+			kTree.build();
+			node.KTree=kTree.getVertexMap(); 
+			node.setRoot(kTree.getRoot());
+		}
+	}
+	
+	
+	
+	
+	//initialize the index
+	private void init(PNode pRoot){
+		root = new KWNode(pRoot.getId());
+		itemMap.put(root.itemId, root);
+		loadCPTree(pRoot);
+	}
+	private void loadCPTree(PNode pNode){
+		KWNode root = itemMap.get(pNode.getId());
+		for(PNode child:pNode.getChildlist()) {
+			int childItem = child.getId();
+			KWNode itemNode = new KWNode(childItem);
+			itemNode.father = root;
+			root.childList.add(itemNode);
+			itemMap.put(childItem, itemNode);
+		}
+		for(PNode child:pNode.getChildlist()) loadCPTree(child);	
+	}
+	
+	//compress the index. Delete nodes with same vertices 
+	//LEMMA_anti-monotonicity: if fre of fatheritem should be no less than that of childItem. 
+	//which means if # is equal, then their vertices must be the same.
+	private void refine(){		
+		Iterator<Entry<Integer, KWNode>> entryIter = itemMap.entrySet().iterator();
+		entryIter.next();//skip the root node
+		while(entryIter.hasNext()){
+			KWNode node = entryIter.next().getValue();
+			
+			if(node.vertex.size() == 0){
+				KWNode father = node.father;
+				for(KWNode child:node.childList){
+					child.father = father;
+					father.childList.add(child);
+				}
+				father.childList.remove(node);
+				entryIter.remove();
+			}
+			else{
+				if(node.childList.isEmpty()) continue;
+				int size=node.vertex.size();
+				boolean flag = true;
+				for(KWNode child:node.childList){
+					if(!child.vertex.isEmpty() && child.vertex.size() != size){
+						flag = false;
+						break;
+					}
+				}
+				if(flag){
+					for(KWNode child:node.childList){
+						child.father = node.father;
+						node.father.childList.add(child);
+					}
+					node.father.childList.remove(node);
+					entryIter.remove();
+				}
+			}
+		}
+		
+	}
+	
+	
+	//release the nodes[][] 
+	private void gc(){
+		this.nodes= null;
+		System.gc();
+	}
+	
+	
+	//create the adjacency matrix; 
+	private List<List<Integer>> getSubgraph(Set<Integer> vertex){
+		List<List<Integer>> subGraph = new ArrayList<List<Integer>>();
+		//	first element is the list of all vertices for speed up afterwards
+		List<Integer> list =new ArrayList<>(0);
+		list.addAll(vertex);
+		subGraph.add(list);
+	
+		Map<Integer, Integer> old2New = new HashMap<Integer,Integer>();
+		Iterator<Integer> iter = vertex.iterator();
+		int newId=1;
+		// reorganzie the id of subgrah	
+		while(iter.hasNext()) {
+			int oldId=iter.next();
+			old2New.put(oldId, newId++);
+		}
+	
+		//construct the adjacency matrix of the subgraph	
+		iter = vertex.iterator();
+//		iter.next();
+		while(iter.hasNext()) {
+			int oldId=iter.next();
+			int[] nghbor = graph[oldId];
+			List<Integer> newNghbr = new ArrayList<Integer>();
+			for(int x:nghbor){
+				if (vertex.contains(x)) 
+					newNghbr.add(old2New.get(x));
+			}
+			subGraph.add(newNghbr);
+		}
+		return subGraph;
+	}
+
+
+	
+	
+	
+	public void printTree(){		
+		File file = new File(indexFile);
+		if(file.exists()) file.delete();
+		try {
+			BufferedWriter fileWriter = new BufferedWriter(new FileWriter(file));
+			fileWriter.write(root.toString(""));
+			fileWriter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	
+	
+	
+}

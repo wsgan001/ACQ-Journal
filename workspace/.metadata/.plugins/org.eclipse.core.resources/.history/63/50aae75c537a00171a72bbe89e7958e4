@@ -1,0 +1,178 @@
+package algorithm.Index_v2;
+
+import java.util.*;
+
+import javax.xml.soap.Node;
+
+import algorithm.ProfiledTree.PNode;
+
+/**
+@author chenyankai
+@Date	Jul 28, 2017
+
+*/
+public class KWTree {
+	private int k=-1;
+	private KWNode root=null;
+	//key:item id, value:KNodes
+	private Map<Integer, List<KWNode>> kwMap=null;
+	
+	private Map<Integer,List<KWNode>> vertexMap=null;
+	
+//	private Map<Integer,KWNode> vertexLastMap=null;
+	
+	private boolean debug=true;
+	//------------------------DEBUG------------------------------
+	 private Map<Integer,Set<Integer>> ckCoreMap=null;
+	//----------------------END DEBUG----------------------------
+	
+	public void setRoot(KWNode root){
+		this.root=root;
+	}
+	
+	
+	
+	
+	public KWTree(int k){
+		this.k=k;
+//		this.kwMap=new LinkedHashMap<Integer,KWNode>();
+		// for test output 
+		this.ckCoreMap=new HashMap<Integer,Set<Integer>>();	
+		this.vertexMap=new HashMap<Integer,List<KWNode>>();
+		this.kwMap = new HashMap<Integer,List<KWNode>>();
+		this.root=new KWNode(1);
+	}
+	
+	public boolean isEmptyCKCoreMap(){
+		return this.ckCoreMap.isEmpty();
+	}
+	
+	public void copyCKCoreMap(List<Set<Integer>> ckCoreList){
+		for(int i=0;i<ckCoreList.size();i++){
+			Set<Integer>set=new HashSet<>(); 
+			set.addAll(ckCoreList.get(i));
+			this.ckCoreMap.put(i,set);
+		}
+	}
+	
+	public void setCkCoreMap(List<Set<Integer>> ckCoreList){
+		for(int i=0;i<ckCoreList.size();i++){
+			this.ckCoreMap.put(i, ckCoreList.get(i));
+		}
+	}
+	
+	public Map<Integer, List<KWNode>> getVertexMap(){
+		return this.vertexMap;
+	}
+	public Map<Integer, List<KWNode>> getKwMap(){
+		return this.kwMap;
+	}
+	
+	public KWNode getRoot(){
+		return this.root;
+	}
+	
+	public void getckCoreMap(){
+		String cck="ALL CCK in this "+ this.k+ "  tree: \n";
+		Iterator<Integer> iterator=this.ckCoreMap.keySet().iterator();
+		while(iterator.hasNext()){
+			int index=iterator.next();
+			cck+="cck No.: "+index+" users: "+ckCoreMap.get(index).toString()+" \n";
+		}
+		System.out.println(cck);
+		
+	}
+	
+	//seq:is the ptree of ID; 
+	public void insert(int[] seq,int id,Map<Integer,PNode> cpTree,Map<Integer, KWNode> kwMap){
+		//create root node if needed
+		KWNode root=null;
+		if(kwMap.containsKey(1))  root=kwMap.get(1);
+		else {
+			root=new KWNode(1);
+			kwMap.put(1, root);
+		}
+		
+		// create nodes if need starting from 1 
+		for(int i=1;i<seq.length;i++){
+			int item=seq[i];
+			KWNode newNode=null;
+			if(!kwMap.containsKey(item)){
+				newNode=new KWNode(item);
+				if(item!=1){
+					int fatherItem=cpTree.get(item).getFather().getId();
+					KWNode fatherNode=kwMap.get(fatherItem);
+					fatherNode.addChild(newNode);
+					newNode.setFather(fatherNode);
+				}
+				kwMap.put(item, newNode);
+			}
+			else{
+				newNode=kwMap.get(item);
+			}
+			
+			//check if the node is the leaf node and add the users in the leaf node
+			int beforeItem=seq[i-1];
+			if(cpTree.get(item).getFather().getId()!=beforeItem){
+				kwMap.get(beforeItem).addUser(id);
+				updateVertexMap(id,kwMap.get(beforeItem));
+				}
+		}
+		//last one is definitely a leaf node 
+		kwMap.get(seq[seq.length-1]).addUser(id);
+		updateVertexMap(id, kwMap.get(seq[seq.length-1]));
+	}
+	
+	private void updateVertexMap(int id,KWNode node){
+		
+		if(vertexMap.containsKey(id)) vertexMap.get(id).add(node);
+		else{
+			List<KWNode> set=new LinkedList<KWNode>();
+			set.add(node);
+			vertexMap.put(id, set);
+		}
+	}
+	
+	public void checkVertexMap(){
+		Iterator<Integer> iter=vertexMap.keySet().iterator();
+		while(iter.hasNext()){
+			int id= iter.next();
+			String output="id: "+id;
+			for(KWNode node:vertexMap.get(id)) output+=" items: "+node.getId();
+			System.out.println(output);
+		}
+	}
+	
+	public void checkKwMap(){
+		System.out.println("start checking kwMap:");
+		Iterator<Integer> iter=kwMap.keySet().iterator();
+		while(iter.hasNext()){
+			int id= iter.next();
+			String output="item: "+id;
+			for(KWNode node:kwMap.get(id)) output+=" users: "+node.getUserSet().toString();
+			System.out.println(output);
+		}
+	}
+	
+	
+	public String toString(){
+		//------------------------DEBUG------------------------------
+		String cck="ALL CCK in this tree: \n";
+		Iterator<Integer> iterator=this.ckCoreMap.keySet().iterator();
+		while(iterator.hasNext()){
+			int index=iterator.next();
+			cck+="cck No.: "+index+" users: "+ckCoreMap.get(index).toString()+" \n";
+		}
+		String temp =cck+" \n";
+		//----------------------END DEBUG----------------------------
+		
+		// append child nodes
+		System.out.println(root.getId()+" aaaa");
+		temp +="Index detail: \n"+root.toString("");
+		return temp;
+	}
+	
+	
+	
+	
+}

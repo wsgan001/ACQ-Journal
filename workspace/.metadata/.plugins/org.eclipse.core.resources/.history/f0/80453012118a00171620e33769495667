@@ -1,0 +1,26 @@
+package algorithm.kwIndex.Query1;
+import java.util.*;
+
+/**
+@author chenyankai
+@Date	Aug 26, 2017
+
+*/
+public class pattern {
+	Set<Integer> set = null;
+	
+	public pattern(Set<Integer> set){this.set = set;}
+	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		Iterator<Integer> iter = set.iterator();
+		int sum=0;
+		while(iter.hasNext()) sum += iter.next(); 
+		
+		return sum.hashCode();
+	}
+	
+	
+	
+}

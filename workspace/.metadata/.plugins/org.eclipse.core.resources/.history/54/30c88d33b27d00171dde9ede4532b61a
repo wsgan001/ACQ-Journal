@@ -1,0 +1,84 @@
+package algorithm.KWCoreIndex;
+
+import java.util.*;
+import algorithm.DecomposeKCore;
+
+public class Test {
+private int[][]graph=null;
+private void testData(){
+	int[][] graph = new int[19][]; 
+	int[] a1={2,3}; graph[1]=a1;
+	int[] a2={1,3,4,9}; graph[2]=a2;
+	int[] a3={1,2,4,5,6,7}; graph[3]=a3;
+	int[] a4={2,3,5,6,7}; graph[4]=a4;
+	int[] a5={3,4,6,7,8}; graph[5]=a5;
+	int[] a6={3,4,5,7,8}; graph[6]=a6;
+	int[] a7={3,4,5,6,9}; graph[7]=a7;
+	int[] a8={5,6}; graph[8]=a8;
+	int[] a9={2,7,10}; graph[9]=a9;
+	int[] a10={9,11,18}; graph[10]=a10;
+	int[] a11={10,12,13}; graph[11]=a11;
+	int[] a12={11,13}; graph[12]=a12;
+	int[] a13={11,12,14,17}; graph[13]=a13;
+	int[] a14={13,15,16,17}; graph[14]=a14;
+	int[] a15={14,16,17}; graph[15]=a15;
+	int[] a16={14,15,17,18}; graph[16]=a16;
+	int[] a17={13,14,15,16,18}; graph[17]=a17;
+	int[] a18={10,16,17}; graph[18]=a18;
+	this.graph= graph;
+	
+	DecomposeKCore kCore = new  DecomposeKCore(graph);
+	int[] core=kCore.decompose();
+//	for(int i=1;i<core.length;i++) System.out.println("a"+i+":"+core[i]);
+	
+	List<Integer> vertex =new ArrayList<Integer>();
+	//the first 0 is empty
+	for(int i=0;i<graph.length;i++) vertex.add(i);
+	List<List<Integer>>subGraph= getSubgraph(vertex);
+	KTree kTree=new KTree(subGraph, vertex);
+	kTree.run();
+	System.out.println(kTree.getVertexMap().get(2));
+	
+}
+	
+
+private List<List<Integer>> getSubgraph(List<Integer> vertex){
+	List<List<Integer>> subGraph = new ArrayList<List<Integer>>();
+	List<Integer> list =new ArrayList<>();
+	subGraph.add(list);
+	
+	Map<Integer, Integer> old2New = new HashMap<Integer,Integer>();
+	Iterator<Integer> iter = vertex.iterator();
+	System.out.println(iter.next());
+	int newId=1;
+	// reorganzie the id of subgrah
+	while(iter.hasNext()) {
+		int oldId=iter.next();
+		old2New.put(oldId, newId++);
+	}
+	
+	//construct the adjacency matrix of the subgraph
+	iter = vertex.iterator();
+	iter.next();
+	while(iter.hasNext()) {
+		int oldId=iter.next();
+		int[] nghbor = graph[oldId];
+		List<Integer> newNghbr = new ArrayList<Integer>();
+		for(int x:nghbor){
+			if (vertex.contains(x)) 
+				newNghbr.add(old2New.get(x));
+		}
+		subGraph.add(newNghbr);
+	}
+	return subGraph;
+}
+
+
+	
+	public static void main(String[] args ){
+		Test test=new Test();
+		test.testData();
+		
+	}
+	
+}

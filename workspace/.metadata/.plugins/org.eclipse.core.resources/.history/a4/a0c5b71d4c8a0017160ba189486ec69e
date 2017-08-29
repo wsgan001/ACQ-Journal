@@ -1,0 +1,27 @@
+package algorithm;
+
+import java.util.*;
+
+public class Test {
+
+	public static void main(String[] args){
+		
+
+		Map<Integer, Set<Integer>> map = new HashMap<Integer,Set<Integer>>();
+		for(int i=0;i<10;i++){
+			Set<Integer> set = new HashSet<Integer>();
+			set.add(1);
+			set.add(2);
+			map.put(i, set);
+		}
+		
+		
+
+		
+		
+		
+	}
+	
+	
+	
+}

@@ -1,0 +1,23 @@
+package algorithm;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class Test {
+
+	public static void main(String[] args){
+		Set<Integer> set=new HashSet<Integer>();
+		set.add(1);
+		set.add(2);
+
+		Map<Integer, Set<Integer>> map = new HashMap<Integer,Set<Integer>>();
+		map.put(1, set);
+		Set<Integer> set1 = map.get(2);
+		System.out.println(set1==null);
+	}
+	
+
+	
+}

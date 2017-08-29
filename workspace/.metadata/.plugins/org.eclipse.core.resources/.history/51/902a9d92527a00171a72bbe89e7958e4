@@ -1,0 +1,121 @@
+package algorithm.Index_v2;
+import java.util.*;
+
+/**
+@author chenyankai
+@Date	Jul 28, 2017
+the tree node of the kw-tree index
+*/
+
+public class KWNode {
+	private int id=-1;
+	private Set<Integer> userSet=null;
+	private List<KWNode> childList=null;
+	private KWNode father=null;
+	
+	private int anchor=-1;
+	
+//	private KWNode brother=null;
+	
+	
+	public KWNode(int id){
+		this.id=id;
+		this.childList=new LinkedList<KWNode>();
+		this.userSet=new HashSet<Integer>();
+		this.father=this;
+//		this.brother=this;
+	}
+	
+	public void setAnchor(int x){
+		this.anchor=x;
+	}
+	
+	public int getAnchor(){
+		return this.anchor;
+	}
+	
+	public int getId(){
+		return this.id;
+	}
+
+	public Set<Integer> getUserSet(){
+		return this.userSet;
+	}
+	
+//	public void setBrother(KWNode brother){
+//		this.brother=brother;
+//	}
+	
+	
+//	public KWNode getBrother(){
+//		return this.brother;
+//	}
+//	
+//	public boolean hasNextBr(){
+//		return !(this.brother==this);
+//	}
+	
+	//add users which in a k-core
+	public void addUser(int id){
+		this.userSet.add(id);
+	}
+	
+	public boolean isEmpty(){
+		return this.userSet.isEmpty();
+	}
+	
+	public boolean containsUser(int x){
+		return this.userSet.contains(x);
+	}
+
+	
+	public void setFather(KWNode father){
+		this.father=father;
+	}
+	
+	public KWNode getFather(){
+		return this.father;
+	}
+	
+	public void setChild(List<KWNode> list){
+		this.childList=list;
+	}
+	
+	public void addChild(KWNode child){
+		this.childList.add(child);
+	}
+	
+	public List<KWNode> getChildList(){
+		return this.childList;
+	}
+	
+	public KWNode hasItemNode(int x){
+		for(KWNode node: this.childList){
+			if(node.getId()==x) return node;
+		}
+		return null;
+	}
+	
+	
+	public void clear(){
+		this.clear();
+	}
+	
+	public String toString(String indent){
+		StringBuilder output = new StringBuilder();
+		output.append("Item ID: "+this.id+" users: "+this.userSet.toString()+"\n");
+	
+		String newIndent = indent + "   ";
+		for (KWNode child : childList) {
+			output.append(newIndent+ child.toString(newIndent));
+		}
+		return output.toString();
+	}
+	
+	
+	public static void main(String[] args){
+		List<Integer> list=new ArrayList<Integer>();
+//		System.out.println( (list.get(2)==null) );/
+		
+	}
+}

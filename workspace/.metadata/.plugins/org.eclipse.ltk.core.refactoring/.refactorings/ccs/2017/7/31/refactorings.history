@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;hku.exp.Fraction&apos; to &apos;FractionExp&apos;&#x0A;- Original project: &apos;ccs&apos;&#x0A;- Original element: &apos;hku.exp.Fraction&apos;&#x0A;- Renamed element: &apos;hku.exp.FractionExp&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Fraction&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;hku.exp{Fraction.java[Fraction" matchStrategy="1" name="FractionExp" qualified="false" references="true" similarDeclarations="false" stamp="1501468182849" textual="false" version="1.0"/>
+</session>

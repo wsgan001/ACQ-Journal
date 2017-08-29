@@ -1,0 +1,48 @@
+package algorithm.KWCoreIndex;
+
+import java.util.*;
+
+public class KWNode {
+	int itemId = -1;
+	KWNode father = null;
+	List<KWNode> childList = null;
+	Set<Integer> vertex = null; 
+	Map<Integer, KNode> KTree = null;
+	KNode KtreeRoot = null;
+	
+	
+	public KWNode(int x){
+		this.itemId = x;
+		this.father = this;
+		this.childList = new ArrayList<KWNode>();
+		this.vertex = new HashSet<Integer>();
+		this.KTree = new HashMap<Integer,KNode>();
+	}
+	
+	public void setKTree(Map<Integer, KNode> map){
+		this.KTree = map;
+	}
+	
+	public void setVertex(Set<Integer> set){
+		this.vertex = set; 
+	}
+	
+	public void setRoot(KNode root){
+		this.KtreeRoot =root;
+	}
+	
+	public void gc(){
+//		this.vertex = null;
+//		System.gc();
+	}
+	
+	public String toString(String indent){
+		StringBuilder output = new StringBuilder();
+		output.append("item NO.: "+itemId+" KTree: "+KtreeRoot.toString(" ")+"\n");
+		String newIndent = indent+"  ";
+		for(KWNode node:childList) output.append(newIndent+node.toString(newIndent));
+		return output.toString();
+	}
+
+	
+}

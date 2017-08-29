@@ -1,0 +1,360 @@
+package algorithm.Index_v2;
+import java.util.*;
+import java.util.Map.Entry;
+
+import javax.swing.ListModel;
+
+import algorithm.*;
+import algorithm.Index.UnionFind.UNode;
+import algorithm.Index.UnionFind.UnionFind;
+import algorithm.ProfiledTree.*;
+import prep.BuildMeshTree;
+import prep.MeshNode;
+import tools.MemoryLogger;
+/**
+@author chenyankai
+@Date	Aug 2, 2017
+
+*/
+public class AdvancedIndex {
+	private int[][] graph=null;
+	private int[][] nodes=null;
+	private int[] core=null;
+	private int maxCore=-1;
+	private CPTree cpTree=null;
+	//a list of vertex id in descending core number order
+	private int[] reverseCore=null;
+	private Map<Integer,PNode> cpTreeMap=null;
+	private Map<Integer, KWTree>kwIndexForest=null;
+
+	private UnionFind unFnd=null;
+	private UNode unodeArr[] = null;
+	
+	//key:uf.father value: all its vertices that belongs to this father UNode
+	private List<Set<Integer>> buffer=null;
+	private int kmin=-1;
+	
+
+
+	//for debug
+	private boolean debug=false;
+	
+	public AdvancedIndex(int[][] g,int[][] n,Map<Integer, PNode>cptree,int k){
+		this.graph=g;
+		this.nodes=n;
+		this.cpTree=new CPTree();
+		this.cpTreeMap=cptree;
+		this.kwIndexForest=new HashMap<Integer,KWTree>();
+		
+		this.unFnd=new UnionFind();
+		//for initialize make sure buffer is not empty
+		Set<Integer> set=new HashSet<Integer>();
+		set.add(-1);
+		this.buffer=new ArrayList<Set<Integer>>();
+		buffer.add(set);
+		this.kmin=k;
+	}
+
+	
+	public void  build(){
+		long time=System.nanoTime();
+		//step 1:compute core numbers of all vertices
+		DecomposeKCore dCore=new DecomposeKCore(this.graph);
+		this.core=dCore.decompose();
+		this.maxCore=dCore.obtainMaxCore();
+		this.reverseCore=dCore.getReverseCore();
+		//------------------------DEBUG------------------------------
+		if(debug) 	System.out.println("k-core decomposition finished (maxCore= " + maxCore +  ").");
+		//----------------------END DEBUG----------------------------
+//		System.out.println("advanced index step1: "+(System.nanoTime()-time)/1000000);
+//		--------------------------------------------------------------------------------------------------------------------------------------------
+		for(int i=kmin;i<=maxCore;i++){
+			KWTree kwTree=new KWTree(i);
+			kwIndexForest.put(i, kwTree);
+		}
+		
+//		 -------------------------------------------------------------------------------------------------------------------------------------------
+		long time1=System.nanoTime();
+		//step 2:init union find
+		unodeArr=new UNode[graph.length]; 
+		for(int i=1;i< graph.length;i++){
+			UNode unode= new UNode(i);
+			unFnd.makeSet(unode);
+			unodeArr[i]=unode;
+		}
+		
+//		System.out.println("advanced index step2: "+(System.nanoTime()-time1)/1000000);
+		
+		long time2=System.nanoTime();
+		//step 3:traverse the nodes from K_max to 0
+		int startIdx = 1;
+		for(int index=1;index<reverseCore.length;index++){
+			int id=reverseCore[index];
+			int curCoreNum=core[id];
+			
+			if(curCoreNum > =kmin){
+				int nextIdx=index+1;
+				if(nextIdx<graph.length){
+					int nextId=reverseCore[nextIdx];
+					if(core[nextId] < curCoreNum){
+						int nextCoreNum=core[nextId];
+						 MemoryLogger.getInstance().reset();
+						 MemoryLogger.getInstance().checkMemory();
+						handleKcore(startIdx, index, curCoreNum);
+						 //step 3: construct the curCoreNum_th index
+						for(int i=curCoreNum;i>nextCoreNum;i--){
+							System.out.println(i);
+							construct(i);
+						}
+						System.out.print(" Max memory usage: " + MemoryLogger.getInstance().getMaxMemory() + " mb \n");
+
+						startIdx=nextIdx;//update the startIdx
+					}
+					
+				}
+			
+			}
+		}
+//		System.out.println("advanced index step3: "+(System.nanoTime()-time2)/1000000);
+		
+		long time3=System.nanoTime();
+		//step 4:construct all indexes
+//		System.out.println("advanced index step4: "+(System.nanoTime()-time3)/1000000);
+	}
+
+ private void handleKcore(int startIdx,int endIdx,int curCoreNum){
+	 //step 1:use union find to find all ckc
+	 //step 1.1: union all ckc
+	
+	 
+	 
+	 long time1=System.nanoTime();
+	 for(int idx = startIdx; idx<= endIdx; idx++){
+		 int  id=reverseCore[idx];
+		//------------------------DEBUG------------------------------
+		 if(debug) System.out.println(" core number "+curCoreNum+ " now id is: "+id);
+		//----------------------END DEBUG----------------------------
+		 for(int nghid:graph[id]){
+			 if(core[nghid] >= core[id]){
+				 unFnd.union(unodeArr[id],unodeArr[nghid]);
+			 }
+		 }
+	 }
+	 
+	
+
+//	 System.out.println("handleKcore time step 1: "+ (System.nanoTime()-time1)/1000000);
+	 
+	 //step 2: organize all ckc and create index nodes
+	 for(int idx=startIdx; idx <=endIdx; idx++){
+		 int id=reverseCore[idx];
+		 List<Integer> leafList=getLeafItem(nodes[id]);
+		 for(int core=curCoreNum; core>=kmin; core--){
+			 KWTree kwTree=kwIndexForest.get(core);
+			 kwTree.leafMap.put(id, leafList);
+		 }	 
+	 }
+	 
+	
+
+	 
+	
+	 
+//	 System.out.println("handleKcore time step 2: "+ (System.nanoTime()-time2)/1000000+"  K "+curCoreNum);
+ }
+ 
+ private void construct(int curCoreNum){
+	 
+	 KWTree kwTree=kwIndexForest.get(curCoreNum);
+	 Iterator<Integer> iterator = kwTree.leafMap.keySet().iterator();
+	 while(iterator.hasNext()){
+		 int id=iterator.next();
+		 int ufFather = unFnd.find(unodeArr[id]).id;
+		 if(kwTree.UfSetMap.containsKey(ufFather)) kwTree.UfSetMap.get(ufFather).add(id);
+		 else{
+			 Set<Integer> set= new HashSet<Integer>();
+			 set.add(id);
+			 kwTree.UfSetMap.put(ufFather, set);
+		 }
+	 }
+	 
+//	 KWTree kwTree =kwIndexForest.get(curCoreNum);
+	 KWNode root=kwTree.getRoot();
+	 Iterator<Set<Integer>> ckcIter = kwTree.UfSetMap.values().iterator();
+	 while(ckcIter.hasNext()){
+		
+		 Map<Integer, KWNode> kwMap=new HashMap<Integer,KWNode>();
+		 Set<Integer> ckc=ckcIter.next();
+//		 System.out.println("k: "+curCoreNum+" ckc: "+ckc.toString());
+		 for(int vertex:ckc){
+			 for(int leaf:kwTree.leafMap.get(vertex)){
+				 KWNode node=kwMap.get(leaf);
+				 if(node!=null) node.addUser(vertex);
+				 else{
+					 KWNode newNode=new KWNode(leaf);
+					 newNode.addUser(vertex);
+					 kwMap.put(leaf, newNode);
+				 }
+			 }
+		 }
+		 
+		 Iterator<Entry<Integer, KWNode>> entryIt = kwMap.entrySet().iterator();
+		 while(entryIt.hasNext()){
+			 Entry<Integer, KWNode> entry=entryIt.next();
+			 int item=entry.getKey();
+			 KWNode node=entry.getValue();
+			 int father=cpTreeMap.get(item).getFather().getId();
+			 
+			 while(true){
+				 if(father == 1){
+					 root.addChild(node);
+					 node.setFather(root);
+					 break;
+				 }
+				 else{
+					 KWNode fatherNode = kwMap.get(father);
+					 if(fatherNode == null){
+						 father=cpTreeMap.get(father).getFather().getId();
+					 }else{
+						 fatherNode.addChild(node);
+						 node.setFather(fatherNode);
+						 break;
+					 } 
+				 }
+			 }
+			 
+		 }
+		 
+		 
+	 }
+	 
+ }
+
+ 
+ //after add an Id in a node,we need to update the vertexMap
+ private void updateVertexMap(int id,KWNode checkNode,Map<Integer, List<KWNode>> vertexMap){
+	 if(vertexMap.containsKey(id)){
+		 List<KWNode> nodeList = vertexMap.get(id);
+		 for(KWNode node:nodeList) if(node==checkNode) return;
+		 nodeList.add(checkNode);
+	 }else {
+		 List<KWNode> nodeList = new ArrayList<KWNode>();
+		 nodeList.add(checkNode);
+		 vertexMap.put(id, nodeList);
+	}
+ }
+	
+// link all index nodes togther
+// private void constructTree(){
+//	 Iterator<KWTree> iter=kwIndexForest.values().iterator();
+//	 
+//	 while(iter.hasNext()){
+//		 KWTree kwTree=iter.next();
+//		 Map<Integer,List<KWNode>> kwTreeMap=kwTree.getKwMap();
+//		Iterator<Entry<Integer, List<KWNode>>> entryIt=kwTreeMap.entrySet().iterator();
+////		entryIt.next();// to skip the root 
+//		
+//		while(entryIt.hasNext()){
+//			 Entry<Integer,List<KWNode>> entry=entryIt.next();
+//			 int item=entry.getKey();
+//			 List<KWNode> kwNodeList=entry.getValue();
+//			 int fatherItem=cpTreeMap.get(item).getFather().getId();
+//			 
+//			 for(KWNode itemNode:kwNodeList){
+//				 
+//				 while(true){
+//					 if(fatherItem==1){
+//						 KWNode root=kwTree.getRoot();
+//						 root.addChild(itemNode);
+//						 itemNode.setFather(root);
+//						 break;
+//					 }
+//						boolean tag=false;
+//					 if(kwTreeMap.containsKey(fatherItem)){
+//						 List<KWNode> potentialFatherList= kwTreeMap.get(fatherItem);
+//						 for(KWNode father:potentialFatherList){
+////							 if(father.checked) continue;
+//							 if(isSameUF(father, itemNode)){
+////								 father.checked=true;
+//								 father.addChild(itemNode);
+//								 itemNode.setFather(father);
+//								 tag=true;
+//								 break;
+//							 }
+//						 }
+//						 //if tag=true means we have found one father node. 
+//						 //After break we go this line and break the while loop
+//						 
+//						 //if tag=false means we can not found one in kwtreeMap.
+//						 //we need to skip one father because it is possible to be empty
+//						if(tag) break;
+//						else{
+//							 fatherItem=cpTreeMap.get(fatherItem).getFather().getId();
+//						}
+//					 }else{
+//						 fatherItem=cpTreeMap.get(fatherItem).getFather().getId();
+//					 }
+//				 }
+//			}
+//		 }
+//	 } 
+// }
+// 
+ //check whether two kwnodes are father-child relationship
+ private boolean isSameUF(KWNode father,KWNode child){
+	int id=-1;
+	int fatherId=-1;
+	if((father.getUserSet().size())==0||(child.getUserSet().size())==0) return false;
+
+	id	=	child.getUserSet().iterator().next();	
+	fatherId=father.getUserSet().iterator().next();
+	
+	int ufId=unFnd.find(unodeArr[id]).id;
+	int ufFatherId=unFnd.find(unodeArr[fatherId]).id;
+	
+	if(ufId==ufFatherId) return true;
+	else return false;
+ }
+ 
+ 
+//pre compute all leaf node of one particular vertex's P-tree
+//compared to no basic index, no need to traverse k times for this vertex
+ private List<Integer> getLeafItem(int[] seq){
+	 List<Integer> leafList=new ArrayList<Integer>();
+		if(seq.length==1) leafList.add(seq[0]);
+		else{
+			for(int i=1;i<seq.length;i++){
+				int item=seq[i];
+				int frontItem = seq[i-1];
+				if(cpTreeMap.get(item).getFather().getId()!=frontItem) 
+					leafList.add(frontItem);
+			}
+			leafList.add(seq[seq.length-1]);
+		}
+		return leafList;
+ }
+ 
+
+	
+ public void printIndex(){
+		Iterator<Integer> it=kwIndexForest.keySet().iterator();
+		while(it.hasNext()){
+//			Map<Integer, List<KWNode>> vertexMap=kwIndexForest.get(it.next()).getVertexMap();
+//			kwIndexForest.get(it.next()).checkVertexMap();
+			kwIndexForest.get(it.next()).checkKwMap();
+			
+		}
+	}
+	
+ 
+ public void printForest(){
+		Iterator<Integer> it=kwIndexForest.keySet().iterator();
+		while(it.hasNext()){
+			int index=it.next();
+			System.out.println("k is: "+index);
+			System.out.println(kwIndexForest.get(index));	
+		}
+	}
+
+	
+}
