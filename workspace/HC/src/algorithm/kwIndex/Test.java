@@ -4,7 +4,7 @@ import java.util.*;
 import algorithm.DecomposeKCore;
 import algorithm.ProfiledTree.CPTree;
 import algorithm.ProfiledTree.PNode;
-import algorithm.kwIndex.Query1.query1_V1;
+import algorithm.kwIndex.Query1.Query1_V1;
 import config.Config;
 import prep.BuildMeshTree;
 import prep.MeshNode;
@@ -109,7 +109,7 @@ private void test(){
 	KWTree kwTree = new KWTree(graph, nodes,root);
 	
 	Config.k = 4;
-	query1_V1 query1 = new query1_V1(kwTree);
+	Query1_V1 query1 = new Query1_V1(kwTree);
 	query1.query(4);
  	
 //	Map<Integer,Set<KWNode>> map=kwTree.getHeadMap();

@@ -41,7 +41,7 @@ public EXP(){}
 		kwTree.build();
 		kwTree.printTree();
 		Config.k = 2;
-		Query1_V3 query = new Query1_V3(kwTree);
+		Query1_V2 query = new Query1_V2(kwTree);
 		query.query(1);
 		query.print();
 		
