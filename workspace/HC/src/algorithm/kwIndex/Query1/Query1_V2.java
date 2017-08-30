@@ -1,6 +1,8 @@
 package algorithm.kwIndex.Query1;
 
 import java.util.*;
+
+
 import algorithm.FindCKSubG;
 import algorithm.kwIndex.*;
 
@@ -148,12 +150,9 @@ public class Query1_V2 {
 					if(subKWTree.containsKey(item)&&!tocheck.contains(item)){
 						Set<Integer> newPattern= new HashSet<Integer>();
 						newPattern.add(item);
-						//if x==1 add it without replacing it
-						if(x==1) newPattern.add(1);
+
+						for(int y:tocheck) newPattern.add(y);
 						
-						for(int y:tocheck){
-							if(y!=x) newPattern.add(y);
-						}
 						Set<Integer> UserSet = obtainUser(tocheck);
 						Set<Integer> users = subKWTree.get(item).ktree.getKQueryId(k, queryId);
 						if(!users.equals(UserSet)){
@@ -183,33 +182,129 @@ public class Query1_V2 {
 	}
 	
 	
+	//not fixed
+	private List<Set<Integer>> incInitCross1(){
+		List<Set<Integer>> initCut = new ArrayList<Set<Integer>>();
+		Queue<Set<Integer>> patternQueue = new LinkedList<Set<Integer>>();
+		Queue<Set<Integer>> userQueue = new LinkedList<Set<Integer>>();
+		Set<Integer> initPattern = new HashSet<Integer>();
+		Set<Integer> initUsers = new HashSet<Integer>();
+		initPattern.add(1);
+		patternQueue.add(initPattern);
+		userQueue.add(initUsers);
+		
+	
+		while(!patternQueue.isEmpty()&&!userQueue.isEmpty()){
+			//check whether a pattern has already reach the complete structure
+//			boolean isComplete = true;
+			
+			Set<Integer> tocheck = patternQueue.poll();
+			Set<Integer> users = userQueue.poll();
+			
+			
+			int last = -1;
+			for(Iterator<Integer> it=tocheck.iterator();it.hasNext();){
+				last = it.next();
+			}
+			
+			Set<Integer> RMPath = new HashSet<Integer>();//compressed rightmost path
+			RMPath.add(1);
+			if(last!=1) RMPath.add(1);
+			//------------------------DEBUG------------------------------
+			if(debug){
+				System.out.println("checking pattern: "+tocheck.toString()
+				+ "  users: "+users.toString());
+				System.out.println("rightmost path "+last);
+			}
+			//----------------------END DEBUG----------------------------
+			boolean outBreak = false;
+			
+			for(int x:RMPath){
+				for(KWNode node:subKWTree.get(x).childList){
+					int item = node.itemId;
+					if(subKWTree.containsKey(item)&&!tocheck.contains(item)){
+//						isComplete = false;
+						Set<Integer> newPattern = new HashSet<Integer>();
+						newPattern.add(item);
+						if(x==1) newPattern.add(1);
+						for(int y:tocheck){
+							if(y!=x) newPattern.add(y);
+						}
+						Set<Integer> newUsers = fastObtainUser(item, users);
+						
+						if(!newUsers.isEmpty()){
+							patternQueue.add(newPattern);
+							userQueue.add(newUsers);
+						}else {
+							initCut.add(newPattern);
+							initCut.add(tocheck);
+							outBreak = true;
+							break;
+						}
+					}				
+				}				
+			}
+//			//means pattern-tocheck is the maximum pattern alrady
+//			if(isComplete) {
+//				initCut.add(tocheck);
+//				output.put(tocheck, users);
+//				break;
+//			}
+			if(outBreak) break;
+		}	
+		
+		
+		return initCut;
+	}
+	
 	
 	//obtain all users according to the leaf items instead of the whole P-tree
 	//if a seq corresponds to no community 		------>  userSet.size=0
 	//if lattice does not contain this pattern 	------>  userSet=null
-	private Set<Integer> obtainUser(Set<Integer> leafPattern){
-		Set<Integer> userSet = lattice.get(leafPattern);
+	private Set<Integer> obtainUser(Set<Integer> pattern){
+		System.out.println("checking: "+pattern.toString());
+
+		Set<Integer> userSet = lattice.get(pattern);
 		if(userSet == null){
 			userSet = new HashSet<Integer>();
-			Iterator<Integer> iter=leafPattern.iterator();
-			iter.next();//skip the root node
+			Set<Integer> leaf = getLeaf(pattern);
+			System.out.println("leaf: "+leaf.toString());
+			Iterator<Integer> iter=leaf.iterator();
+			Set<Integer> users =  subKWTree.get(iter.next()).ktree.getKQueryId(k, queryId);
 			
-			int first = iter.next();
-			Set<Integer> users = subKWTree.get(first).ktree.getKQueryId(k, queryId);
 			while(iter.hasNext()){
-				int item = iter.next();
-				users.retainAll(subKWTree.get(item).ktree.getKQueryId(k, queryId));
+				users.retainAll(subKWTree.get(iter.next()).ktree.getKQueryId(k, queryId));
 			}
+			
+			
 			//compute CKC
 			FindCKSubG findCKSG=new FindCKSubG(kwTree.graph, users, queryId);
 			userSet =findCKSG.findCKSG();
 			if(userSet==null) userSet = new HashSet<Integer>();
-			lattice.put(leafPattern, userSet);
+			lattice.put(pattern, userSet);
 		}
 		return userSet;
 	}
 		
-			
+	
+	//obtain users using former userSet
+	//using anti-monotonicity
+	private Set<Integer> fastObtainUser(int newItem,Set<Integer> preUsers){		
+		 Set<Integer> userSet = subKWTree.get(newItem).ktree.getKQueryId(k, queryId);
+		//note that there is only one condition that preUsers are empty 
+		//and still go into this function is that the root node
+		 if(userSet.equals(preUsers) || preUsers.isEmpty()) return userSet;
+		
+		//compute CKC
+		userSet.retainAll(preUsers);
+		FindCKSubG findCKSG=new FindCKSubG(kwTree.graph, userSet, queryId);
+		userSet =findCKSG.findCKSG();
+		if(userSet==null) userSet = new HashSet<Integer>();
+		
+		return userSet;
+	}
+	
+	
 	//expand a cross 
 	private void expandCross(Set<Integer> inFreSeq, Set<Integer> freSeq){
 		if(visited.contains(inFreSeq)&&visited.contains(freSeq)) return;
@@ -251,6 +346,7 @@ public class Query1_V2 {
 		
 	//obtain all child patterns of the current simplified pattern
 	private Set<Set<Integer>> childSeq(Set<Integer> seq){
+		System.out.println("current seq: "+seq.toString() );
 		Set<Set<Integer>> childSeq = new HashSet<Set<Integer>>();
 		for(int x:seq){
 			KWNode node = subKWTree.get(x);
@@ -259,16 +355,9 @@ public class Query1_V2 {
 				if(!seq.contains(item)&&subKWTree.containsKey(item)){
 					Set<Integer> nextSeq = new HashSet<Integer>();
 					nextSeq.add(item);
-					
-					//if x==1 add it without replacing it
-					if(x==1) nextSeq.add(1);
-					
-					for(int y:seq){
-						 
-						if(y!=x) nextSeq.add(y);
-					}
+					for(int y:seq) nextSeq.add(y);
 					childSeq.add(nextSeq);
-					
+					System.out.println("next seq: "+nextSeq.toString() );
 					//optimized 
 					Set<Integer> userSet = lattice.get(seq);
 					Set<Integer> users = subKWTree.get(item).ktree.getKQueryId(k, queryId);
@@ -290,8 +379,11 @@ public class Query1_V2 {
 	//obtain all parent patterns of the current simplified pattern
 	private Set<Set<Integer>> parentSeq(Set<Integer> seq){
 		Set<Set<Integer>> parentSeq = new HashSet<Set<Integer>>();
-		for(int x:seq){
-			if(x==1) continue;
+		
+		Set<Integer> leaf = getLeaf(seq);
+		
+		for(int x:leaf){
+//			if(x==1) continue;
 			
 			Set<Integer> set=new HashSet<Integer>();
 			for(int y:seq){
@@ -316,7 +408,8 @@ public class Query1_V2 {
 		return set;
 	}
 		
-				
+
+	
 	//check one pattern is a maximal pattern whether or not in result set  
 	private void checkMax(Set<Integer> seq){
 		if(output.isEmpty()) {
@@ -342,7 +435,33 @@ public class Query1_V2 {
 		}
 		if(flag==true) output.put(seq, lattice.get(seq));
 	}
+	
+	
+	//get the leaf nodes of the pattern
+	private Set<Integer> getLeaf(Set<Integer> seq){
+		Set<Integer> leaf = new HashSet<Integer>();
 		
+		Iterator<Integer> it = seq.iterator();
+		int previous = it.next();//skip the root
+		
+		if(seq.size()==2) {
+			leaf.add(it.next());
+		}
+		else{
+			int current = -1;
+			while(it.hasNext()){
+				current = it.next();
+				if(subKWTree.get(current).father.itemId!= previous) 
+					leaf.add(previous);			
+				previous = current;
+			}
+			leaf.add(previous);	
+		}
+		return leaf;
+
+	}
+	
+	
 	//print all PCs
 	public void print(){
 		Iterator<Set<Integer>> iter = output.keySet().iterator();

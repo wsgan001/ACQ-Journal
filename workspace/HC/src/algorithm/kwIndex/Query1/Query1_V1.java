@@ -9,7 +9,8 @@ import algorithm.kwIndex.KWTree;
 /**
 @author chenyankai
 @Date	Aug 29, 2017
-	Patterns are denoted by the leaf nodes instead of the whole P-trees
+	WRONG: Patterns are denoted by the leaf nodes instead of the whole P-trees
+	
 	pattern = leaf node + root node
 */
 public class Query1_V1 {
