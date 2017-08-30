@@ -3,6 +3,7 @@ package algorithm.kwIndex.Query1;
 import algorithm.ProfiledTree.CPTree;
 import algorithm.ProfiledTree.PNode;
 import algorithm.kwIndex.KWTree;
+import algorithm.kwIndex.Query2.Query2_Inc;
 import config.Config;
 
 public class EXP {
@@ -42,6 +43,7 @@ public EXP(){}
 		kwTree.printTree();
 		Config.k = 2;
 		Query1_V2 query = new Query1_V2(kwTree);
+//		Query2_Inc query = new Query2_Inc(kwTree); 
 		query.query(1);
 		query.print();
 		

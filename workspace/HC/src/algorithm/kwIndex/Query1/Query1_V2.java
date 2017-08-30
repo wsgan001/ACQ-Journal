@@ -2,13 +2,13 @@ package algorithm.kwIndex.Query1;
 
 import java.util.*;
 import algorithm.FindCKSubG;
-import algorithm.kwIndex.KWNode;
-import algorithm.kwIndex.KWTree;
+import algorithm.kwIndex.*;
 
 /**
 @author chenyankai
 @Date	Aug 29, 2017
 	This class is the index-based query algorithm.
+	No-Apriori based (MAGRIN) 
 	Details are derived from Query1_V1 and optimized.
 	
 	Difference between V1 and V2 is that V2 :
