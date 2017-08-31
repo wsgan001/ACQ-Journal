@@ -27,7 +27,7 @@ public class Query1_V2 {
 	private Map<Set<Integer>, Set<Integer>> output=null;
 	private Set<Set<Integer>> visited = null;
 	
-	private boolean debug = true;
+	private boolean debug = false;
 	
 	public Query1_V2(KWTree kwTree){
 		this.kwTree = kwTree;
@@ -45,6 +45,10 @@ public class Query1_V2 {
 		
 //		List<Set<Integer>> initCut = decInitCross();
 		List<Set<Integer>> initCut = incInitCross();
+		if(initCut.isEmpty()) {
+			System.out.println("No community!");
+			return;
+		}
 		if(initCut.size()==1) return;
 		
 		//expandCross
@@ -69,8 +73,8 @@ public class Query1_V2 {
 	private List<Set<Integer>> decInitCross(){
 		List<Set<Integer>> initCut = new ArrayList<Set<Integer>>();
 		Set<Integer> pattern= new HashSet<Integer>();
-		pattern.add(1);//root node
-		for(KWNode node:kwTree.getHeadMap().get(queryId)) pattern.add(node.itemId);
+		for(Iterator<Integer> it = subKWTree.keySet().iterator();it.hasNext();) pattern.add(it.next());
+		
 		Set<Integer> users = obtainUser(pattern);	
 		if(!users.isEmpty()){
 			output.put(pattern, users);
@@ -85,27 +89,52 @@ public class Query1_V2 {
 			
 			while(!patternQueue.isEmpty() && tag){
 				Set<Integer> tocheck = patternQueue.poll();
-				for(int leaf:tocheck){
-					if(leaf==1) continue;
-					Set<Integer> parentPattern = new HashSet<Integer>();
-					for(int x:tocheck) {
-						
-						if(x!=leaf) parentPattern.add(x);
+				Iterator<Integer> iter = tocheck.iterator();
+				int previous = iter.next(); 
+				if(tocheck.size()==2) return initCut;
+				
+				else{
+					int current = -1;
+					//looking for the leaf item and delete it
+					while(iter.hasNext()){
+						current = iter.next();
+						if(subKWTree.get(current).father.itemId != previous){
+							Set<Integer> set = new HashSet<Integer>();
+							
+							for(int y:tocheck){
+								if(y!= previous) set.add(y);
+							}
+							//obtain users
+							Set<Integer> newUser = obtainUser(set);
+							if(!newUser.isEmpty()){
+								output.put(set, newUser);
+								lattice.put(set, newUser);
+								initCut.add(tocheck);
+								initCut.add(set);
+								tag = false; 
+								break;
+							}
+							patternQueue.add(set);
+						}
+						previous = current;
 					}
-					KWNode leafNode = subKWTree.get(leaf);
-					if(leafNode.father.itemId!=1)
-						parentPattern.add(leafNode.father.itemId);
 					
-					Set<Integer> newUser = obtainUser(parentPattern);
+					//the last item must be a leaf item
+					Set<Integer> set = new HashSet<Integer>();	
+					for(int y:tocheck){
+						if(y!= previous) set.add(y);
+					}
+					//obtain users
+					Set<Integer> newUser = obtainUser(set);
 					if(!newUser.isEmpty()){
-						output.put(parentPattern, newUser);
-						lattice.put(parentPattern, newUser);
+						output.put(set, newUser);
+						lattice.put(set, newUser);
 						initCut.add(tocheck);
-						initCut.add(parentPattern);
+						initCut.add(set);
 						tag = false; 
 						break;
 					}
-					patternQueue.add(parentPattern);
+					patternQueue.add(set);
 				}			
 			}			
 		}
@@ -117,6 +146,7 @@ public class Query1_V2 {
 	private List<Set<Integer>> incInitCross(){
 		List<Set<Integer>> initCut = new ArrayList<Set<Integer>>();
 		Queue<Set<Integer>> patternQueue = new LinkedList<Set<Integer>>();
+		Queue<Set<Integer>> userQueue = new LinkedList<Set<Integer>>();
 
 		for(KWNode node:subKWTree.get(1).childList){
 			int item = node.itemId;
@@ -128,24 +158,25 @@ public class Query1_V2 {
 			Set<Integer> userSet = obtainUser(pattern);
 			if(!userSet.isEmpty()) {
 				patternQueue.add(pattern);
+				userQueue.add(userSet);
+				
 			}
 		}
 		
 		boolean tag=true;
-		while(!patternQueue.isEmpty()&&tag){
+		while(!patternQueue.isEmpty()&&!userQueue.isEmpty()&&tag){
 			Set<Integer> tocheck = patternQueue.poll();
+			Set<Integer> currentUser = userQueue.poll();
 			
 			//if already reach the maximum pattern then return
 			if(tocheck.size()==subKWTree.size()) {
-				Set<Integer> userSet = obtainUser(tocheck);
-				output.put(tocheck, userSet);
-				lattice.put(tocheck, userSet);
+				output.put(tocheck, currentUser);
+				lattice.put(tocheck, currentUser);
 				initCut.add(tocheck);
 				break;
 			}
-			
-			for(Iterator<Integer> it=tocheck.iterator();it.hasNext()&&tag;){
-				int x = it.next();
+			List<Integer> RMPath = getRightmostPath(tocheck);
+			for(int x:RMPath){
 				for(KWNode node:subKWTree.get(x).childList){
 					int item = node.itemId;
 					if(subKWTree.containsKey(item)&&!tocheck.contains(item)){
@@ -154,22 +185,21 @@ public class Query1_V2 {
 
 						for(int y:tocheck) newPattern.add(y);
 						
-						Set<Integer> UserSet = obtainUser(tocheck);
-						Set<Integer> users = subKWTree.get(item).ktree.getKQueryId(k, queryId);
-						if(!users.equals(UserSet)){
-							users.retainAll(UserSet);
+						Set<Integer> users = getUsersInKTree(item);
+						if(!users.equals(currentUser)){
+							users.retainAll(currentUser);
 							//compute CKC
 							FindCKSubG findCKSG=new FindCKSubG(kwTree.graph, users, queryId);
-							UserSet =findCKSG.findCKSG();
-							if(UserSet==null) {
-								UserSet = new HashSet<Integer>();
-								lattice.put(newPattern, UserSet);
+							currentUser =findCKSG.findCKSG();
+							if(currentUser==null) {
+								currentUser = new HashSet<Integer>();
+								lattice.put(newPattern, currentUser);
 								initCut.add(newPattern);
 								initCut.add(tocheck);
 								tag=false;
 								break;
 							}else{
-								lattice.put(newPattern, UserSet);
+								lattice.put(newPattern, currentUser);
 								patternQueue.add(newPattern);
 							}	
 						}
@@ -178,82 +208,6 @@ public class Query1_V2 {
 			}
 			
 		}
-		
-		return initCut;
-	}
-	
-	
-	//not fixed
-	private List<Set<Integer>> incInitCross1(){
-		List<Set<Integer>> initCut = new ArrayList<Set<Integer>>();
-		Queue<Set<Integer>> patternQueue = new LinkedList<Set<Integer>>();
-		Queue<Set<Integer>> userQueue = new LinkedList<Set<Integer>>();
-		Set<Integer> initPattern = new HashSet<Integer>();
-		Set<Integer> initUsers = new HashSet<Integer>();
-		initPattern.add(1);
-		patternQueue.add(initPattern);
-		userQueue.add(initUsers);
-		
-	
-		while(!patternQueue.isEmpty()&&!userQueue.isEmpty()){
-			//check whether a pattern has already reach the complete structure
-//			boolean isComplete = true;
-			
-			Set<Integer> tocheck = patternQueue.poll();
-			Set<Integer> users = userQueue.poll();
-			
-			
-			int last = -1;
-			for(Iterator<Integer> it=tocheck.iterator();it.hasNext();){
-				last = it.next();
-			}
-			
-			Set<Integer> RMPath = new HashSet<Integer>();//compressed rightmost path
-			RMPath.add(1);
-			if(last!=1) RMPath.add(1);
-			//------------------------DEBUG------------------------------
-			if(debug){
-				System.out.println("checking pattern: "+tocheck.toString()
-				+ "  users: "+users.toString());
-				System.out.println("rightmost path "+last);
-			}
-			//----------------------END DEBUG----------------------------
-			boolean outBreak = false;
-			
-			for(int x:RMPath){
-				for(KWNode node:subKWTree.get(x).childList){
-					int item = node.itemId;
-					if(subKWTree.containsKey(item)&&!tocheck.contains(item)){
-//						isComplete = false;
-						Set<Integer> newPattern = new HashSet<Integer>();
-						newPattern.add(item);
-						if(x==1) newPattern.add(1);
-						for(int y:tocheck){
-							if(y!=x) newPattern.add(y);
-						}
-						Set<Integer> newUsers = fastObtainUser(item, users);
-						
-						if(!newUsers.isEmpty()){
-							patternQueue.add(newPattern);
-							userQueue.add(newUsers);
-						}else {
-							initCut.add(newPattern);
-							initCut.add(tocheck);
-							outBreak = true;
-							break;
-						}
-					}				
-				}				
-			}
-//			//means pattern-tocheck is the maximum pattern alrady
-//			if(isComplete) {
-//				initCut.add(tocheck);
-//				output.put(tocheck, users);
-//				break;
-//			}
-			if(outBreak) break;
-		}	
-		
 		
 		return initCut;
 	}
@@ -269,9 +223,9 @@ public class Query1_V2 {
 			Set<Integer> users = new HashSet<Integer>();
 			Iterator<Integer> iter=pattern.iterator();
 			
-			int previous = iter.next();
+			int previous = iter.next();//the root item 
 			if(pattern.size()==2){
-				users = subKWTree.get(iter.next()).ktree.getKQueryId(k, queryId);
+				users = getUsersInKTree(iter.next());
 			}
 			
 			else{
@@ -280,15 +234,18 @@ public class Query1_V2 {
 				while(iter.hasNext()){
 					current = iter.next();
 					if(subKWTree.get(current).father.itemId != previous){
+						//initialize the users using the first item
 						if(first){
-							users = subKWTree.get(previous).ktree.getKQueryId(k, queryId);
+							users = getUsersInKTree(previous);
 							first = false;
 						}
-						users.retainAll(subKWTree.get(previous).ktree.getKQueryId(k, queryId));
+						else{
+							users.retainAll(getUsersInKTree(previous));
+						}
 					}
 					previous = current;
 				}
-				users.retainAll(subKWTree.get(previous).ktree.getKQueryId(k, queryId));
+				users.retainAll(getUsersInKTree(previous));
 			}
 			
 			
@@ -301,23 +258,11 @@ public class Query1_V2 {
 		return userSet;
 	}
 		
-	
-	//obtain users using former userSet
-	//using anti-monotonicity
-	private Set<Integer> fastObtainUser(int newItem,Set<Integer> preUsers){		
-		 Set<Integer> userSet = subKWTree.get(newItem).ktree.getKQueryId(k, queryId);
-		//note that there is only one condition that preUsers are empty 
-		//and still go into this function is that the root node
-		 if(userSet.equals(preUsers) || preUsers.isEmpty()) return userSet;
-		
-		//compute CKC
-		userSet.retainAll(preUsers);
-		FindCKSubG findCKSG=new FindCKSubG(kwTree.graph, userSet, queryId);
-		userSet =findCKSG.findCKSG();
-		if(userSet==null) userSet = new HashSet<Integer>();
-		
-		return userSet;
+	//get the Connected k-core from the every kTree of specific item
+	private Set<Integer> getUsersInKTree(int item){
+		return subKWTree.get(item).ktree.getKQueryId(k, queryId);
 	}
+	
 	
 	
 	//expand a cross 
@@ -380,7 +325,7 @@ public class Query1_V2 {
 					
 					//optimized 
 					Set<Integer> userSet = lattice.get(seq);
-					Set<Integer> users = subKWTree.get(item).ktree.getKQueryId(k, queryId);
+					Set<Integer> users = getUsersInKTree(item);
 					if(!users.equals(userSet)){
 						users.retainAll(userSet);
 						//compute CKC
@@ -412,35 +357,45 @@ public class Query1_V2 {
 				current = iter.next();
 				if(subKWTree.get(current).father.itemId != previous){
 					//then previous must be a leaf item
-					Set<Integer> set = newPattern(previous, seq);
+					Set<Integer> set = new HashSet<Integer>();
+					for(int y:seq){
+						if(y != previous) set.add(y);
+					}
 					parentSeq.add(set);
 				}
 				previous = current;
 			}
 			
 			//the last item must be the leaf node
-			Set<Integer> set = newPattern(previous, seq);
+			Set<Integer> set = new HashSet<Integer>();
+
+			for(int y:seq){
+				if(y != previous) set.add(y);
+			}
 			parentSeq.add(set);
 		}
 		return parentSeq;
 	}
-		
+			
 	
-	//given a leaf item, generate a new pattern from the current pattern
-	private Set<Integer> newPattern(int leafItem,Set<Integer> seq){
-		Set<Integer> newPattern = new HashSet<Integer>();
-		newPattern.add(1);
-		for(int y:seq){
-			if(y!=leafItem) newPattern.add(y);
+	//get the rightmost path of the current pattern
+	private List<Integer> getRightmostPath(Set<Integer> seq){
+		List<Integer> RMPath = new ArrayList<Integer>();
+		int last = -1;
+		for(Iterator<Integer> it=seq.iterator();it.hasNext();){
+			last = it.next();
+		} 
+		while(subKWTree.get(last).father.itemId!=last){
+			RMPath.add(last);
+			last=subKWTree.get(last).father.itemId;
 		}
-		KWNode leafNode = subKWTree.get(leafItem);
-		if(leafNode.father.itemId!=1){
-			newPattern.add(leafNode.father.itemId);
-		}	
-		return newPattern;
-	}	
+		RMPath.add(1);
+		return RMPath;
+	}
 	
 	
+	
+
 	private Set<Integer> findCommon(Set<Integer> seq1,Set<Integer> seq2){
 		Set<Integer> set = new HashSet<Integer>();
 		set.addAll(seq1);
@@ -453,7 +408,6 @@ public class Query1_V2 {
 		return set;
 	}
 		
-
 	
 	//check one pattern is a maximal pattern whether or not in result set  
 	private void checkMax(Set<Integer> seq){
@@ -491,9 +445,6 @@ public class Query1_V2 {
 			System.out.println("pattern: "+pattern.toString()+" users: "+user);
 		}
 	}
-	
-	
-	
 	
 	
 }

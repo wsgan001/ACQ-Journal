@@ -57,29 +57,33 @@ public class Query2_Inc {
 	private void BFSMine(){
 		Queue<Set<Integer>> patternQueue = new LinkedList<Set<Integer>>();
 		Queue<Set<Integer>> userQueue = new LinkedList<Set<Integer>>();
-		Set<Integer> initPattern = new HashSet<Integer>();
-		Set<Integer> initUsers = new HashSet<Integer>();
-		initPattern.add(1);
-		patternQueue.add(initPattern);
-		userQueue.add(initUsers);
+		
+		for(KWNode node:subKWTree.get(1).childList){
+			int item = node.itemId;
+			if(!subKWTree.containsKey(item)) continue;
+			
+			Set<Integer> pattern = new HashSet<Integer>();
+			pattern.add(1);//the root node
+			pattern.add(item);
+			Set<Integer> userSet = getUsersInKTree(item);
+			if(!userSet.isEmpty()) {
+				patternQueue.add(pattern);
+				userQueue.add(userSet);
+			}
+		}
+		
 		
 		while(!patternQueue.isEmpty()&&!userQueue.isEmpty()){
 			Set<Integer> tocheck = patternQueue.poll();
 			Set<Integer> users = userQueue.poll();
 			
-			int last = -1;
-			for(Iterator<Integer> it=tocheck.iterator();it.hasNext();){
-				last = it.next();
-			}
-			Set<Integer> RMPath = new HashSet<Integer>();//compressed rightmost path
-			RMPath.add(1);
-			if(last!=1) RMPath.add(last);
+			List<Integer> RMPath = getRightmostPath(tocheck);
 			
 			//------------------------DEBUG------------------------------
 			if(debug){
 				System.out.println("checking pattern: "+tocheck.toString()
 				+ "  users: "+users.toString());
-				System.out.println("rightmost path "+last);
+				System.out.println("rightmost path "+RMPath.toString());
 			}
 			//----------------------END DEBUG----------------------------
 			
@@ -89,10 +93,8 @@ public class Query2_Inc {
 					if(subKWTree.containsKey(item)&&!tocheck.contains(item)){
 						Set<Integer> newPattern = new HashSet<Integer>();
 						newPattern.add(item);
-						if(x==1) newPattern.add(1);
-						for(int y:tocheck){
-							if(y!=x) newPattern.add(y);
-						}
+						for(int y:tocheck) newPattern.add(y);
+						
 						Set<Integer> newUsers = obtainUser(item, users);
 						if(!newUsers.isEmpty()){
 							patternQueue.add(newPattern);
@@ -106,12 +108,30 @@ public class Query2_Inc {
 		}	
 	}
 	
+	//get the rightmost path of the current pattern
+	private List<Integer> getRightmostPath(Set<Integer> seq){
+		List<Integer> RMPath = new ArrayList<Integer>();
+		int last = -1;
+		for(Iterator<Integer> it=seq.iterator();it.hasNext();){
+			last = it.next();
+		} 
+		while(subKWTree.get(last).father.itemId!=last){
+			RMPath.add(last);
+			last=subKWTree.get(last).father.itemId;
+		}
+		RMPath.add(1);
+		return RMPath;
+	}
 	
 	
+	//get the Connected k-core from the every kTree of specific item
+	private Set<Integer> getUsersInKTree(int item){
+		return subKWTree.get(item).ktree.getKQueryId(k, queryId);
+	}
 	
 	
 	private Set<Integer> obtainUser(int newItem,Set<Integer> preUsers){		
-		 Set<Integer> userSet = subKWTree.get(newItem).ktree.getKQueryId(k, queryId);
+		 Set<Integer> userSet = getUsersInKTree(newItem);
 		//note that there is only one condition that preUsers are empty 
 		//and still go into this function is that the root node
 		 if(userSet.equals(preUsers) || preUsers.isEmpty()) return userSet;
@@ -124,6 +144,7 @@ public class Query2_Inc {
 		
 		return userSet;
 	}	
+	
 	
 	
 	//check one pattern is a maximal pattern whether or not in result set  

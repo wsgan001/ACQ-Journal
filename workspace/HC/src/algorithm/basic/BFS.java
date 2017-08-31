@@ -27,7 +27,7 @@ public class BFS {
 
 	private Map<Set<Integer>, int[]> output=null;
 
-	private boolean DEBUG = false;
+	private boolean DEBUG = true;
 	
 	
 	public BFS(int[][] graph, int[][] nodes){
