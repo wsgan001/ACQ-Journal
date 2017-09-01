@@ -45,10 +45,10 @@ public EXP(){}
 		Config.k = 2;
 		Query1_V2 query = new Query1_V2(kwTree);
 //		Query2_Inc query = new Query2_Inc(kwTree); 
-//		BFS bfs = new BFS(graph, nodes);
-//		bfs.query(1);
-		query.query(1);
-		query.print();
+		BFS bfs = new BFS(graph, nodes);
+		bfs.query(1);
+//		query.query(1);
+//		query.print();
 		
 	}
 		

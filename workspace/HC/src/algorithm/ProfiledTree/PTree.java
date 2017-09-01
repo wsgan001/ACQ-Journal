@@ -17,7 +17,11 @@ public class PTree {
 	
 	public PTree(){
 		CPTree cpTree = new CPTree();
-		this.cpTreeMap=cpTree.LoadTree();
+		this.cpTreeMap = cpTree.LoadTree();
+	}
+	
+	public PTree(Map<Integer, PNode> CPTreeMap){
+		this.cpTreeMap = CPTreeMap;
 	}
 	
 		

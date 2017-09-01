@@ -129,6 +129,11 @@ public class KWTree {
 	//LEMMA_anti-monotonicity: if fre of fatheritem should be no less than that of childItem. 
 	//which means if # is equal, then their vertices must be the same.
 	private void refine(){		
+		
+		//------------------------DEBUG------------------------------
+		int count = 0;
+		//----------------------END DEBUG----------------------------
+		
 		Iterator<Entry<Integer, KWNode>> entryIter = itemMap.entrySet().iterator();
 		entryIter.next();//skip the root node
 		while(entryIter.hasNext()){
@@ -157,6 +162,9 @@ public class KWTree {
 			else{
 				if(node.childList.isEmpty()) continue;
 				int size=node.vertex.size();
+				
+				count += size;
+				
 				boolean flag = true;
 				for(KWNode child:node.childList){
 					if(!child.vertex.isEmpty() && child.vertex.size() != size){
@@ -186,7 +194,11 @@ public class KWTree {
 		}
 		
 		//------------------------DEBUG------------------------------
-		if(debug) System.out.println("Refinement finished!");
+		if(debug) {
+			System.out.println("Refinement finished!"+" total vertices: "+count);
+			
+		}
+	
 		//----------------------END DEBUG----------------------------
 	}
 	
@@ -194,14 +206,23 @@ public class KWTree {
 	private void buildKTree(){
 		Iterator<KWNode> iter = itemMap.values().iterator();
 		iter.next();//skip the root
+		long time1 = 0;
+		long time2 = 0;
+		long time3 = 0;
+		long time4 = 0;
 		
  		while(iter.hasNext()){
 			KWNode node = iter.next();
 			Set<Integer> vertexSet = node.vertex;	
-			List<List<Integer>> subgraph =getSubgraph(vertexSet);
 	
+			time1 = System.nanoTime();
+			List<List<Integer>> subgraph =getSubgraph(vertexSet);
+			time2 += System.nanoTime()-time1;
+			
+			time3 = System.nanoTime();
 			KTree kTree = new KTree(subgraph);
 			kTree.build();
+			time4 += System.nanoTime()-time3;
 //			node.KTree=kTree.getVertexMap();
 			node.setktree(kTree);
 			node.KtreeRoot=kTree.getRoot();
@@ -209,7 +230,12 @@ public class KWTree {
 		}
  		
  		//------------------------DEBUG------------------------------
- 		if(debug) System.out.println("build internal k-tree finished!");
+ 		if(debug) {
+ 			System.out.println("build internal k-tree finished!");
+ 			System.out.println("getsubgraph time cost: "+time2/1000+"\n"
+ 					+ "ktree index build time: "+time4/1000);
+ 		}
+ 		
  		//----------------------END DEBUG----------------------------
 	}
 	

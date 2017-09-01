@@ -3,7 +3,7 @@ package algorithm;
 @author chenyankai
 @Date	Aug 9, 2017
 k core decomposition 
-Use list<list<>> to store the adjacency matrix 
+	Use list<list<>> to store the adjacency matrix 
 */
 import java.util.*;
 

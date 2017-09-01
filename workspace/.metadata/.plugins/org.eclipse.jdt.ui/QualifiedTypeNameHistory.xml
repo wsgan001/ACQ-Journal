@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="algorithm.Index.KWNode"/>
-<fullyQualifiedTypeName name="prep.ExportPTree"/>
-<fullyQualifiedTypeName name="java.io.FileWriter"/>
-<fullyQualifiedTypeName name="prep.ConfigPubmed"/>
-<fullyQualifiedTypeName name="algorithm.ProfiledTree.PNode"/>
 <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
 <fullyQualifiedTypeName name="prep.BuildMeshTree"/>
 <fullyQualifiedTypeName name="prep.MeshNode"/>
@@ -16,15 +11,12 @@
 <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
-<fullyQualifiedTypeName name="algorithm.DataReader"/>
-<fullyQualifiedTypeName name="config.Config"/>
 <fullyQualifiedTypeName name="java.lang.Void"/>
 <fullyQualifiedTypeName name="org.w3c.tidy.AttrCheckImpl.CheckClear"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Entity"/>
 <fullyQualifiedTypeName name="java.awt.GradientPaint"/>
 <fullyQualifiedTypeName name="algorithm.Index_v2.KWNode"/>
 <fullyQualifiedTypeName name="java.lang.SecurityManager"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="org.apache.commons.net.ftp.parser.NetwareFTPEntryParser"/>
 <fullyQualifiedTypeName name="java.lang.VerifyError"/>
 <fullyQualifiedTypeName name="algorithm.KWCoreIndex.KCoreNode"/>
@@ -40,7 +32,6 @@
 <fullyQualifiedTypeName name="algorithm.KWCoreIndex.KNode"/>
 <fullyQualifiedTypeName name="algorithm.KWCoreIndex.KWTree"/>
 <fullyQualifiedTypeName name="algorithm.Index_v2.KWTree"/>
-<fullyQualifiedTypeName name="algorithm.kwIndex.KWTree"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.KTree"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.Query1.query1"/>
 <fullyQualifiedTypeName name="java.beans.beancontext.BeanContext"/>
@@ -55,9 +46,18 @@
 <fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.BoldAction"/>
 <fullyQualifiedTypeName name="org.apache.commons.net.ftp.FTP"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.util.Queue"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="algorithm.ProfiledTree.PNode"/>
+<fullyQualifiedTypeName name="algorithm.kwIndex.KWTree"/>
+<fullyQualifiedTypeName name="EXP.IndexEXP"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="algorithm.DataReader"/>
+<fullyQualifiedTypeName name="algorithm.basic.BFS"/>
+<fullyQualifiedTypeName name="EXP.BasicQueryEXP"/>
+<fullyQualifiedTypeName name="config.Config"/>
+<fullyQualifiedTypeName name="algorithm.ProfiledTree.PTree"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

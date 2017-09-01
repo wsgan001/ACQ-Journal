@@ -2,6 +2,7 @@ package algorithm.basic;
 
 import java.util.*;
 
+import algorithm.DataReader;
 import algorithm.DecomposeKCore;
 import algorithm.FindCKCore;
 import algorithm.FindCKSubG;
@@ -27,7 +28,7 @@ public class BFS {
 
 	private Map<Set<Integer>, int[]> output=null;
 
-	private boolean DEBUG = true;
+	private boolean DEBUG = false;
 	
 	
 	public BFS(int[][] graph, int[][] nodes){
@@ -36,6 +37,18 @@ public class BFS {
 		DecomposeKCore kCore=new DecomposeKCore(this.graph);
 		core=kCore.decompose();
 		this.pTree=new PTree();
+		this.output=new HashMap<Set<Integer>, int[]>();
+	}
+	
+	
+	public BFS(String graphFile, String nodeFile,Map<Integer, PNode> CPTreeMap){
+		DataReader dataReader = new DataReader(graphFile, nodeFile);
+		this.graph = dataReader.readGraph();
+		this.nodes = dataReader.readNodes();
+		DecomposeKCore kCore=new DecomposeKCore(this.graph);
+		core=kCore.decompose();
+//		this.pTree=new PTree();
+		this.pTree= new PTree(CPTreeMap);
 		this.output=new HashMap<Set<Integer>, int[]>();
 	}
 	
@@ -50,6 +63,8 @@ public class BFS {
 		FindCKCore findCKCore=new FindCKCore();
 		Set<Integer> CKC=findCKCore.findCKC(graph, core, queryId);
 		if(CKC.size()<Config.k+1) return; 
+		System.out.println("CKC: "+CKC.size());
+
 		
 		//------------------------DEBUG------------------------------
 				if(DEBUG){
@@ -80,7 +95,8 @@ public class BFS {
 			for(int index=0;index<currentPattern.size();index++){
 				int[] pattern =currentPattern.get(index);
 				Set<Integer> users = currentUsers.get(index);
-				
+				System.out.println("pattern length: "+pattern.length+" users size" +users.size());
+
 				//generate new patterns
 				List<int[]> nextSeqList = geneSubtree(pattern);
 				//reach the leaf pattern 
