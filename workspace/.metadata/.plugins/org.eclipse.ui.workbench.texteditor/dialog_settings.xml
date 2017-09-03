@@ -6,14 +6,17 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="pTreeMap" key="selection"/>
+		<item value="headList" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="pTreeMap"/>
+			<item value="headList"/>
+			<item value="getUsersInKTree"/>
 			<item value="headMap"/>
+			<item value="subKWTree"/>
+			<item value="pTreeMap"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -22,7 +25,7 @@
 		<item value="290" key="DIALOG_WIDTH"/>
 		<item value="1|.SF NS Text|11.0|0|COCOA|1|.SFNSText" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="777" key="DIALOG_X_ORIGIN"/>
+		<item value="841" key="DIALOG_X_ORIGIN"/>
 		<item value="221" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
