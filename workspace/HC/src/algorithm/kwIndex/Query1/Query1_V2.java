@@ -42,9 +42,10 @@ public class Query1_V2 {
 	public void query(int queryId){
 		this.queryId = queryId;
 		getSubKWTree();
+		System.out.println("step1 getsubtree finished");
 		
-//		List<Set<Integer>> initCut = decInitCross();
-		List<Set<Integer>> initCut = incInitCross();
+		List<Set<Integer>> initCut = decInitCross();
+//		List<Set<Integer>> initCut = incInitCross();
 		if(initCut.isEmpty()) {
 			System.out.println("No community!");
 			return;
@@ -59,23 +60,28 @@ public class Query1_V2 {
 	//induce a KW-tree subtree and store it in a map
 	private void getSubKWTree(){
 		KWNode root = null;
-		for(KWNode node: kwTree.getHeadMap().get(queryId)){			
+		for(KWNode node: kwTree.getHeadMap().get(queryId)){
 			while(node.father!=node){
-				subKWTree.put(node.itemId,node);	
+				int item = node.itemId;  
+				if(kwTree.containsItem(item))
+					subKWTree.put(item,node);	
 				node = node.father;
 				root = node;
 			}
 		}
-		subKWTree.put(root.itemId, root);
+		if(kwTree.containsItem(root.itemId)) subKWTree.put(root.itemId, root);
 	}
 			
 	//search a feasible solution in a decremental manner
 	private List<Set<Integer>> decInitCross(){
 		List<Set<Integer>> initCut = new ArrayList<Set<Integer>>();
 		Set<Integer> pattern= new HashSet<Integer>();
-		for(Iterator<Integer> it = subKWTree.keySet().iterator();it.hasNext();) pattern.add(it.next());
-		
-		Set<Integer> users = obtainUser(pattern);	
+		for(Iterator<Integer> it = subKWTree.keySet().iterator();it.hasNext();) 
+				pattern.add(it.next());
+		System.out.println("here 1 "+pattern.size());
+
+		Set<Integer> users = obtainUser(pattern);
+		System.out.println("here 2 "+users.size());
 		if(!users.isEmpty()){
 			output.put(pattern, users);
 			lattice.put(pattern, users);
@@ -91,8 +97,8 @@ public class Query1_V2 {
 				Set<Integer> tocheck = patternQueue.poll();
 				Iterator<Integer> iter = tocheck.iterator();
 				int previous = iter.next(); 
+//				System.out.println(tocheck.size());
 				if(tocheck.size()==2) return initCut;
-				
 				else{
 					int current = -1;
 					//looking for the leaf item and delete it
@@ -233,7 +239,7 @@ public class Query1_V2 {
 				boolean first = true; 
 				while(iter.hasNext()){
 					current = iter.next();
-					if(subKWTree.get(current).father.itemId != previous){
+					if(subKWTree.get(current).father.itemId != previous&&previous!=1){
 						//initialize the users using the first item
 						if(first){
 							users = getUsersInKTree(previous);
@@ -260,6 +266,9 @@ public class Query1_V2 {
 		
 	//get the Connected k-core from the every kTree of specific item
 	private Set<Integer> getUsersInKTree(int item){
+//		System.out.println(item);
+//		System.out.println(subKWTree.get(item)==null);
+//		System.out.println(subKWTree.get(item).ktree==null);
 		return subKWTree.get(item).ktree.getKQueryId(k, queryId);
 	}
 	

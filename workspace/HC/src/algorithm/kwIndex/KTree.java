@@ -222,7 +222,7 @@ public class KTree {
 		KNode node = vertexMap.get(queryId);
 		if(node==null||node.k< k) return set;
 		
-		node.traverse(set);
+		node.traverse(node,set);
 		return set;
 	}
 	

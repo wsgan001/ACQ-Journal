@@ -1,5 +1,7 @@
 package algorithm.kwIndex.Query1;
 
+import java.util.logging.LogManager;
+
 import algorithm.ProfiledTree.CPTree;
 import algorithm.ProfiledTree.PNode;
 import algorithm.basic.BFS;
@@ -46,9 +48,14 @@ public EXP(){}
 		Query1_V2 query = new Query1_V2(kwTree);
 //		Query2_Inc query = new Query2_Inc(kwTree); 
 		BFS bfs = new BFS(graph, nodes);
+		long time = System.nanoTime();
 		bfs.query(1);
-//		query.query(1);
-//		query.print();
+		System.out.println((System.nanoTime()-time)/1000);
+		
+		long time1 = System.nanoTime();
+		query.query(1);
+		System.out.println((System.nanoTime()-time1)/1000);
+		query.print();
 		
 	}
 		

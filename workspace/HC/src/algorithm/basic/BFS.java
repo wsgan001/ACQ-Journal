@@ -95,7 +95,10 @@ public class BFS {
 			for(int index=0;index<currentPattern.size();index++){
 				int[] pattern =currentPattern.get(index);
 				Set<Integer> users = currentUsers.get(index);
-				System.out.println("pattern length: "+pattern.length+" users size" +users.size());
+				
+				//------------------------DEBUG------------------------------
+				if(DEBUG)	System.out.println("pattern length: "+pattern.length+" users size" +users.size());
+				//----------------------END DEBUG----------------------------
 
 				//generate new patterns
 				List<int[]> nextSeqList = geneSubtree(pattern);

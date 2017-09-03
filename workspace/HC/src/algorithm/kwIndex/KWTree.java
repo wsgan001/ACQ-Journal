@@ -39,6 +39,8 @@ public class KWTree {
 		this.n = graph.length;
 		this.pRoot = pRoot;
 		this.itemMap = new HashMap<Integer,KWNode>();
+		this.headMap = new HashMap<Integer,Set<KWNode>>(graph.length);
+
 		
 	}
 	
@@ -140,6 +142,7 @@ public class KWTree {
 			KWNode node = entryIter.next().getValue();
 			
 			if(node.vertex.size() == 0){
+				if(node.itemId==1556) System.out.println("case 1: 1556");
 				KWNode father = node.father;
 				for(KWNode child:node.childList){
 					child.father = father;
@@ -157,9 +160,11 @@ public class KWTree {
 				}
 			
 				father.childList.remove(node);
+				node = null;
 				entryIter.remove();
 			}
 			else{
+
 				if(node.childList.isEmpty()) continue;
 				int size=node.vertex.size();
 				
@@ -188,7 +193,13 @@ public class KWTree {
 					
 					}
 					node.father.childList.remove(node);
+//					if(node.itemId==1556) System.out.println("case 2: 1556");
 					entryIter.remove();
+//					if(node.itemId==1556) {
+//						System.out.println(itemMap.containsKey(1556));
+//						
+//					}
+					node = null;
 				}
 			}
 		}
@@ -224,6 +235,7 @@ public class KWTree {
 			kTree.build();
 			time4 += System.nanoTime()-time3;
 //			node.KTree=kTree.getVertexMap();
+			if(node.itemId==1556) System.out.println("1556");
 			node.setktree(kTree);
 			node.KtreeRoot=kTree.getRoot();
 			node.gc();
@@ -300,6 +312,9 @@ public class KWTree {
 		return this.headMap;
 	}
 
+	public boolean containsItem(int item){
+		return itemMap.containsKey(item);
+	}
 	
 	
 }

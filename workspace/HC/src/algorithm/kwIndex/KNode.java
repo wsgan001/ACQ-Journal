@@ -37,9 +37,11 @@ public class KNode {
 		return this.vertexSet;
 	}
 	
-	public void traverse(Set<Integer> set){
-		set.addAll(vertexSet);
-		for(KNode node:childList) traverse(set);
+	public void traverse(KNode root,Set<Integer> set){
+		if(!root.vertexSet.isEmpty()) {
+			set.addAll(root.vertexSet);
+		}
+		for(KNode node:root.childList) traverse(node,set);
 	}
 	
 	public String toString(String indent){
