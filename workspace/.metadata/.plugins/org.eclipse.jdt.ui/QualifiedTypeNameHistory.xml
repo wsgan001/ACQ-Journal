@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="algorithm.Index_v2.KWNode"/>
 <fullyQualifiedTypeName name="java.lang.SecurityManager"/>
 <fullyQualifiedTypeName name="org.apache.commons.net.ftp.parser.NetwareFTPEntryParser"/>
 <fullyQualifiedTypeName name="java.lang.VerifyError"/>
@@ -15,7 +14,6 @@
 <fullyQualifiedTypeName name="algorithm.kwIndex.Query1.query1"/>
 <fullyQualifiedTypeName name="java.beans.beancontext.BeanContext"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.basic.DragRecognitionSupport.BeforeDrag"/>
-<fullyQualifiedTypeName name="java.lang.Boolean"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.Query1.Query1_V1"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.Query2.Query2_Inc"/>
 <fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.BoldAction"/>
@@ -31,7 +29,6 @@
 <fullyQualifiedTypeName name="java.util.function.IntPredicate"/>
 <fullyQualifiedTypeName name="java.nio.file.attribute.AclEntry.Builder"/>
 <fullyQualifiedTypeName name="algorithm.DataReader"/>
-<fullyQualifiedTypeName name="EXP.IndexBasedQueryEXP"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.KTree"/>
 <fullyQualifiedTypeName name="java.util.logging.LogManager"/>
 <fullyQualifiedTypeName name="algorithm.ProfiledTree.PNode"/>
@@ -41,23 +38,26 @@
 <fullyQualifiedTypeName name="algorithm.RefinedKWIndex.Test"/>
 <fullyQualifiedTypeName name="javax.xml.parsers.FactoryConfigurationError"/>
 <fullyQualifiedTypeName name="javax.swing.text.AbstractDocument.LeafElement"/>
-<fullyQualifiedTypeName name="javax.print.attribute.HashAttributeSet"/>
 <fullyQualifiedTypeName name="algorithm.RefinedKWIndex.KWTree"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.KWNode"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="config.Config"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.print.attribute.HashAttributeSet"/>
+<fullyQualifiedTypeName name="java.lang.Cloneable"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
-<fullyQualifiedTypeName name="algorithm.RefinedKWIndex.KNode"/>
 <fullyQualifiedTypeName name="algorithm.RefinedKWIndex.Query1.query1"/>
+<fullyQualifiedTypeName name="EXP.IndexBasedQueryEXP"/>
+<fullyQualifiedTypeName name="algorithm.RefinedKWIndex.KNode"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.lang.Boolean"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
