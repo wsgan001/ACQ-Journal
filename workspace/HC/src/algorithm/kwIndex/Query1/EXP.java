@@ -46,10 +46,10 @@ public EXP(){}
 		Config.k = 2;
 		Query1_V2 query = new Query1_V2(kwTree);
 //		Query2_Inc query = new Query2_Inc(kwTree); 
-		BFS bfs = new BFS(graph, nodes);
-		long time = System.nanoTime();
-		bfs.query(1);
-		System.out.println((System.nanoTime()-time)/1000);
+//		BFS bfs = new BFS(graph, nodes);
+//		long time = System.nanoTime();
+//		bfs.query(1);
+//		System.out.println((System.nanoTime()-time)/1000);
 		
 		long time1 = System.nanoTime();
 		query.query(1);

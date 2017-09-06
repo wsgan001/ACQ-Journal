@@ -15,7 +15,8 @@ public class KWTree {
 	private KWNode root = null;
 	private PNode pRoot = null;
 	private Map<Integer, KWNode> itemMap = null;
-	private Map<Integer,Set<KWNode>> headMap = null;
+//	private Map<Integer,Set<KWNode>> headMap = null;
+	private Map<Integer,List<KWNode>> headList = null;
 	
 	private boolean debug = true; 
 	private String indexFile= Config.workSpace+"indexFile.txt";
@@ -27,7 +28,8 @@ public class KWTree {
 		this.n = graph.length;
 		this.pRoot = pRoot;
 		this.itemMap = new HashMap<Integer,KWNode>();
-		this.headMap = new HashMap<Integer,Set<KWNode>>(graph.length);
+//		this.headMap = new HashMap<Integer,Set<KWNode>>(graph.length);
+		this.headList = new HashMap<Integer,List<KWNode>>();
 		
 		
 	}
@@ -39,8 +41,8 @@ public class KWTree {
 		this.n = graph.length;
 		this.pRoot = pRoot;
 		this.itemMap = new HashMap<Integer,KWNode>();
-		this.headMap = new HashMap<Integer,Set<KWNode>>(graph.length);
-
+//		this.headMap = new HashMap<Integer,Set<KWNode>>(graph.length);
+		this.headList = new HashMap<Integer,List<KWNode>>();
 		
 	}
 	
@@ -98,26 +100,27 @@ public class KWTree {
 				KWNode itemNode = itemMap.get(item);
 				KWNode previousItemNode = itemMap.get(previousItem);
 				if(itemNode.father != previousItemNode){
-					Set<KWNode> set = headMap.get(idx);
-					if(set==null){
-						set=new HashSet<KWNode>();
-						set.add(previousItemNode);
-						headMap.put(idx, set);
+					List<KWNode> list = headList.get(idx);
+//				
+					if(list==null){
+						list = new LinkedList<KWNode>();
+						list.add(previousItemNode);
+						headList.put(idx, list);
 					}else{
-						set.add(previousItemNode);
+						list.add(previousItemNode);
 					}
 				}
 			}
 			//the last one must be the leaf KWNode
 			int lastOne = nodes[idx][nodes[idx].length-1];
 			KWNode lastNode = itemMap.get(lastOne);
-			Set<KWNode> set = headMap.get(idx);
-			if(set==null){
-				set=new HashSet<KWNode>();
-				set.add(lastNode);
-				headMap.put(idx, set);
+			List<KWNode> list = headList.get(idx);
+			if(list==null){
+				list=new LinkedList<KWNode>();
+				list.add(lastNode);
+				headList.put(idx, list);
 			}else{
-				set.add(lastNode);
+				list.add(lastNode);
 			}
 			idx++;
 		}
@@ -144,7 +147,6 @@ public class KWTree {
 			KWNode node = entryIter.next().getValue();
 			
 			if(node.tmpVertexSet.size() == 0){
-				if(node.itemId==1556) System.out.println("case 1: 1556");
 				KWNode father = node.father;
 				for(KWNode child:node.childList){
 					child.father = father;
@@ -195,12 +197,7 @@ public class KWTree {
 					
 					}
 					node.father.childList.remove(node);
-//					if(node.itemId==1556) System.out.println("case 2: 1556");
 					entryIter.remove();
-//					if(node.itemId==1556) {
-//						System.out.println(itemMap.containsKey(1556));
-//						
-//					}
 					node = null;
 				}
 			}
@@ -223,35 +220,26 @@ public class KWTree {
 		long time2 = 0;
 		long time3 = 0;
 		long time4 = 0;
-		long time5 = 0;
-		long time6 = 0;
-		long time7 = 0;
-		long time8 = 0;
 		
  		while(iter.hasNext()){
 			KWNode node = iter.next();
 			Set<Integer> vertexSet = node.tmpVertexSet;	
 	
 			time1 = System.nanoTime();
-			int[][] subGraph2 = getsubGraph(vertexSet);
+			int[][] subGraph = getsubGraph(vertexSet);
 			time2 += System.nanoTime()-time1;
 			
 			time3 = System.nanoTime();
-			simKTree kTree2 = new simKTree(subGraph2);
-			kTree2.build();
+			KTree kTree = new KTree(subGraph);
+			kTree.build();
 			time4 += System.nanoTime()-time3;
-			node.setvertexMap(kTree2.getVertexMap());
-			node.KtreeRoot = kTree2.getRoot();
+			node.setvertexMap(kTree.getVertexMap());
+			
+			//------------------------DEBUG------------------------------
+			if(debug) node.KtreeRoot = kTree.getRoot();
+			//----------------------END DEBUG----------------------------
 			node.gc();
 			
-			time5 = System.nanoTime();
-			List<List<Integer>> subGraph1 = getSubgraph(vertexSet);
-			time6 +=System.nanoTime()-time5;
-			
-			time7 = System.nanoTime();
-			KTree kTree1 = new KTree(subGraph1);
-			kTree1.build();
-			time8+= System.nanoTime()-time7;
 		}
  		
  		//------------------------DEBUG------------------------------
@@ -259,8 +247,7 @@ public class KWTree {
  			System.out.println("build internal k-tree finished!");
  			System.out.println("first getsubgraph time cost: "+time2/1000000+"    "
  					+ "ktree index build time: "+time4/1000000+" total:"+(time2+time4)/1000000);
- 			System.out.println("second getsubgraph time cost: "+time6/1000000+"    "
- 					+ "ktree index build time: "+time8/1000000+" total:"+(time6+time8)/1000000);
+ 			
  		}
  		
  		//----------------------END DEBUG----------------------------
@@ -273,41 +260,6 @@ public class KWTree {
 	}
 	
 	
-	//create the adjacency matrix; 
-	public List<List<Integer>> getSubgraph(Set<Integer> vertex){
-		List<List<Integer>> subGraph = new ArrayList<List<Integer>>();
-		//	first element is the list of all vertices for speed up afterwards
-		List<Integer> list =new ArrayList<>();
-		list.add(0);
-		list.addAll(vertex);
-		subGraph.add(list);
-	
-		Map<Integer, Integer> old2New = new HashMap<Integer,Integer>();
-		Iterator<Integer> iter = vertex.iterator();
-		int newId=1;
-		// reorganize the id of subgraph	
-		while(iter.hasNext()) {
-			int oldId=iter.next();
-			old2New.put(oldId, newId++);
-		}
-	
-		//construct the adjacency matrix of the subgraph	
-		iter = vertex.iterator();
-//		iter.next();
-		while(iter.hasNext()) {
-			int oldId=iter.next();
-			int[] nghbor = graph[oldId];
-			List<Integer> newNghbr = new ArrayList<Integer>();
-			for(int x:nghbor){
-				if (vertex.contains(x)) {
-					newNghbr.add(old2New.get(x));
-				}
-			}
-			subGraph.add(newNghbr);
-		}
-		return subGraph;
-	}
-
 	public int[][] getsubGraph(Set<Integer> vertexSet){
 		//the first element of the subgraph keeps the original vertex 
 		int[] originalId = new int[vertexSet.size()+1];
@@ -367,8 +319,8 @@ public class KWTree {
 		}
 	}
 
-	public Map<Integer,Set<KWNode>> getHeadMap(){
-		return this.headMap;
+	public Map<Integer,List<KWNode>> getHeadList(){
+		return this.headList;
 	}
 
 	public boolean containsItem(int item){

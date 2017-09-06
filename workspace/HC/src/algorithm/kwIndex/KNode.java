@@ -4,8 +4,8 @@ import java.util.*;
 
 public class KNode {
 	public int k=-1;
-	private Set<Integer> vertexSet = null;
- 	private List<KNode> childList = null; 
+	public Set<Integer> vertexSet = null;
+ 	public List<KNode> childList = null; 
 	
 	
 	public KNode(int k){
@@ -32,12 +32,6 @@ public class KNode {
 		return this.vertexSet;
 	}
 	
-	public void traverse(KNode root,Set<Integer> set){
-		if(!root.vertexSet.isEmpty()) {
-			set.addAll(root.vertexSet);
-		}
-		for(KNode node:root.childList) traverse(node,set);
-	}
 	
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();

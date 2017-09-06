@@ -102,19 +102,19 @@ private void test(){
 	PNode root = cpTree.LoadTree().get(1);
 //	
 	KWTree kwTree = new KWTree(graph, nodes,root);
-	int[] test={1,3,5,6,7,9,10,12,17,18,14,16,19,20,21,22,24,26,28};
-	Set<Integer> vertex =new HashSet<Integer>();
-	for(int x:test) vertex.add(x);
-	int[][] subGraph = kwTree.getsubGraph(vertex);
-	DecomposeKCore kCore = new  DecomposeKCore(subGraph);
-	int core[] = kCore.decompose(); 
-	int[] old = subGraph[0];
-	for(int i=1;i<old.length;i++){
-		System.out.println(old[i]+" core number is: "+core[i]);
-	}
+//	int[] test={1,3,5,6,7,9,10,12,17,18,14,16,19,20,21,22,24,26,28};
+//	Set<Integer> vertex =new HashSet<Integer>();
+//	for(int x:test) vertex.add(x);
+//	int[][] subGraph = kwTree.getsubGraph(vertex);
+//	DecomposeKCore kCore = new  DecomposeKCore(subGraph);
+//	int core[] = kCore.decompose(); 
+//	int[] old = subGraph[0];
+//	for(int i=1;i<old.length;i++){
+//		System.out.println(old[i]+" core number is: "+core[i]);
+//	}
 
-//	kwTree.build();
-//	kwTree.printTree();
+	kwTree.build();
+	kwTree.printTree();
 //	Config.k = 4;
 //	Query1_V1 query1 = new Query1_V1(kwTree);
 //	query1.query(4);

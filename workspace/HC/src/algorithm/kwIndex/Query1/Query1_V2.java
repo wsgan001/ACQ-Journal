@@ -6,6 +6,7 @@ import org.apache.commons.net.ftp.FTP;
 
 import algorithm.FindCKSubG;
 import algorithm.kwIndex.*;
+import config.Config;
 
 /**
 @author chenyankai
@@ -20,28 +21,28 @@ import algorithm.kwIndex.*;
 public class Query1_V2 {
 	private int queryId = -1;
 	private int k = -1;
-	private KWTree kwTree = null;
+	private Map<Integer, List<KWNode>> headList = null;
 	private Map<Integer,KWNode> subKWTree = null;
 	//key:pattern  value users
 	private Map<Set<Integer>,Set<Integer>> lattice = null;
 	private Map<Set<Integer>, Set<Integer>> output=null;
 	private Set<Set<Integer>> visited = null;
 	
-	private boolean debug = false;
+	private boolean debug = true;
 	
 	public Query1_V2(KWTree kwTree){
-		this.kwTree = kwTree;
+		this.headList = kwTree.getHeadList();
 		this.subKWTree = new HashMap<Integer,KWNode>();
 		this.lattice = new HashMap<Set<Integer>, Set<Integer>>();
 		this.output = new HashMap<Set<Integer>, Set<Integer>>();
 		this.visited=new HashSet<Set<Integer>>();
-		
+		this.k=Config.k;
 	}
 	
 	//main function
 	public void query(int queryId){
 		this.queryId = queryId;
-		getSubKWTree();
+		induceSubKWTree();
 		System.out.println("step1 getsubtree finished");
 		
 		List<Set<Integer>> initCut = decInitCross();
@@ -58,20 +59,54 @@ public class Query1_V2 {
 	}
 	
 	//induce a KW-tree subtree and store it in a map
-	private void getSubKWTree(){
-		KWNode root = null;
-		for(KWNode node: kwTree.getHeadMap().get(queryId)){
-			while(node.father!=node){
-				int item = node.itemId;  
-				if(kwTree.containsItem(item))
-					subKWTree.put(item,node);	
-				node = node.father;
-				root = node;
+	private void induceSubKWTree(){
+		Set<Integer> visited = new HashSet<Integer>();
+		KWNode root =new KWNode(1);
+		subKWTree.put(1, root);
+		for(KWNode currentNode:headList.get(queryId)){
+			int leaf = currentNode.itemId;
+			System.out.println("leaf "+leaf);
+			KWNode newNode = new KWNode(leaf);
+			newNode.tmpVertexSet = currentNode.getCKCore(k,queryId);
+			subKWTree.put(leaf, newNode);
+			
+			int father = currentNode.father.itemId;
+			while(father != 1){
+				KWNode newFather = subKWTree.get(father);
+				if(newFather== null){
+					Set<Integer> vertexSet = currentNode.father.getCKCore(k, queryId);
+					if(!vertexSet.isEmpty()){
+						newFather = new KWNode(father);
+						newFather.tmpVertexSet = vertexSet;
+						subKWTree.put(father, newFather);
+						
+						if(visited.contains(currentNode.itemId)) break;
+						System.out.println(currentNode.itemId);
+						subKWTree.get(currentNode.itemId).father = newFather;
+						newFather.childList.add(subKWTree.get(currentNode.itemId));
+						visited.add(currentNode.itemId);
+					}
+				}
+				
+		
+				currentNode = currentNode.father;
+				father = currentNode.father.itemId;
 			}
+			
+			
+			if(visited.contains(currentNode.itemId)) continue;
+			subKWTree.get(currentNode.itemId).father = root;
+			root.childList.add(subKWTree.get(currentNode.itemId));
+			visited.add(currentNode.itemId);
 		}
-		if(kwTree.containsItem(root.itemId)) subKWTree.put(root.itemId, root);
+		//------------------------DEBUG-----------------------------
+		if(debug) 		System.out.println(root.toString(""));
+		//----------------------END DEBUG---------------------------	
 	}
 			
+	
+	
+	
 	//search a feasible solution in a decremental manner
 	private List<Set<Integer>> decInitCross(){
 		List<Set<Integer>> initCut = new ArrayList<Set<Integer>>();
