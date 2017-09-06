@@ -20,10 +20,10 @@ public class Extract {
 	
 	
 	
-	public Extract(int x,String nodeFile,String edgeNode){
+	public Extract(int x){
 		this.pubMedSize=x;
-		this.nodeFile=nodeFile;
-		this.edgeFile=edgeNode;
+		this.nodeFile="node"+"-"+x+".txt";
+		this.edgeFile="edge"+"-"+x+".txt";
 		
 	}
 	
@@ -74,6 +74,7 @@ public class Extract {
 		Log log=new Log();
 		
 		for(int i=1;i<=pubMedSize;i++){
+			System.out.println("downloading: "+ i);
 			String msg=null;
 			String name=downFtp.GeneFileName(i);
 			boolean flag1=downFtp.downloadFile(name);
@@ -102,7 +103,7 @@ public class Extract {
 			}
 			currentLine++;
 			}
-			rAccessFile.writeBytes("testetetetettetete   ");
+			rAccessFile.writeBytes("te  ");
 			rAccessFile.close();
 			
 		} catch (FileNotFoundException e) {
@@ -120,7 +121,7 @@ public class Extract {
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(5,"node.txt","edge.txt");
+		Extract extract=new Extract(10);
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		

@@ -5,8 +5,7 @@ import java.util.*;
 public class KNode {
 	public int k=-1;
 	private Set<Integer> vertexSet = null;
-//	private KNode father = null;
-	private List<KNode> childList = null; 
+ 	private List<KNode> childList = null; 
 	
 	
 	public KNode(int k){
@@ -23,11 +22,7 @@ public class KNode {
 		this.vertexSet = set;
 	}
 	
-//	public void setFather(KNode father){
-//		this.father = father;
-//	}
-	
-	
+
 	public List<KNode> getChildList(){
 		return this.childList;
 	}

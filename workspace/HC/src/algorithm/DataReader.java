@@ -64,7 +64,7 @@ public class DataReader {
 			e.printStackTrace();
 		}
 		System.out.println("# of edges in G: "+edges);
-		System.out.println("the average degree:" + (edges * 1.0 / userNum));
+		System.out.println("the average degree:" + (edges * 1.0 / userNum)*2);
 		
 		this.edgeNum=edges/2;
 		

@@ -1,6 +1,9 @@
 package algorithm.kwIndex;
 
 import java.util.*;
+
+import javax.security.auth.Subject;
+
 import algorithm.DecomposeKCore;
 import algorithm.ProfiledTree.CPTree;
 import algorithm.ProfiledTree.PNode;
@@ -82,17 +85,9 @@ private void runningExample(){
 private void test(){
 	
 	runningExample();
-//	DecomposeKCore kCore = new  DecomposeKCore(graph);
 //	int[] core=kCore.decompose();
 //	for(int i=1;i<core.length;i++) System.out.println("a"+i+":"+core[i]);
 //	
-//	int[] test={1,3,5,6,7,9,10,12,17,18,14,16,19,20,21,22,24,26,28};
-//	List<Integer> vertex =new ArrayList<Integer>();
-//////	//the first 0 is empty
-//	for(int i=0;i<graph.length;i++) vertex.add(i);
-//////	vertex.add(0);
-//////	for(int x:test) vertex.add(x);
-//	List<List<Integer>>subGraph= getSubgraph(vertex);
 ////	
 //	KTree kTree=new KTree(subGraph);
 //	kTree.build();
@@ -107,10 +102,22 @@ private void test(){
 	PNode root = cpTree.LoadTree().get(1);
 //	
 	KWTree kwTree = new KWTree(graph, nodes,root);
-	
-	Config.k = 4;
-	Query1_V1 query1 = new Query1_V1(kwTree);
-	query1.query(4);
+	int[] test={1,3,5,6,7,9,10,12,17,18,14,16,19,20,21,22,24,26,28};
+	Set<Integer> vertex =new HashSet<Integer>();
+	for(int x:test) vertex.add(x);
+	int[][] subGraph = kwTree.getsubGraph(vertex);
+	DecomposeKCore kCore = new  DecomposeKCore(subGraph);
+	int core[] = kCore.decompose(); 
+	int[] old = subGraph[0];
+	for(int i=1;i<old.length;i++){
+		System.out.println(old[i]+" core number is: "+core[i]);
+	}
+
+//	kwTree.build();
+//	kwTree.printTree();
+//	Config.k = 4;
+//	Query1_V1 query1 = new Query1_V1(kwTree);
+//	query1.query(4);
  	
 //	Map<Integer,Set<KWNode>> map=kwTree.getHeadMap();
 //	int index=0;
@@ -172,6 +179,8 @@ private List<List<Integer>> getSubgraph(List<Integer> vertex){
 	public static void main(String[] args ){
 		Test test=new Test();
 		test.test();
+		
+
 		
 	}
 	

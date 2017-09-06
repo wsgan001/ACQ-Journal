@@ -23,11 +23,9 @@ public class KTree {
 	private UnionFind uf = null;
 	private Set<KNode> restNodeSet = null;
 	private Map<Integer, KNode> vertexMap = null;
-
-	private KNode root=null;
-	
-	
+	private KNode root = null;
 	boolean debug = false;
+	
 	
 	public KTree(List<List<Integer>> subGraph){
 		this.vertexList = subGraph.get(0);
@@ -36,8 +34,11 @@ public class KTree {
 		this.vertexMap = new HashMap<Integer,KNode>();
 		this.core = new int[subGraph.size()];
 		this.uf = new UnionFind();
+		
 	}
 		
+	
+	
 	public void build(){
 		//step 1:compute the core number
 		//k-core decompose the subgraph
@@ -117,6 +118,8 @@ public class KTree {
 		root.setVertices(core0Set);
 		root.setChildList(new ArrayList<KNode>(restNodeSet));
 		for(int x:core0Set) vertexMap.put(x, root);
+		
+
 		return;
 	} 
 	
@@ -216,23 +219,18 @@ public class KTree {
 		return this.vertexMap;
 	}
 	
-	//return a ck-core containing queryId 
-	public Set<Integer> getKQueryId(int k,int queryId){
-		Set<Integer> set=new HashSet<Integer>();
-		KNode node = vertexMap.get(queryId);
-		if(node==null||node.k< k) return set;
-		
-		node.traverse(node,set);
-		return set;
-	}
-	
-	
-	
-	
 	public KNode getRoot(){
 		return this.root;
 	}
 	
-	
+//	//return a ck-core containing queryId 
+//	public Set<Integer> getKQueryId(int k,int queryId){
+//		Set<Integer> set=new HashSet<Integer>();
+//		KNode node = vertexMap.get(queryId);
+//		if(node==null||node.k< k) return set;
+//		
+//		node.traverse(node,set);
+//		return set;
+//	}
 	
 }

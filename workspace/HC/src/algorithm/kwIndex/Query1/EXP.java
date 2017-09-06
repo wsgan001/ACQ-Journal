@@ -1,6 +1,5 @@
 package algorithm.kwIndex.Query1;
 
-import java.util.logging.LogManager;
 
 import algorithm.ProfiledTree.CPTree;
 import algorithm.ProfiledTree.PNode;
