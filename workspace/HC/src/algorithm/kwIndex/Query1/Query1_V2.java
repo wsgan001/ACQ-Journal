@@ -61,44 +61,47 @@ public class Query1_V2 {
 	//induce a KW-tree subtree and store it in a map
 	private void induceSubKWTree(){
 		Set<Integer> visited = new HashSet<Integer>();
+		Map<Integer, List<Integer>> childMap = new HashMap<Integer,List<Integer>>();
 		KWNode root =new KWNode(1);
 		subKWTree.put(1, root);
 		for(KWNode currentNode:headList.get(queryId)){
-			int leaf = currentNode.itemId;
-			System.out.println("leaf "+leaf);
-			KWNode newNode = new KWNode(leaf);
-			newNode.tmpVertexSet = currentNode.getCKCore(k,queryId);
-			subKWTree.put(leaf, newNode);
 			
-			int father = currentNode.father.itemId;
-			while(father != 1){
-				KWNode newFather = subKWTree.get(father);
-				if(newFather== null){
-					Set<Integer> vertexSet = currentNode.father.getCKCore(k, queryId);
-					if(!vertexSet.isEmpty()){
-						newFather = new KWNode(father);
-						newFather.tmpVertexSet = vertexSet;
-						subKWTree.put(father, newFather);
-						
-						if(visited.contains(currentNode.itemId)) break;
-						System.out.println(currentNode.itemId);
-						subKWTree.get(currentNode.itemId).father = newFather;
-						newFather.childList.add(subKWTree.get(currentNode.itemId));
-						visited.add(currentNode.itemId);
+			while(currentNode.itemId != 1){
+//				System.out.println("checking: "+currentNode.itemId);
+				Set<Integer> vertexSet = currentNode.getCKCore(k, queryId);
+				if(!vertexSet.isEmpty()){
+//					System.out.println("inside: "+currentNode.itemId);
+					int currenItem = currentNode.itemId;
+					if(!subKWTree.containsKey(currenItem)){
+						KWNode newNode = new KWNode(currenItem);
+						newNode.tmpVertexSet = vertexSet;
+						subKWTree.put(currenItem, newNode);
+					}
+					
+					List<Integer> child = childMap.get(currentNode.father.itemId);
+					if(child==null){
+						child = new ArrayList<Integer>();
+						child.add(currenItem);
+						childMap.put(currentNode.father.itemId, child);
+					}else{
+						child.add(currenItem);
 					}
 				}
-				
-		
 				currentNode = currentNode.father;
-				father = currentNode.father.itemId;
 			}
-			
-			
-			if(visited.contains(currentNode.itemId)) continue;
-			subKWTree.get(currentNode.itemId).father = root;
-			root.childList.add(subKWTree.get(currentNode.itemId));
-			visited.add(currentNode.itemId);
 		}
+		
+		Iterator<Integer> iter = childMap.keySet().iterator();
+		while(iter.hasNext()){
+			int father = iter.next();
+			KWNode fatherNode = subKWTree.get(father);
+			for(int child:childMap.get(father)){
+				System.out.println(child);
+				subKWTree.get(child).father = fatherNode;
+				fatherNode.childList.add(subKWTree.get(child));
+			}
+		}
+		
 		//------------------------DEBUG-----------------------------
 		if(debug) 		System.out.println(root.toString(""));
 		//----------------------END DEBUG---------------------------	
