@@ -55,7 +55,7 @@ public class KWNode {
 		if(compressedId!=null) output.append("  compress ids: "+compressedId.toString());
 		output.append("\n");
 		if(KtreeRoot!=null) output.append(indent+KtreeRoot.toString(indent));
-		if(tmpVertexSet!=null) output.append("CKC: "+tmpVertexSet.toString()+"\n");
+		if(tmpVertexSet!=null) output.append(indent+"CKC: "+tmpVertexSet.toString()+"\n");
 //		if(vertexMap!=null){
 //			Iterator<Integer> iter = vertexMap.keySet().iterator();
 //			while(iter.hasNext()){
