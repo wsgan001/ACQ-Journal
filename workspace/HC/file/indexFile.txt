@@ -6,11 +6,9 @@ CKC: []
   item NO.: 12  father id: 1
   0-hatcore: [6, 8, 10]
     2-hatcore: [1, 2, 4]
-    item NO.: 13  father id: 12
+    item NO.: 14  father id: 12  compress ids: [13]
     0-hatcore: [6]
       1-hatcore: [1, 2]
-      item NO.: 14  father id: 13
-      0-hatcore: [1, 6]
     item NO.: 15  father id: 12
     0-hatcore: [6, 8]
       1-hatcore: [1, 2]

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7f52e5c5-d6ad-4144-bdbf-a99c74a7d618" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../test/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/HC/.indexes/e4/6f/3a/77/history.index" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/HC/.indexes/e4/6f/3a/77/history.index" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/HC/.indexes/e4/6f/3a/history.index" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/HC/.indexes/e4/6f/3a/history.index" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/HC/.markers" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/HC/.markers" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/segments.gen" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/remote-history/segments.gen" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/455413224.index" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/455413224.index" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/segments.gen" afterPath="$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/segments.gen" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.log" afterPath="$PROJECT_DIR$/../.metadata/.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/server-config.json" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/server-config.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.metadata/version.ini" afterPath="$PROJECT_DIR$/../.metadata/version.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.recommenders/caches/identified-project-coordinates.json" afterPath="$PROJECT_DIR$/../.recommenders/caches/identified-project-coordinates.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/indexFile.txt" afterPath="$PROJECT_DIR$/file/indexFile.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/algorithm/kwIndex/Query1/EXP.java" afterPath="$PROJECT_DIR$/src/algorithm/kwIndex/Query1/EXP.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/algorithm/kwIndex/Query1/Query1_V1.java" afterPath="$PROJECT_DIR$/src/algorithm/kwIndex/Query1/Query1_V1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/algorithm/kwIndex/Query2/Query2_Inc.java" afterPath="$PROJECT_DIR$/src/algorithm/kwIndex/Query2/Query2_Inc.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/algorithm/kwIndex/Test.java" afterPath="$PROJECT_DIR$/src/algorithm/kwIndex/Test.java" />
+    </list>
+    <ignored path="$PROJECT_DIR$/bin/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="EXP.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/algorithm/kwIndex/Query1/EXP.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="833">
+              <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Query1_V1.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/algorithm/kwIndex/Query1/Query1_V1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+              <folding>
+                <marker date="1504868939000" expanded="true" signature="2773:3276" ph="{...}" />
+                <marker date="1504868939000" expanded="true" signature="3382:3781" ph="{...}" />
+                <marker date="1504868939000" expanded="true" signature="3883:5803" ph="{...}" />
+                <marker date="1504868939000" expanded="false" signature="3929:3943" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="3982:3991" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="4319:4333" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="4884:4893" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="5402:5411" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="true" signature="5918:8489" ph="{...}" />
+                <marker date="1504868939000" expanded="false" signature="5964:5978" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="6033:6047" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="6099:6113" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="6279:6288" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="7148:7157" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="7202:7211" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="true" signature="7788:7847" ph="//..." />
+                <marker date="1504868939000" expanded="true" signature="8539:8721" ph="{...}" />
+                <marker date="1504868939000" expanded="false" signature="8585:8599" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="true" signature="8990:10027" ph="{...}" />
+                <marker date="1504868939000" expanded="false" signature="9098:9107" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="10148:10151" ph=" { " />
+                <marker date="1504868939000" expanded="false" signature="10191:10194" ph=" }" />
+                <marker date="1504868939000" expanded="true" signature="10287:11749" ph="{...}" />
+                <marker date="1504868939000" expanded="true" signature="11861:12821" ph="{...}" />
+                <marker date="1504868939000" expanded="false" signature="11905:11919" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="12141:12150" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="12441:12450" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="true" signature="13040:13774" ph="{...}" />
+                <marker date="1504868939000" expanded="false" signature="13085:13099" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="13438:13447" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="false" signature="13653:13662" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="true" signature="13887:14195" ph="{...}" />
+                <marker date="1504868939000" expanded="false" signature="13927:13936" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="true" signature="14269:14497" ph="{...}" />
+                <marker date="1504868939000" expanded="false" signature="14303:14312" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="true" signature="14570:15023" ph="{...}" />
+                <marker date="1504868939000" expanded="false" signature="14607:14616" ph="&lt;~&gt;" />
+                <marker date="1504868939000" expanded="true" signature="15143:15669" ph="{...}" />
+                <marker date="1504868939000" expanded="true" signature="15710:15957" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/algorithm/kwIndex/Query1/Query1_V1.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="HC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HC" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+              <item name="kwIndex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+              <item name="kwIndex" type="462c0819:PsiDirectoryNode" />
+              <item name="Query1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+              <item name="kwIndex" type="462c0819:PsiDirectoryNode" />
+              <item name="Query2" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.EXP">
+    <configuration name="EXP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="algorithm.kwIndex.Query1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="algorithm.kwIndex.Query1.EXP" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="HC" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.EXP" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f52e5c5-d6ad-4144-bdbf-a99c74a7d618" name="Default" comment="" />
+      <created>1504868294307</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1504868294307</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="162" y="63" width="1400" height="987" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32896176" sideWeight="0.48285714" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32896176" sideWeight="0.51714283" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/algorithm/kwIndex/Query1/Query1_V1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+          <folding>
+            <marker date="1504868939000" expanded="true" signature="2773:3276" ph="{...}" />
+            <marker date="1504868939000" expanded="true" signature="3382:3781" ph="{...}" />
+            <marker date="1504868939000" expanded="true" signature="3883:5803" ph="{...}" />
+            <marker date="1504868939000" expanded="false" signature="3929:3943" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="3982:3991" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="4319:4333" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="4884:4893" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="5402:5411" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="true" signature="5918:8489" ph="{...}" />
+            <marker date="1504868939000" expanded="false" signature="5964:5978" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="6033:6047" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="6099:6113" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="6279:6288" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="7148:7157" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="7202:7211" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="true" signature="7788:7847" ph="//..." />
+            <marker date="1504868939000" expanded="true" signature="8539:8721" ph="{...}" />
+            <marker date="1504868939000" expanded="false" signature="8585:8599" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="true" signature="8990:10027" ph="{...}" />
+            <marker date="1504868939000" expanded="false" signature="9098:9107" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="10148:10151" ph=" { " />
+            <marker date="1504868939000" expanded="false" signature="10191:10194" ph=" }" />
+            <marker date="1504868939000" expanded="true" signature="10287:11749" ph="{...}" />
+            <marker date="1504868939000" expanded="true" signature="11861:12821" ph="{...}" />
+            <marker date="1504868939000" expanded="false" signature="11905:11919" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="12141:12150" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="12441:12450" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="true" signature="13040:13774" ph="{...}" />
+            <marker date="1504868939000" expanded="false" signature="13085:13099" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="13438:13447" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="false" signature="13653:13662" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="true" signature="13887:14195" ph="{...}" />
+            <marker date="1504868939000" expanded="false" signature="13927:13936" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="true" signature="14269:14497" ph="{...}" />
+            <marker date="1504868939000" expanded="false" signature="14303:14312" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="true" signature="14570:15023" ph="{...}" />
+            <marker date="1504868939000" expanded="false" signature="14607:14616" ph="&lt;~&gt;" />
+            <marker date="1504868939000" expanded="true" signature="15143:15669" ph="{...}" />
+            <marker date="1504868939000" expanded="true" signature="15710:15957" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algorithm/simpleKWIndex/query1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2516">
+          <caret line="151" column="27" lean-forward="false" selection-start-line="151" selection-start-column="27" selection-end-line="151" selection-end-column="27" />
+          <folding>
+            <element signature="e#3863#3870#0" expanded="true" />
+            <element signature="e#3910#3919#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algorithm/kwIndex/Query1/EXP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

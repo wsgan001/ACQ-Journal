@@ -3,8 +3,6 @@ package prep;
 import java.io.*;
 import java.util.zip.GZIPInputStream;
 
-import javax.management.loading.PrivateClassLoader;
-
 import config.*;
 
 /**
@@ -121,7 +119,7 @@ public class Extract {
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(10);
+		Extract extract=new Extract(2);
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		

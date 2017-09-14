@@ -34,7 +34,6 @@ public class MeSHPrep {
 	private Map<Integer,PNode> cpTree=null;
 	
 	
-	//type 1:aggregated data type0: full data 
 	public MeSHPrep(String nodeFile,String edgeFile,String treeFile){
 		
 			this.edgeFile=ConfigPubmed.localPath+edgeFile;
@@ -59,6 +58,7 @@ public class MeSHPrep {
 	public int getnameMapSize(){
 		return this.nameMap.size();
 	}
+	
 	//to get the map key:old code value: DFS code
 	private void loadPtree(){
 		BuildMeshTree bTree=new BuildMeshTree();
@@ -104,9 +104,7 @@ public class MeSHPrep {
 			DocumentBuilder builder=factory.newDocumentBuilder();
 			Document doc=builder.parse(new File(ConfigPubmed.localPath+xmlFile));
 			Element element=doc.getDocumentElement();
-//			BufferedWriter bfWriter=new BufferedWriter(new FileWriter(Config.localPath+outFile,true));//append the content at the end of the file
 			
-//			Map<String, Set<String>> line = new HashMap<String, Set<String>>();//for output the name-attributes
 			
 
 			NodeList nodes=element.getElementsByTagName("PubmedArticle");
@@ -140,7 +138,6 @@ public class MeSHPrep {
 								}
 							}		
 							if(name!=null){
-//								if(name.equals("JC,Chen"))System.out.println(name);
 								nameList.add(name);
 								Set<Integer> set=new HashSet<Integer>();
 								if(!line.containsKey(name))line.put(name,set);			
@@ -331,25 +328,28 @@ public class MeSHPrep {
 	
 	
 	//use leaf nodes of p-tree to fill the its p-tree
-		private String fill(String write){
-			String output="";
-			String[] items=write.split(",");
-			List<Integer> list=new LinkedList<Integer>();
-			for(String item:items) tracePath(Integer.parseInt(item.trim()), list);
-			list.add(1);
-			Collections.sort(list);
-			for(int i:list) output +=i+" ";
-			return output;
+	private String fill(String write){
+		String output="";
+		String[] items=write.split(",");
+		List<Integer> list=new LinkedList<Integer>();
+		for(String item:items) tracePath(Integer.parseInt(item.trim()), list);
+		list.add(1);
+		Collections.sort(list);
+		for(int i:list) output +=i+" ";
+		return output;
+	}
+	// trace one leaf node and find its path to the root
+	private void tracePath(int leaf,List<Integer> list){
+		
+		if(!cpTree.containsKey(leaf)) return;
+		
+		PNode node=cpTree.get(leaf);
+		while(leaf!=1){
+			if(!list.contains(leaf))	list.add(leaf);
+			node=node.getFather();
+			leaf=node.getId();
 		}
-		// trace one leaf node and find its path to the root
-		private void tracePath(int leaf,List<Integer> list){
-			PNode node=cpTree.get(leaf);
-			while(leaf!=1){
-				if(!list.contains(leaf))	list.add(leaf);
-				node=node.getFather();
-				leaf=node.getId();
-			}
-		}
+	}
 	
 	
 	public static void main(String[] args){

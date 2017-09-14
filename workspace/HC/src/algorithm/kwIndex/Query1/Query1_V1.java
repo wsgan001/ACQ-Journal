@@ -2,7 +2,6 @@ package algorithm.kwIndex.Query1;
 
 import java.util.*;
 
-
 import algorithm.FindCKSubG;
 import algorithm.kwIndex.*;
 import config.Config;
@@ -22,16 +21,18 @@ public class Query1_V1 {
 	private int queryId = -1;
 	private int k = -1;
 	private Map<Integer, List<KWNode>> headList = null;
+	private List<KWNode> leafList = null;
 	private Map<Integer,KWNode> subKWTree = null;
 	//key:pattern  value users
 	private Map<Set<Integer>,Set<Integer>> lattice = null;
 	private Map<Set<Integer>, Set<Integer>> output=null;
 	private Set<Set<Integer>> visited = null;
 	
-	private boolean debug = false;
+	private boolean debug = true;
 	
 	public Query1_V1(int[][] graph,Map<Integer, List<KWNode>> headList){
 		this.graph = graph;
+		this.leafList = new LinkedList<KWNode>();
 		this.headList = headList;
 		this.subKWTree = new HashMap<Integer,KWNode>();
 		this.lattice = new HashMap<Set<Integer>, Set<Integer>>();
@@ -48,6 +49,7 @@ public class Query1_V1 {
 		
 		List<Set<Integer>> initCut = decInitCross();
 //		List<Set<Integer>> initCut = incInitCross();
+		jumpInitCross();
 		if(initCut.isEmpty()) {
 			System.out.println("No community!");
 			return;
@@ -65,7 +67,10 @@ public class Query1_V1 {
 		KWNode root =new KWNode(1);
 		subKWTree.put(1, root);
 		for(KWNode currentNode:headList.get(queryId)){
-			
+			//to mark the leaf item in the induce subKWtree
+			int leaf = -1;
+			boolean first = true;
+
 			while(currentNode.itemId != 1){
 //				System.out.println("checking: "+currentNode.itemId);
 				Set<Integer> vertexSet = currentNode.getCKCore(k, queryId);
@@ -76,6 +81,11 @@ public class Query1_V1 {
 						KWNode newNode = new KWNode(currenItem);
 						newNode.tmpVertexSet = vertexSet;
 						subKWTree.put(currenItem, newNode);
+						
+						if(first){
+							leaf = currenItem;
+							first = false;
+						}
 					}
 					
 					List<Integer> child = childMap.get(currentNode.father.itemId);
@@ -89,6 +99,7 @@ public class Query1_V1 {
 				}
 				currentNode = currentNode.father;
 			}
+			if(subKWTree.containsKey(leaf)) leafList.add(subKWTree.get(leaf));
 		}
 		
 		Iterator<Integer> iter = childMap.keySet().iterator();
@@ -102,11 +113,35 @@ public class Query1_V1 {
 		}
 		
 		//------------------------DEBUG-----------------------------
-		if(debug) 		System.out.println(root.toString(""));
+		if(debug) 	{
+			System.out.println(root.toString(""));
+			for(KWNode leaf:leafList) System.out.println("leafList: "+leaf.itemId);
+		}
 		//----------------------END DEBUG---------------------------	
 	}
-			
 	
+	
+	//get the leaf item in the subtree which has the long path from bottom up
+	private int longestPath(){
+		int longestleaf = -1;
+		int maxLen = 0;
+		for(KWNode node:leafList){
+			int leaf = node.itemId;
+			KWNode currentNode = subKWTree.get(leaf);
+			if(currentNode==null) continue;
+			int count = 0;
+			while(currentNode.itemId!=1){
+				currentNode =currentNode.father;
+				count++;
+			}
+			if(count>=maxLen) {
+				longestleaf = leaf;
+				maxLen = count;
+			}
+		}
+		return longestleaf;
+	}
+
 	
 	
 	//search a feasible solution in a decremental manner
@@ -265,6 +300,19 @@ public class Query1_V1 {
 		return initCut;
 	}
 	
+	
+	
+	private List<Set<Integer>> jumpInitCross(){
+		List<Set<Integer>> initCut = new ArrayList<Set<Integer>>();
+		int longestLeaf = longestPath();
+		System.out.println("longest path leaf: "+longestLeaf);
+		
+		
+		return initCut;
+	}
+
+
+
 	
 	//obtain all users according to the leaf items instead of the whole P-tree
 	//if a seq corresponds to no community 		------>  userSet.size=0

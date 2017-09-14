@@ -1,0 +1,40 @@
+item NO.: 1  father id: 1
+CKC: []
+  item NO.: 2  father id: 1
+  0-hatcore: [6, 9]
+    2-hatcore: [1, 2, 4]
+  item NO.: 12  father id: 1
+  0-hatcore: [6, 8, 10]
+    3-hatcore: [1, 2, 3, 4]
+    item NO.: 14  father id: 12  compress ids: [13]
+    0-hatcore: [6]
+      2-hatcore: [1, 2, 3]
+    item NO.: 15  father id: 12
+    0-hatcore: [6, 8]
+      1-hatcore: [1, 2]
+  item NO.: 10  father id: 1
+  0-hatcore: [8]
+    1-hatcore: [6]
+      2-hatcore: [3, 4, 5]
+    item NO.: 11  father id: 10
+    0-hatcore: [8]
+  item NO.: 3  father id: 1
+  0-hatcore: [9, 10]
+    1-hatcore: [6, 7]
+      4-hatcore: [1, 2, 3, 4, 5]
+    item NO.: 7  father id: 3
+    0-hatcore: [10]
+      1-hatcore: [7]
+        3-hatcore: [1, 2, 4, 5]
+      item NO.: 9  father id: 7  compress ids: [8]
+      0-hatcore: [7]
+        1-hatcore: [2, 5]
+    item NO.: 4  father id: 3
+    0-hatcore: [9]
+      1-hatcore: [6]
+        3-hatcore: [1, 2, 3, 5]
+      item NO.: 6  father id: 4
+      0-hatcore: []
+        1-hatcore: [1, 3]
+      item NO.: 5  father id: 4
+      0-hatcore: [3]

@@ -22,8 +22,8 @@ public class BuildMeshTree {
 	private Map<Integer, PNode> cpTree=null;
 
 	
-	
-	
+	private int maxDepth=-1;
+	private int maxWidth=-1;
 	private int count=1;
 	
 	public BuildMeshTree(){
@@ -32,6 +32,8 @@ public class BuildMeshTree {
 		this.outFileName=ConfigPubmed.localPath+"MeshTree.txt";
 		this.CPTreeFile=ConfigPubmed.localPath+"cptree.txt";
 		this.cpTree=new HashMap<Integer,PNode>();
+		this.maxDepth = ConfigPubmed.maxDepth;
+		this.maxWidth = ConfigPubmed.maxWidth;
 	}
 	
 	public Map<String, MeshNode> getMap(){return this.map;}
@@ -41,6 +43,7 @@ public class BuildMeshTree {
 		preBuildMap();
 		this.root=new MeshNode("root","R",0);
 		root.setCode("0");
+		root.setDepth(0);
 		map.put("R", root);
 		try {
 			BufferedReader bReader = new BufferedReader(new FileReader(treeFile));
@@ -79,6 +82,8 @@ public class BuildMeshTree {
 			System.out.println("Error in reading file!");
 		}
 		reCode(root);
+		setDepth(root);
+		setWidth(root);
 		DFSCode(root);
 		return root;
 	}
@@ -115,7 +120,6 @@ public class BuildMeshTree {
 	}
 	
 	private void oldCodeDFS(MeshNode root,Map<String, Integer> map){
-//		System.out.println("old code "+root.getDFSNo());
 		String oldCode=root.getoldCode();
 		if(!map.containsKey(oldCode)) map.put(oldCode, root.getDFSNo());
 		for(MeshNode node:root.getChildrenList()) oldCodeDFS(node, map);
@@ -146,6 +150,11 @@ public class BuildMeshTree {
 	
 	private void copyNode(MeshNode root){
 		int item=root.getDFSNo();
+		if(root.getDepth()>ConfigPubmed.maxDepth) {
+			
+			return;
+		}
+		
 		PNode newPNode=null;
 		if(!cpTree.containsKey(item)) {
 			newPNode=new PNode(item);
@@ -193,10 +202,13 @@ public class BuildMeshTree {
 	
 	//recursively write file; Not recommended
 	private void recursiveLyWriteFile(MeshNode root,String file){
+		if(root.getDepth()>maxDepth) return;
 		try {
 			FileWriter fileWriter=new FileWriter(file,true);
 			BufferedWriter bWriter=new BufferedWriter(fileWriter);//continue to write
-			bWriter.write(root.getName()+"	"+root.getoldCode()+"	"+root.getNewCode()+"	"+root.getDFSNo());
+//			bWriter.write(root.getName()+"	"+root.getoldCode()+"	"+root.getNewCode()+"	"+root.getDFSNo());
+			bWriter.write(root.getName()+"	depth: "+root.getDepth()+"	"+root.getNewCode()+"	"+root.getDFSNo());
+	
 			bWriter.newLine();
 			bWriter.flush();
 			bWriter.close();
@@ -204,7 +216,7 @@ public class BuildMeshTree {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-		ArrayList<MeshNode> list =root.getChildrenList();
+		List<MeshNode> list =root.getChildrenList();
 		for(MeshNode node:list) recursiveLyWriteFile(node,file);
 	}
 
@@ -222,12 +234,16 @@ public class BuildMeshTree {
 	
 	//recode the DFS code of the MeshNode 
 	private void DFSCode(MeshNode root){
-		root.setDFSNo(count);
-		count++;
-		for(MeshNode node:root.getChildrenList()){
-			DFSCode(node);
+		if(root.getDepth()<=maxDepth){
+			root.setDFSNo(count);
+			count++;
+			for(MeshNode node:root.getChildrenList()){
+				DFSCode(node);
+			}
 		}
 	}
+	
+	
 	
 	public String toString() {
 		String temp ="";
@@ -237,14 +253,45 @@ public class BuildMeshTree {
 	}
 	
 	
+	//recursively set a root depth value
+	private void setDepth(MeshNode root){
+		for(MeshNode child:root.getChildrenList()){
+			child.setDepth(root.getDepth()+1);
+		}
+		for(MeshNode child:root.getChildrenList()){
+			setDepth(child);
+		}
+	}
 	
+	//recursively modify the meshTree to less than maxWidth child node sizes
+	private void setWidth(MeshNode root){
+		List<MeshNode> childList = root.getChildrenList();
+		List<MeshNode> newChildList = new ArrayList<MeshNode>();
+		int bound = childList.size();
+		Random random = new Random();
+		if(bound>maxWidth){
+			while(newChildList.size()!=maxWidth){
+				
+				MeshNode node=childList.get(random.nextInt(bound));
+				if(!newChildList.contains(node)) {
+					newChildList.add(node);
+				}
+			}
+			root.setChild(newChildList);
+		}
+		
+		
+		for(MeshNode child:root.getChildrenList()) setWidth(child);
+	}
+	
+
 	public static void main(String[] args){
 		BuildMeshTree bmTree=new BuildMeshTree();
 		MeshNode root=bmTree.buildMeshTree();
-		System.out.println(bmTree);
-//		bmTree.write();
-		bmTree.getCPTree();
-//		bmTree.writeCPTree(map.get(1));
+//		System.out.println(bmTree);
+		bmTree.write();
+		bmTree.writeCPTree();
+		bmTree.recursiveLyWriteFile(root, ConfigPubmed.localPath+"oldCodeMeshTree.txt");
 		
 	}
 	

@@ -1,6 +1,6 @@
 package prep;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Set;
 
 import algorithm.ProfiledTree.PNode;
@@ -17,7 +17,9 @@ public class MeshNode {
 	private String newCode=null;
 	private int DFSNo=-1;
 	private int id=-1;
-	private ArrayList<MeshNode> childrenList=null;
+	//9.14 added to check the depth
+	private int depth=-1;
+	private List<MeshNode> childrenList=null;
 	
 	public MeshNode(String name,String code, int number){
 		this.name = name;
@@ -38,7 +40,15 @@ public class MeshNode {
 		this.newCode=x;
 	}
 	
-	public void setChild(ArrayList<MeshNode> list){
+	public void setDepth(int x){
+		this.depth = x;
+	}
+	
+	public int getDepth(){
+		return this.depth;
+	}
+	
+	public void setChild(List<MeshNode> list){
 		this.childrenList=list;
 	}
 	
@@ -50,15 +60,18 @@ public class MeshNode {
 	public int getDFSNo(){return this.DFSNo;}
 	public int getNum(){return this.id;}
 	
-	public ArrayList<MeshNode> getChildrenList(){return this.childrenList;}
+	public List<MeshNode> getChildrenList(){return this.childrenList;}
 	
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();
-		output.append("ID:  "+this.newCode+" DFS No. "+this.DFSNo+"\n");
-		String newIndent = indent + "   ";
-		for (MeshNode child : childrenList) {
-			output.append(newIndent+ child.toString(newIndent));
+		if(this.depth<=ConfigPubmed.maxDepth){
+			output.append("ID:  "+this.newCode+" DFS No. "+this.DFSNo+"\n");
+			String newIndent = indent + "   ";
+			for (MeshNode child : childrenList) {
+				output.append(newIndent+ child.toString(newIndent));
+			}
 		}
+		
 		return output.toString();
 	}
 

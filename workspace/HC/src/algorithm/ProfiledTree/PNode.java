@@ -60,7 +60,13 @@ public class PNode {
 	
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();
-		output.append("ID:  "+this.ID+"\n");
+//		if(father!=null){
+//			output.append("ID:  "+this.ID+" father: "+father.ID +"\n");
+//			 
+//		}
+//		else output.append("ID:  "+this.ID+"\n");
+			output.append("ID:  "+this.ID+"\n");
+			
 		String newIndent = indent + "   ";
 		for (PNode child : childPNode) {
 			output.append(newIndent+ child.toString(newIndent));

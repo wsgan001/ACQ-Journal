@@ -1,0 +1,36 @@
+item ID: 1 fatherId: 1
+  item ID: 2 fatherId: 1
+		core #: 1 vertices: [6, 9]
+		core #: 4 vertices: [1, 2, 4]
+  item ID: 3 fatherId: 1
+		core #: 1 vertices: [8]
+    item ID: 4 fatherId: 3
+		core #: 1 vertices: [6, 9]
+		core #: 4 vertices: [2, 5]
+      item ID: 5 fatherId: 4
+		core #: 4 vertices: [3]
+      item ID: 6 fatherId: 4
+		core #: 4 vertices: [1, 3]
+    item ID: 7 fatherId: 3
+		core #: 0 vertices: [10]
+		core #: 4 vertices: [1, 4]
+      item ID: 9 fatherId: 7
+compressed item:[8]
+		core #: 1 vertices: [7]
+		core #: 4 vertices: [2, 5]
+  item ID: 10 fatherId: 1
+		core #: 1 vertices: [6]
+		core #: 4 vertices: [3, 4, 5]
+    item ID: 11 fatherId: 10
+		core #: 1 vertices: [8]
+  item ID: 12 fatherId: 1
+		core #: 0 vertices: [10]
+		core #: 4 vertices: [4]
+    item ID: 13 fatherId: 12
+		core #: 4 vertices: [2]
+      item ID: 14 fatherId: 13
+		core #: 1 vertices: [6]
+		core #: 4 vertices: [1]
+    item ID: 15 fatherId: 12
+		core #: 1 vertices: [6, 8]
+		core #: 4 vertices: [1, 2]
