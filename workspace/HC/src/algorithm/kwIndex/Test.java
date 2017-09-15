@@ -9,8 +9,8 @@ import algorithm.ProfiledTree.CPTree;
 import algorithm.ProfiledTree.PNode;
 import algorithm.kwIndex.Query1.Query1_V1;
 import config.Config;
-import prep.BuildMeshTree;
-import prep.MeshNode;
+import prep.PubMedPrep.BuildMeshTree;
+import prep.PubMedPrep.MeshNode;
 
 public class Test {
 	private int[][] graph = null;

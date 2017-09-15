@@ -6,6 +6,7 @@ import algorithm.kwIndex.KWTree;
 import algorithm.kwIndex.KTree;
 import config.Config;
 import prep.*;
+import prep.PubMedPrep.BuildMeshTree;
 
 public class IndexEXP {
 	
@@ -33,7 +34,8 @@ public class IndexEXP {
 		IndexEXP indexEXP = new IndexEXP();
 		
 //		indexEXP.test(Config.pubMedGraphTest,Config.pubMedNodeTest);
-		indexEXP.test(Config.pubMedGraph10,Config.pubMedNode10);
+		indexEXP.test(Config.pubMedGraph50,Config.pubMedNode50);
+		
 	}
 	
 }

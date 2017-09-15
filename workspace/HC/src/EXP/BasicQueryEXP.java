@@ -3,7 +3,7 @@ package EXP;
 
 import algorithm.basic.BFS;
 import config.Config;
-import prep.BuildMeshTree;
+import prep.PubMedPrep.BuildMeshTree;
 
 
 public class BasicQueryEXP {

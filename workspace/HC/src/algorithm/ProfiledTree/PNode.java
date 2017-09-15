@@ -9,7 +9,7 @@ this is the data structure for profile tree node
 */
 public class PNode {
 //	private String Attribute=null;
-	private int ID=-1;
+	private int ID=-100;
 	private PNode father=null;
 	private List<PNode> childPNode=null;
 	private int childSize=-1;
@@ -57,15 +57,30 @@ public class PNode {
 		childSize=childPNode.size();
 	}
 	
+	public String toString(){
+		StringBuilder output = new StringBuilder();
+		if(father!=null){
+			output.append(this.ID+","+father.ID +"\n");
+			 
+		}
+		else output.append(this.ID+"\n");
+//			output.append("ID:  "+this.ID+"\n");
+			
+		for (PNode child : childPNode) {
+			output.append(child.toString());
+		}
+		return output.toString();
+	}
+	
 	
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();
-//		if(father!=null){
-//			output.append("ID:  "+this.ID+" father: "+father.ID +"\n");
-//			 
-//		}
-//		else output.append("ID:  "+this.ID+"\n");
-			output.append("ID:  "+this.ID+"\n");
+		if(father!=null){
+			output.append("ID:  "+this.ID+" father: "+father.ID +"\n");
+			 
+		}
+		else output.append("ID:  "+this.ID+"\n");
+//			output.append("ID:  "+this.ID+"\n");
 			
 		String newIndent = indent + "   ";
 		for (PNode child : childPNode) {

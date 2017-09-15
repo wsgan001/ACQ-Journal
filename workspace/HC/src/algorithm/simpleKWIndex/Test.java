@@ -5,7 +5,7 @@ import java.util.Set;
 
 import algorithm.ProfiledTree.*;
 import config.Config;
-import prep.BuildMeshTree;
+import prep.PubMedPrep.BuildMeshTree;
 
 public class Test {
 

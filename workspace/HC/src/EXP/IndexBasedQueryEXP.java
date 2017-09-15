@@ -5,7 +5,7 @@ import algorithm.ProfiledTree.PNode;
 import algorithm.kwIndex.KWTree;
 import algorithm.kwIndex.Query1.Query1_V1;
 import config.Config;
-import prep.BuildMeshTree;
+import prep.PubMedPrep.BuildMeshTree;
 
 public class IndexBasedQueryEXP {
 	

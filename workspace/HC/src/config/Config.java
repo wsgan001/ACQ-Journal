@@ -10,6 +10,9 @@ public class Config {
 	
 	public static String pubMedGraph10="/Users/chenyankai/Documents/pubMed/edge-10.txt";
 	public static String pubMedNode10="/Users/chenyankai/Documents/pubMed/node-10.txt";
+	public static String pubMedGraph50="/Users/chenyankai/Documents/pubMed/edge-50.txt";
+	public static String pubMedNode50="/Users/chenyankai/Documents/pubMed/node-50.txt";
+	
 
 	public static String pubMedGraphTest="/Users/chenyankai/Documents/pubMed/edgeTest.txt";
 	public static String pubMedNodeTest="/Users/chenyankai/Documents/pubMed/nodeTest.txt";

@@ -3,7 +3,7 @@ package config;
 import java.io.*;
 import java.util.Date;
 
-import prep.ConfigPubmed;
+import prep.PubMedPrep.ConfigPubmed;
 
 
 /**
