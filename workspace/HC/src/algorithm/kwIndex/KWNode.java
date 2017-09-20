@@ -2,11 +2,15 @@ package algorithm.kwIndex;
 
 import java.util.*;
 
+import javax.xml.soap.Node;
+
 public class KWNode {
 	public int itemId = -1;
 	public KWNode father = null;
 	public Set<KWNode> childList = null;
 	public Set<Integer> tmpVertexSet = null; 
+	
+	public boolean refined =false; 
 	
 	KNode KtreeRoot = null;
 	private Map<Integer, KNode> vertexMap = null;
@@ -34,12 +38,20 @@ public class KWNode {
 	
 	//return a ck-core containing queryId 
 	public Set<Integer> getCKCore(int k,int queryId){
+		
 		Set<Integer> set=new HashSet<Integer>();
 		KNode node = vertexMap.get(queryId);
 		if(node==null||node.k < k) return set;
+		//9.19 debug
+		while(node.k > k){
+			node = node.father;
+		}
+		
 		traverse(node,set);
 		return set;
 	}
+	
+	
 	
 	private void traverse(KNode root,Set<Integer> set){
 		if(!root.vertexSet.isEmpty()) {
@@ -55,7 +67,7 @@ public class KWNode {
 		if(compressedId!=null) output.append("  compress ids: "+compressedId.toString());
 		output.append("\n");
 		if(KtreeRoot!=null) output.append(indent+KtreeRoot.toString(indent));
-		if(tmpVertexSet!=null) output.append(indent+"CKC: "+tmpVertexSet.toString()+"\n");
+//		if(tmpVertexSet!=null) output.append(indent+"CKC: "+tmpVertexSet.toString()+"\n");
 //		if(vertexMap!=null){
 //			Iterator<Integer> iter = vertexMap.keySet().iterator();
 //			while(iter.hasNext()){

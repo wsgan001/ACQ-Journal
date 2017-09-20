@@ -4,6 +4,8 @@ package algorithm.kwIndex.Query1;
 import algorithm.ProfiledTree.CPTree;
 import algorithm.ProfiledTree.PNode;
 import algorithm.basic.BFS;
+import algorithm.basic.DFS;
+import algorithm.basic.BFS;
 import algorithm.kwIndex.KWTree;
 import algorithm.kwIndex.Query2.Query2_Inc;
 import config.Config;
@@ -44,17 +46,20 @@ public EXP(){}
 		kwTree.build();
 		kwTree.printTree();
 		Config.k = 2;
-		Query1_V1 query = new Query1_V1(graph,kwTree.getHeadList());
+//		Query1_V1 query = new Query1_V1(graph,kwTree.getHeadList());
+//		Query1_V2 query = new Query1_V2(graph,kwTree.getHeadList());
 //		Query2_Inc query = new Query2_Inc(kwTree); 
-		BFS bfs = new BFS(graph, nodes);
+//		BFS bfs = new BFS(graph, nodes);
+		DFS dfs = new DFS(graph, nodes);
 		long time = System.nanoTime();
-		bfs.query(1);
+//		bfs.query(1);
+		dfs.query(1);
 //		System.out.println((System.nanoTime()-time)/1000);
 		
 		long time1 = System.nanoTime();
-		query.query(1);
+//		query.query(1);
 		System.out.println((System.nanoTime()-time1)/1000);
-		query.print();
+	
 		
 	}
 		

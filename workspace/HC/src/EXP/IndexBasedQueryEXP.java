@@ -1,11 +1,17 @@
 package EXP;
 
-import algorithm.DataReader;
+import java.util.Random;
+
+import algorithm.CPTreeReader;
 import algorithm.ProfiledTree.PNode;
+import algorithm.basic.BFS;
+import algorithm.basic.DFS;
+import algorithm.basic.BFS;
 import algorithm.kwIndex.KWTree;
 import algorithm.kwIndex.Query1.Query1_V1;
+import algorithm.kwIndex.Query1.Query1_V2;
 import config.Config;
-import prep.PubMedPrep.BuildMeshTree;
+
 
 public class IndexBasedQueryEXP {
 	
@@ -13,23 +19,74 @@ public class IndexBasedQueryEXP {
 		
 	}
 	
-	public void exp(String graphFile,String nodeFile){
-		BuildMeshTree bmTree=new BuildMeshTree();
-		bmTree.buildMeshTree();
-		PNode root=bmTree.getCPTree().get(1);
+	public void exp(String graphFile,String nodeFile,String CPtreeFile){
+		
+		CPTreeReader cpReader = new CPTreeReader();
+		PNode root=cpReader.loadCPtreeRoot(CPtreeFile);
 		KWTree kwTree = new KWTree(graphFile,nodeFile,root);
 		kwTree.build();
-		Config.k = 10;
-		Query1_V1 query = new Query1_V1(kwTree);
 		
-		query.query(13);
-		query.print();
+		Query1_V1 query1 = new Query1_V1(kwTree.graph,kwTree.getHeadList());
+		Query1_V2 query2 = new Query1_V2(kwTree.graph,kwTree.getHeadList());
+		kwTree=null;
+		
+//		while(true){
+//			Random random = new Random();
+//			int queryID = random.nextInt(80000);
+//			System.out.println("now query: "+queryID);
+////			query2.induceKWTree();
+////			if(query2.getSubkwtreeSize()<30){
+//				query2.query(queryID);
+////			}
+//		}
+		
+//		 subKwTree size 76
+//		query.query(11427);
+		
+//		subKwTree size 16
+//		query.query(5473); 
+		
+		
+//		subkwtree size 39
+		long time = System.nanoTime();
+		query1.query(5964); 
+		long time1= System.nanoTime()-time; 
+////		System.out.println((time1-time)/1000000 );
+//		
+		long time21 = System.nanoTime();
+		query2.query(5964); 
+		long time22= System.nanoTime()-time21; 
+		System.out.println(time22/1000000+"  "+time1/1000000+"  gap: "+time1/time22);
+//		
+//		BFS bfs= new BFS(graphFile, nodeFile,cpReader.loadCPTree(CPtreeFile));
+//		long time2 = System.nanoTime();
+//		bfs.query(5964);
+////		bfs.print();
+//		long time3 = System.nanoTime()-time2;
+//		System.out.println(time3/1000000);
+//		System.out.println(time3/time22);
+		
+		
+//		DFS dfs= new DFS(graphFile, nodeFile,cpReader.loadCPTree(CPtreeFile));
+//		long time4 = System.nanoTime();
+//		dfs.query(5964);
+//////		bfs.print();
+//		long time5 = System.nanoTime()-time4;
+//		System.out.println(time5/time1);
+		
+		
+		
+		
+//		query.query(933);
+ 
+		
+
 		
 	}
 	
 	public static void main(String[] args){
 		IndexBasedQueryEXP exp = new IndexBasedQueryEXP();
-		exp.exp(Config.pubMedGraph,Config.pubMedNode);
+		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10);
 	}
 	
 	

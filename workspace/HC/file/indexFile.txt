@@ -1,5 +1,4 @@
 item NO.: 1  father id: 1
-CKC: []
   item NO.: 2  father id: 1
   0-hatcore: [6, 9]
     2-hatcore: [1, 2, 4]

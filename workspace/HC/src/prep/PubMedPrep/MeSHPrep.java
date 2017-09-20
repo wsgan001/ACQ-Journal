@@ -10,6 +10,7 @@ import org.w3c.dom.*;
 
 import algorithm.CPTreeReader;
 import algorithm.ProfiledTree.PNode;
+import config.Config;
 
 /**
  * 
@@ -21,6 +22,9 @@ public class MeSHPrep {
 	//	aggregated edges and nodes file.No vertices without items in P-tree are included.
 	private String nodeFile=null;
 	private String edgeFile=null;
+	private String CPtreeFile = null;
+	private String referenceFile = null; 
+	
 	boolean type=true;
 	
 	int id1=-1;
@@ -34,10 +38,12 @@ public class MeSHPrep {
 	
 	private boolean debug = false;
 	
-	public MeSHPrep(String nodeFile,String edgeFile){
-		
-			this.edgeFile=ConfigPubmed.localPath+edgeFile;
-			this.nodeFile=ConfigPubmed.localPath+nodeFile;
+	public MeSHPrep(String nodeFile,String edgeFile,String CPtreeFile,String reference){
+			
+			this.edgeFile=Config.pubMedDataWorkSpace+edgeFile;
+			this.nodeFile=Config.pubMedDataWorkSpace+nodeFile;
+			this.CPtreeFile = Config.pubMedDataWorkSpace+CPtreeFile;
+			this.referenceFile =Config.pubMedDataWorkSpace+reference;
 			
 			File edgefile=new File(this.edgeFile);
 			if(edgefile.exists()) edgefile.delete();
@@ -65,13 +71,13 @@ public class MeSHPrep {
 	//read the CPtree file
 	private void loadCPtree(){
 		CPTreeReader cReader = new CPTreeReader();
-		this.cpTree=cReader.loadCPTree(ConfigPubmed.flatCPTree);
+		this.cpTree=cReader.loadCPTree(this.CPtreeFile);
 	}
 	
 	//read the reference file mapping the String name with DFS id
 	private void readReferenceFile(){	
 		try {
-			BufferedReader bfReader=new BufferedReader(new FileReader(ConfigPubmed.reference));
+			BufferedReader bfReader=new BufferedReader(new FileReader(this.referenceFile));
 //			nameVsDFSMap
 			String line = null;
 			while((line=bfReader.readLine())!=null){
@@ -93,7 +99,7 @@ public class MeSHPrep {
 		try {
 			DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder=factory.newDocumentBuilder();
-			Document doc=builder.parse(new File(ConfigPubmed.localPath+xmlFile));
+			Document doc=builder.parse(new File(Config.pubMedDataWorkSpace+xmlFile));
 			Element element=doc.getDocumentElement();
 			
 		
@@ -343,7 +349,9 @@ public class MeSHPrep {
 	
 	
 	public static void main(String[] args){
-		MeSHPrep meSHPrep=new MeSHPrep("nodeTest.txt","edgeTest.txt");
+		BuildMeshTree builder = new BuildMeshTree();
+		builder.run("cptreeTest.txt","referenceTest.txt");
+		MeSHPrep meSHPrep=new MeSHPrep("nodeTest.txt","edgeTest.txt","cptreeTest.txt","referenceTest.txt");
 		meSHPrep.run("medsample1.xml");
 		meSHPrep.writeFile();
 		

@@ -6,12 +6,14 @@ public class KNode {
 	public int k=-1;
 	public Set<Integer> vertexSet = null;
  	public List<KNode> childList = null; 
+ 	public KNode father = null;
 	
 	
 	public KNode(int k){
 		this.k = k;
 		this.vertexSet = new HashSet<Integer>();
 		this.childList = new LinkedList<KNode>();
+		this.father = this;
 	}
 	
 	public void setChildList(List<KNode> list){
@@ -22,7 +24,7 @@ public class KNode {
 		this.vertexSet = set;
 	}
 	
-
+	
 	public List<KNode> getChildList(){
 		return this.childList;
 	}

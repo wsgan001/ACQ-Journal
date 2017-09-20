@@ -10,7 +10,7 @@ this is the data structure for profile tree node
 public class PNode {
 //	private String Attribute=null;
 	private int ID=-100;
-	private PNode father=null;
+	public PNode father=null;
 	private List<PNode> childPNode=null;
 	private int childSize=-1;
 	
@@ -27,6 +27,7 @@ public class PNode {
 	public PNode(int id){
 		this.ID=id;
 		this.childPNode=new ArrayList<PNode>();
+		this.father = this; 
 	}
 
 	public void setFather(PNode node){

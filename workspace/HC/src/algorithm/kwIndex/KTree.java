@@ -3,6 +3,8 @@ package algorithm.kwIndex;
 import java.util.*;
 import java.util.Map.Entry;
 
+import javax.swing.tree.TreeNode;
+
 import algorithm.DecomposeKCore;
 import algorithm.kwIndex.AUF.*;
 
@@ -43,6 +45,8 @@ public class KTree {
 	
 	public void build(){
 		//step 1:compute the core number
+		if(subGraph.length==1) return;
+		
 		//k-core decompose the subgraph
 		DecomposeKCore dCore = new DecomposeKCore(subGraph);
 		core= dCore.decompose();
@@ -120,8 +124,9 @@ public class KTree {
 		root.setVertices(core0Set);
 		root.setChildList(new ArrayList<KNode>(restNodeSet));
 		for(int x:core0Set) vertexMap.put(x, root);
+		for(KNode child:restNodeSet) child.father = root;
+
 		
-//		gc();
 		return;
 	} 
 	
@@ -205,12 +210,13 @@ public class KTree {
 				children.addAll(childSet);
 				kNode.setChildList(children);
 //				//set father
-//				for(KNode child:childSet){
-//					child.setFather(kNode);
-//				}
+				for(KNode child:childSet){
+					child.father=kNode;
+				}
 			}
 			
 			restNodeSet.add(kNode);//record it as it has no parent
+			
 			for(int nodeId:kNode.getVertices())   vertexMap.put(nodeId, kNode);//update invert
 			for(KNode subTNode:kNode.getChildList())   restNodeSet.remove(subTNode);//move some nodes
 		}	

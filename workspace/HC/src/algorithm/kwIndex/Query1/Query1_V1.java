@@ -1,5 +1,8 @@
 package algorithm.kwIndex.Query1;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 import algorithm.FindCKSubG;
@@ -13,8 +16,9 @@ import config.Config;
 	No-Apriori based (MAGRIN) 
 	Details are derived from Query1_V1 and optimized.
 	
-	Difference between V1 and V2 is that V2 :
-	(1) dynamic computing userSets in obtain childSeq function.
+	Difference between V1 and V2 is that V1 :
+	(1). Space efficient.
+	(2). DFS manner to expand all cuts. 
 */
 public class Query1_V1 {
 	private int[][] graph = null;
@@ -25,55 +29,83 @@ public class Query1_V1 {
 	private Map<Integer,KWNode> subKWTree = null;
 	//key:pattern  value users
 	private Map<Set<Integer>,Set<Integer>> lattice = null;
-	private Map<Set<Integer>, Set<Integer>> output=null;
-	private Set<Set<Integer>> visited = null;
+	private Map<Set<Integer>, Set<Integer>> output=null;	
+	Set<List<Set<Integer>>> visited = null;
 	
-	private boolean debug = true;
+
+	private boolean debug = false;
 	
 	public Query1_V1(int[][] graph,Map<Integer, List<KWNode>> headList){
 		this.graph = graph;
 		this.leafList = new LinkedList<KWNode>();
 		this.headList = headList;
-		this.subKWTree = new HashMap<Integer,KWNode>();
-		this.lattice = new HashMap<Set<Integer>, Set<Integer>>();
-		this.output = new HashMap<Set<Integer>, Set<Integer>>();
-		this.visited=new HashSet<Set<Integer>>();
 		this.k=Config.k;
+		
+		
 	}
 	
 	//main function
 	public void query(int queryId){
+		this.lattice = new HashMap<Set<Integer>, Set<Integer>>();
+		this.output = new HashMap<Set<Integer>, Set<Integer>>();		
+		this.visited = new HashSet<List<Set<Integer>>>(); 
+		
 		this.queryId = queryId;
 		induceSubKWTree();
-		System.out.println("step1 getsubtree finished");
+		System.out.println("step1 getsubtree finished, subkwtree size: "+subKWTree.size());
+	
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(Config.pubMedDataWorkSpace+"subtree.txt"));
+			bw.write(subKWTree.get(1).toString(""));
+			bw.flush();
+			bw.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
 		
-		List<Set<Integer>> initCut = decInitCross();
-//		List<Set<Integer>> initCut = incInitCross();
-		jumpInitCross();
-		if(initCut.isEmpty()) {
+		
+		if(subKWTree.size()==1) {
 			System.out.println("No community!");
 			return;
 		}
-		if(initCut.size()==1) return;
+
+		
+//		List<Set<Integer>> initCut = decInitCross();
+		List<Set<Integer>> initCut = incInitCross();	
 		
 		//expandCross
 		expandCross(initCut.get(0),initCut.get(1));
+
+//		print();
 				
 	}
 	
 	//induce a KW-tree subtree and store it in a map
 	private void induceSubKWTree(){
+		this.subKWTree = new HashMap<Integer,KWNode>();
 		Map<Integer, List<Integer>> childMap = new HashMap<Integer,List<Integer>>();
 		KWNode root =new KWNode(1);
 		subKWTree.put(1, root);
+		//------------------------DEBUG------------------------------
+		if(debug){
+			System.out.println("headList size: "+headList.get(queryId).size());
+			for(KWNode currentNode:headList.get(queryId)){ System.out.println("detail: "+currentNode.itemId);}
+		}
+		//----------------------END DEBUG----------------------------
+		
 		for(KWNode currentNode:headList.get(queryId)){
 			//to mark the leaf item in the induce subKWtree
 			int leaf = -1;
 			boolean first = true;
-
+//			if(currentNode.refined) {
+//				System.out.println(currentNode.itemId);
+//				continue;
+//			}
 			while(currentNode.itemId != 1){
-//				System.out.println("checking: "+currentNode.itemId);
+				
 				Set<Integer> vertexSet = currentNode.getCKCore(k, queryId);
+//				Set<Integer> vertexSet = currentNode.tmpVertexSet;
 				if(!vertexSet.isEmpty()){
 //					System.out.println("inside: "+currentNode.itemId);
 					int currenItem = currentNode.itemId;
@@ -163,10 +195,11 @@ public class Query1_V1 {
 			boolean tag = true;
 			
 			while(!patternQueue.isEmpty() && tag){
+				System.out.println("pattern queue length: "+patternQueue.size());
 				Set<Integer> tocheck = patternQueue.poll();
 				Iterator<Integer> iter = tocheck.iterator();
 				int previous = iter.next(); 
-//				System.out.println(tocheck.size());
+				System.out.println(tocheck.size());
 				if(tocheck.size()==2) return initCut;
 				else{
 					int current = -1;
@@ -223,9 +256,10 @@ public class Query1_V1 {
 		Queue<Set<Integer>> patternQueue = new LinkedList<Set<Integer>>();
 		Queue<Set<Integer>> userQueue = new LinkedList<Set<Integer>>();
 
+		//initialize patterns 
 		for(KWNode node:subKWTree.get(1).childList){
 			int item = node.itemId;
-			if(!subKWTree.containsKey(item)) continue;
+//			if(!subKWTree.containsKey(item)) continue;
 			
 			Set<Integer> pattern = new HashSet<Integer>();
 			pattern.add(1);//the root node
@@ -240,6 +274,8 @@ public class Query1_V1 {
 		
 		boolean tag=true;
 		while(!patternQueue.isEmpty()&&!userQueue.isEmpty()&&tag){
+			System.out.println("patternQueue size: "+patternQueue.size());
+			
 			Set<Integer> tocheck = patternQueue.poll();
 			Set<Integer> currentUser = userQueue.poll();
 			//if already reach the maximum pattern then return
@@ -253,7 +289,7 @@ public class Query1_V1 {
 			for(int x:RMPath){
 				for(KWNode node:subKWTree.get(x).childList){
 					int item = node.itemId;
-					if(subKWTree.containsKey(item)&&!tocheck.contains(item)){
+					if(!tocheck.contains(item)){
 						Set<Integer> newPattern= new HashSet<Integer>();
 						Set<Integer> newUsers = new HashSet<Integer>();
 						newPattern.add(item);
@@ -274,13 +310,13 @@ public class Query1_V1 {
 							FindCKSubG findCKSG=new FindCKSubG(graph, newUsers, queryId);
 							newUsers =findCKSG.findCKSG();
 							if(newUsers==null){
+								newUsers = new HashSet<Integer>(); 
 								lattice.put(newPattern, newUsers);
 								initCut.add(newPattern);
 								initCut.add(tocheck);
 								tag=false;
 								break;
 							}else{
-								newUsers = new HashSet<Integer>();
 								lattice.put(newPattern, newUsers);
 								patternQueue.add(newPattern);
 								userQueue.add(newUsers);
@@ -296,7 +332,6 @@ public class Query1_V1 {
 			}
 			
 		}
-		
 		return initCut;
 	}
 	
@@ -305,12 +340,9 @@ public class Query1_V1 {
 	private List<Set<Integer>> jumpInitCross(){
 		List<Set<Integer>> initCut = new ArrayList<Set<Integer>>();
 		int longestLeaf = longestPath();
-		System.out.println("longest path leaf: "+longestLeaf);
-		
-		
+		System.out.println("longest path leaf: "+longestLeaf);	
 		return initCut;
 	}
-
 
 
 	
@@ -319,43 +351,26 @@ public class Query1_V1 {
 	//if lattice does not contain this pattern 	------>  userSet=null
 	private Set<Integer> obtainUser(Set<Integer> pattern){
 		Set<Integer> userSet = lattice.get(pattern);
-
+		
 		if(userSet == null){
-			Set<Integer> users = new HashSet<Integer>();
-			Iterator<Integer> iter=pattern.iterator();
-			
-			int previous = iter.next();//the root item 
-			if(pattern.size()==2){
-				users.addAll(getUsersInKTree(iter.next()));
+			Set<Integer> leaves = getLeaves(pattern);
+			Set<Integer> users = null;
+			Iterator<Integer> iter = leaves.iterator();
+			while(iter.hasNext()){
+				int leaf = iter.next();
+				if(users==null){
+					users = new HashSet<Integer>();
+					users.addAll(getUsersInKTree(leaf));
+ 				}
+				else users = intersect(users, getUsersInKTree(leaf));	
 			}
 			
-			else{
-				int current = -1;
-				boolean first = true; 
-				while(iter.hasNext()){
-					current = iter.next();
-					if(subKWTree.get(current).father.itemId != previous&&previous!=1){
-						//initialize the users using the first item
-						if(first){	
-							users.addAll(getUsersInKTree(previous));
-							first = false;
-						}
-						else{
-							users= intersect(users, getUsersInKTree(previous));
-						}
-					}
-					previous = current;
-				}
-				users= intersect(users, getUsersInKTree(previous));
-			}
-
 			//compute CKC
 			FindCKSubG findCKSG=new FindCKSubG(graph, users, queryId);
 			userSet =findCKSG.findCKSG();
 			if(userSet==null) userSet = new HashSet<Integer>();
 			lattice.put(pattern, userSet);
 		}
-
 		return userSet;
 	}
 	
@@ -369,9 +384,14 @@ public class Query1_V1 {
 	
 	//expand a cross 
 	private void expandCross(Set<Integer> inFreSeq, Set<Integer> freSeq){
-		if(visited.contains(inFreSeq)&&visited.contains(freSeq)) return;
-		visited.add(inFreSeq); visited.add(freSeq);
+//		System.out.println("expandCut");
+		List<Set<Integer>> list = new ArrayList<Set<Integer>>(2);
+		list.add(inFreSeq); list.add(freSeq);
+		if(visited.contains(list)) return;
+		visited.add(list);	
 		
+	
+				
 		//------------------------DEBUG------------------------------
 		if(debug){
 			System.out.println("fre seq: "+freSeq.toString()+" infre: "+inFreSeq.toString());
@@ -384,17 +404,29 @@ public class Query1_V1 {
 		for(Iterator<Set<Integer>> it=parentSeqSet.iterator();it.hasNext();){
 			Set<Integer> parentSeq = it.next();
 			Set<Integer> userSet = obtainUser(parentSeq);
+			
 			if(!userSet.isEmpty()){
 				checkMax(parentSeq);
+				
 				Set<Set<Integer>> childOfParentSeq = childSeq(parentSeq);
+				//9.17 debug 
+				if(childOfParentSeq.isEmpty()) return;
 				
 				for(Iterator<Set<Integer>> iter=childOfParentSeq.iterator();iter.hasNext();){
 					Set<Integer> element = iter.next();
-					Set<Integer> userOfElement = obtainUser(element);
+					Set<Integer> userOfElement = lattice.get(element);
+
 					if(userOfElement.isEmpty()){
 						expandCross(element, parentSeq);
 					}else{
+						
 						Set<Integer> commonChild = findCommon(inFreSeq, element);
+						//********************** 9.17 added **********************
+						if(!lattice.containsKey(commonChild)) {
+							Set<Integer> empty = new HashSet<Integer>();
+							lattice.put(commonChild, empty);
+						}
+						//********************** 9.17 added **********************						
 						expandCross(commonChild, element);
 					}
 				}
@@ -402,45 +434,51 @@ public class Query1_V1 {
 				Set<Set<Integer>> parentOfParentSeq = parentSeq(parentSeq);
 				for(Iterator<Set<Integer>> iter = parentOfParentSeq.iterator();iter.hasNext();){
 					Set<Integer> element = iter.next();
+					if(parentSeq.equals(element)) System.out.println("check heheheheh");
 					Set<Integer> userOfElement = obtainUser(element);
 					if(!userOfElement.isEmpty()){
 						expandCross(parentSeq, element);
 					}
 				}
 			}	
-		}		
+		}	
+		return;
 	}
-		
-		
+
+			
 	//obtain all child patterns of the current pattern
 	private Set<Set<Integer>> childSeq(Set<Integer> seq){
 		Set<Set<Integer>> childSeq = new HashSet<Set<Integer>>();
+		if(seq.size()==subKWTree.size()) return childSeq;
+
 		for(int x:seq){
 			KWNode node = subKWTree.get(x);
 	 		for(KWNode child:node.childList){
 	 			int item = child.itemId;
-				if(!seq.contains(item)&&subKWTree.containsKey(item)){
-					Set<Integer> nextSeq = new HashSet<Integer>();
+				if(!seq.contains(item)){
+					Set<Integer> nextSeq = new HashSet<Integer>(seq.size()+1);
 					nextSeq.add(item);
 					for(int y:seq) nextSeq.add(y);
 					childSeq.add(nextSeq);
+					if(seq.size()==nextSeq.size()) System.out.println("impossible???!!  "); 
 					
-					
+
+					if(lattice.containsKey(nextSeq)) continue;
 					//optimized 
 					Set<Integer> userSet = lattice.get(seq);
 					Set<Integer> users = getUsersInKTree(item);
+					if (users==null)  System.out.println(" case 3 ");
 					if(!userSet.equals(users)){
-						Set<Integer> newUsers = new HashSet<Integer>();
-						newUsers=intersect(users, userSet);
+						Set<Integer> newUsers = intersect(users, userSet);
 						//compute CKC
-						FindCKSubG findCKSG=new FindCKSubG(graph, newUsers, queryId);
-						newUsers =findCKSG.findCKSG();
-						if(newUsers==null) newUsers = new HashSet<Integer>();	
+						FindCKSubG findCKSG	= new FindCKSubG(graph, newUsers, queryId);
+						newUsers = findCKSG.findCKSG();
+						
+						if(newUsers == null) newUsers = new HashSet<Integer>();	
 						lattice.put(nextSeq, newUsers);
 					}else {
-						lattice.put(nextSeq, userSet);
+						lattice.put(nextSeq, users);
 					}
-					
 				}	
 			}
 		}
@@ -452,44 +490,44 @@ public class Query1_V1 {
 	//O(m) time complexity to obtain parentSeq without computing all leaf nodes previously
 	private Set<Set<Integer>> parentSeq(Set<Integer> seq){
 		Set<Set<Integer>> parentSeq = new HashSet<Set<Integer>>();
-		Iterator<Integer> iter = seq.iterator();
-		int previous = iter.next();
 		if(seq.size()==2){
 			return parentSeq;
 		}
-		else{
-			int current = -1;
-			while(iter.hasNext()){
-				current = iter.next();
-				if(subKWTree.get(current).father.itemId != previous){
-					//then previous must be a leaf item
-					Set<Integer> set = new HashSet<Integer>();
-					for(int y:seq){
-						if(y != previous) set.add(y);
-					}
-					parentSeq.add(set);
-				}
-				previous = current;
+		
+		Set<Integer> leaves = getLeaves(seq);
+		for(Iterator<Integer> it = leaves.iterator();it.hasNext();){
+			int leaf = it.next();
+			Set<Integer> nextSeq = new HashSet<Integer>(seq.size()-1);
+			for(int x:seq) {
+				if(x != leaf) nextSeq.add(x);
 			}
-			
-			//the last item must be the leaf node
-			Set<Integer> set = new HashSet<Integer>();
-
-			for(int y:seq){
-				if(y != previous) set.add(y);
-			}
-			parentSeq.add(set);
+			parentSeq.add(nextSeq);
 		}
 		return parentSeq;
 	}
 			
+	
+	//get leaves of current pattern
+	private Set<Integer> getLeaves(Set<Integer> pattern){
+		Set<Integer> leaves = new HashSet<Integer>();
+		leaves.addAll(pattern);
+		Iterator<Integer> it = pattern.iterator();
+		while(it.hasNext()){
+			int item = it.next();
+			int itemFather = subKWTree.get(item).father.itemId;
+			if(pattern.contains(itemFather)) leaves.remove(itemFather);
+		}
+		return leaves;
+	}
+	
 	
 	//get the rightmost path of the current pattern
 	private List<Integer> getRightmostPath(Set<Integer> seq){
 		List<Integer> RMPath = new ArrayList<Integer>();
 		int last = -1;
 		for(Iterator<Integer> it=seq.iterator();it.hasNext();){
-			last = it.next();
+			int current = it.next();
+			if(last < current) last = current;
 		} 
 		while(subKWTree.get(last).father.itemId!=last){
 			RMPath.add(last);
@@ -501,13 +539,22 @@ public class Query1_V1 {
 	
 	
 	private Set<Integer> findCommon(Set<Integer> seq1,Set<Integer> seq2){
+		
+		if(seq1.equals(seq2)) {
+			System.out.println(lattice.get(seq1).size()+"   fre: "+lattice.get(seq2).size());
+			System.out.println(seq1.toString());
+			System.out.println("checking hteee! ");
+		}
 		Set<Integer> set = new HashSet<Integer>();
 		set.addAll(seq1);
+		
 		for(Iterator<Integer> it =seq2.iterator(); it.hasNext();){
 			int newItem = it.next();
 			if(!set.contains(newItem))
 				set.add(newItem);
 		}
+		
+
 		return set;
 	}
 		
@@ -522,6 +569,7 @@ public class Query1_V1 {
 				int x = iter.next();
 				if(set1.contains(x)) newSet.add(x);
 			}
+			
 		}else{
 			Iterator<Integer> iter = set1.iterator();
 			while(iter.hasNext()){
@@ -531,7 +579,6 @@ public class Query1_V1 {
 		}
 		return newSet;
 	}
-	
 	
 	
 	//check one pattern is a maximal pattern whether or not in result set  
@@ -560,7 +607,10 @@ public class Query1_V1 {
 		if(flag==true) output.put(seq, lattice.get(seq));
 	}
 	
-
+	public int getoutputSize(){
+		return output.size();
+	}
+	
 	//print all PCs
 	public void print(){
 		Iterator<Set<Integer>> iter = output.keySet().iterator();

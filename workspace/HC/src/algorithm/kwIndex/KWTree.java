@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
+import EXP.test;
 import algorithm.DataReader;
 import algorithm.ProfiledTree.PNode;
 import config.Config;
@@ -28,11 +29,9 @@ public class KWTree {
 		this.n = graph.length;
 		this.pRoot = pRoot;
 		this.itemMap = new HashMap<Integer,KWNode>();
-//		this.headMap = new HashMap<Integer,Set<KWNode>>(graph.length);
 		this.headList = new HashMap<Integer,List<KWNode>>();
-		
-		
 	}
+	
 	
 	public KWTree(String graphFile,String nodeFile,PNode pRoot){
 		DataReader dReader = new DataReader(graphFile, nodeFile);
@@ -41,7 +40,6 @@ public class KWTree {
 		this.n = graph.length;
 		this.pRoot = pRoot;
 		this.itemMap = new HashMap<Integer,KWNode>();
-//		this.headMap = new HashMap<Integer,Set<KWNode>>(graph.length);
 		this.headList = new HashMap<Integer,List<KWNode>>();
 		
 	}
@@ -55,9 +53,11 @@ public class KWTree {
 		//step 2: scan the database 
 		scan();
 		
+
+		
 		//step 3:compress the index
 		refine();
-				
+
 		//step 4:build the K-tree for each kwnode
 		buildKTree();
 //		System.out.println((System.nanoTime()-time)/1000000);
@@ -91,6 +91,9 @@ public class KWTree {
 	private void scan(){
 		int idx = 1;
 		while(idx<n){
+			List<KWNode> list = headList.get(idx);
+
+			
 			for(int i=1; i< nodes[idx].length;i++){
 				int previousItem = nodes[idx][i-1];
 				int item = nodes[idx][i];
@@ -100,8 +103,7 @@ public class KWTree {
 				KWNode itemNode = itemMap.get(item);
 				KWNode previousItemNode = itemMap.get(previousItem);
 				if(itemNode.father != previousItemNode){
-					List<KWNode> list = headList.get(idx);
-//				
+	
 					if(list==null){
 						list = new LinkedList<KWNode>();
 						list.add(previousItemNode);
@@ -114,7 +116,6 @@ public class KWTree {
 			//the last one must be the leaf KWNode
 			int lastOne = nodes[idx][nodes[idx].length-1];
 			KWNode lastNode = itemMap.get(lastOne);
-			List<KWNode> list = headList.get(idx);
 			if(list==null){
 				list=new LinkedList<KWNode>();
 				list.add(lastNode);
@@ -147,6 +148,7 @@ public class KWTree {
 			KWNode node = entryIter.next().getValue();
 			
 			if(node.tmpVertexSet.size() == 0){
+				
 				KWNode father = node.father;
 				for(KWNode child:node.childList){
 					child.father = father;
@@ -162,11 +164,13 @@ public class KWTree {
 					if(node.compressedId!=null) compressedSet.addAll(node.compressedId);
 				
 				}
-			
+				if(node.itemId==3864) System.out.println("case 1");
 				father.childList.remove(node);
+//				node.refined = true;
 				node = null;
 				entryIter.remove();
 			}
+			
 			else{
 
 				if(node.childList.isEmpty()) continue;
@@ -176,7 +180,8 @@ public class KWTree {
 				
 				boolean flag = true;
 				for(KWNode child:node.childList){
-					if(!child.tmpVertexSet.isEmpty() && child.tmpVertexSet.size() != size){
+					//9.16 debug: if child.tmpVertexSet.isempty, we do not refine the current node
+					if(child.tmpVertexSet.isEmpty()  ||    (!child.tmpVertexSet.isEmpty() &&child.tmpVertexSet.size() != size)){	
 						flag = false;
 						break;
 					}
@@ -196,7 +201,9 @@ public class KWTree {
 						if(node.compressedId!=null) compressedSet.addAll(node.compressedId);
 					
 					}
+					if(node.itemId==3864) System.out.println("case 2");
 					node.father.childList.remove(node);
+//					node.refined = true;
 					entryIter.remove();
 					node = null;
 				}
@@ -259,6 +266,8 @@ public class KWTree {
 		this.nodes= null;
 	}
 	
+	
+
 	
 	public int[][] getsubGraph(Set<Integer> vertexSet){
 		//the first element of the subgraph keeps the original vertex 

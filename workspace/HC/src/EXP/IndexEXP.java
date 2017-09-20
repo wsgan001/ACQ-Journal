@@ -1,5 +1,6 @@
 package EXP;
 
+import algorithm.CPTreeReader;
 import algorithm.DataReader;
 import algorithm.ProfiledTree.PNode;
 import algorithm.kwIndex.KWTree;
@@ -7,9 +8,10 @@ import algorithm.kwIndex.KTree;
 import config.Config;
 import prep.*;
 import prep.PubMedPrep.BuildMeshTree;
+import prep.PubMedPrep.ConfigPubmed;
 
 public class IndexEXP {
-	
+
 	
 
 	
@@ -18,14 +20,10 @@ public class IndexEXP {
 		DataReader dReader = new DataReader(graphFile, nodeFile);
 		int[][] graph = dReader.readGraph();
 		int[][] nodes = dReader.readNodes();
-		
-		BuildMeshTree bmTree=new BuildMeshTree();
-		bmTree.buildMeshTree();
-		PNode root=bmTree.getCPTree().get(1);
+		CPTreeReader cpReader = new CPTreeReader();
+		PNode root = cpReader.loadCPtreeRoot(ConfigPubmed.flatCPTree);
 		KWTree kwTree = new KWTree(graph, nodes,root);
 		kwTree.build();
-		
-	
 	}
 	
 	
@@ -34,7 +32,7 @@ public class IndexEXP {
 		IndexEXP indexEXP = new IndexEXP();
 		
 //		indexEXP.test(Config.pubMedGraphTest,Config.pubMedNodeTest);
-		indexEXP.test(Config.pubMedGraph50,Config.pubMedNode50);
+		indexEXP.test(Config.pubMedGraph120,Config.pubMedNode120);
 		
 	}
 	

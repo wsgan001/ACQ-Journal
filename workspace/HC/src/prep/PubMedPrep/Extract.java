@@ -13,26 +13,28 @@ import config.*;
 
 public class Extract {
 	private int pubMedSize=-1;
-	private String nodeFile=null;
-	private String edgeFile=null;
-	
+	private String nodeFile = null;
+	private String edgeFile = null;
+	private String CPtreeFile = null;
+	private String referenceFile = null; 
 	
 	
 	public Extract(int x){
 		this.pubMedSize=x;
 		this.nodeFile="node"+"-"+x+".txt";
 		this.edgeFile="edge"+"-"+x+".txt";
-		
+		this.CPtreeFile ="cptree"+"-"+x+".txt";
+		this.referenceFile = "reference"+"-"+x+".txt";
 	}
 	
 	//unzip .gz file 
 	private boolean Unzip(String fileName){
 		String outName=null;
 		try {
-			GZIPInputStream gzInput=new GZIPInputStream(new FileInputStream(ConfigPubmed.localPath+fileName));
+			GZIPInputStream gzInput=new GZIPInputStream(new FileInputStream(Config.pubMedDataWorkSpace+fileName));
 			
 			outName = fileName.substring(0,fileName.length()-3);
-			FileOutputStream fout=new FileOutputStream(ConfigPubmed.localPath+outName);
+			FileOutputStream fout=new FileOutputStream(Config.pubMedDataWorkSpace+outName);
 			
 			int num;
 			byte[] buf=new byte[1024];
@@ -56,7 +58,7 @@ public class Extract {
 	
 	//delete a file 
 	private boolean deleteFile(String fileName){
-		File file=new File(ConfigPubmed.localPath+fileName);
+		File file=new File(Config.pubMedDataWorkSpace+fileName);
 		if(file.exists()&&file.isFile()){
 			return file.delete();
 		}else{
@@ -67,10 +69,10 @@ public class Extract {
 	
 	public void process(){
 		BuildMeshTree builder = new BuildMeshTree();
-		builder.run();
+		builder.run(CPtreeFile,referenceFile);
 		
-		DownloadFtp downFtp=new DownloadFtp(ConfigPubmed.pubMedHost,ConfigPubmed.pubMedUsr,ConfigPubmed.pubMedPswrd, ConfigPubmed.pubMedPort, ConfigPubmed.ftpPath, ConfigPubmed.localPath);
-		MeSHPrep meSHPrep=new MeSHPrep(nodeFile,edgeFile);
+		DownloadFtp downFtp=new DownloadFtp(ConfigPubmed.pubMedHost,ConfigPubmed.pubMedUsr,ConfigPubmed.pubMedPswrd, ConfigPubmed.pubMedPort, ConfigPubmed.ftpPath, Config.pubMedDataWorkSpace);
+		MeSHPrep meSHPrep=new MeSHPrep(nodeFile,edgeFile,CPtreeFile,referenceFile);
 		
 		Log log=new Log();
 		
@@ -115,13 +117,11 @@ public class Extract {
 			System.out.println("Io exception!");
 			e.printStackTrace();
 		}
-		
-		
 	}
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(2);
+		Extract extract=new Extract(10);
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		

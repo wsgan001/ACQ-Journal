@@ -1,6 +1,8 @@
 package algorithm.basic;
 
 import java.util.*;
+import java.util.Map.Entry;
+
 import algorithm.*;
 import algorithm.ProfiledTree.PNode;
 import algorithm.ProfiledTree.PTree;
@@ -30,14 +32,15 @@ public class DFS {
 	private Map<Integer, PNode> pTreeMap=null;
 	
 	//record the outputs
-	private Map<Set<Integer>, int[]> output=null;
+	private Set<Set<Integer>> maximalPattern = null;
+	private Set<Integer> CKC = null;
 	
 	private boolean DEBUG=false;
 	
 
 	public DFS(){
 		this.pTree=new PTree();
-		this.output=new HashMap<Set<Integer>, int[]>();
+		this.maximalPattern = new HashSet<Set<Integer>>();
 	}
 	
 	public DFS(int graph[][],int nodes[][]){
@@ -46,8 +49,17 @@ public class DFS {
 		DecomposeKCore kCore=new DecomposeKCore(this.graph);
 		core=kCore.decompose();
 		this.pTree=new PTree();
-		this.output=new HashMap<Set<Integer>, int[]>();
-
+		this.maximalPattern = new HashSet<Set<Integer>>();
+	}
+	
+	public DFS(String graphFile, String nodeFile,Map<Integer, PNode> CPTreeMap){
+		DataReader dataReader = new DataReader(graphFile, nodeFile);
+		this.graph = dataReader.readGraph();
+		this.nodes = dataReader.readNodes();
+		DecomposeKCore kCore=new DecomposeKCore(this.graph);
+		core=kCore.decompose();
+		this.pTree= new PTree(CPTreeMap);
+		this.maximalPattern = new HashSet<Set<Integer>>();		
 	}
 	
 	
@@ -61,9 +73,10 @@ public class DFS {
 		
 		//step 1:find the connected k-core containing queryId
 		FindCKCore findCKCore=new FindCKCore();
-		Set<Integer> CKC=findCKCore.findCKC(graph, core, queryId);
+		CKC = new HashSet<Integer>();
+		CKC=findCKCore.findCKC(graph, core, queryId);
 		if(CKC.size()<Config.k+1) return; 
-		
+		System.out.println("CKC: "+CKC.size());
 		
 		//------------------------DEBUG------------------------------
 		if(DEBUG){
@@ -78,235 +91,155 @@ public class DFS {
 		
 		//step 2: mining all maximal common subsequences
 		pTreeMap=pTree.buildPtree(nodes[queryId]);
-		int[] seqStart={nodes[queryId][0]};
-		mine(seqStart, CKC);
-		printOutput();
+		
+		Set<Integer> startPattern = new HashSet<Integer>();
+		startPattern.add(1);
+		DFSMinePattern(startPattern);
+	
+		Map<Set<Integer>, Set<Integer>> output = getqualifiedCommunity();
+		
+		print(output);
 	}
 	
+	
+	private void DFSMinePattern(Set<Integer> currentPattern){
+		Set<Set<Integer>> nextPatternSet =generatePattern(currentPattern); 
+		Iterator<Set<Integer>> patternIter = nextPatternSet.iterator();
+		while(patternIter.hasNext()){
+			Set<Integer> nextPattern = patternIter.next();
+			Set<Integer> currentUsers = obtainNewUsers(nextPattern);
+			if(!currentUsers.isEmpty()){
+				DFSMinePattern(nextPattern);
+			}else{
+				checkMax(currentPattern);
+			}
+		}
+	}
 
 	
-	private void mine(int[] seq,Set<Integer> users){
-		//------------------------DEBUG------------------------------
-		if(DEBUG){
-			System.out.println("------------------------------");
-			System.out.print("cksg: ");
-			for(int x:users) System.out.print(x+" ");
-			System.out.println();
-		}
-		//----------------------END DEBUG----------------------------
-		if(users==null) return;
-//		if(!isNewItems(seq)) return;
-		
-		
-		List<int[]> nextSeqList= geneSubtree(seq);
-		//if it has reach the maixmal pattern
-		if(nextSeqList.size()==0 && isNewItems(seq)){
-//      8.24 debug: seq should be determined whether it is a new maximal pattern
-//		if(nextSeqList.size()==0){
-//			if(isNewItems(seq)){
-				output.put(users, seq);
-				//------------------------DEBUG------------------------------
-				if(DEBUG) System.out.println("saved");
-				//----------------------END DEBUG----------------------------
-//			}
-			return;
-		}
-		
-		//otherwise recursively mine
-		boolean finished=true;
-		for(int[] nextSeq:nextSeqList){
-			Set<Integer> newUsers=check(nextSeq, users);
-			
-			if(newUsers!=null){
-				//------------------------DEBUG------------------------------
-				if(DEBUG){
-					String append="checking next seq: ";
-					for(int x:nextSeq) append+=x+"  ";
-					System.out.println(append);
-					
-					append="now the users are: ";
-					for(int x:newUsers)append+= x+" ";
-					System.out.println(append);
+	private Set<Set<Integer>> generatePattern(Set<Integer> currentPattern){
+		Set<Set<Integer>> nextPatternSet = new HashSet<Set<Integer>>(); 
+		List<Integer> RMPath = getRMPath(currentPattern);
+		for(int x:RMPath){
+			for(PNode node:pTreeMap.get(x).getChildlist()){
+				int newItem = node.getId();
+				if(!currentPattern.contains(newItem)){
+					Set<Integer> newPattern = new HashSet<Integer>();
+					newPattern.addAll(currentPattern);
+					newPattern.add(newItem);
+					nextPatternSet.add(newPattern);
 				}
-				//----------------------END DEBUG----------------------------
-				finished=false;
-				mine(nextSeq,newUsers);
-			}
-		}
-		if(finished && isNewItems(seq)){
-			//------------------------DEBUG------------------------------
-
-			//----------------------END DEBUG----------------------------
-			if(DEBUG){
-				System.out.print("finished recursion and saving: "+users.toString()+" items ");
-				for(int a:seq) 	System.out.print(a+"  ");
-				System.out.println();
-			}
-			output.put(users,seq);
-		}
+			}		
+		}		
+		return nextPatternSet;
 	}
 	
+	private List<Integer> getRMPath(Set<Integer> seq){
+		List<Integer> RMPath = new ArrayList<Integer>();
+		int last = -1;
+		for(Iterator<Integer> it=seq.iterator();it.hasNext();){
+			int current = it.next();
+			if(last < current) last = current;
+		} 
+		PNode lastNode = pTreeMap.get(last);
+		while(lastNode.father!=lastNode){
+			RMPath.add(lastNode.getId());
+			lastNode= lastNode.father;
+		}
+		RMPath.add(1);
+		return RMPath;
+	}
 	
-		//generate a new subtree from a subtree by add an node in the right most path
-	private List<int[]>  geneSubtree(final int[] seq){
-		List<Integer> rightmostPath=getRightmostPath(seq);
-		//------------------------DEBUG------------------------------
-		if(DEBUG) System.out.println("now rightmost path:"+rightmostPath.toString() );
-		//----------------------END DEBUG----------------------------
+	private Set<Integer> obtainNewUsers(Set<Integer> newPattern){
+		Set<Integer> newUsers = new HashSet<Integer>();
 		
-		List<int[]> nextSeq=new ArrayList<int[]>();
-		for(int i=0;i<rightmostPath.size()-1;i++){
-			int father=rightmostPath.get(i);
-			int child=rightmostPath.get(i+1);
-			List<PNode> childSet=pTreeMap.get(father).getChildlist();
-			if(child<childSet.get(childSet.size()-1).getId()){
-				for(PNode node:childSet){
-					int x=node.getId();
-					if(x>child){
-						int[] b=new int[seq.length+1];
-						System.arraycopy(seq, 0, b, 0, seq.length);
-						b[b.length-1]=x;
-						nextSeq.add(b);
-						//------------------------DEBUG------------------------------
-						if(DEBUG){
-							System.out.print("new Array: ");
-							for(int q:b) {
-								System.out.print(q+" ");
-							}
-							System.out.println();
-						}
-						//----------------------END DEBUG----------------------------
-					}
-				}
-			}
-		}
-		//last node of in the right most path
-		int lastOne=rightmostPath.get(rightmostPath.size()-1);
-		List<PNode> childSet=pTreeMap.get(lastOne).getChildlist();
-			for(PNode node:childSet){
-				int x=node.getId();
-					int[] b=new int[seq.length+1];
-					System.arraycopy(seq, 0, b, 0, seq.length);
-					b[b.length-1]=x;
-					nextSeq.add(b);
-					//------------------------DEBUG------------------------------
-					if(DEBUG){
-						System.out.println("poteintial new seq: ");
-						for(int q:b) {
-							System.out.print(q+" ");
-						}
-						System.out.println();
-					}
-					//----------------------END DEBUG----------------------------
-			}
-			
-		//------------------------DEBUG------------------------------
-		if(DEBUG) System.out.println("next rightmost path number:"+nextSeq.size());
-		//----------------------END DEBUG----------------------------	
-		return nextSeq;
-	}
-	
-	//calculate the right most path of one tree
-	//get the rightmost path of one subtree pattern
-	private List<Integer> getRightmostPath(final int[] seq){
-		return pTree.tracePath(seq[seq.length-1]);
-	}
-	
-
-	//check users to get new users who share new subtrees 
-	private Set<Integer> check(int[] newSeq, final Set<Integer> users){
-		//------------------------DEBUG------------------------------
-		if(!isKCore(users)){
-			if(DEBUG)  System.out.println("users is not kcore");
-			return null;
-		}
-		//----------------------END DEBUG----------------------------
-		Set<Integer> newUsers=new HashSet<Integer>();
-		Iterator<Integer> iterator=users.iterator();
-		while(iterator.hasNext()){
-			int user=iterator.next();
-			boolean isContained=true;
-			
-			Set<Integer> userItemSet=new HashSet<Integer>();
-			for(int x:nodes[user]) userItemSet.add(x);
-
-			for(int item:newSeq){
-				if(!userItemSet.contains(item)){
-					isContained=false;
-					break;
-				}
-			}
-			if(isContained){
+		for(Iterator<Integer> iter=CKC.iterator();iter.hasNext(); ){
+			int user = iter.next();
+			int[] seqOfUser =  nodes[user];
+			if(isContains(newPattern, seqOfUser)){
 				newUsers.add(user);
 			}
 		}
-		//------------------------DEBUG------------------------------
-		if(DEBUG){
-			String append="Before k-core check and newItem check________\n k core:  "+newUsers.toString()+"  new items: ";
-			for(int x:newSeq) append +=x+" ";
-			System.out.println(append);
-		}
-		//----------------------END DEBUG----------------------------
-		FindCKSubG findCKSG=new FindCKSubG(graph, newUsers, queryId); 
-		return findCKSG.findCKSG();
-	}	
-	
-
-		//checking whether satisfy connected and k-core 
-	private boolean isKCore(Set<Integer> set){
-		if(set.size()>=Config.k+1) return true;
-		else return false;
-	}
-
-	
-	//checking one pattern is one sub-pattern of the qualified pattern; true: new pattern flase: is not new pattern
-	private boolean isNewItems(int[]seq){
-		if(output.size()==0) return true;
 		
-		Iterator<int[]> iterator=output.values().iterator();		
-		while(iterator.hasNext()){
-			int[] validatedSeq=iterator.next();
-		//------------------------DEBUG------------------------------
-			if(DEBUG) {
-				System.out.print("subseq checking: ");
-				for(int x:seq) System.out.print(x+"  ");
-				System.out.println();
-				
-				System.out.print("validatedSeq checking: ");
-				for(int x:validatedSeq) System.out.print(x+"  ");
-				System.out.println();
-			}
-		//----------------------END DEBUG----------------------------
-			
-			if(seq.length<=validatedSeq.length){
-				int x=0; int y=0;
-				while(x<seq.length && y<validatedSeq.length){
-					if(seq[x]==validatedSeq[y]){ x++; y++;}
-					else if(seq[x]>validatedSeq[y]) {y++;}
-					else break;// seq is not contained in this validatedSeq, continue loop
-				}
-				//compare to the end then seq is contained in validatedSeq: false
-				if (x==seq.length)  return false;
-			}
+		if(!CKC.equals(newUsers)){
+			FindCKSubG findCKSG=new FindCKSubG(graph, newUsers, queryId);
+			newUsers = findCKSG.findCKSG();
+			if(newUsers==null) newUsers = new HashSet<Integer>();
 		}
-		return true;	
+		return newUsers;
 	}
-
-
-	//print all qualified community and its corresponding maximal subtrees
-		private void printOutput(){
-			System.out.println("Now testing DFS algorithm!");
-			System.out.println("output size"+output.size());
-			Iterator<Set<Integer>> iterator=output.keySet().iterator();
-			while(iterator.hasNext()){
-				Set<Integer> set=iterator.next();
-				String append="users: "+set.toString()+"  maximal seq: ";
-				int[]a=output.get(set);
-				for(int x:a) append+=x+"  ";
-				System.out.println(append);
+	
+	private boolean isContains(Set<Integer> pattern,int[]seq){
+		if (seq.length==0 || pattern.size()>seq.length ) return false;
+		
+		
+		boolean isAllContains = true; 
+		for(int x:pattern){
+			boolean isContains = false;
+			for(int y:seq){
+				if(y==x){
+					isContains = true; 
+					break;
+				}	
+			}
+			if(!isContains){
+				isAllContains = false;
 			}
 		}
+		
+		return isAllContains;
+	}
 	
+	private void checkMax(Set<Integer> pattern){
+		if(maximalPattern.isEmpty()) {
+			maximalPattern.add(pattern);
+			return;
+		}
+		if(maximalPattern.contains(pattern)) return;
+		
+		boolean flag = true;
+		Iterator<Set<Integer>> iter = maximalPattern.iterator();
+		while(iter.hasNext()){
+			Set<Integer> key = iter.next();
+			if(key.size()>pattern.size()){
+				if(key.containsAll(pattern)){
+					flag=false;
+					break;
+				}
+			}else if(key.size()<pattern.size()) {
+				if(pattern.containsAll(key)){
+					iter.remove();
+				}
+			}
+		}
+		if(flag==true) maximalPattern.add(pattern);
+		
+	}
+	
+	private Map<Set<Integer>, Set<Integer>> getqualifiedCommunity(){
+		Map<Set<Integer>, Set<Integer>> patternToCommunity = new HashMap<Set<Integer>,Set<Integer>>();
+		Iterator<Set<Integer>> iterator=maximalPattern.iterator();
+		while(iterator.hasNext()){
+			Set<Integer> pattern = iterator.next();
+			String append="Maximal pattens: "+pattern.toString()+"  corresponding users: ";
+			Set<Integer> users = obtainNewUsers(pattern);
+			patternToCommunity.put(pattern, users);
+		}
+		return patternToCommunity;
+	}
+	
+	//print all qualified patterns
+	public void print(Map<Set<Integer>, Set<Integer>> map){
+		System.out.println("Now printing outputs of the DFS algorithm!");
+		System.out.println("output size:"+maximalPattern.size());
+		Iterator<Entry<Set<Integer>, Set<Integer>>> entryIter = map.entrySet().iterator();
+		String string = new String();
+		while(entryIter.hasNext()){
+			Entry<Set<Integer>, Set<Integer>> entry = entryIter.next();
+			string += "Patten:  "+entry.getKey().toString()+",  Users: "+entry.getValue().toString()+"\n";	
+		}
+		System.out.println(string);
+	}
 
 	
 }

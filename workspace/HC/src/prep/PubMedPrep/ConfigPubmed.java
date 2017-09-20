@@ -8,12 +8,6 @@ public class ConfigPubmed {
 	
 	public static String ftpPath="/pubmed/baseline/";
 	
-	public static String localPath="/Users/chenyankai/Documents/pubMed/";
-	
-	public static String flatCPTree=localPath+"flatCptree.txt";
-	
-	public static String reference = localPath+"reference.txt";
-	
 	public static String pubMedHost="ftp.ncbi.nlm.nih.gov";
 	
 	public static String pubMedUsr="anonymous";

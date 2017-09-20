@@ -5,6 +5,7 @@ import java.net.URL;
 
 import org.apache.commons.net.PrintCommandListener;
 
+import config.Config;
 import prep.PubMedPrep.ConfigPubmed;
 /**
  * 
@@ -82,7 +83,7 @@ public class DownloadURL {
 	
 public static void main(String[]a){
 	String url="ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/medline17n0001.xml.gz";
-	DownloadURL dUrl=new DownloadURL(url, ConfigPubmed.localPath);
+	DownloadURL dUrl=new DownloadURL(url, Config.pubMedDataWorkSpace);
 //	dUrl.batchDown(1);
 	dUrl.downloadFile("aa.txt");
 }

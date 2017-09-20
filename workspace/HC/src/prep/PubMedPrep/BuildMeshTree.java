@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 import algorithm.ProfiledTree.PNode;
+import config.Config;
 /**
  * 
  * @author chenyankai
@@ -17,8 +18,6 @@ public class BuildMeshTree {
 	private String treeFile=null;
 	private Map<String, String> frstlvlMap=null;//store the first level taxa: A-Z
 	private String outFileName=null;
-	private String flatCPTreeFile=null;
-	private String hierarchicalCPTreeFile=null;
 	private boolean debug=true;
 	private Map<Integer, PNode> cpTree=null;
 
@@ -29,22 +28,19 @@ public class BuildMeshTree {
 	
 	public BuildMeshTree(){
 		this.map=new HashMap<String,MeshNode>();
-		this.treeFile=ConfigPubmed.localPath+"mtreeSimple.txt";
-		this.outFileName=ConfigPubmed.localPath+"MeshTree.txt";
-		this.flatCPTreeFile=ConfigPubmed.flatCPTree;
-		this.hierarchicalCPTreeFile = ConfigPubmed.localPath+"hierarchicalCptree.txt";
+		this.treeFile=Config.pubMedDataWorkSpace+"mtreeSimple.txt";
+		this.outFileName=Config.pubMedDataWorkSpace+"MeshTree.txt";
 		this.cpTree=new HashMap<Integer,PNode>();
 		this.maxDepth = ConfigPubmed.maxDepth;
 		this.maxWidth = ConfigPubmed.maxWidth;
 	}
 	
-//	public Map<String, MeshNode> getMap(){return this.map;}
 
 	
-	public void run(){
+	public void run(String cpFile,String referenceFile){
 		buildMeshTree();
-		writeFlatCPTree();
-		writeReferenceFile();
+		writeFlatCPTree(cpFile);
+		writeReferenceFile(referenceFile);
 	}
 	
 	
@@ -209,6 +205,11 @@ public class BuildMeshTree {
 		for(MeshNode child:root.getChildrenList()) setWidth(child);
 	}
 	
+
+	public Map<Integer, PNode> getCPTree(){
+		return this.cpTree;
+	}
+	
 	//write the meshtree
 	public void writeMeshTree(){
 		try {
@@ -227,19 +228,14 @@ public class BuildMeshTree {
 		}
 	}
 	
-	
-	public Map<Integer, PNode> getCPTree(){
-		return this.cpTree;
-	}
-	
 	//write the hierarchical form of CPtree file
-	public void writeHierarchicalCPTree(){
+	public void writeHierarchicalCPTree(String hierarchicalCPTreeFile){
 		PNode PTreeRoot=cpTree.get(1);
 		try {
-			FileWriter fWriter = new FileWriter(this.hierarchicalCPTreeFile);
+			FileWriter fWriter = new FileWriter(Config.pubMedDataWorkSpace+hierarchicalCPTreeFile);
 			fWriter.write("");
 			fWriter.close();
-			fWriter = new FileWriter(this.hierarchicalCPTreeFile,true);
+			fWriter = new FileWriter(Config.pubMedDataWorkSpace+hierarchicalCPTreeFile,true);
 			fWriter.write(PTreeRoot.toString(""));
 			fWriter.close();
 		} catch (Exception e) {
@@ -249,13 +245,13 @@ public class BuildMeshTree {
 	}
 	
 	//write the flat form of CPtree file
-	public void writeFlatCPTree(){
+	public void writeFlatCPTree(String flatCPTreeFile){
 		PNode PTreeRoot=cpTree.get(1);
 		try {
-			FileWriter fWriter = new FileWriter(this.flatCPTreeFile);
+			FileWriter fWriter = new FileWriter(Config.pubMedDataWorkSpace+flatCPTreeFile);
 			fWriter.write("");
 			fWriter.close();
-			fWriter = new FileWriter(this.flatCPTreeFile,true);
+			fWriter = new FileWriter(Config.pubMedDataWorkSpace+flatCPTreeFile,true);
 			fWriter.write(PTreeRoot.toString());
 			fWriter.close();
 		} catch (Exception e) {
@@ -265,15 +261,15 @@ public class BuildMeshTree {
 	}
 	
 	//write the reference.txt file to map the string to DFSID
-	public void writeReferenceFile(){
+	public void writeReferenceFile(String reference){
 		try {
 			//clear the exsiting content
-			FileWriter fileWriter = new FileWriter(ConfigPubmed.reference);
+			FileWriter fileWriter = new FileWriter(Config.pubMedDataWorkSpace+reference);
 			fileWriter.write("");
 			fileWriter.close();
 			
 			//rewrite the file 
-			fileWriter = new FileWriter(ConfigPubmed.reference,true);
+			fileWriter = new FileWriter(Config.pubMedDataWorkSpace+reference,true);
 			fileWriter.write(root.toString());
 			fileWriter.close();
 			
@@ -286,7 +282,7 @@ public class BuildMeshTree {
 
 	public static void main(String[] args){
 		BuildMeshTree bmTree=new BuildMeshTree();
-		bmTree.run();
+		bmTree.run("cptree1.txt","reference1.txt");
 //		System.out.println(bmTree);
 //		bmTree.writeMeshTree();
 //		bmTree.writeHierarchicalCPTree();
