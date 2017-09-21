@@ -7,7 +7,7 @@ import javax.security.auth.Subject;
 import algorithm.DecomposeKCore;
 import algorithm.ProfiledTree.CPTree;
 import algorithm.ProfiledTree.PNode;
-import algorithm.kwIndex.Query1.Query1_V1;
+import algorithm.kwIndex.Query1.Query1_backup;
 import config.Config;
 import prep.PubMedPrep.BuildMeshTree;
 import prep.PubMedPrep.MeshNode;

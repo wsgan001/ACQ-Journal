@@ -1,8 +1,6 @@
 package algorithm.kwIndex.Query1;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 import algorithm.FindCKSubG;
@@ -20,7 +18,7 @@ import config.Config;
 	(1). Space efficient.
 	(2). DFS manner to expand all cuts. 
 */
-public class Query1_V1 {
+public class Query1_backup {
 	private int[][] graph = null;
 	private int queryId = -1;
 	private int k = -1;
@@ -35,7 +33,7 @@ public class Query1_V1 {
 
 	private boolean debug = false;
 	
-	public Query1_V1(int[][] graph,Map<Integer, List<KWNode>> headList){
+	public Query1_backup(int[][] graph,Map<Integer, List<KWNode>> headList){
 		this.graph = graph;
 		this.leafList = new LinkedList<KWNode>();
 		this.headList = headList;
@@ -54,30 +52,21 @@ public class Query1_V1 {
 		induceSubKWTree();
 		System.out.println("step1 getsubtree finished, subkwtree size: "+subKWTree.size());
 	
-		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(Config.pubMedDataWorkSpace+"subtree.txt"));
-			bw.write(subKWTree.get(1).toString(""));
-			bw.flush();
-			bw.close();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
+		List<Set<Integer>> initCut = decInitCross();
+//		List<Set<Integer>> initCut = incInitCross();
 		
 		
-		if(subKWTree.size()==1) {
+		if(initCut.size()==1) return;
+		if(initCut.isEmpty()){
 			System.out.println("No community!");
 			return;
 		}
-
-		
-//		List<Set<Integer>> initCut = decInitCross();
-		List<Set<Integer>> initCut = incInitCross();	
 		
 		//expandCross
+		System.out.println("entering expandCut.");
 		expandCross(initCut.get(0),initCut.get(1));
 
-//		print();
+		print();
 				
 	}
 	
@@ -197,53 +186,29 @@ public class Query1_V1 {
 			while(!patternQueue.isEmpty() && tag){
 				System.out.println("pattern queue length: "+patternQueue.size());
 				Set<Integer> tocheck = patternQueue.poll();
-				Iterator<Integer> iter = tocheck.iterator();
-				int previous = iter.next(); 
-				System.out.println(tocheck.size());
 				if(tocheck.size()==2) return initCut;// means there is no qualified patterns 
 				
 				else{
-					int current = -1;
 					//looking for the leaf item and delete it
-					while(iter.hasNext()){
-						current = iter.next();
-						if(subKWTree.get(current).father.itemId != previous){
-							Set<Integer> set = new HashSet<Integer>();
-							
-							for(int y:tocheck){
-								if(y!= previous) set.add(y);
-							}
-							//obtain users
-							Set<Integer> newUser = obtainUser(set);
-							if(!newUser.isEmpty()){
-								maximalPattern.add(set);
-								lattice.put(set, newUser);
-								initCut.add(tocheck);
-								initCut.add(set);
-								tag = false; 
-								break;
-							}
-							patternQueue.add(set);
+					Set<Integer> leaves = getLeaves(tocheck);
+					for(int leaf:leaves){
+						Set<Integer> nextpattern = new HashSet<Integer>();
+						Set<Integer> nextUsers = null;
+						for(int x:tocheck){
+							if(x==leaf) continue;
+							nextpattern.add(x);
 						}
-						previous = current;
+						nextUsers = obtainUser(nextpattern);
+						if(nextUsers.isEmpty()){
+							patternQueue.add(nextpattern);
+						}else {
+							maximalPattern.add(nextpattern);
+							initCut.add(tocheck);
+							initCut.add(nextpattern);
+							tag = false;
+							break;
+						}
 					}
-					
-					//the last item must be a leaf item
-					Set<Integer> set = new HashSet<Integer>();	
-					for(int y:tocheck){
-						if(y!= previous) set.add(y);
-					}
-					//obtain users
-					Set<Integer> newUser = obtainUser(set);
-					if(!newUser.isEmpty()){
-						maximalPattern.add(set);
-						lattice.put(set, newUser);
-						initCut.add(tocheck);
-						initCut.add(set);
-						tag = false; 
-						break;
-					}
-					patternQueue.add(set);
 				}			
 			}			
 		}
@@ -378,10 +343,10 @@ public class Query1_V1 {
 		
 	//get the Connected k-core from the every kTree of specific item
 	private Set<Integer> getUsersInKTree(int item){
-	return subKWTree.get(item).tmpVertexSet;
+		return subKWTree.get(item).tmpVertexSet;
 	}
 	
-	//expand a cross 
+	//expand a cross recursively
 	private void expandCross(Set<Integer> inFreSeq, Set<Integer> freSeq){
 //		System.out.println("expandCut");
 		List<Set<Integer>> list = new ArrayList<Set<Integer>>(2);
@@ -614,7 +579,11 @@ public class Query1_V1 {
 		while(iter.hasNext()){
 			Set<Integer> pattern = iter.next();
 			Set<Integer> user = lattice.get(pattern);
-			System.out.println("pattern: "+pattern.toString()+" users: "+user);
+			if(user.size()>20)
+				System.out.println("pattern: "+pattern.toString()+" users size: "+user.size());
+			else {
+				System.out.println("pattern: "+pattern.toString()+" users: "+user.toString());
+			}
 		}
 	}
 	
