@@ -2,89 +2,66 @@ package algorithm.simpleKWIndex;
 
 import java.util.*;
 import java.util.Map.Entry;
-
 import config.Config;
 /**
 @author chenyankai
 @Date	Sep 3, 2017
-	based on simplied KWtree index 
-	search tree patterns in MARGIN-based(the first not-apriori algo)
+	based on simplified KWtree index 
+	search tree patterns in MARGIN-based(the first not-Apriori algo)
 	
 */
-public class query1 {
+public class query1{
+	private int[][] graph = null;
+	private int[] core = null;
 	private int queryId = -1;
 	private int k = Config.k;
-	private KWTree kwTree = null; 
 	private Map<Integer, KNode> subKWTree = null;
+	private Map<Integer, List<KNode>> headList = null;
+	private List<Integer> leaves = null;
 	//key:pattern  value users
 	private Map<Set<Integer>,Set<Integer>> lattice = null;
-	private Map<Set<Integer>, Set<Integer>> output=null;
-	private Set<Set<Integer>> visited = null;
+	private Set<Set<Integer>> MaximalPattern = null;
 	
 	
 	private boolean debug = false;
 	
-	public query1(KWTree kwTree){
-		this.kwTree = kwTree;
-		this.subKWTree = new HashMap<Integer,KNode>();
-		this.lattice = new HashMap<Set<Integer>,Set<Integer>>();
-		this.output = new HashMap<Set<Integer>, Set<Integer>>();
-		this.visited = new HashSet<Set<Integer>>();
+	public query1(int[][] graph,int[] core, Map<Integer, List<KNode>> headList){
+		this.graph = graph;
+		this.core = core;
+		this.headList = headList;
 	}
 	
 	public void query(int queryId){
 		this.queryId = queryId;
-//		induceIndex();
-		newInduceIndex();
+		this.MaximalPattern = new HashSet<Set<Integer>>();
+		if(core[queryId]<k) return;
+		
+		this.lattice = new HashMap<Set<Integer>,Set<Integer>>();
+		this.leaves = new ArrayList<Integer>();	
+		
+		induceSubKWTree();
 		
 	}
 	
-	
-	
-	//induce a kwTree and store it in the map
-	private void newInduceIndex(){
-		KNode root = new KNode(1);
-		subKWTree.put(1,root);
-		Set<Integer> visited= new HashSet<Integer>();
-		for(KNode currentNode:kwTree.getHeadList().get(queryId)){
-			int leafItem = currentNode.item;
-			if(kwTree.contains(leafItem)){
-				KNode newNode = new KNode(leafItem);
-				newNode.setInduceVertices(kwTree.induceUsers(k,leafItem));
-				subKWTree.put(leafItem, newNode);
+	private void induceSubKWTree(){
+		this.subKWTree = new HashMap<Integer, KNode>();
+		boolean containRoot = false;
+		for(KNode currentNode:headList.get(queryId)){
+			leaves.add(currentNode.item);
 			
-				int fatherItem = currentNode.father.item;
-				while(fatherItem != 1){
-					KNode newFather = subKWTree.get(fatherItem);
-					if(newFather==null){
-						newFather = new KNode(fatherItem);
-						newFather.setInduceVertices(currentNode.father.getKCore(k));
-						subKWTree.put(fatherItem, newFather);
-					}
-
-					if(visited.contains(currentNode.item)) break;
-					subKWTree.get(currentNode.item).father = newFather;
-					newFather.addChild(subKWTree.get(currentNode.item));
-					visited.add(currentNode.item);
-					
-					//continue go up
-					currentNode = currentNode.father;
-					fatherItem = currentNode.father.item;
-				}	
-
-				if(visited.contains(currentNode.item)) continue;
-				
-				subKWTree.get(currentNode.item).father = root;
-				root.addChild(subKWTree.get(currentNode.item));
-				visited.add(currentNode.item);
+			while(currentNode.item!=1){
+				subKWTree.put(currentNode.item, currentNode);
+				currentNode = currentNode.father;
+			}
+			if(containRoot) {
+				subKWTree.put(1, currentNode);
+				containRoot = true; 
 			}
 		}
-		
-		//------------------------DEBUG------------------------------
-		if(debug) 		System.out.println(root.toString(""));
-		//----------------------END DEBUG----------------------------
 	}
-
+	
+	
+	
 
 	private List<Set<Integer>> decInitCut(){
 		List<Set<Integer>> initCut = new ArrayList<Set<Integer>>();

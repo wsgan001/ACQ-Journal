@@ -38,10 +38,6 @@ public class DFS {
 	private boolean DEBUG=false;
 	
 
-	public DFS(){
-		this.pTree=new PTree();
-		this.maximalPattern = new HashSet<Set<Integer>>();
-	}
 	
 	public DFS(int graph[][],int nodes[][]){
 		this.graph=graph;
@@ -49,7 +45,6 @@ public class DFS {
 		DecomposeKCore kCore=new DecomposeKCore(this.graph);
 		core=kCore.decompose();
 		this.pTree=new PTree();
-		this.maximalPattern = new HashSet<Set<Integer>>();
 	}
 	
 	public DFS(String graphFile, String nodeFile,Map<Integer, PNode> CPTreeMap){
@@ -59,7 +54,6 @@ public class DFS {
 		DecomposeKCore kCore=new DecomposeKCore(this.graph);
 		core=kCore.decompose();
 		this.pTree= new PTree(CPTreeMap);
-		this.maximalPattern = new HashSet<Set<Integer>>();		
 	}
 	
 	
@@ -71,6 +65,7 @@ public class DFS {
 			return;
 		}
 		
+		this.maximalPattern = new HashSet<Set<Integer>>();		
 		//step 1:find the connected k-core containing queryId
 		FindCKCore findCKCore=new FindCKCore();
 		CKC = new HashSet<Integer>();

@@ -54,7 +54,6 @@ public class KWTree {
 		scan();
 		
 
-		
 		//step 3:compress the index
 		refine();
 
@@ -147,6 +146,8 @@ public class KWTree {
 		while(entryIter.hasNext()){
 			KWNode node = entryIter.next().getValue();
 			
+			count += node.tmpVertexSet.size();
+			
 			if(node.tmpVertexSet.size() == 0){
 				
 				KWNode father = node.father;
@@ -164,50 +165,47 @@ public class KWTree {
 					if(node.compressedId!=null) compressedSet.addAll(node.compressedId);
 				
 				}
-				if(node.itemId==3864) System.out.println("case 1");
 				father.childList.remove(node);
 //				node.refined = true;
 				node = null;
 				entryIter.remove();
 			}
-			
-			else{
-
-				if(node.childList.isEmpty()) continue;
-				int size=node.tmpVertexSet.size();
-				
-				count += size;
-				
-				boolean flag = true;
-				for(KWNode child:node.childList){
-					//9.16 debug: if child.tmpVertexSet.isempty, we do not refine the current node
-					if(child.tmpVertexSet.isEmpty()  ||    (!child.tmpVertexSet.isEmpty() &&child.tmpVertexSet.size() != size)){	
-						flag = false;
-						break;
-					}
-				}
-				if(flag){
-					for(KWNode child:node.childList){
-						child.father = node.father;
-						node.father.childList.add(child);
-						
-						//8.25 update the compress set
-						Set<Integer> compressedSet=child.compressedId;
-						if(compressedSet==null){
-							compressedSet=new HashSet<Integer>();
-						}
-						compressedSet.add(node.itemId);
-						child.compressedId=compressedSet;
-						if(node.compressedId!=null) compressedSet.addAll(node.compressedId);
-					
-					}
-					if(node.itemId==3864) System.out.println("case 2");
-					node.father.childList.remove(node);
-//					node.refined = true;
-					entryIter.remove();
-					node = null;
-				}
-			}
+//			else{
+//
+//				if(node.childList.isEmpty()) continue;
+//				int size=node.tmpVertexSet.size();
+//				
+//				count += size;
+//				
+//				boolean flag = true;
+//				for(KWNode child:node.childList){
+//					//9.16 debug: if child.tmpVertexSet.isempty, we do not refine the current node
+//					if(child.tmpVertexSet.isEmpty()  ||    (!child.tmpVertexSet.isEmpty() &&child.tmpVertexSet.size() != size)){	
+//						flag = false;
+//						break;
+//					}
+//				}
+//				if(flag){
+//					for(KWNode child:node.childList){
+//						child.father = node.father;
+//						node.father.childList.add(child);
+//						
+//						//8.25 update the compress set
+//						Set<Integer> compressedSet=child.compressedId;
+//						if(compressedSet==null){
+//							compressedSet=new HashSet<Integer>();
+//						}
+//						compressedSet.add(node.itemId);
+//						child.compressedId=compressedSet;
+//						if(node.compressedId!=null) compressedSet.addAll(node.compressedId);
+//					
+//					}
+//					node.father.childList.remove(node);
+////					node.refined = true;
+//					entryIter.remove();
+//					node = null;
+//				}
+//			}
 		}
 		
 		//------------------------DEBUG------------------------------
@@ -268,7 +266,6 @@ public class KWTree {
 	
 	
 
-	
 	public int[][] getsubGraph(Set<Integer> vertexSet){
 		//the first element of the subgraph keeps the original vertex 
 		int[] originalId = new int[vertexSet.size()+1];

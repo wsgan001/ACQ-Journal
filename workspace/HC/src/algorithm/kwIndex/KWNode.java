@@ -41,9 +41,12 @@ public class KWNode {
 		
 		Set<Integer> set=new HashSet<Integer>();
 		KNode node = vertexMap.get(queryId);
-		if(node==null||node.k < k) return set;
+		if(node==null||node.k < k) {
+			return set;
+		}
 		//9.19 debug
 		while(node.k > k){
+			
 			node = node.father;
 		}
 		

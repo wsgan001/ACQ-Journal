@@ -1,10 +1,8 @@
 package EXP;
 
-import java.util.Random;
 
 import algorithm.CPTreeReader;
 import algorithm.ProfiledTree.PNode;
-import algorithm.basic.BFS;
 import algorithm.basic.DFS;
 import algorithm.basic.BFS;
 import algorithm.kwIndex.KWTree;
@@ -23,10 +21,11 @@ public class IndexBasedQueryEXP {
 		
 		CPTreeReader cpReader = new CPTreeReader();
 		PNode root=cpReader.loadCPtreeRoot(CPtreeFile);
+		
+		
 		KWTree kwTree = new KWTree(graphFile,nodeFile,root);
 		kwTree.build();
-		
-		Query1_V1 query1 = new Query1_V1(kwTree.graph,kwTree.getHeadList());
+//		Query1_V1 query1 = new Query1_V1(kwTree.graph,kwTree.getHeadList());
 		Query1_V2 query2 = new Query1_V2(kwTree.graph,kwTree.getHeadList());
 		kwTree=null;
 		
@@ -48,23 +47,23 @@ public class IndexBasedQueryEXP {
 		
 		
 //		subkwtree size 39
-		long time = System.nanoTime();
-		query1.query(5964); 
-		long time1= System.nanoTime()-time; 
-////		System.out.println((time1-time)/1000000 );
+//		long time = System.nanoTime();
+//		query1.query(5964); 
+//		long time1= System.nanoTime()-time; 
+//		System.out.println(time1/1000000 );
 //		
 		long time21 = System.nanoTime();
 		query2.query(5964); 
 		long time22= System.nanoTime()-time21; 
-		System.out.println(time22/1000000+"  "+time1/1000000+"  gap: "+time1/time22);
+		System.out.println(time22/1000000);
 //		
-//		BFS bfs= new BFS(graphFile, nodeFile,cpReader.loadCPTree(CPtreeFile));
-//		long time2 = System.nanoTime();
-//		bfs.query(5964);
-////		bfs.print();
-//		long time3 = System.nanoTime()-time2;
-//		System.out.println(time3/1000000);
-//		System.out.println(time3/time22);
+		BFS bfs= new BFS(graphFile, nodeFile,cpReader.loadCPTree(CPtreeFile));
+		long time2 = System.nanoTime();
+		bfs.query(5964);
+		
+		long time3 = System.nanoTime()-time2;
+		System.out.println(time3/1000000);
+		System.out.println(time3/time22);
 		
 		
 //		DFS dfs= new DFS(graphFile, nodeFile,cpReader.loadCPTree(CPtreeFile));

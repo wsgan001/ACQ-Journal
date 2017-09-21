@@ -18,6 +18,11 @@ public class Config {
 	public static String pubMedNode50 =	 pubMedDataWorkSpace+"node-50.txt";
 	public static String pubmedCPtree50 = pubMedDataWorkSpace+"cptree-50.txt";
 
+	public static String pubMedGraph100 =pubMedDataWorkSpace+"edge-100.txt";
+	public static String pubMedNode100 =	pubMedDataWorkSpace+"node-100.txt";
+	public static String pubmedCPtree100 = pubMedDataWorkSpace+"cptree-100.txt";
+	
+	
 	
 	public static String pubMedGraph120 = pubMedDataWorkSpace+"edge-120.txt";
 	public static String pubMedNode120 =	 pubMedDataWorkSpace+"node-120.txt";

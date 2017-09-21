@@ -6,15 +6,18 @@ import java.util.Map.Entry;
 import algorithm.DataReader;
 import algorithm.DecomposeKCore;
 import algorithm.ProfiledTree.PNode;
+import algorithm.kwIndex.KWNode;
 import config.Config;
 
 /**
 @author chenyankai
 @Date	Sep 2, 2017
-	original KW-tree index is not very efficient 
+	(1). Original KW-tree index is not very efficient 
+	(2). The proposed simplified KWtree index is not to build the KTree for each vertex
+	(3). We use the global core number as the upper bound
 	
 */ 
-public class KWTree {
+public class simKWTree {
 	private int[][] graph = null;
 	private int[][] nodes = null;
 	private int n = -1;
@@ -24,10 +27,10 @@ public class KWTree {
 	private Map<Integer, List<KNode>> headList = null;
 	
 	private boolean debug = true;
-	private String indexFile= Config.workSpace+"simpileKWindexFile.txt";
+	private String indexFile= Config.pubMedDataWorkSpace+"simpileKWindexFile.txt";
 
 	
-	public KWTree(int[][] graph,int[][] nodes,PNode root){
+	public simKWTree(int[][] graph,int[][] nodes,PNode root){
 		this.graph = graph;
 		this.nodes = nodes;
 		this.n = graph.length;
@@ -37,7 +40,7 @@ public class KWTree {
 		this.headList = new HashMap<Integer,List<KNode>>();   
 	}
 	
-	public KWTree(String graphFile,String nodesFile,PNode root){
+	public simKWTree(String graphFile,String nodesFile,PNode root){
 		DataReader reader = new DataReader(graphFile, nodesFile);
 		this.graph = reader.readGraph();
 		this.nodes = reader.readNodes();
@@ -53,22 +56,26 @@ public class KWTree {
 		KNode root = new KNode(1);
 		itemMap.put(1, root);
 		init(pRoot);
+		System.out.println("init finished.");
 		
 		//step 2:compute the k-cores
 		DecomposeKCore kCore = new DecomposeKCore(graph);
 		core = kCore.decompose();
+		System.out.println("k core decompose finished.");
 		
 		//step 3: scan the database 
 		scan();		
+		System.out.println("scan finished.");
+		
 //		count();
 		gc();
 		
 		//step 4:compress the index
 		refine();
-		
+		System.out.println("refine finished.");
 	}
 	
-	//init the KWIndex using n known CP-tree
+	//recursively initialize the KWIndex using known CP-tree
 	private void init(PNode node){
 		KNode kNode = itemMap.get(node.getId());
 		for(PNode child:node.getChildlist()){
@@ -77,11 +84,11 @@ public class KWTree {
 			itemNode.father = kNode;
 			kNode.addChild(itemNode);
 			itemMap.put(childItem, itemNode);
-		}
-		
+		}	
 		for(PNode child:node.getChildlist()) init(child);
 		
 	}
+	
 	
 	//scan the database and fill the index
 	private void scan(){
@@ -90,6 +97,9 @@ public class KWTree {
 			int previousItem = nodes[idx][0];
 			KNode previousNode = null; 
 			int coreNum = core[idx];
+			
+			List<KNode> list = headList.get(idx);
+			if(list==null) list = new LinkedList<KNode>();
 
 			for(int i=1;i<nodes[idx].length;i++){//skip the root
 				int currentItem = nodes[idx][i];
@@ -105,10 +115,7 @@ public class KWTree {
 					}
 					
 					//update the headList
-					List<KNode> list = headList.get(idx);
-					if(list==null) list = new LinkedList<KNode>();
-					list.add(previousNode);
-					headList.put(idx, list);
+					list.add(previousNode);			
 				}
 				previousItem = currentItem; 
 				previousNode = currentNode;
@@ -125,37 +132,34 @@ public class KWTree {
 			}
 				
 			//update the headList
-			List<KNode> list = headList.get(idx);
-			if(list==null) list = new LinkedList<KNode>();
 			list.add(previousNode);
-			headList.put(idx, list);
 			
+			headList.put(idx, list);
 			idx++;
-		}
-		
+		}	
 	}
 	
 	private void gc(){
 		this.nodes = null;
 	}
 	
-	private void refine(){
-		
-		int count = 0;// for debug 
+	private void refine(){	
+		int totalCount = 0; 
 		Iterator<Entry<Integer, KNode>> enIt = itemMap.entrySet().iterator();
 		enIt.next();//skip the root node
 		while(enIt.hasNext()){
+			int count = 0;
 			Entry<Integer, KNode> entry = enIt.next();
 			KNode node = entry.getValue();
-			//------------------------DEBUG------------------------------
-			if(debug) {
-				Iterator<Set<Integer>> iter=node.vertices.values().iterator();
-				while(iter.hasNext()){
-					count += iter.next().size();
-				}
+			
+			//get the total # of the users in one KNode
+			Iterator<Set<Integer>> iter=node.vertices.values().iterator();
+			while(iter.hasNext()){
+				count += iter.next().size();
 			}
-			//----------------------END DEBUG----------------------------
-			if(node.vertices.isEmpty()){
+			totalCount += count;
+			
+			if(count==0){
 				KNode father = node.father;
 				for(KNode child:node.getChildList()){
 					child.father = father;
@@ -170,18 +174,21 @@ public class KWTree {
 				}
 			father.getChildList().remove(node);
 			enIt.remove();	
-			}			
-		}
-		
-		//------------------------DEBUG------------------------------
-		if(debug)	System.out.println("total vertices stored in index: "+count);
-		//----------------------END DEBUG----------------------------
-	
-	
+			}
+			
+
+		}	
+	//------------------------DEBUG------------------------------
+	if(debug)	System.out.println("total vertices stored in index: "+totalCount);
+	//----------------------END DEBUG----------------------------	
 	
 	}
 	
+	
+	
+	
 	//induce all users in one specific item in index
+
 	public Set<Integer> induceUsers(int k,int item){
 		Queue<KNode> queue = new LinkedList<KNode>();
 		Set<Integer> set = new HashSet<Integer>();
@@ -201,7 +208,10 @@ public class KWTree {
 	return set;
 	}
 	
-
+	public int[] getCore(){
+		return this.core;
+	}
+	
 	private void count(){
 		int count = 0;
 		Iterator<KNode> It = itemMap.values().iterator();
@@ -212,6 +222,7 @@ public class KWTree {
 		}
 		System.out.println("first count:" +count);
 	}
+	
 	
 	public void printTree(){		
 		File file = new File(indexFile);
@@ -225,7 +236,6 @@ public class KWTree {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	public Map<Integer, List<KNode>> getHeadList(){
 		return this.headList;

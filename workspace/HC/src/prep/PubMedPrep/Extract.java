@@ -121,7 +121,7 @@ public class Extract {
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(10);
+		Extract extract=new Extract(100);
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		

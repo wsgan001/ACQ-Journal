@@ -1,6 +1,8 @@
 package algorithm.simpleKWIndex;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import algorithm.ProfiledTree.*;
@@ -36,35 +38,53 @@ public class Test {
 		int k10[] = {1,3,7,12};				nodes[10] = k10;
 		CPTree cpTree = new CPTree();
 		PNode root = cpTree.LoadTree().get(1);
-		KWTree kwTree = new KWTree(graph, nodes, root);
+		simKWTree kwTree = new simKWTree(graph, nodes, root);
+		
 		kwTree.build();
 		kwTree.printTree();
-		Config.k =2;
-		query1 query1 = new query1(kwTree);
-		query1.query(3);
+//		Config.k =2;
+//		query1 query1 = new query1(kwTree);
+//		query1.query(3);
 //		query1.print();
  		
 	}
 	
-	public void runRealData(String graphFile,String nodeFile){
-		BuildMeshTree bmTree=new BuildMeshTree();
-		bmTree.buildMeshTree();
-		PNode root=bmTree.getCPTree().get(1);
-		KWTree kwTree = new KWTree(graphFile, nodeFile, root);
-		kwTree.build();
-	}
+//	public void runRealData(String graphFile,String nodeFile){
+//		BuildMeshTree bmTree=new BuildMeshTree();
+//		bmTree.buildMeshTree();
+//		PNode root=bmTree.getCPTree().get(1);
+//		KWTree kwTree = new KWTree(graphFile, nodeFile, root);
+//		kwTree.build();
+//	}
 	
 	
 	public void testInt(){
-		int[] a = new int[2];
-		a[0]=1;
-		a[1]=2;
-		Set<int[]> set = new HashSet<int[]>();set.add(a);
-		a[0]=100;
-		for(int[] x:set){
-			for(int y:x) System.out.println(y);
-		} 
+//		int[] a = new int[2];
+//		a[0]=1;
+//		a[1]=2;
+//		Set<int[]> set = new HashSet<int[]>();set.add(a);
+//		a[0]=100;
+//		for(int[] x:set){
+//			for(int y:x) System.out.println(y);
+//		} 
 //		
+		
+		Map<Integer,Set<Integer>> testMap = new HashMap<Integer,Set<Integer>>();
+		Set<Integer> set2 =  new HashSet<Integer>();
+		set2.add(1);
+		set2.add(2);
+		set2.add(3);
+		
+		Set<Integer> set3 =  new HashSet<Integer>();
+		set3.add(1);
+		set3.add(2);
+		set3.add(3);
+		
+		testMap.put(1, set2);
+		testMap.put(2, set3);
+		testMap.put(3, set3);
+		System.out.println(testMap.size());
+ 		
 //		Set<Integer> set1 = new HashSet<Integer>();
 //		set1.add(1);
 //		set1.add(2);
@@ -86,9 +106,9 @@ public class Test {
 	
 	public static void main(String[] args){
 		Test test = new Test();
-		test.test();
+//		test.test();
 //		test.runRealData(Config.pubMedGraph, Config.pubMedNode);
-//		test.testInt();
+		test.testInt();
 	}
 	
 }

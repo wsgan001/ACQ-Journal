@@ -76,7 +76,7 @@ public class PNode {
 	
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();
-		if(father!=null){
+		if(father!=this){
 			output.append("ID:  "+this.ID+" father: "+father.ID +"\n");
 			 
 		}

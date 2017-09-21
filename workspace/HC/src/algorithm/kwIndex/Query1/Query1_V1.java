@@ -29,7 +29,7 @@ public class Query1_V1 {
 	private Map<Integer,KWNode> subKWTree = null;
 	//key:pattern  value users
 	private Map<Set<Integer>,Set<Integer>> lattice = null;
-	private Map<Set<Integer>, Set<Integer>> output=null;	
+	private Set<Set<Integer>> maximalPattern = null;	
 	Set<List<Set<Integer>>> visited = null;
 	
 
@@ -47,7 +47,7 @@ public class Query1_V1 {
 	//main function
 	public void query(int queryId){
 		this.lattice = new HashMap<Set<Integer>, Set<Integer>>();
-		this.output = new HashMap<Set<Integer>, Set<Integer>>();		
+		this.maximalPattern = new HashSet<Set<Integer>>();	
 		this.visited = new HashSet<List<Set<Integer>>>(); 
 		
 		this.queryId = queryId;
@@ -185,7 +185,7 @@ public class Query1_V1 {
 
 		Set<Integer> users = obtainUser(pattern);
 		if(!users.isEmpty()){
-			output.put(pattern, users);
+			maximalPattern.add(pattern);
 			lattice.put(pattern, users);
 			initCut.add(pattern);
 		}
@@ -200,7 +200,8 @@ public class Query1_V1 {
 				Iterator<Integer> iter = tocheck.iterator();
 				int previous = iter.next(); 
 				System.out.println(tocheck.size());
-				if(tocheck.size()==2) return initCut;
+				if(tocheck.size()==2) return initCut;// means there is no qualified patterns 
+				
 				else{
 					int current = -1;
 					//looking for the leaf item and delete it
@@ -215,7 +216,7 @@ public class Query1_V1 {
 							//obtain users
 							Set<Integer> newUser = obtainUser(set);
 							if(!newUser.isEmpty()){
-								output.put(set, newUser);
+								maximalPattern.add(set);
 								lattice.put(set, newUser);
 								initCut.add(tocheck);
 								initCut.add(set);
@@ -235,7 +236,7 @@ public class Query1_V1 {
 					//obtain users
 					Set<Integer> newUser = obtainUser(set);
 					if(!newUser.isEmpty()){
-						output.put(set, newUser);
+						maximalPattern.add(set);
 						lattice.put(set, newUser);
 						initCut.add(tocheck);
 						initCut.add(set);
@@ -280,7 +281,7 @@ public class Query1_V1 {
 			Set<Integer> currentUser = userQueue.poll();
 			//if already reach the maximum pattern then return
 			if(tocheck.size()==subKWTree.size()) {
-				output.put(tocheck, currentUser);
+				maximalPattern.add(tocheck);
 				lattice.put(tocheck, currentUser);
 				initCut.add(tocheck);
 				break;
@@ -374,13 +375,11 @@ public class Query1_V1 {
 		return userSet;
 	}
 	
-	
 		
 	//get the Connected k-core from the every kTree of specific item
 	private Set<Integer> getUsersInKTree(int item){
 	return subKWTree.get(item).tmpVertexSet;
 	}
-	
 	
 	//expand a cross 
 	private void expandCross(Set<Integer> inFreSeq, Set<Integer> freSeq){
@@ -389,9 +388,7 @@ public class Query1_V1 {
 		list.add(inFreSeq); list.add(freSeq);
 		if(visited.contains(list)) return;
 		visited.add(list);	
-		
 	
-				
 		//------------------------DEBUG------------------------------
 		if(debug){
 			System.out.println("fre seq: "+freSeq.toString()+" infre: "+inFreSeq.toString());
@@ -583,14 +580,14 @@ public class Query1_V1 {
 	
 	//check one pattern is a maximal pattern whether or not in result set  
 	private void checkMax(Set<Integer> seq){
-		if(output.isEmpty()) {
-			output.put(seq, lattice.get(seq));
+		if(maximalPattern.isEmpty()) {
+			maximalPattern.add(seq);
 			return;
 		}
-		if(output.containsKey(seq)) return;
+		if(maximalPattern.contains(seq)) return;
 	
 		boolean flag = true;
-		Iterator<Set<Integer>> keyIter = output.keySet().iterator();
+		Iterator<Set<Integer>> keyIter = maximalPattern.iterator();
 		while(keyIter.hasNext()){
 			Set<Integer> key = keyIter.next();
 			if(key.size()>seq.size()){
@@ -604,19 +601,19 @@ public class Query1_V1 {
 				}
 			}
 		}
-		if(flag==true) output.put(seq, lattice.get(seq));
+		if(flag==true) maximalPattern.add(seq);
 	}
 	
 	public int getoutputSize(){
-		return output.size();
+		return maximalPattern.size();
 	}
 	
 	//print all PCs
 	public void print(){
-		Iterator<Set<Integer>> iter = output.keySet().iterator();
+		Iterator<Set<Integer>> iter = maximalPattern.iterator();
 		while(iter.hasNext()){
 			Set<Integer> pattern = iter.next();
-			Set<Integer> user = output.get(pattern);
+			Set<Integer> user = lattice.get(pattern);
 			System.out.println("pattern: "+pattern.toString()+" users: "+user);
 		}
 	}

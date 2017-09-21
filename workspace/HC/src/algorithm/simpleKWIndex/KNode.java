@@ -11,7 +11,7 @@ public class KNode implements Cloneable {
 	public Set<Integer> folder = null;
 	private List<KNode> childList = null;
 	
-	private Set<Integer> inducedVertexSet = null;
+//	private Set<Integer> inducedVertexSet = null;
 	
 	
 	public KNode(int item){
@@ -35,9 +35,10 @@ public class KNode implements Cloneable {
 	}
 	
 	
-	public void setInduceVertices(Set<Integer> set){
-		this.inducedVertexSet = set;
-	}
+	
+//	public void setInduceVertices(Set<Integer> set){
+//		this.inducedVertexSet = set;
+//	}
 	
 	
 	public List<KNode> getChildList(){
@@ -79,8 +80,8 @@ public class KNode implements Cloneable {
 	public String toString(String indent){
 		StringBuilder output = new StringBuilder();
 		output.append("item ID: "+item+" fatherId: "+father.item+"\n");
-		if(inducedVertexSet!=null) output.append(indent+"induced veritices: "+inducedVertexSet.toString()+"\n");
-		if(folder!=null) output.append("compressed item:"+folder.toString()+"\n");
+//		if(inducedVertexSet!=null) output.append(indent+"induced veritices: "+inducedVertexSet.toString()+"\n");
+		if(folder!=null) output.append(indent+"  compressed item:"+folder.toString()+"\n");
 		Iterator<Entry<Integer, Set<Integer>>> iter = vertices.entrySet().iterator();
 		while(iter.hasNext()){
 			Entry<Integer, Set<Integer>> Entry = iter.next();
