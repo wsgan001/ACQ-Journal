@@ -46,49 +46,49 @@ public class Query2_Inc {
 	}
 	
 	//induce a KW-tree subtree and store it in a map
-		private void induceSubKWTree(){
-			this.subKWTree = new HashMap<Integer,KWNode>();
-			Map<Integer, List<Integer>> childMap = new HashMap<Integer, List<Integer>>();
-			KWNode root = new KWNode(1);
-			subKWTree.put(1, root);
-			System.out.println(headList.get(queryId).size()+"   size ");
-			for(KWNode currentNode:headList.get(queryId)){
-				//to mark the leaf item in the induce subKWtree
-				while(currentNode.itemId != 1){
-					Set<Integer> vertexSet = currentNode.getCKCore(k, queryId);
-					if(!vertexSet.isEmpty()){
-						int currenItem = currentNode.itemId;
-						if(!subKWTree.containsKey(currenItem)){
-							KWNode newNode = new KWNode(currenItem);
-							newNode.tmpVertexSet = vertexSet;
-							subKWTree.put(currenItem, newNode);
-							//computing the length of the current path
+	private void induceSubKWTree(){
+		this.subKWTree = new HashMap<Integer,KWNode>();
+		Map<Integer, List<Integer>> childMap = new HashMap<Integer, List<Integer>>();
+		KWNode root = new KWNode(1);
+		subKWTree.put(1, root);
+		System.out.println(headList.get(queryId).size()+"   size ");
+		for(KWNode currentNode:headList.get(queryId)){
+			//to mark the leaf item in the induce subKWtree
+			while(currentNode.itemId != 1){
+				Set<Integer> vertexSet = currentNode.getCKCore(k, queryId);
+				if(!vertexSet.isEmpty()){
+					int currenItem = currentNode.itemId;
+					if(!subKWTree.containsKey(currenItem)){
+						KWNode newNode = new KWNode(currenItem);
+						newNode.tmpVertexSet = vertexSet;
+						subKWTree.put(currenItem, newNode);
+						//computing the length of the current path
 							
-						}
-						
-						List<Integer> child = childMap.get(currentNode.father.itemId);
-						if(child==null){
-							child = new ArrayList<Integer>();
-							child.add(currenItem);
-							childMap.put(currentNode.father.itemId, child);
-						}else{
-							child.add(currenItem);
-						}
 					}
-					currentNode = currentNode.father;
+						
+					List<Integer> child = childMap.get(currentNode.father.itemId);
+					if(child==null){
+						child = new ArrayList<Integer>();
+						child.add(currenItem);
+						childMap.put(currentNode.father.itemId, child);
+					}else{
+						child.add(currenItem);
+					}
 				}
+				currentNode = currentNode.father;
 			}
-			
-			Iterator<Integer> iter = childMap.keySet().iterator();
-			while(iter.hasNext()){
-				int father = iter.next();
-				KWNode fatherNode = subKWTree.get(father);
-				for(int child:childMap.get(father)){
-					subKWTree.get(child).father = fatherNode;
-					fatherNode.childList.add(subKWTree.get(child));
-				}
-			}	
 		}
+			
+		Iterator<Integer> iter = childMap.keySet().iterator();
+		while(iter.hasNext()){
+			int father = iter.next();
+			KWNode fatherNode = subKWTree.get(father);
+			for(int child:childMap.get(father)){
+				subKWTree.get(child).father = fatherNode;
+				fatherNode.childList.add(subKWTree.get(child));
+			}
+		}	
+	}
 	
 	
 	private void BFSMine(){

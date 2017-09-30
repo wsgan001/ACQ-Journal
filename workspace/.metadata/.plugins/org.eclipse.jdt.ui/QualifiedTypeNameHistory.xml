@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="algorithm.kwIndex.KTree"/>
-<fullyQualifiedTypeName name="java.util.logging.LogManager"/>
-<fullyQualifiedTypeName name="algorithm.DecomposeKCore"/>
-<fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
-<fullyQualifiedTypeName name="algorithm.RefinedKWIndex.Test"/>
-<fullyQualifiedTypeName name="javax.xml.parsers.FactoryConfigurationError"/>
-<fullyQualifiedTypeName name="javax.swing.text.AbstractDocument.LeafElement"/>
 <fullyQualifiedTypeName name="algorithm.RefinedKWIndex.KWTree"/>
 <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
 <fullyQualifiedTypeName name="java.lang.Cloneable"/>
@@ -32,7 +25,6 @@
 <fullyQualifiedTypeName name="java.io.SequenceInputStream"/>
 <fullyQualifiedTypeName name="java.awt.event.ItemEvent"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.Query1.Query1_V2"/>
-<fullyQualifiedTypeName name="java.util.Queue"/>
 <fullyQualifiedTypeName name="java.net.CookieHandler"/>
 <fullyQualifiedTypeName name="javax.print.attribute.HashAttributeSet"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
@@ -41,7 +33,6 @@
 <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="algorithm.simpleKWIndex.simKWTree"/>
 <fullyQualifiedTypeName name="org.omg.PortableInterceptor.SYSTEM_EXCEPTION"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
@@ -50,14 +41,23 @@
 <fullyQualifiedTypeName name="algorithm.simpleKWIndex.KNode"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.apache.commons.net.ftp.parser.NetwareFTPEntryParser"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="config.Config"/>
-<fullyQualifiedTypeName name="java.util.Set"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.Query1.Query1"/>
 <fullyQualifiedTypeName name="javax.swing.DefaultButtonModel"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.Query2.Query2_Inc"/>
+<fullyQualifiedTypeName name="org.w3c.tidy.AttrCheckImpl.CheckClear"/>
+<fullyQualifiedTypeName name="algorithm.kwIndex.KNode"/>
+<fullyQualifiedTypeName name="org.apache.commons.net.nntp.NewsgroupInfo"/>
+<fullyQualifiedTypeName name="javax.activation.MailcapCommandMap"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="algorithm.kwIndex.Query2.query2_MP"/>
+<fullyQualifiedTypeName name="javax.lang.model.element.QualifiedNameable"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.FactoryConfigurationError"/>
 </qualifiedTypeNameHistroy>

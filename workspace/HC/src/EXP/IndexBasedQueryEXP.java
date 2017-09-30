@@ -12,10 +12,11 @@ import algorithm.ProfiledTree.PNode;
 import algorithm.basic.DFS;
 import algorithm.basic.BFS;
 import algorithm.kwIndex.KWTree;
+import algorithm.kwIndex.Query1_margin.Query1;
 import algorithm.kwIndex.Query2.Query2_Inc;
+import algorithm.kwIndex.Query2.query2_MP;
 import algorithm.simpleKWIndex.simKWTree;
 import algorithm.simpleKWIndex.query1.query1;
-import algorithm.kwIndex.Query1.Query1;
 import config.Config;
 
 
@@ -50,6 +51,8 @@ public class IndexBasedQueryEXP {
 		kwTree1.build();
 		Query1 query1 = new Query1(kwTree1.graph,kwTree1.getHeadList());
 		Query2_Inc query2_Inc= new Query2_Inc(kwTree1.graph, kwTree1.getHeadList());
+		query2_MP query2_MP = new query2_MP(kwTree1.graph, kwTree1.getHeadList());
+
 		kwTree1=null;
 		
 //		simKWTree kwTree2 = new simKWTree(graphFile, nodeFile, root);
@@ -63,26 +66,27 @@ public class IndexBasedQueryEXP {
 		long time2 = 0; 
 //		
 		List<Integer> queryList = readQueryFile(queryFile);
-		for(int x:queryList){
-//			int x =22901;
-			System.out.println("now query: "+x);
-			long time11 = System.nanoTime();
-			query1.query(x);
-			time1+=System.nanoTime()-time11;
-			
-			long time21=System.nanoTime();
-//			simQuery2.query(x);
-//			bfs.query(x);
-			query2_Inc.query(x);
-			time2+=System.nanoTime()-time21;
-		}
+//		for(int x:queryList){
+//			System.out.println("now query: "+x);
+//			long time11 = System.nanoTime();
+//			query1.query(x);
+//			time1+=System.nanoTime()-time11;
+//			
+//			long time21=System.nanoTime();
+////			simQuery2.query(x);
+////			bfs.query(x);
+////			query2_Inc.query(x);
+//			time2+=System.nanoTime()-time21;
+//		}
 //		long time11 = System.nanoTime();
 //		query1.query(22901); // 22901 is good example for comparsion with ACQ:
 //		time1+=System.nanoTime()-time11;
 //		
 		System.out.println("hard index time1: "+time1/1000000+" simple index time2: "+time2/1000000+"time gap: "+(double)time2/time1 );
 		
-
+		
+		query2_MP.query(22901);
+		query2_MP.print();
 		
 //		subKwTree size 16
 //		query.query(5473); 

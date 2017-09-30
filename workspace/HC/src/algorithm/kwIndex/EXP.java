@@ -6,8 +6,9 @@ import algorithm.ProfiledTree.PNode;
 import algorithm.basic.BFS;
 import algorithm.basic.DFS;
 import algorithm.basic.BFS;
-import algorithm.kwIndex.Query1.Query1;
+import algorithm.kwIndex.Query1_margin.Query1;
 import algorithm.kwIndex.Query2.Query2_Inc;
+import algorithm.kwIndex.Query2.query2_MP;
 import algorithm.simpleKWIndex.simKWTree;
 import algorithm.simpleKWIndex.query1.query1;
 import config.Config;
@@ -46,10 +47,11 @@ public EXP(){}
 		
 		KWTree kwTree = new KWTree(graph, nodes, root);
 		kwTree.build();
-//		kwTree.printTree();
+		kwTree.printTree();
 		Config.k = 2;
 		Query1 query = new Query1(graph,kwTree.getHeadList());
-		Query2_Inc query2_Inc= new Query2_Inc(graph, kwTree.getHeadList());
+		query2_MP query2_MP = new query2_MP(graph, kwTree.getHeadList());
+//		Query2_Inc query2_Inc= new Query2_Inc(graph, kwTree.getHeadList());
 //		Query1_V2 query = new Query1_V2(graph,kwTree.getHeadList());
 //		simKWTree kwTree = new simKWTree(graph, nodes, root);
 //		kwTree.build();
@@ -64,9 +66,11 @@ public EXP(){}
 		
 		long time1 = System.nanoTime();
 //		query.query(1);
-		query.query(1);
-		query2_Inc.query(2);
-		query2_Inc.print();
+//		query.query(1);
+		query2_MP.query(1);
+		query2_MP.print();
+//		query2_Inc.query(2);
+//		query2_Inc.print();
 		System.out.println((System.nanoTime()-time1)/1000);
 	
 		
