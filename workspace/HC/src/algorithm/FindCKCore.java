@@ -20,7 +20,7 @@ public class FindCKCore {
 		Set<Integer> visited=new HashSet<Integer>();
 		Queue<Integer> queue=new LinkedList<Integer>();
 		
-		//step1 initialzie
+		//step1 initialize
 		queue.add(queryId);
 		visited.add(queryId);
 		

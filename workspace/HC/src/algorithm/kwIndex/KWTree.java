@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
+import javax.swing.text.AbstractDocument.LeafElement;
+
 import EXP.test;
 import algorithm.DataReader;
 import algorithm.ProfiledTree.PNode;
@@ -89,9 +91,11 @@ public class KWTree {
 	
 	private void scan(){
 		int idx = 1;
+//		double gap=0.0;
 		while(idx<n){
 			List<KWNode> list = headList.get(idx);
-
+			
+//			int leafCount = 0;
 			
 			for(int i=1; i< nodes[idx].length;i++){
 				int previousItem = nodes[idx][i-1];
@@ -102,11 +106,13 @@ public class KWTree {
 				KWNode itemNode = itemMap.get(item);
 				KWNode previousItemNode = itemMap.get(previousItem);
 				if(itemNode.father != previousItemNode){
-	
+					
+//					leafCount++;
+
 					if(list==null){
 						list = new LinkedList<KWNode>();
 						list.add(previousItemNode);
-						headList.put(idx, list);
+						headList.put(idx, list);	
 					}else{
 						list.add(previousItemNode);
 					}
@@ -115,19 +121,31 @@ public class KWTree {
 			//the last one must be the leaf KWNode
 			int lastOne = nodes[idx][nodes[idx].length-1];
 			KWNode lastNode = itemMap.get(lastOne);
+		
+//			leafCount++;
+			
 			if(list==null){
 				list=new LinkedList<KWNode>();
 				list.add(lastNode);
 				headList.put(idx, list);
+				
 			}else{
 				list.add(lastNode);
 			}
-			idx++;
+			
+//			gap += (double) nodes[idx].length/leafCount;
+
+			
+			idx++;	
 		}
 		
 		gc();
 		//------------------------DEBUG------------------------------
-		if(debug) 		System.out.println("Scan database finished!");
+		if(debug) 		{
+			System.out.println("Scan database finished!");
+//			System.out.println("all/leafItem:"+ gap/idx);
+		}
+		
 		//----------------------END DEBUG----------------------------
 	}
 	
@@ -139,17 +157,18 @@ public class KWTree {
 		
 		//------------------------DEBUG------------------------------
 		int count = 0;
+//		int notleafCount=0;
+//		double vertexGap = 0.0;
+//		int idx =0;
 		//----------------------END DEBUG----------------------------
 		
 		Iterator<Entry<Integer, KWNode>> entryIter = itemMap.entrySet().iterator();
 		entryIter.next();//skip the root node
 		while(entryIter.hasNext()){
 			KWNode node = entryIter.next().getValue();
-			
 			count += node.tmpVertexSet.size();
 			
 			if(node.tmpVertexSet.size() == 0){
-				
 				KWNode father = node.father;
 				for(KWNode child:node.childList){
 					child.father = father;
@@ -170,8 +189,21 @@ public class KWTree {
 				node = null;
 				entryIter.remove();
 			}
-//			else{
+			
+//			double minus =  0.0;
+//			if(node==null||node.childList.isEmpty()) continue;
+//			idx++;
+//			notleafCount+=node.tmpVertexSet.size();
+//			for(KWNode child:node.childList){
+//				minus+= node.tmpVertexSet.size()-child.tmpVertexSet.size();
 //
+//			}
+//			vertexGap +=(double) minus/node.childList.size();
+			
+			
+			
+//			else{
+//			 // it does not matter much whether the index is refined	
 //				if(node.childList.isEmpty()) continue;
 //				int size=node.tmpVertexSet.size();
 //				
@@ -179,7 +211,7 @@ public class KWTree {
 //				
 //				boolean flag = true;
 //				for(KWNode child:node.childList){
-//					//9.16 debug: if child.tmpVertexSet.isempty, we do not refine the current node
+//					//9.16 debug: if child.tmpVertexSet.is empty, we do not refine the current node
 //					if(child.tmpVertexSet.isEmpty()  ||    (!child.tmpVertexSet.isEmpty() &&child.tmpVertexSet.size() != size)){	
 //						flag = false;
 //						break;
@@ -200,9 +232,11 @@ public class KWTree {
 //						if(node.compressedId!=null) compressedSet.addAll(node.compressedId);
 //					
 //					}
+//					
 //					node.father.childList.remove(node);
 ////					node.refined = true;
 //					entryIter.remove();
+//					count-=node.tmpVertexSet.size();
 //					node = null;
 //				}
 //			}
@@ -211,7 +245,8 @@ public class KWTree {
 		//------------------------DEBUG------------------------------
 		if(debug) {
 			System.out.println("Refinement finished!"+" total vertices: "+count);
-			
+//			System.out.println("# of levels: "+idx +" average # gap of vertex in each level: "+(double)vertexGap/idx);
+//			System.out.println("percentage: "+(double)notleafCount/vertexGap);
 		}
 	
 		//----------------------END DEBUG----------------------------
@@ -225,7 +260,6 @@ public class KWTree {
 		long time2 = 0;
 		long time3 = 0;
 		long time4 = 0;
-		
  		while(iter.hasNext()){
 			KWNode node = iter.next();
 			Set<Integer> vertexSet = node.tmpVertexSet;	
@@ -237,12 +271,15 @@ public class KWTree {
 			time3 = System.nanoTime();
 			KTree kTree = new KTree(subGraph);
 			kTree.build();
+			
 			time4 += System.nanoTime()-time3;
 			node.setvertexMap(kTree.getVertexMap());
-			
+		
 			//------------------------DEBUG------------------------------
 			if(debug) node.KtreeRoot = kTree.getRoot();
 			//----------------------END DEBUG----------------------------
+			kTree = null;
+			
 			node.gc();
 			
 		}
@@ -266,7 +303,7 @@ public class KWTree {
 	
 	
 
-	public int[][] getsubGraph(Set<Integer> vertexSet){
+	private int[][] getsubGraph(Set<Integer> vertexSet){
 		//the first element of the subgraph keeps the original vertex 
 		int[] originalId = new int[vertexSet.size()+1];
 		//step 1: build the subgraph in the matrix

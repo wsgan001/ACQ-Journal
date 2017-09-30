@@ -23,8 +23,8 @@ public class Extract {
 		this.pubMedSize=x;
 		this.nodeFile="node"+"-"+x+".txt";
 		this.edgeFile="edge"+"-"+x+".txt";
-		this.CPtreeFile ="cptree"+"-"+x+".txt";
-		this.referenceFile = "reference"+"-"+x+".txt";
+		this.CPtreeFile ="cptree.txt";
+		this.referenceFile = "reference.txt";
 	}
 	
 	//unzip .gz file 
@@ -66,10 +66,12 @@ public class Extract {
 		}
 	}
 	
-	
-	public void process(){
+	public void generateCPTree(){
 		BuildMeshTree builder = new BuildMeshTree();
 		builder.run(CPtreeFile,referenceFile);
+	}
+	
+	public void process(){
 		
 		DownloadFtp downFtp=new DownloadFtp(ConfigPubmed.pubMedHost,ConfigPubmed.pubMedUsr,ConfigPubmed.pubMedPswrd, ConfigPubmed.pubMedPort, ConfigPubmed.ftpPath, Config.pubMedDataWorkSpace);
 		MeSHPrep meSHPrep=new MeSHPrep(nodeFile,edgeFile,CPtreeFile,referenceFile);
@@ -90,7 +92,6 @@ public class Extract {
 			log.log(msg);		
 		}
 		meSHPrep.writeFile();
-//		meSHPrep.writeAllFile();
 	}
 	
 	
@@ -121,7 +122,8 @@ public class Extract {
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(100);
+		Extract extract=new Extract(200);
+//		extract.generateCPTree();
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );
 		

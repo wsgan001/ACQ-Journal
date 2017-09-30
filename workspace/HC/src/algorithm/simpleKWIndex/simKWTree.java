@@ -18,10 +18,9 @@ import config.Config;
 	
 */ 
 public class simKWTree {
-	private int[][] graph = null;
+	public int[][] graph = null;
 	private int[][] nodes = null;
 	private int n = -1;
-	private int[] core = null;
 	private PNode pRoot = null;
 	private Map<Integer,KNode> itemMap = null;
 	private Map<Integer, List<KNode>> headList = null;
@@ -34,7 +33,6 @@ public class simKWTree {
 		this.graph = graph;
 		this.nodes = nodes;
 		this.n = graph.length;
-		this.core = new int[n+1];
 		this.pRoot = root;
 		this.itemMap = new HashMap<Integer,KNode>();
 		this.headList = new HashMap<Integer,List<KNode>>();   
@@ -45,7 +43,6 @@ public class simKWTree {
 		this.graph = reader.readGraph();
 		this.nodes = reader.readNodes();
 		this.n = graph.length;
-		this.core = new int[n+1];
 		this.pRoot = root;
 		this.itemMap = new HashMap<Integer,KNode>();
 		this.headList = new HashMap<Integer,List<KNode>>();   
@@ -58,22 +55,26 @@ public class simKWTree {
 		init(pRoot);
 		System.out.println("init finished.");
 		
-		//step 2:compute the k-cores
-		DecomposeKCore kCore = new DecomposeKCore(graph);
-		core = kCore.decompose();
-		System.out.println("k core decompose finished.");
 		
-		//step 3: scan the database 
+		//step 2: scan the database 
 		scan();		
 		System.out.println("scan finished.");
-		
-//		count();
 		gc();
 		
-		//step 4:compress the index
+		//step 3:compress the index
 		refine();
 		System.out.println("refine finished.");
+		
+		long time = System.nanoTime();
+		//step 4:compute the core number 
+		computeCoreNumber();
+		System.out.println("core number decomposition finished and its time cost: "+(System.nanoTime()-time)/1000000);
+	
+		printTree();
+		
+		
 	}
+	
 	
 	//recursively initialize the KWIndex using known CP-tree
 	private void init(PNode node){
@@ -96,7 +97,6 @@ public class simKWTree {
 		while(idx<n){
 			int previousItem = nodes[idx][0];
 			KNode previousNode = null; 
-			int coreNum = core[idx];
 			
 			List<KNode> list = headList.get(idx);
 			if(list==null) list = new LinkedList<KNode>();
@@ -104,33 +104,15 @@ public class simKWTree {
 			for(int i=1;i<nodes[idx].length;i++){//skip the root
 				int currentItem = nodes[idx][i];
 				KNode currentNode = itemMap.get(currentItem);
+				currentNode.tmpUsers.add(idx);
+				
 				if(currentNode.father.item!=previousItem){
-					Set<Integer> userSet=previousNode.vertices.get(coreNum);
-					if(userSet==null){
-						userSet = new HashSet<Integer>();
-						userSet.add(idx);
-						previousNode.vertices.put(coreNum, userSet);
-					}else {
-						previousNode.vertices.get(coreNum).add(idx);
-					}
-					
 					//update the headList
 					list.add(previousNode);			
 				}
-				previousItem = currentItem; 
-				previousNode = currentNode;
+				previousItem = currentItem; previousNode = currentNode;
 			}
-			
 			//the last item must be the leaf item
-			Set<Integer> userSet=previousNode.vertices.get(coreNum);
-			if(userSet==null){
-				userSet = new HashSet<Integer>();
-				userSet.add(idx);
-				previousNode.vertices.put(coreNum, userSet);
-			}else {
-				previousNode.vertices.get(coreNum).add(idx);
-			}
-				
 			//update the headList
 			list.add(previousNode);
 			
@@ -144,24 +126,18 @@ public class simKWTree {
 	}
 	
 	private void refine(){	
-		int totalCount = 0; 
-		Iterator<Entry<Integer, KNode>> enIt = itemMap.entrySet().iterator();
-		enIt.next();//skip the root node
-		while(enIt.hasNext()){
-			int count = 0;
-			Entry<Integer, KNode> entry = enIt.next();
-			KNode node = entry.getValue();
+		Iterator<Entry<Integer, KNode>> entryIter = itemMap.entrySet().iterator();
+		int count=0;
+		while(entryIter.hasNext()){
 			
+			KNode node = entryIter.next().getValue();
+			if(node.item==1) continue;
+			 count += node.tmpUsers.size();
 			//get the total # of the users in one KNode
-			Iterator<Set<Integer>> iter=node.vertices.values().iterator();
-			while(iter.hasNext()){
-				count += iter.next().size();
-			}
-			totalCount += count;
 			
-			if(count==0){
+			if(node.tmpUsers.size()==0){
 				KNode father = node.father;
-				for(KNode child:node.getChildList()){
+				for(KNode child:node.childList){
 					child.father = father;
 					father.addChild(child);
 					
@@ -172,56 +148,78 @@ public class simKWTree {
 					if(node.folder!=null) folder.addAll(node.folder);
 					child.folder = folder;
 				}
-			father.getChildList().remove(node);
-			enIt.remove();	
+			father.childList.remove(node);
+			entryIter.remove();	
 			}
-			
-
+		
 		}	
 	//------------------------DEBUG------------------------------
-	if(debug)	System.out.println("total vertices stored in index: "+totalCount);
+	if(debug)	System.out.println("total vertices stored in index: "+count);
 	//----------------------END DEBUG----------------------------	
 	
 	}
 	
 	
+	private void computeCoreNumber(){
+		Iterator<KNode> it = itemMap.values().iterator();
+		while(it.hasNext()){
+			KNode node = it.next();
+			if(node.item==1) continue;
+			int[][] subgraph = getsubGraph(node.tmpUsers);
+			node.computeCore(subgraph);
+			node.gc();
+		}
+		
+	}
 	
-	
-	//induce all users in one specific item in index
-
-	public Set<Integer> induceUsers(int k,int item){
-		Queue<KNode> queue = new LinkedList<KNode>();
-		Set<Integer> set = new HashSet<Integer>();
-		KNode node = itemMap.get(item);
-		queue.add(node);
-		while(!queue.isEmpty()){
-			KNode check = queue.poll();
-			Iterator<Entry<Integer, Set<Integer>>> enIt = check.vertices.entrySet().iterator();
-			while(enIt.hasNext()){
-				Entry<Integer, Set<Integer>> entry = enIt.next();
-				if(entry.getKey()>=k){
-					set.addAll(entry.getValue());
+	private int[][] getsubGraph(Set<Integer> vertexSet){
+		//the first element of the subgraph keeps the original vertex 
+		int[] originalId = new int[vertexSet.size()+1];
+		//step 1: build the subgraph in the matrix
+		Map<Integer, Integer> old2New = new HashMap<Integer,Integer>();
+		originalId[0]=0;
+		int idx = 1;
+		Iterator<Integer> iter = vertexSet.iterator();
+		while(iter.hasNext()){
+			int old = iter.next();
+			originalId[idx] = old;
+			old2New.put(old, idx++);
+		}
+		
+		int[][] subgraph = new int[vertexSet.size()+1][];
+		subgraph[0] = originalId;
+		
+		iter = vertexSet.iterator();
+		idx = 1;
+		while(iter.hasNext()){
+			int old = iter.next();
+			int arr[] = graph[old];
+			
+			int nghCount = 0;
+			boolean[] check = new boolean[arr.length];
+			for(int i=0;i<arr.length;i++){
+				if(vertexSet.contains(arr[i])){
+					check[i] = true;
+					nghCount++;
 				}
 			}
-			for(KNode child:check.getChildList()) queue.add(child);			
-		}	
-	return set;
-	}
-	
-	public int[] getCore(){
-		return this.core;
-	}
-	
-	private void count(){
-		int count = 0;
-		Iterator<KNode> It = itemMap.values().iterator();
-		while(It.hasNext()){
-			KNode node = It.next();
-			Iterator<Set<Integer>> it = node.vertices.values().iterator();
-			while(it.hasNext()) count+=it.next().size();
+			
+			int newNeighborArr[] = new int[nghCount];
+			int index = 0;
+			for(int i=0;i<check.length;i++){
+				if(check[i]){
+					newNeighborArr[index++] = old2New.get(arr[i]);
+				}
+			}
+			subgraph[idx++] = newNeighborArr;
 		}
-		System.out.println("first count:" +count);
+		
+		return subgraph;
 	}
+	
+	
+
+	
 	
 	
 	public void printTree(){		

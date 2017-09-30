@@ -70,6 +70,7 @@ public class FindCKSubG {
 		int[] subCore=fkCore.decompose();
 	
 		FindCKCore finder=new FindCKCore();
+		
 		Set<Integer> rsSet=finder.findCKC(subgraph, subCore, oldToNewMap.get(queryId));
 		
 		if(rsSet !=null){

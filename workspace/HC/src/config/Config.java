@@ -8,6 +8,9 @@ public class Config {
 	
 	public static int k=4;
 	
+	public static int minItems = 3;
+	public static int maxItems = 40;
+	
 	public static String logFileName=workSpace+System.currentTimeMillis();
 	
 	public static String pubMedGraph10 =pubMedDataWorkSpace+"edge-10.txt";
@@ -29,11 +32,12 @@ public class Config {
 	public static String pubmedCPtree120 = pubMedDataWorkSpace+"cptree-120.txt";
 
 	
-	
-
 	public static String pubMedGraphTest= pubMedDataWorkSpace+"edgeTest.txt";
 	public static String pubMedNodeTest=  pubMedDataWorkSpace+"nodeTest.txt";
 	
+	
+	
+	public static String pubMedQueryFile = pubMedDataWorkSpace+"queryFile.txt";
 	
 	
 	

@@ -3,48 +3,43 @@ package algorithm.simpleKWIndex;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class KNode implements Cloneable {
+import algorithm.DecomposeKCore;
+
+public class KNode{
 	public int item = -1; 
 	public KNode father = null;
 	//key: global core number value: vertex set of the specific core number
-	public Map<Integer, Set<Integer>> vertices = null;
+//	key:vertex value:core number 
+	public Map<Integer,Integer> vertexCore = null;
 	public Set<Integer> folder = null;
-	private List<KNode> childList = null;
+	public List<KNode> childList = null;
+	public Set<Integer> tmpUsers = null;
 	
-//	private Set<Integer> inducedVertexSet = null;
 	
 	
 	public KNode(int item){
 		this.item = item;
-		this.vertices = new HashMap<Integer,Set<Integer>>();
+		this.vertexCore = new HashMap<Integer,Integer>();
 		this.childList =new ArrayList<KNode>();
 		this.father = this;
+		this.tmpUsers = new HashSet<Integer>();
 	}
 	
-	public KNode clone(){
-		KNode node = null;
-		try {
-			node = (KNode) super.clone();
-		} catch (CloneNotSupportedException e) {
-			// TODO: handle exception
-			System.out.println(e.toString());
+	
+
+	
+	public void computeCore(int[][] subgraph){
+		DecomposeKCore decopose = new DecomposeKCore(subgraph);
+		int[] core = decopose.decompose();
+		int[] vertexList = subgraph[0];
+		
+		for(int i=0;i<vertexList.length;i++){
+			vertexCore.put(vertexList[i], core[i]);
 		}
-		node.childList = new ArrayList<KNode>();
-		node.vertices = new HashMap<Integer,Set<Integer>>();
-		return node;
+		gc();
 	}
 	
-	
-	
-//	public void setInduceVertices(Set<Integer> set){
-//		this.inducedVertexSet = set;
-//	}
-	
-	
-	public List<KNode> getChildList(){
-		return this.childList;
-	}
-	
+
 	public void setChildren(List<KNode> list){
 		this.childList = list;
 	}
@@ -57,6 +52,10 @@ public class KNode implements Cloneable {
 //		this.father = father;
 //	}
 	
+	public void gc(){
+		this.tmpUsers=null;
+	}
+	
 	public boolean containsChild(int i){
 		for(KNode child:childList){
 			if(child.item==i) return true;
@@ -64,17 +63,21 @@ public class KNode implements Cloneable {
 		return false;
 	}
 	
-	public Set<Integer> getKCore(int k){
-		Set<Integer> set = new HashSet<Integer>();
-		Iterator<Entry<Integer, Set<Integer>>> iter = vertices.entrySet().iterator();
-		while(iter.hasNext()){
-			Entry<Integer, Set<Integer>> entry = iter.next();
-			if(entry.getKey()>=k){
-				set.addAll(entry.getValue());
-			}
-		}
-		return set;
+	
+	public  boolean isContains(int id,int k){
+		return vertexCore.get(id)>=k?true:false;
 	}
+	
+	
+	public Set<Integer> findCKC(int k,int queryId){
+		Set<Integer> users = new HashSet<Integer>();
+		
+		
+		
+		return users;
+	}
+	
+	
 	
 	
 	public String toString(String indent){
@@ -82,11 +85,7 @@ public class KNode implements Cloneable {
 		output.append("item ID: "+item+" fatherId: "+father.item+"\n");
 //		if(inducedVertexSet!=null) output.append(indent+"induced veritices: "+inducedVertexSet.toString()+"\n");
 		if(folder!=null) output.append(indent+"  compressed item:"+folder.toString()+"\n");
-		Iterator<Entry<Integer, Set<Integer>>> iter = vertices.entrySet().iterator();
-		while(iter.hasNext()){
-			Entry<Integer, Set<Integer>> Entry = iter.next();
-			output.append("		"+"core #: "+Entry.getKey()+" vertices: "+Entry.getValue().toString()+"\n");
-		}
+		output.append(indent+"   users: "+vertexCore.size()+"\n");
 		String newIndent = indent+"  ";
 		for(KNode node:childList) 
 			output.append(newIndent+node.toString(newIndent));

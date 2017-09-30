@@ -16,12 +16,12 @@ public class IndexEXP {
 
 	
 	
-	public void test(String graphFile,String nodeFile){
+	public void test(String graphFile,String nodeFile,String cptreeFile){
 		DataReader dReader = new DataReader(graphFile, nodeFile);
 		int[][] graph = dReader.readGraph();
 		int[][] nodes = dReader.readNodes();
 		CPTreeReader cpReader = new CPTreeReader();
-		PNode root = cpReader.loadCPtreeRoot(ConfigPubmed.flatCPTree);
+		PNode root = cpReader.loadCPtreeRoot(cptreeFile);
 		KWTree kwTree = new KWTree(graph, nodes,root);
 		kwTree.build();
 	}
@@ -32,7 +32,7 @@ public class IndexEXP {
 		IndexEXP indexEXP = new IndexEXP();
 		
 //		indexEXP.test(Config.pubMedGraphTest,Config.pubMedNodeTest);
-		indexEXP.test(Config.pubMedGraph120,Config.pubMedNode120);
+		indexEXP.test(Config.pubMedGraph120,Config.pubMedNode120,Config.pubmedCPtree120);
 		
 	}
 	

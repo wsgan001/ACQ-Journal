@@ -2,7 +2,7 @@ package algorithm.kwIndex;
 
 import java.util.*;
 
-public class KNode {
+public class KNode{
 	public int k=-1;
 	public Set<Integer> vertexSet = null;
  	public List<KNode> childList = null; 
@@ -15,6 +15,7 @@ public class KNode {
 		this.childList = new LinkedList<KNode>();
 		this.father = this;
 	}
+	
 	
 	public void setChildList(List<KNode> list){
 		this.childList = list;

@@ -51,19 +51,13 @@ public class KTree {
 		DecomposeKCore dCore = new DecomposeKCore(subGraph);
 		core= dCore.decompose();
 		reverseCore = dCore.getReverseCore();
-//		//------------------------DEBUG------------------------------
-//		if(debug) {
-//			System.out.println("vertexList: "+vertexList.toString());
-//		
-//			for(int i=1;i<core.length;i++) System.out.println("core["+i+"]: "+core[i]+"  ");
-//			System.out.println();
-//			for(int i = 1;i < reverseCore.length;i ++)   System.out.println("cor[" + i + "]=" + reverseCore[i] + " ");
-//			System.out.println();
-//			System.out.println("k-core decomposition finished (maxCore= " + dCore.obtainMaxCore()+  ").");
-//		}
-//		//----------------------END DEBUG----------------------------
-//		
-//		//step 2:initialize the union-find data structure
+		//------------------------DEBUG------------------------------
+		if(debug) {
+			System.out.println("k-core decomposition finished (maxCore= " + dCore.obtainMaxCore()+  ").");
+		}
+		//----------------------END DEBUG----------------------------
+		
+		//step 2:initialize the union-find data structure
 		restNodeSet = new HashSet<KNode>();
 		uf = new UnionFind();
 		unodeArr = new UNode[n];

@@ -4,6 +4,7 @@ import java.util.*;
 
 import algorithm.FindCKSubG;
 import algorithm.kwIndex.*;
+import config.Config;
 
 /**
 @author chenyankai
@@ -24,18 +25,19 @@ public class Query2_Inc {
 	//key:pattern  value users
 	private Map<Set<Integer>, Set<Integer>> output=null;
 	
-	private boolean debug = true;
+	private boolean debug = false;
 	
 	public Query2_Inc(int[][] graph, Map<Integer, List<KWNode>> headList){
 		this.graph = graph;
 		this.headList = headList;
-		this.subKWTree = new HashMap<Integer,KWNode>();
-		this.output = new HashMap<Set<Integer>, Set<Integer>>();
+		this.k = Config.k;
 	}
 	
 	//main function
 	public void query(int queryId){
 		this.queryId = queryId;
+		this.output = new HashMap<Set<Integer>, Set<Integer>>();
+
 		induceSubKWTree();
 		
 		BFSMine();
@@ -45,21 +47,23 @@ public class Query2_Inc {
 	
 	//induce a KW-tree subtree and store it in a map
 		private void induceSubKWTree(){
-			Map<Integer, List<Integer>> childMap = new HashMap<Integer,List<Integer>>();
-			KWNode root =new KWNode(1);
+			this.subKWTree = new HashMap<Integer,KWNode>();
+			Map<Integer, List<Integer>> childMap = new HashMap<Integer, List<Integer>>();
+			KWNode root = new KWNode(1);
 			subKWTree.put(1, root);
+			System.out.println(headList.get(queryId).size()+"   size ");
 			for(KWNode currentNode:headList.get(queryId)){
-				
+				//to mark the leaf item in the induce subKWtree
 				while(currentNode.itemId != 1){
-//					System.out.println("checking: "+currentNode.itemId);
 					Set<Integer> vertexSet = currentNode.getCKCore(k, queryId);
 					if(!vertexSet.isEmpty()){
-//						System.out.println("inside: "+currentNode.itemId);
 						int currenItem = currentNode.itemId;
 						if(!subKWTree.containsKey(currenItem)){
 							KWNode newNode = new KWNode(currenItem);
 							newNode.tmpVertexSet = vertexSet;
 							subKWTree.put(currenItem, newNode);
+							//computing the length of the current path
+							
 						}
 						
 						List<Integer> child = childMap.get(currentNode.father.itemId);
@@ -83,11 +87,7 @@ public class Query2_Inc {
 					subKWTree.get(child).father = fatherNode;
 					fatherNode.childList.add(subKWTree.get(child));
 				}
-			}
-			
-			//------------------------DEBUG-----------------------------
-			if(debug) 		System.out.println(root.toString(""));
-			//----------------------END DEBUG---------------------------	
+			}	
 		}
 	
 	
@@ -97,7 +97,6 @@ public class Query2_Inc {
 		
 		for(KWNode node:subKWTree.get(1).childList){
 			int item = node.itemId;
-			if(!subKWTree.containsKey(item)) continue;
 			
 			Set<Integer> pattern = new HashSet<Integer>();
 			pattern.add(1);//the root node
@@ -111,37 +110,61 @@ public class Query2_Inc {
 		
 		
 		while(!patternQueue.isEmpty()&&!userQueue.isEmpty()){
-			Set<Integer> tocheck = patternQueue.poll();
-			Set<Integer> users = userQueue.poll();
-			
-			List<Integer> RMPath = getRightmostPath(tocheck);
-			
-			//------------------------DEBUG------------------------------
-			if(debug){
-				System.out.println("checking pattern: "+tocheck.toString()
-				+ "  users: "+users.toString());
-				System.out.println("rightmost path "+RMPath.toString());
+			Set<Integer> checkPattern = patternQueue.poll();
+			Set<Integer>  checkUsers = userQueue.poll();
+			System.out.println("query2_inc pattern size: "+patternQueue.size());
+			if(checkPattern.size()==subKWTree.size()){
+				output.put(checkPattern, checkUsers);
+				break;
 			}
-			//----------------------END DEBUG----------------------------
+			
+			boolean PatternisTerminated = true;
+			List<Integer> RMPath = getRightmostPath(checkPattern);
 			
 			for(int x:RMPath){
 				for(KWNode node:subKWTree.get(x).childList){
 					int item = node.itemId;
-					if(subKWTree.containsKey(item)&&!tocheck.contains(item)){
+					if(!checkPattern.contains(item)){
+						PatternisTerminated = true;
 						Set<Integer> newPattern = new HashSet<Integer>();
 						newPattern.add(item);
-						for(int y:tocheck) newPattern.add(y);
 						
-						Set<Integer> newUsers = obtainUser(item, users);
-						if(!newUsers.isEmpty()){
+						for(int y:checkPattern) newPattern.add(y);
+				
+						Set<Integer> users = getUsersInKTree(item);
+						//------------------------DEBUG------------------------------
+						if(debug){
+							 System.out.println("oldPattern: "+checkPattern.toString()+" newPattern: "+newPattern.toString());
+							 System.out.println(" current users: "+checkUsers.toString()+" newUsers: "+users.toString());
+							
+							 System.out.println();
+						}
+						//----------------------END DEBUG----------------------------
+						
+						
+						if(!checkUsers.equals(users)){
+							Set<Integer> newUsers = intersect(users, checkUsers);
+							FindCKSubG findCKSG=new FindCKSubG(graph, newUsers, queryId);
+							newUsers =findCKSG.findCKSG();
+							if(newUsers==null){
+								checkMax(checkPattern, checkUsers);
+							}else{
+								patternQueue.add(newPattern);
+								userQueue.add(newUsers);
+							}
+						}else{
 							patternQueue.add(newPattern);
-							userQueue.add(newUsers);
-						}else {
-							checkMax(tocheck,users);
+							userQueue.add(users);
 						}
 					}				
 				}				
-			}		
+			}	
+			
+			if(PatternisTerminated){
+				checkMax(checkPattern, checkUsers);
+			}
+			
+			
 		}	
 	}
 	
@@ -150,8 +173,10 @@ public class Query2_Inc {
 		List<Integer> RMPath = new ArrayList<Integer>();
 		int last = -1;
 		for(Iterator<Integer> it=seq.iterator();it.hasNext();){
-			last = it.next();
+			int current = it.next();
+			if(last < current) last = current;
 		} 
+		
 		while(subKWTree.get(last).father.itemId!=last){
 			RMPath.add(last);
 			last=subKWTree.get(last).father.itemId;
@@ -167,23 +192,7 @@ public class Query2_Inc {
 	}
 	
 	
-	private Set<Integer> obtainUser(int newItem,Set<Integer> preUsers){		
-		 Set<Integer> userSet = getUsersInKTree(newItem);
-		//note that there is only one condition that preUsers are empty 
-		//and still go into this function is that the root node
-		 if(userSet.equals(preUsers) || preUsers.isEmpty()) return userSet;
-		
-		//compute CKC
-		userSet.retainAll(preUsers);
-		FindCKSubG findCKSG=new FindCKSubG(graph, userSet, queryId);
-		userSet =findCKSG.findCKSG();
-		if(userSet==null) userSet = new HashSet<Integer>();
-		
-		return userSet;
-	}	
-	
-	
-	
+
 	//check one pattern is a maximal pattern whether or not in result set  
 	private void checkMax(Set<Integer> seq, Set<Integer>users){
 		if(output.isEmpty()) {
@@ -210,6 +219,28 @@ public class Query2_Inc {
 		if(flag==true) output.put(seq, users);
 	}
 		
+	
+	
+	//get the intersect of two sets
+	private Set<Integer> intersect(Set<Integer> set1, Set<Integer> set2){
+		Set<Integer> newSet = new HashSet<Integer>();
+		if(set1.isEmpty()||set2.isEmpty()) return newSet;
+	
+		if(set1.size()>set2.size()){
+			Iterator<Integer> iter = set2.iterator();
+			while(iter.hasNext()){
+				int x = iter.next();
+				if(set1.contains(x)) newSet.add(x);
+			}
+		}else{
+			Iterator<Integer> iter = set1.iterator();
+			while(iter.hasNext()){
+				int x = iter.next();
+				if(set2.contains(x)) newSet.add(x);
+			}
+		}
+		return newSet;
+	}
 	
 	//print all PCs
 	public void print(){

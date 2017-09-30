@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.function.IntPredicate"/>
-<fullyQualifiedTypeName name="java.nio.file.attribute.AclEntry.Builder"/>
-<fullyQualifiedTypeName name="algorithm.DataReader"/>
 <fullyQualifiedTypeName name="algorithm.kwIndex.KTree"/>
 <fullyQualifiedTypeName name="java.util.logging.LogManager"/>
 <fullyQualifiedTypeName name="algorithm.DecomposeKCore"/>
@@ -43,7 +40,6 @@
 <fullyQualifiedTypeName name="algorithm.basic.DFS"/>
 <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
-<fullyQualifiedTypeName name="config.Config"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="algorithm.simpleKWIndex.simKWTree"/>
@@ -53,11 +49,15 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="algorithm.simpleKWIndex.KNode"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="org.apache.commons.net.ftp.parser.NetwareFTPEntryParser"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="config.Config"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="algorithm.kwIndex.Query1.Query1"/>
+<fullyQualifiedTypeName name="javax.swing.DefaultButtonModel"/>
+<fullyQualifiedTypeName name="algorithm.kwIndex.Query2.Query2_Inc"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
