@@ -43,3 +43,4 @@ item NO.: 1  father id: 1
         1-hatcore: [1, 3]
       item NO.: 5  father id: 4
       0-hatcore: [3]
+

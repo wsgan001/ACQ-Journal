@@ -51,7 +51,6 @@ public class IndexBasedQueryEXP {
 		kwTree1.build();
 		Query1 query1 = new Query1(kwTree1.graph,kwTree1.getHeadList());
 		Query2_Inc query2_Inc= new Query2_Inc(kwTree1.graph, kwTree1.getHeadList());
-		query2_MP query2_MP = new query2_MP(kwTree1.graph, kwTree1.getHeadList());
 
 		kwTree1=null;
 		
@@ -85,8 +84,8 @@ public class IndexBasedQueryEXP {
 		System.out.println("hard index time1: "+time1/1000000+" simple index time2: "+time2/1000000+"time gap: "+(double)time2/time1 );
 		
 		
-		query2_MP.query(22901);
-		query2_MP.print();
+//		query2_MP.query(22901);
+//		query2_MP.print();
 		
 //		subKwTree size 16
 //		query.query(5473); 
