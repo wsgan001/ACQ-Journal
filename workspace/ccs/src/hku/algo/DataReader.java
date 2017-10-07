@@ -20,7 +20,7 @@ public class DataReader {
 	private String graphFile = null;
 	private String nodeFile = null;
 	private int userNum = -1;
-	private int edgeNum = -1;
+	private int edgeNum =  -1;
 	
 	public DataReader(String graphFile, String nodeFile){
 		this.graphFile = graphFile;
