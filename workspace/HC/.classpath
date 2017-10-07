@@ -4,5 +4,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="lib/jtidy-r938.jar"/>
 	<classpathentry kind="lib" path="lib/commons-net-3.6.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/xml-apis.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/xalan.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/log4j-1.2.12.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/harvester2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
