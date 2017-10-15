@@ -5,6 +5,8 @@ public class Config {
 	public static String workSpace = "/Users/chenyankai/gitRepository/workspace/HC/file/";
 	
 	public static String pubMedDataWorkSpace = "/Users/chenyankai/Documents/pubMed/";
+	public static String acmccsDataWorkSpace = "/Users/chenyankai/Documents/ACM_CCS/";
+	
 	
 	public static int k=4;
 	
