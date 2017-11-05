@@ -13,7 +13,7 @@ import config.Config;
 
 public class KWTree {
 	public int[][]graph = null;
-	private int[][]nodes = null;
+	public int[][]nodes = null;
 	private int n = -1; 
 	private KWNode root = null;
 	private PNode pRoot = null;
@@ -44,6 +44,11 @@ public class KWTree {
 		this.itemMap = new HashMap<Integer,KWNode>();
 		this.headList = new HashMap<Integer,List<KWNode>>();
 		
+	}
+	
+	public void test(){
+		int[] nghbr = nodes[115];
+		System.out.println("115 neighbor: "+nghbr.length);
 	}
 	
 	
@@ -139,7 +144,7 @@ public class KWTree {
 			idx++;	
 		}
 		
-		gc();
+//		gc();
 		//------------------------DEBUG------------------------------
 		if(debug) 		{
 			System.out.println("Scan database finished!");
@@ -349,7 +354,7 @@ public class KWTree {
 	}
 	
 	
-	public void printTree(){		
+	public void printTree(String indexFile){		
 		File file = new File(indexFile);
 		if(file.exists()) file.delete();
 		try {
@@ -370,5 +375,9 @@ public class KWTree {
 		return itemMap.containsKey(item);
 	}
 	
+	public Set<Integer> getKcoreofitems(int item, int k,int queryId){
+		KWNode node = itemMap.get(item);
+		return node.getCKCore(k, queryId);
+	}
 	
 }

@@ -67,6 +67,7 @@ public class KWNode {
 		StringBuilder output = new StringBuilder();
 //		output.append("item NO.: "+itemId+"vertex:"+ vertex.toString()+"\n");  clear the vertexSet 
 		output.append("item NO.: "+itemId+"  father id: "+father.itemId);
+//		output.append("item NO.: "+itemId+" users: "+tmpVertexSet.size()+"  father id: "+father.itemId);
 		if(compressedId!=null) output.append("  compress ids: "+compressedId.toString());
 		output.append("\n");
 		if(KtreeRoot!=null) output.append(indent+KtreeRoot.toString(indent));

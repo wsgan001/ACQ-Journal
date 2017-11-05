@@ -39,7 +39,11 @@ public class Config {
 	
 	
 	
-	public static String pubMedQueryFile = pubMedDataWorkSpace+"queryFile.txt";
+	public static String pubMedQueryFile4 = pubMedDataWorkSpace+"queryFile4.txt";
+	public static String pubMedQueryFile5 = pubMedDataWorkSpace+"queryFile5.txt";
+	public static String pubMedQueryFile6 = pubMedDataWorkSpace+"queryFile6.txt";
+	public static String pubMedQueryFile7 = pubMedDataWorkSpace+"queryFile7.txt";
+	public static String pubMedQueryFile8 = pubMedDataWorkSpace+"queryFile8.txt";
 	
 	
 	

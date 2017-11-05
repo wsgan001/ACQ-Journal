@@ -47,7 +47,7 @@ public EXP(){}
 		
 		KWTree kwTree = new KWTree(graph, nodes, root);
 		kwTree.build();
-		kwTree.printTree();
+//		kwTree.printTree();
 		Config.k = 2;
 		Query1 query = new Query1(graph,kwTree.getHeadList());
 		query2_MP query2_MP = new query2_MP(graph, kwTree.getHeadList());

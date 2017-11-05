@@ -14,6 +14,8 @@ public class PNode {
 	private List<PNode> childPNode=null;
 	private int childSize=-1;
 	
+	public int DFSCode = -1;
+	
 	 //define the Comparator the sort all PNode following the ascending order of support
 	 Comparator<PNode> ascendingOrder= new Comparator<PNode>(){
 		@Override
