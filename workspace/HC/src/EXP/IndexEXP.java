@@ -20,8 +20,8 @@ public class IndexEXP {
 		DataReader dReader = new DataReader(graphFile, nodeFile);
 		int[][] graph = dReader.readGraph();
 		int[][] nodes = dReader.readNodes();
-		CPTreeReader cpReader = new CPTreeReader();
-		PNode root = cpReader.loadCPtreeRoot(cptreeFile);
+		CPTreeReader cpReader = new CPTreeReader(cptreeFile);
+		PNode root = cpReader.loadCPtreeRoot();
 		KWTree kwTree = new KWTree(graph, nodes,root);
 		kwTree.build();
 	}

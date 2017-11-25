@@ -70,8 +70,8 @@ public class MeSHPrep {
 
 	//read the CPtree file
 	private void loadCPtree(){
-		CPTreeReader cReader = new CPTreeReader();
-		this.cpTree=cReader.loadCPTree(this.CPtreeFile);
+		CPTreeReader cReader = new CPTreeReader(this.CPtreeFile);
+		this.cpTree=cReader.loadCPTree();
 	}
 	
 	//read the reference file mapping the String name with DFS id

@@ -216,7 +216,7 @@ public class DFS {
 		Iterator<Set<Integer>> iterator=maximalPattern.iterator();
 		while(iterator.hasNext()){
 			Set<Integer> pattern = iterator.next();
-			String append="Maximal pattens: "+pattern.toString()+"  corresponding users: ";
+//			String append="Maximal pattens: "+pattern.toString()+"  corresponding users: ";
 			Set<Integer> users = obtainNewUsers(pattern);
 			patternToCommunity.put(pattern, users);
 		}

@@ -13,19 +13,20 @@ import prep.PubMedPrep.ConfigPubmed;
  */
 
 public class Log {
-	private String logFile=Config.logFileName;
+	private static String logFile=Config.logFileName;
 	
 	public Log(){
 		
 	} 
 	
-	public void log(String msg){
+	public static void log(String msg){
 		try {
 			BufferedWriter bWriter=new BufferedWriter(new FileWriter(logFile,true));//continue to write instead of overwriting 
 			Date date=new Date();
 			bWriter.write(date.toString());
 			bWriter.write("\t");
 			bWriter.write(msg);
+			bWriter.newLine();
 			bWriter.newLine();
 			
 			bWriter.flush();
@@ -38,8 +39,11 @@ public class Log {
 	}
 	
 	public static void main(String[] args){
-		Log log=new Log();
-		log.log("test");
+		
+		Log.log("test");
+		Log.log("new test");
+		Log.log("haliluya");
+		
 	}
 	
 	

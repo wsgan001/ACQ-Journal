@@ -47,13 +47,27 @@ public class IndexBasedQueryEXP {
 		return queryList;
 	}
 	
+	public void querySingle(String graphFile,String nodeFile,String CPtreeFile,int k){
+		Config.k=k;
+		System.out.println("K is: "+Config.k);
+		
+		CPTreeReader cpReader = new CPTreeReader(CPtreeFile);
+		PNode root=cpReader.loadCPtreeRoot();
+		
+		KWTree kwTree1 = new KWTree(graphFile,nodeFile,root);
+		kwTree1.build();
+		Query1 query1 = new Query1(kwTree1.graph,kwTree1.getHeadList());
+		query1.query(62255);
+	}
+	
+	
 	public void exp(String graphFile,String nodeFile,String CPtreeFile,String queryFile){
 		
 		Config.k = Integer.parseInt(queryFile.substring(queryFile.length()-5,queryFile.length()-4));
 		System.out.println("K is: "+Config.k);
 		
-		CPTreeReader cpReader = new CPTreeReader();
-		PNode root=cpReader.loadCPtreeRoot(CPtreeFile);
+		CPTreeReader cpReader = new CPTreeReader(CPtreeFile);
+		PNode root=cpReader.loadCPtreeRoot();
 		
 		KWTree kwTree1 = new KWTree(graphFile,nodeFile,root);
 		kwTree1.build();
@@ -399,8 +413,8 @@ public class IndexBasedQueryEXP {
 //		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10,Config.pubMedQueryFile5);
 //		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10,Config.pubMedQueryFile6);
 //		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10,Config.pubMedQueryFile7);
-		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10,Config.pubMedQueryFile8);
-
+//		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10,Config.pubMedQueryFile8);
+		exp.exp(Config.acmccsDataWorkSpace+"edges.txt", Config.acmccsDataWorkSpace+"nodes.txt", Config.acmccsDataWorkSpace+"CPTree.txt",Config.acmccsDataWorkSpace+"queryDiversityFile8.txt");
 
 		
 		
