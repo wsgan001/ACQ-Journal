@@ -122,7 +122,7 @@ public class Extract {
 	
 	
 	public static void main(String[] a){
-		Extract extract=new Extract(200);
+		Extract extract=new Extract(40);
 //		extract.generateCPTree();
 		extract.process();
 //		extract.testRandomAccess(Config.localPath+"test.txt",1 );

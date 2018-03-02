@@ -27,7 +27,6 @@ public class Log {
 			bWriter.write("\t");
 			bWriter.write(msg);
 			bWriter.newLine();
-			bWriter.newLine();
 			
 			bWriter.flush();
 			bWriter.close();
@@ -42,8 +41,6 @@ public class Log {
 		
 		Log.log("test");
 		Log.log("new test");
-		Log.log("haliluya");
-		
 	}
 	
 	

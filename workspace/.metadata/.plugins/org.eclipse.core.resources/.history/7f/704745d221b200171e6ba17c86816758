@@ -1,0 +1,145 @@
+package prep.ACMDLPrep;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
+
+import org.dom4j.*;
+import org.dom4j.io.SAXReader;
+
+import config.Config;
+
+public class ReadXML {
+	String acmccsFile = "/Users/chenyankai/Documents/ACM_CCS/ACM_CCS.xml";
+	Map<Integer, Integer> map = null;
+	Map<Integer, String> IdNameMap = null;
+	int unUsed = 10011641;//Proper nouns, people, technologies and companies
+
+	
+	public ReadXML(){
+		map = new HashMap<Integer,Integer>();
+		IdNameMap = new HashMap<Integer,String>();
+		map.put(1, 1);// the root 
+		IdNameMap.put(1, "CCS");
+	}
+	
+	private void read(){
+		 SAXReader reader = new SAXReader();
+		 try {
+			 Document doc = reader.read(new File(acmccsFile));        
+			 Element root = doc.getRootElement();
+			 
+			 //extract the concept
+			 List<Element> list = root.elements("Concept");
+	
+			  for ( Element element:list) {
+				  int currentItem = Integer.parseInt(element.attributeValue("about").substring(1));
+				  if(map.containsKey(currentItem)) continue;
+				  int fatherItem = -1;
+				  //obtain the father item
+				  Element fatherElement = element.element("broader");
+				  if(fatherElement!=null) {
+					  fatherItem = Integer.parseInt(fatherElement.attributeValue("resource").substring(1));
+				  }
+				  if(fatherItem!=-1) map.put(currentItem, fatherItem);
+				  else map.put(currentItem, 1);
+				 
+				  
+				  String prefLabel = element.element("prefLabel").getText();
+				  System.out.println(prefLabel);
+				  IdNameMap.put(currentItem, prefLabel);
+				  
+			  }
+			 
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		 
+		 clear();
+		 
+	}
+	
+	private void clear(){
+		Queue<Integer> list = new LinkedList<Integer>();
+		list.add(unUsed);
+		while(!list.isEmpty()){
+			int cur = list.poll();
+			for(Iterator<Entry<Integer, Integer>> it = map.entrySet().iterator();it.hasNext();){
+				Entry<Integer, Integer> entry = it.next();
+				int key = entry.getKey();
+				int value= entry.getValue();
+				if(value==cur){
+					list.add(key);
+					it.remove();
+					IdNameMap.remove(key);
+				}	
+			}
+			
+		}
+ 		
+	}
+	
+	
+	public void output(){
+		int count = 1;
+		for(Iterator<Integer> it = map.keySet().iterator();it.hasNext();){
+			int key = it.next();
+			System.out.println("No. "+(count++)+"  "+key+"   "+ map.get(key)+" item name: "+IdNameMap.get(key));
+		}
+	}
+	
+	
+	public void writeCCSFile(){
+		try {
+			BufferedWriter std = new BufferedWriter(new FileWriter(Config.acmccsDataWorkSpace+"ACMCCS.txt"));
+			for(Iterator<Integer> it = map.keySet().iterator();it.hasNext();){
+				int key = it.next();
+				std.write(key+","+map.get(key));
+				std.newLine();
+			}
+			std.flush();
+			std.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
+	
+	public void writeItemNameFile(){
+		try {
+			BufferedWriter std = new BufferedWriter(new FileWriter(Config.acmccsDataWorkSpace+"itemName.txt"));
+			for(Iterator<Integer> it = IdNameMap.keySet().iterator();it.hasNext();){
+				int key = it.next();
+				std.write(key+","+IdNameMap.get(key));
+				std.newLine();	
+			}
+			std.flush();
+			std.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+
+		}
+	}
+	
+	
+
+	
+	
+	
+	public static void main(String[] args){
+		ReadXML readXML = new ReadXML();
+		readXML.read();
+		readXML.output();
+		readXML.writeCCSFile();
+		readXML.writeItemNameFile();
+	}
+	
+	
+	
+}

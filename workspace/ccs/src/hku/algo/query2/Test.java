@@ -37,16 +37,25 @@ public class Test {
 		String k8[] = {"H", "x"};				nodes[8] = k8;
 		String k9[] = {"I", "y", "z"};			nodes[9] = k9;
 		
-		AdvancedIndex index = new AdvancedIndex(graph, nodes);
+//		AdvancedIndex index = new AdvancedIndex(graph, nodes);
+//		TNode root = index.build();
+//		int core[] = index.getCore();
+////		for(int i = 1;i < core.length;i ++)   System.out.println("core i=" + i + " " + core[i]);
+//		
+//		Config.k = 3;
+//		DecRevision decr = new DecRevision(graph, nodes, root, core, null);
+//		Set<Integer> set = decr.query(2);
+//		if(set == null)   System.out.println("null");
+//		else              for(int id:set)   System.out.print(id + " ");
+//		System.out.println();
+	
+		AdvancedIndex index = new AdvancedIndex("/Users/chenyankai/Documents/ACM_CCS/edges.txt","/Users/chenyankai/Documents/ACM_CCS/nodes.txt");
 		TNode root = index.build();
 		int core[] = index.getCore();
-//		for(int i = 1;i < core.length;i ++)   System.out.println("core i=" + i + " " + core[i]);
-		
-		Config.k = 3;
 		DecRevision decr = new DecRevision(graph, nodes, root, core, null);
-		Set<Integer> set = decr.query(2);
-		if(set == null)   System.out.println("null");
-		else              for(int id:set)   System.out.print(id + " ");
-		System.out.println();
+		Config.k=6;
+		Set<Integer> set = decr.query(33);
+		
+		System.out.println(set.size());
 	}
 }

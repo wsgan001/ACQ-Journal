@@ -1,0 +1,1 @@
+java -classpath .:harvester2.jar:log4j-1.2.12.jar:xalan.jar:xercesImpl.jar:xml-apis.jar ORG.oclc.oai.harvester2.app.RawWrite -out /Users/chenyankai/Documents/CiteSeerx/citeseerx.xml  http://citeseerx.ist.psu.edu/oai2

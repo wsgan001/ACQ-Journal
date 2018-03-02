@@ -40,6 +40,7 @@ public class KWNode {
 	public Set<Integer> getCKCore(int k,int queryId){
 		
 		Set<Integer> set=new HashSet<Integer>();
+//		if(vertexMap == null) return set;
 		KNode node = vertexMap.get(queryId);
 		if(node==null||node.k < k) {
 			return set;

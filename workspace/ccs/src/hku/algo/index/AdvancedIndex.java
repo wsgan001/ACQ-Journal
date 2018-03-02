@@ -1,6 +1,7 @@
 package hku.algo.index;
 
 import hku.algo.DataReader;
+import hku.algo.DataReaderPCS;
 import hku.algo.KCore;
 import hku.algo.TNode;
 import hku.algo.index.unionFind.UNode;
@@ -15,8 +16,8 @@ import java.util.Map.Entry;
  * build the index using union-find data structure: correct, union later
  */
 public class AdvancedIndex {
-	private String nodes[][] = null;
-	private int graph[][] = null;
+	public String nodes[][] = null;
+	public int graph[][] = null;
 	private int core[] = null;
 	private int n = -1;
 	private int coreReverseFang[] = null;
@@ -26,15 +27,15 @@ public class AdvancedIndex {
 	private UnionFind uf = null;
 
 	
-	public AdvancedIndex(int graph[][], String nodes[][]){
-		this.graph = graph;
-		this.nodes = nodes;
-	}
+//	public AdvancedIndex(int graph[][], String nodes[][]){
+//		this.graph = graph;
+//		this.nodes = nodes;
+//	}
 	
 	public AdvancedIndex(String graphFile, String nodeFile){
-		DataReader dataReader = new DataReader(graphFile, nodeFile);
+		DataReaderPCS dataReader = new DataReaderPCS(graphFile, nodeFile);
 		graph = dataReader.readGraph();
-		nodes = dataReader.readNode();
+		nodes = dataReader.readNodes();
 	}
 	
 	public TNode build(){

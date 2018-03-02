@@ -1,0 +1,24 @@
+package blank;
+
+import java.util.*;
+
+public class test {
+
+	public int findComplement(int num) {
+        double x= num;
+        double times = Math.log(x);
+        int y = (int)times+1;
+        return y;
+    }
+	    
+	   public static void main(String[] a){
+	    	test t = new test();
+	    	int x= t.findComplement(5);
+	    	System.out.println(x);
+	   }
+	
+	
+	}
+	
+	
+

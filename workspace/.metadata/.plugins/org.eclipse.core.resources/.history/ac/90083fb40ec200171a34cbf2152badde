@@ -1,0 +1,53 @@
+package prep.ACMDL;
+
+import java.io.*;
+import java.net.*;
+import java.net.URL;
+
+public class DownloadIP {
+
+	String api = "http://tvp.daxiangdaili.com/ip/?tid=559668919475897&num=1&category=2";
+	
+	public DownloadIP(){}
+	
+	
+	public void download(){
+		URL url;
+		try {
+			url = new URL(api);
+			HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+		    connection.setConnectTimeout(3000);
+		    connection = (HttpURLConnection)url.openConnection();
+		    InputStream raw = connection.getInputStream();  
+		    InputStream in = new BufferedInputStream(raw);  
+		    byte[] data = new byte[in.available()];
+		    int bytesRead = 0;  
+		    int offset = 0;  
+		    while(offset < data.length) {  
+		         bytesRead = in.read(data, offset, data.length - offset);  
+		         if(bytesRead == -1) {  
+		        	 break;  
+		           }  
+		            offset += bytesRead;  
+		     }  
+		    in.close();
+		    
+		    String[] res = new String(data, "UTF-8").split("\n");
+		    for(String str:res) System.out.println(str);
+		 
+		    
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public static void main(String[] args){
+		DownloadIP downloadIP = new DownloadIP();
+		downloadIP.download();
+	}
+	
+	
+	
+}

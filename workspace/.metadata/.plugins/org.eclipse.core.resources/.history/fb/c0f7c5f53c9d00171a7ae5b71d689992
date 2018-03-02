@@ -1,0 +1,19 @@
+package algorithm.basic;
+
+public class test {
+
+	
+	public int[] hand(int num, int element, int[] stream){
+		int[] count=new int[1];
+		for(int x: stream){
+			
+			
+			
+			
+			
+		}
+		
+		return count;
+	}
+	
+}

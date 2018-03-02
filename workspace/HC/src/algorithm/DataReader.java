@@ -14,6 +14,8 @@ public class DataReader {
 	private int edgeNum=-1;
 	
 	
+
+	
 	public DataReader(String graph,String nodes){
 		this.graphFile=graph;
 		this.nodeFile=nodes;
@@ -72,12 +74,17 @@ public class DataReader {
 	}
 	
 	
+	public int getEdgeNum(){
+		return edgeNum;
+	}
+	
 	public int[][] readNodes(){
 		double len=0.0;
 		int[][] nodes=new int[userNum+1][];
 		String line=null;
 		try {
 			BufferedReader bReader = new BufferedReader(new FileReader(nodeFile));
+			int count=0;
 			while((line=bReader.readLine())!=null){
 				String userString = line.substring(0, line.indexOf('\t'));
 				int userId = Integer.parseInt(userString);

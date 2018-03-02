@@ -1,0 +1,189 @@
+package EXP;
+
+import java.io.*;
+import java.util.*;
+
+import algorithm.CPTreeReader;
+import algorithm.ProfiledTree.PNode;
+import algorithm.kwIndex.KWTree;
+import algorithm.kwIndex.Query1_margin.Query1;
+import config.Config;
+import config.Log;
+
+public class DiversityEXP {
+    Log log = null;
+    public DiversityEXP(){
+   	 this.log = new Log();
+    }
+
+
+    private List<Integer> readQueryFile(String queryFile){
+   	 List<Integer> queryList = new ArrayList<Integer>();
+   	 try {
+   		 BufferedReader bReader = new BufferedReader(new FileReader(queryFile));
+   		 String line = null;
+   		 while((line=bReader.readLine())!=null){
+   			 queryList.add(Integer.parseInt(line));
+   		 }
+   	 } catch (Exception e) {
+   		 // TODO: handle exception
+   		 System.out.println(e.getMessage());
+   	 }    
+   	 return queryList;
+    }
+    
+    private Map<Integer, Set<Set<Integer>>> queryK(String graphFile,String nodeFile,String CPtreeFile,String queryFile){
+   	 Map<Integer, Set<Set<Integer>>> verticesMaximalPtreeMap = new HashMap<Integer,Set<Set<Integer>>>();
+   	 Config.k = Integer.parseInt(queryFile.substring(queryFile.length()-5,queryFile.length()-4));
+   	 System.out.println("K is: "+Config.k);
+   	 
+   	 CPTreeReader cpReader = new CPTreeReader(CPtreeFile);
+   	 PNode root=cpReader.loadCPtreeRoot();
+   	 
+   	 KWTree kwTree1 = new KWTree(graphFile,nodeFile,root);
+   	 kwTree1.build();
+   	 Query1 query1 = new Query1(kwTree1.graph,kwTree1.getHeadList());
+   	 List<Integer> queryList = readQueryFile(queryFile);
+   	 
+   	 for(int x:queryList){
+   		 System.out.println("now query: "+ x);
+   		 query1.query(x);
+   		 Set<Set<Integer>> result = query1.getMaximalPattern();
+   		 if(!result.isEmpty()) verticesMaximalPtreeMap.put(x,result);
+   	 }    
+   	 return verticesMaximalPtreeMap;
+    }
+    
+    public void writeResult(Map<Integer, Set<Set<Integer>>> map,String outFile){
+   	 try{
+   		 BufferedWriter stdOut = new BufferedWriter(new FileWriter(outFile));
+   		 for(Iterator<Integer> iter = map.keySet().iterator();iter.hasNext(); ){
+   			 int key = iter.next();
+   			 Set<Set<Integer>> set = map.get(key);
+   			 String line = key+"";
+   			 for(Set<Integer> s:set) line += "\t"+s.toString().substring(1,s.toString().length()-1);
+   			 stdOut.write(line);
+   			 stdOut.newLine();
+   		 }
+   		 stdOut.flush();
+   		 stdOut.close();
+   		 
+   		 
+   	 }catch(Exception e){
+   		 e.printStackTrace();
+   	 }    
+    }
+    
+    public Map<Integer, Set<Set<Integer>>> readResult(String inFile){
+    	Map<Integer, Set<Set<Integer>>> map = new HashMap<Integer, Set<Set<Integer>>>();
+    	try {
+			BufferedReader stdIn = new BufferedReader(new FileReader(inFile));
+    		String line = null;
+    		while((line=stdIn.readLine())!=null){
+    			String[] fragment = line.split("\t");
+    			int id = Integer.parseInt(fragment[0]);
+    			Set<Set<Integer>> patterns = new HashSet<Set<Integer>>();
+    			for(int i=1;i<fragment.length;i++){
+    				String str = fragment[i];
+    				Set<Integer> set = new HashSet<Integer>();
+    				String[] items = str.split(",");
+    				for(String x:items) set.add(Integer.parseInt(x.trim()));
+    				patterns.add(set);
+    			}
+    			map.put(id, patterns);
+    		}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+    	return map;
+    }
+    
+    
+    
+    
+    
+    private String countCommunity(Map<Integer, Set<Set<Integer>>> map){
+   	 int validQueryVerticesSize = map.keySet().size();
+   	 int totalCommunityNumber = 0;
+   	 int acqCommunityNumber = 0;
+   	 for(Iterator<Set<Set<Integer>>> iter = map.values().iterator();iter.hasNext();){
+   		 Set<Set<Integer>> communities = iter.next();
+   		 totalCommunityNumber += communities.size();
+   		 int ACQMax = 0;
+   		 for(Set<Integer> single:communities){
+   			 if(single.size() > ACQMax) ACQMax = single.size();
+			 }
+   		 
+   		 for(Set<Integer> single:communities){
+   			 if(single.size() == ACQMax) acqCommunityNumber += 1;
+			 }
+   	 }
+   	 
+   	 return "valid query vertices: "+validQueryVerticesSize+" PCS community size: "+totalCommunityNumber+" ACQ communities: "+acqCommunityNumber+"\n";    
+    }
+    
+
+    //count the distinct keywords in each query vertex
+    private String distinctKeywords(Map<Integer, Set<Set<Integer>>> map){
+   		 double totalACQWord = 0;
+   		 double totalPCSWord = 0;
+    
+   	 for(Iterator<Set<Set<Integer>>> iter = map.values().iterator();iter.hasNext();){
+   		 Set<Set<Integer>> communities = iter.next();
+   		 int ACQMax = 0;
+   		 Set<Integer> ACQWordBag = new HashSet<Integer>();
+   		 Set<Integer> PCSWordBag = new HashSet<Integer>();
+   		 for(Set<Integer> single:communities){
+   			 if(single.size() > ACQMax) ACQMax = single.size();
+			 }
+   		 for(Set<Integer> single:communities){
+   			 if(single.size()==ACQMax){
+   				 ACQWordBag.addAll(single);
+   			 }
+   			 PCSWordBag.addAll(single);
+   		 }
+   		 
+   		 totalACQWord += ACQWordBag.size();
+   		 totalPCSWord += PCSWordBag.size();    
+   	 }
+
+   	 return "ACQ average distinct words: "+totalACQWord/map.size()+"  PCS average distinct words: "+totalPCSWord/map.size();
+   	 
+    }
+
+
+    
+    
+    public void exp(String graphFile,String nodeFile,String CPtreeFile,String queryFile,String outFile){
+   	 Map<Integer, Set<Set<Integer>>> verticesMaximalPtreeMap = queryK(graphFile, nodeFile, CPtreeFile, queryFile);
+//   	 String std = countCommunity(verticesMaximalPtreeMap);
+//   	 log.log(std);
+   	 writeResult(verticesMaximalPtreeMap,outFile);
+    }
+    
+    
+    
+    
+    public static void main(String[] args){
+   	 DiversityEXP diversityEXP = new DiversityEXP();
+//   	 diversityEXP.exp(Config.pubMedGraph, Config.pubMedNode, Config.pubmedCPtree, Config.pubMedDiversityQueryFile4,Config.pubMedDataWorkSpace+"result4.txt");
+//   	 diversityEXP.exp(Config.pubMedGraph, Config.pubMedNode, Config.pubmedCPtree, Config.pubMedDiversityQueryFile5,Config.pubMedDataWorkSpace+"result5.txt");
+//   	 diversityEXP.exp(Config.pubMedGraph, Config.pubMedNode, Config.pubmedCPtree, Config.pubMedDiversityQueryFile6,Config.pubMedDataWorkSpace+"result6.txt");
+//   	 diversityEXP.exp(Config.pubMedGraph, Config.pubMedNode, Config.pubmedCPtree, Config.pubMedDiversityQueryFile7,Config.pubMedDataWorkSpace+"result7.txt");
+//   	 diversityEXP.exp(Config.pubMedGraph, Config.pubMedNode, Config.pubmedCPtree, Config.pubMedDiversityQueryFile8,Config.pubMedDataWorkSpace+"result8.txt");
+
+//   	 diversityEXP.exp(Config.ACMDLGraph, Config.ACMDLNode, Config.ACMDLCPtree, Config.ACMDLDiversityQueryFile4,Config.acmccsDataWorkSpace+"result4.txt");
+//   	 diversityEXP.exp(Config.ACMDLGraph, Config.ACMDLNode, Config.ACMDLCPtree, Config.ACMDLDiversityQueryFile5,Config.acmccsDataWorkSpace+"result5.txt");
+//   	 diversityEXP.exp(Config.ACMDLGraph, Config.ACMDLNode, Config.ACMDLCPtree, Config.ACMDLDiversityQueryFile6,Config.acmccsDataWorkSpace+"result6.txt");
+//   	 diversityEXP.exp(Config.ACMDLGraph, Config.ACMDLNode, Config.ACMDLCPtree, Config.ACMDLDiversityQueryFile7,Config.acmccsDataWorkSpace+"result7.txt");
+//   	 diversityEXP.exp(Config.ACMDLGraph, Config.ACMDLNode, Config.ACMDLCPtree, Config.ACMDLDiversityQueryFile8,Config.acmccsDataWorkSpace+"result8.txt");
+
+   	 
+   	 
+    }
+    
+    
+}
+
+
+

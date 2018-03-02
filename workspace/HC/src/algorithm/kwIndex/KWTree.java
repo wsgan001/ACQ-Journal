@@ -6,6 +6,7 @@ import java.util.Map.Entry;
 
 import javax.swing.text.AbstractDocument.LeafElement;
 
+import EXP.test;
 import algorithm.DataReader;
 import algorithm.ProfiledTree.PNode;
 import config.Config;
@@ -21,7 +22,7 @@ public class KWTree {
 	private Map<Integer,List<KWNode>> headList = null;
 	
 	private boolean debug = true; 
-	private String indexFile= Config.workSpace+"indexFile.txt";
+//	private String indexFile= Config.workSpace+"indexFile.txt";
 	
 	
 	public KWTree(int[][] graph,int[][]nodes,PNode pRoot){
@@ -32,6 +33,8 @@ public class KWTree {
 		this.itemMap = new HashMap<Integer,KWNode>();
 		this.headList = new HashMap<Integer,List<KWNode>>();
 	}
+	
+	
 	
 	
 	public KWTree(String graphFile,String nodeFile,PNode pRoot){
@@ -74,8 +77,13 @@ public class KWTree {
 		root = new KWNode(pRoot.getId());
 		itemMap.put(root.itemId, root);
 		loadCPTree(pRoot);
+		System.out.println(itemMap.size()+" hehre");
+		
 		//------------------------DEBUG------------------------------
-		if(debug) 		System.out.println("Index initialization finished!");
+		if(debug) 		{
+			System.out.println("Index initialization finished!");
+			System.out.println("itemMap: "+itemMap.size());
+		}
 		//----------------------END DEBUG----------------------------
 	}
 	
@@ -104,6 +112,9 @@ public class KWTree {
 			for(int i=1; i< nodes[idx].length;i++){
 				int previousItem = nodes[idx][i-1];
 				int item = nodes[idx][i];
+				if(!itemMap.containsKey(item)){
+					continue;
+				}
 				itemMap.get(item).tmpVertexSet.add(idx);
 				
 				//update the headMap key:userId value:leaf KWNode containing userId
@@ -143,7 +154,7 @@ public class KWTree {
 			idx++;	
 		}
 		
-//		gc();
+		gc();
 		//------------------------DEBUG------------------------------
 		if(debug) 		{
 			System.out.println("Scan database finished!");

@@ -1,0 +1,113 @@
+package prep.ACMDLPrep;
+
+import java.io.IOException;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.*;
+import org.jsoup.select.Elements;
+
+
+public class Crawler {
+	
+	public String JimGray = "https://dl.acm.org/author_page.cfm?id=81100403088";
+	int count= 0;
+	Map<Integer, List<String>> communitiesMap = null;
+	
+	
+	public Crawler(){
+		communitiesMap = new HashMap<Integer,List<String>>();
+		
+	}
+	
+	
+	public void search(){
+		//get all page links
+		Document doc;
+		count =1;
+		Queue<String> queue = new LinkedList<String>();
+		try {
+			doc = Jsoup.connect(JimGray).get();
+			Element element= doc.getElementById("pagelogic");
+			Elements links = element.getElementsByTag("a");
+			queue.add(JimGray);
+			for(Element link:links){
+				queue.add("https://dl.acm.org/"+link.attr("href"));
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		while(!queue.isEmpty()){
+			getHTML(queue.poll());
+		}
+		
+	}
+	
+	
+	private void getHTML(String startUrl){
+		try {
+			Document doc = Jsoup.connect(startUrl).get();
+			
+			Elements elements = doc.getElementsByClass("details");
+			for(Element element:elements) {
+				Elements links = element.getElementsByTag("a");
+				String href = links.attr("href");
+				Elements authors = element.getElementsByClass("authors");
+				for(Element authorElement:authors ){
+					
+					System.out.println("now query "+(count++)+" authors: "+authorElement.text());
+					obtainData("https://dl.acm.org/"+href);
+				}
+				
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	
+
+	
+	
+	private String obtainData(String url){
+		String output = new String(); 
+		try{
+			Document doc = Jsoup.connect(url).get();
+			String content = doc.toString().trim();
+			//the regular expression of the CCS temple. It match the text in the format of [{v: .... }]
+			String temple = "(\\[\\{v:.+\\])"; 
+			Pattern pattern = Pattern.compile(temple);
+			Matcher matcher = pattern.matcher(content) ;
+			while(matcher.find()){
+				String string = matcher.group();
+				Pattern pattern2 = Pattern.compile("('\\d+')");// match 'numbers'
+				Matcher matcher2 = pattern2.matcher(string) ;
+				while(matcher2.find()){
+					String num = matcher2.group();
+					output+=num.substring(1, num.length()-1)+"	";
+				}
+				output += "\n";
+			}
+			System.out.println(output);
+
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return output;
+	}
+	
+	
+	public static void main(String[] a){
+		Crawler crawler = new Crawler();
+//		String url = "https://dl.acm.org/author_page.cfm?id=81100403088";
+		crawler.search();
+//		crawler.getCCSNodes(url);
+	}
+	
+}

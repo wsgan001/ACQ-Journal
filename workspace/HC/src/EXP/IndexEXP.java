@@ -32,7 +32,7 @@ public class IndexEXP {
 		IndexEXP indexEXP = new IndexEXP();
 		
 //		indexEXP.test(Config.pubMedGraphTest,Config.pubMedNodeTest);
-		indexEXP.test(Config.pubMedGraph120,Config.pubMedNode120,Config.pubmedCPtree120);
+//		indexEXP.test(Config.pubMedGraph120,Config.pubMedNode120,Config.pubmedCPtree120);
 		
 	}
 	

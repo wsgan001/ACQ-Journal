@@ -51,9 +51,10 @@ public class Query2_Inc {
 		Map<Integer, List<Integer>> childMap = new HashMap<Integer, List<Integer>>();
 		KWNode root = new KWNode(1);
 		subKWTree.put(1, root);
-		System.out.println(headList.get(queryId).size()+"   size ");
+//		System.out.println(headList.get(queryId).size()+"   size ");
 		for(KWNode currentNode:headList.get(queryId)){
 			//to mark the leaf item in the induce subKWtree
+			if(currentNode==null) continue;
 			while(currentNode.itemId != 1){
 				Set<Integer> vertexSet = currentNode.getCKCore(k, queryId);
 				if(!vertexSet.isEmpty()){
@@ -112,7 +113,7 @@ public class Query2_Inc {
 		while(!patternQueue.isEmpty()&&!userQueue.isEmpty()){
 			Set<Integer> checkPattern = patternQueue.poll();
 			Set<Integer>  checkUsers = userQueue.poll();
-			System.out.println("query2_inc pattern size: "+patternQueue.size());
+//			System.out.println("query2_inc pattern size: "+patternQueue.size());
 			if(checkPattern.size()==subKWTree.size()){
 				output.put(checkPattern, checkUsers);
 				break;

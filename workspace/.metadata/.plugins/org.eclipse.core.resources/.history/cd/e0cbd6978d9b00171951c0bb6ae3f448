@@ -1,0 +1,50 @@
+package EXP;
+
+import java.util.Random;
+
+import algorithm.CPTreeReader;
+import algorithm.DataReader;
+import algorithm.ProfiledTree.PNode;
+import algorithm.kwIndex.KWTree;
+import algorithm.kwIndex.Query1.Query1_V1;
+import config.Config;
+import prep.PubMedPrep.BuildMeshTree;
+import prep.PubMedPrep.ConfigPubmed;
+
+public class IndexBasedQueryEXP {
+	
+	public IndexBasedQueryEXP(){
+		
+	}
+	
+	public void exp(String graphFile,String nodeFile,String CPtreeFile){
+		
+		CPTreeReader cpReader = new CPTreeReader();
+		PNode root=cpReader.loadCPtreeRoot(CPtreeFile);
+		KWTree kwTree = new KWTree(graphFile,nodeFile,root);
+		kwTree.build();
+		
+		Query1_V1 query = new Query1_V1(kwTree.graph,kwTree.getHeadList());
+		kwTree=null;
+		while(true){
+			Random random = new Random();
+			int queryID = random.nextInt(80000);
+			System.out.println("now query: "+queryID);
+			query.query(queryID);
+			query.print();
+			if(query.getoutputSize()>0) break;
+		}
+		
+//		query.query(11427);
+//		query.query(5473);
+		query.print();
+		
+	}
+	
+	public static void main(String[] args){
+		IndexBasedQueryEXP exp = new IndexBasedQueryEXP();
+		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10);
+	}
+	
+	
+}

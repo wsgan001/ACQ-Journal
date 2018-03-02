@@ -3,14 +3,17 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/jtidy-r938.jar"/>
 	<classpathentry kind="lib" path="lib/commons-net-3.6.jar"/>
-	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/xercesImpl.jar"/>
-	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/xml-apis.jar"/>
-	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/xalan.jar"/>
-	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/log4j-1.2.12.jar"/>
-	<classpathentry kind="lib" path="/Users/chenyankai/harvester2-0.1.12/harvester2.jar"/>
 	<classpathentry kind="lib" path="lib/jsoup-1.10.3.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/commons-net-3.6.jar"/>
 	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/dom4j-2.1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/harvester2.jar"/>
 	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/htmlunit-2.27-OSGi.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/jsoup-1.10.3.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/jtidy-r938.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/log4j-1.2.12.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/xalan.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="/Users/chenyankai/gitRepository/workspace/HC/lib/xml-apis.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
