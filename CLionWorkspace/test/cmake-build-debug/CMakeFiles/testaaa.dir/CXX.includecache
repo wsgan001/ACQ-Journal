@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/chenyankai/gitRepository/CLionWorkspace/test/library.cpp
+library.h
+/Users/chenyankai/gitRepository/CLionWorkspace/test/library.h
+iostream
+-
+
+/Users/chenyankai/gitRepository/CLionWorkspace/test/library.h
+
