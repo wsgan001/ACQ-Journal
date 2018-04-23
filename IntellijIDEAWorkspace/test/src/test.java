@@ -1,23 +1,38 @@
 public class test {
+    public int[] a;
+    public int[] combinition;
 
-    static int [] f = new int [100];
-    static int size = 20;
-    public static void main (String [] args) {
-        f [0] = 1;
-        f [1] = 2;
-        for (int n = 2;n<size;n++) {
-            f [n] = recurse (n-1)+1;
-            System.out.print(f [n]+" ");
-        }
+    public test(int[] b){
+        this.a = b;
+        combinition = new int[a.length];
     }
 
-    static int recurse (int left) {
-        if (left == 0) return 1;
-        if (left == 1) return 2;
-        int max = 0;
-        for (int i = 1;i <= left;i++)
-            max = Math.max (max,f[i] * recurse (left - i));
 
-        return max;
+    public static void main (String [] args) {
+        int a[] ={3,6,4,1,2,2,7,1,8,10};
+        test t = new test(a);
+        t.findCombinition(13,0,t.a,0,t.a.length,t.combinition);
+
+        }
+
+
+    void findCombinition(int sum,int pointer, int[] a, int start, int end, int[] c ){
+
+        for(int i=start; i<end; i++){
+            sum = sum-a[i];
+            c[pointer] = i;
+            pointer++;
+            if(sum==0){
+                for(int j = 0; j<pointer;j++){
+//                    System.out.print(a[c[j]]+"   ");
+                    System.out.print(c[j]+"   ");// using index; If you want to ouput the value: a[c[j]]
+                }
+                System.out.println();
+            }else {
+                findCombinition(sum,pointer,a,i+1,end,c);
+            }
+            sum = sum+a[i];
+            pointer--;
+        }
     }
 }

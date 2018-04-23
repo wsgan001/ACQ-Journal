@@ -27,10 +27,10 @@ public class AdvancedIndex {
 	private UnionFind uf = null;
 
 	
-//	public AdvancedIndex(int graph[][], String nodes[][]){
-//		this.graph = graph;
-//		this.nodes = nodes;
-//	}
+	public AdvancedIndex(int graph[][], String nodes[][]){
+		this.graph = graph;
+		this.nodes = nodes;
+	}
 	
 	public AdvancedIndex(String graphFile, String nodeFile){
 		DataReaderPCS dataReader = new DataReaderPCS(graphFile, nodeFile);

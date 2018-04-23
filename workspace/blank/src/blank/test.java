@@ -25,7 +25,7 @@ public class test {
 	    
 	    public int identify(char x){
 	        if(x=='Q'||x=='W'||x=='E'||x=='R'||x=='T'||x=='Y'||x=='U'||x=='I'||x=='O'||x=='P') return 1;
-	        else if(x='A'||x=='S'||x=='D'||x=='F'||x=='G'||x=='H'||x=='J'||x=='K'||x=='L') return 2;
+	        else if(x='A'|| x=='S'||x=='D'||x=='F'||x=='G'||x=='H'||x=='J'||x=='K'||x=='L') return 2;
 	        else return 3;
 	        
 	    }
