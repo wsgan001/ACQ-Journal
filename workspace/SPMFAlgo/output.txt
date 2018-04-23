@@ -1,3 +1,0 @@
-c p #SUP: 3
-c f a m #SUP: 3
-b #SUP: 3
