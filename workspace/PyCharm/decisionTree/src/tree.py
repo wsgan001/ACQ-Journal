@@ -87,3 +87,31 @@ def createTree(dataSet, labels):
     return tree
 
 
+# classify function
+def classify(inTree, labels, testVec):
+    firstStr = list(inTree.keys())[0]
+    secondDict = inTree[firstStr]
+    # .index() helps to find the first attribute which matches firstStr
+    attrIndex = labels.index(firstStr)
+    for key in secondDict.keys():
+        if testVec[attrIndex] == key:
+            if type(secondDict[key]).__name__ == 'dict':
+                classLabel = classify(secondDict[key], labels, testVec)
+            else:
+                classLabel = secondDict[key]
+    return classLabel
+
+
+# function to store the decision tree
+# using the serialization of pickle package
+def storeTree(inTree, fileName):
+    import pickle as pk # pickle: serialization module which helps to store the objects
+    fw = open(fileName, 'wb')
+    pk.dump(inTree, fw)
+    fw.close()
+
+
+def loadTree(fileName):
+    import pickle
+    fr = open(fileName, 'rb')
+    return pickle.load(fr)
