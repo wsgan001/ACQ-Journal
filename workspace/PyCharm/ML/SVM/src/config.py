@@ -1,0 +1,1 @@
+testSet = "/Users/chenyankai/gitRepository/workspace/PyCharm/ML/SVM/file/testSet.txt"
