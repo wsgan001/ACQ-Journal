@@ -8,4 +8,5 @@ PYDEV_FUNDING_SHOW_AT_TIME_2016=1523359855460
 UNICODE_COLOR=0,144,0
 eclipse.preferences.version=1
 org.python.pydev.editor.templates.PyTemplatePreferencesPage=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="false" context\="org.python.pydev.editor.templates.python.modules" deleted\="false" description\="Module\: Empty" enabled\="true" id\="org.python.pydev.editor.templates.python.module.empty" name\="&lt;Empty&gt;">\#coding\=utf-8\n'''\n\nCreated on ${date}\n\n@author\: ${user}\n'''\n${cursor}</template></templates>
+synch_ignore_entries_5t8f5u9d7lgmc3jz3cymtcxlt=/Library/Python/2.7/site-packages/pip-10.0.1-py2.7.egg|||/Users/chenyankai/Library/Python/2.7/lib/python/site-packages
 synch_ignore_entries_bxgmg9hdp2oucq91odsrlzs8l=/Users/chenyankai/anaconda/python.app/Contents/lib/python3.6/site-packages/yahoo_finance-1.4.0-py3.6.egg

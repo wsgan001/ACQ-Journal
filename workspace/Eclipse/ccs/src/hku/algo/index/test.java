@@ -48,8 +48,10 @@ public class test {
 //		DataReader d1DataReader=new DataReader(Config.flickrGraph , Config.flickrNode); 
 //		int graph1[][]=d1DataReader.readGraph();
 //		String nodes1[][]=d1DataReader.readNode();  
-		//BasicIndex basicIndex=new BasicIndex(graph, nodes);
-		
+//		BasicIndex basicIndex=new BasicIndex(graph, nodes);
+		AdvancedIndex index = new AdvancedIndex(graph, nodes);
+		TNode root =index.build();
+		index.traverse(root);
 	
 //	 	ac.traverse(root);
 		

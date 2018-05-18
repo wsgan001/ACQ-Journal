@@ -142,9 +142,7 @@ public class AdvancedIndex {
 				if(core[nghId] >= core[id]){ //**********************  Dec 6, 2016 CYK: This action aims to get a representatives set 
 					//**********************  Dec 6, 2016 CYK:  if core large than id, then find out the parent node to be the representatives. 
 					if(core[nghId] > core[id])   {
-						//System.out.println("id is "+id+"     nhgid: "+nghId+"!!!!");
 						nghId = uf.find(unodeArr[nghId]).value;//**********************  Dec 7, 2016 CYK: you should understand the meaning of Union-find, just find out the parent of all the vertices,and put them in a virtual set 
-						//System.out.println(nghId+"####");
 					}//replaced by parent  
 					if(!idUFMap.containsKey(nghId)){
 						UNode unode = new UNode(nghId);
@@ -202,7 +200,9 @@ public class AdvancedIndex {
 			Set<TNode> childSet = ufTNodeMap.get(parent);
 			
 			TNode tnode = new TNode(curCoreNum);
+			System.out.println("nodeSet here: "+ nodeSet.toString());
 			tnode.setNodeSet(nodeSet);
+			
 			//**********************  Jan 6, 2017 CYK: set father node attribute 
 			if(childSet != null) {
 				tnode.setChildList(new ArrayList<TNode>(childSet));

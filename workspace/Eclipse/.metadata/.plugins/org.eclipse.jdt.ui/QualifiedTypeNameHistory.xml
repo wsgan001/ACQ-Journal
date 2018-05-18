@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ORG.oclc.oai.harvester2.verb.ListMetadataFormats"/>
-<fullyQualifiedTypeName name="sun.lwawt.macosx.CPrinterDevice"/>
-<fullyQualifiedTypeName name="algorithm.ProfiledTree.PNode"/>
 <fullyQualifiedTypeName name="apple.laf.JRSUIState.TitleBarHeightState"/>
 <fullyQualifiedTypeName name="java.util.ConcurrentModificationException"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
@@ -55,9 +52,12 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="blank.test"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.OutOfMemoryError"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xpath.internal.operations.String"/>
 <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="hku.algo.index.AdvancedIndex"/>
+<fullyQualifiedTypeName name="hku.algo.TNode"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="javax.print.attribute.standard.PrinterLocation"/>
 </qualifiedTypeNameHistroy>
