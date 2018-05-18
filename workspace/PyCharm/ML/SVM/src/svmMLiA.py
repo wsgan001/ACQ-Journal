@@ -1,6 +1,23 @@
 import numpy as np
 from src.optStruct import *
 
+
+class optStruct:
+    def __init__(self, dataMatIn, classLabels, C, toler, kTup):  # Initialize the structure with the parameters
+        self.X = dataMatIn
+        self.labelMat = classLabels
+        self.C = C
+        self.tol = toler
+        self.m = np.shape(dataMatIn)[0]
+        self.alphas = np.mat(np.zeros((self.m, 1)))
+        self.b = 0
+        self.eCache = np.mat(np.zeros((self.m, 2)))  # first column is valid flag
+        # new items to help Kernel function
+        self.K = np.mat(np.zeros((self.m, 2)))
+        for i in range(self.m):
+            self.K[:, i] = kernelTrans(self.X, self.X[i, :], kTup)
+
+
 def loadDataSetDemo(fileName):
     dataMat = []; labelMat = []
     fr = open(fileName)
@@ -164,3 +181,19 @@ def calcWs(alphas, dataArr, classLabels):
     for i in range(m):
         w += np.multiply(alphas[i]*labelMat[i], X[i, :].T)
     return w
+
+
+# kernel function
+def kernelTrans(X, A, kTup):
+    m, n = np.shape(X)
+    K = np.mat(np.zeros((m, 1)))
+    if kTup[0] == 'lin': k = X * A.T
+    elif kTup[0] == 'rbf':
+        for j in range(m):
+            deltaRow = X[j, :] -A
+            K[j] = deltaRow * deltaRow.T
+        K = np.exp(K / (-1 * kTup[1] **2))
+    else:
+        raise NameError('Houston we have a problem -- That Kernel is not recognized.')
+
+
