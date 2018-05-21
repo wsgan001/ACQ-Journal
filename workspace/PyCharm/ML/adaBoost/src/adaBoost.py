@@ -44,3 +44,30 @@ def buildStump(dataArr, classLabels, D):
                     bestStump['ineq'] = inequal
     return bestStump, minError, bestClasEst
 
+
+def adaBoostTrainDS(dataArr,classLabels,numIt=40):
+    weakClassArr = []
+    m = np.shape(dataArr)[0]
+    D = np.mat(np.ones((m, 1))/m)    # init D to all equal
+    aggClassEst = np.mat(np.zeros((m, 1)))
+    for i in range(numIt):
+        bestStump,error,classEst = buildStump(dataArr,classLabels, D)    # build Stump
+        # print "D:",D.T
+        alpha = float(0.5*np.log((1.0-error)/max(error,1e-16))) # calc alpha, throw in max(error,eps) to account for error=0
+        bestStump['alpha'] = alpha
+        weakClassArr.append(bestStump)                  # store Stump Params in Array
+        # print "classEst: ",classEst.T
+        expon = np.multiply(-1*alpha*np.mat(classLabels).T,classEst) # exponent for D calc, getting messy
+        D = np.multiply(D,np.exp(expon))                              # Calc New D for next iteration
+        D = D/D.sum()
+        # calc training error of all classifiers, if this is 0 quit for loop early (use break)
+        aggClassEst += alpha*classEst
+        # print "aggClassEst: ",aggClassEst.T
+        aggErrors = np.multiply(np.sign(aggClassEst) != np.mat(classLabels).T, np.ones((m,1)))
+        errorRate = aggErrors.sum()/m
+        print("total error: ", errorRate)
+        if errorRate == 0.0: break
+    return weakClassArr, aggClassEst
+
+
+print(np.ones((5,1))/5)
