@@ -1,0 +1,6 @@
+ex00 = "/Users/chenyankai/gitRepository/workspace/PyCharm/ML/treeRegression/file/ex00.txt"
+ex0 = "/Users/chenyankai/gitRepository/workspace/PyCharm/ML/treeRegression/file/ex0.txt"
+exp2 = "/Users/chenyankai/gitRepository/workspace/PyCharm/ML/treeRegression/file/exp2.txt"
+bikeTrain = "/Users/chenyankai/gitRepository/workspace/PyCharm/ML/treeRegression/file/bikeSpeedVsIq_train.txt"
+bikeTest = "/Users/chenyankai/gitRepository/workspace/PyCharm/ML/treeRegression/file/bikeSpeedVsIq_test.txt"
+sine = "/Users/chenyankai/gitRepository/workspace/PyCharm/ML/treeRegression/file/sine.txt"
