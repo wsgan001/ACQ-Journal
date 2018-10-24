@@ -6,7 +6,7 @@ import config.Config;
 import prep.PubMedPrep.BuildMeshTree;
 
 
-public class BasicQueryEXP {
+public class basicQueryEXP {
 
 	public void test(String graphFile,String nodeFile){
 		BuildMeshTree bmTree=new BuildMeshTree();
@@ -20,8 +20,9 @@ public class BasicQueryEXP {
 	}
 	
 	public static void main(String[] args){
-		BasicQueryEXP basic = new BasicQueryEXP();
-		Config.k =6;
+//		BasicQueryEXP basic = new BasicQueryEXP();
+//		Config.k =6;
+		System.out.println("aaa");
 //		basic.test(Config.pubMedGraph,Config.pubMedNode);
 	}
 	

@@ -1,22 +1,18 @@
 package prep.DBLPPrep;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.*;
-import java.util.Map.Entry;
+
 
 
 import algorithm.CPTreeReader;
 import algorithm.ProfiledTree.PNode;
-import config.Config;
 
 public class Profile {
 	
 	boolean isdebug = false;
 	
-	String itemFile = "/home/fangyixiang/Desktop/HC/dataspace/DBLP/itemName.txt";
+	String itemFile = "/Users/chenyankai/Documents/HKU_research/PCS/dataset/facebook/itemName.txt";
 	String cpTreeFile = null;
 	String[] ccsList = null;
 	int CPTreeItemSize = 1908;
@@ -43,20 +39,21 @@ public class Profile {
 			while((line=stdIn.readLine())!=null){
 				String[] str = line.split(";");
 				int index =Integer.parseInt(str[1]);
+				System.out.println(index+"   now ");
 				ccsList[index] = str[2];
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
-
+	
 	
 	private boolean bigger(double a,double b){
 		if((a-b) > D) return true;
 		else return false;
 	}
 	
-	//1 is the closest
+	//1 is the closest     
 	private Set<Integer> TopK1Closest(double[] ranks,int topK,double lowBound){
 		Set<Integer> indexSet = new HashSet<Integer>();
 		while(indexSet.size()!=topK){
@@ -105,7 +102,8 @@ public class Profile {
 		for(int index = 1;index<ccsList.length;index++){
 			
 			String ccsItem = ccsList[index];
-			if(ccsItem==null) System.out.print("null");
+			if(ccsItem==null) System.out.println("ccsItem null here index: "+ index);
+			if(str==null) System.out.println("str null");
 			editDisRanks[index]= distance.editDis(str, ccsItem);
 		}
 		Set<Integer> set1=TopK1Closest(editDisRanks, topk,lowBound);
@@ -205,24 +203,25 @@ public class Profile {
 			BufferedReader std = new BufferedReader(new FileReader(nodeFile));
 			String line = null;
 			while((line=std.readLine())!=null){
-				String[] str = line.split("\t");
+				String[] str = line.split("	");
 				int No = Integer.parseInt(str[0]);
 				System.out.println(No);
 				
 				
-				if(str.length < 3){
+				if(str.length < 2){
 					Set<Integer> set = new HashSet<Integer>();
 					set.add(1);
 					map.put(No, set);
 					continue;
 					
 				}
-				String keywords = str[2].trim();
+				
+				String keywords = str[1].trim();
 				Set<Integer> ptrees = new HashSet<Integer>(); 
 				String[] singleKeyword = keywords.split(" ");
 				for(String s:singleKeyword){
-					if(wordCount.get(s)<6) continue;
-
+//					if(wordCount.get(s)<6) continue;
+				
 					Set<Integer> set = buffer.get(s);
 					//if the keyword is the first time to compute, store it in the buffer
 					if(set == null){
@@ -231,6 +230,7 @@ public class Profile {
 						buffer.put(s, set);
 					}
 					ptrees.addAll(set);
+					System.out.println("NO: "+No+"  size: "+ptrees.size());
 				}
 				if(ptrees.isEmpty()){
 					ptrees.add(1);
@@ -338,15 +338,17 @@ public class Profile {
 //		String out2 ="/home/fangyixiang/Desktop/HC/dataspace/DBLP/dblp-pcs-node-2.txt";
 
 //		
-		String nodefile = "/home/fangyixiang/Desktop/HC/dataspace/Flickr/flickr-node.txt";
-		String CPtreeFile = "/home/fangyixiang/Desktop/HC/dataspace/Flickr/CPTree.txt";
-		String out1 ="/home/fangyixiang/Desktop/HC/dataspace/Flickr/flickr-pcs-node-1.txt";
-		String out ="/home/fangyixiang/Desktop/HC/dataspace/Flickr/flickr-pcs-node-test.txt";
+//		String nodefile = "/home/fangyixiang/Desktop/HC/dataspace/Flickr/flickr-node.txt";
+//		String CPtreeFile = "/home/fangyixiang/Desktop/HC/dataspace/Flickr/CPTree.txt";
+//		String out1 ="/home/fangyixiang/Desktop/HC/dataspace/Flickr/flickr-pcs-node-1.txt";
+//		String out ="/home/fangyixiang/Desktop/HC/dataspace/Flickr/flickr-pcs-node-test.txt";
 
 //		String out2 ="/home/fangyixiang/Desktop/HC/dataspace/Flickr/flickr-pcs-node-2.txt";
 //		String out3 ="/home/fangyixiang/Desktop/HC/dataspace/Flickr/flickr-node-3.txt";
 
-		
+		String nodefile = "/Users/chenyankai/Documents/HKU_research/PCS/dataset/facebook/items.txt";
+		String CPtreeFile ="/Users/chenyankai/Documents/HKU_research/PCS/dataset/facebook/CPTree.txt";
+		String out = "/Users/chenyankai/Documents/HKU_research/PCS/dataset/facebook/node.txt";
 		Profile profile = new Profile(nodefile,CPtreeFile);
 		profile.run(out,1);
 //		profile = new Profile(nodefile,CPtreeFile);

@@ -14,7 +14,7 @@ import algorithm.kwIndex.KWTree;
 import algorithm.kwIndex.Query1_margin.Query1;
 import config.Config;
 
-public class GenerateQueryFile {
+public class generateQueryFile {
 
 	private int querySize = 100;
 
@@ -120,16 +120,17 @@ public class GenerateQueryFile {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	public static void main(String[] args){
-		GenerateQueryFile run = new GenerateQueryFile();
-//		int k = 6;
-//		Config.k=k;
+		generateQueryFile run = new generateQueryFile();
+		int k = 4;
+		Config.k=k;
+		String localDataAddress = "/Users/chenyankai/Documents/HKU_research/PCS/dataset/";
+		String acmccsGraph = localDataAddress + "ACM_CCS/edges.txt";
+		String acmccsNode = localDataAddress + "ACM_CCS/nodes.txt";
+		String acmccsCPTree = localDataAddress + "ACM_CCS/CPTree.txt";
+		KWTree kwTree = run.buildKWTree(acmccsCPTree, acmccsGraph, acmccsNode);
+		run.generateForDiversity(k,kwTree,localDataAddress+"ACM_CCS/");
+
 //		run.generateQueryRandom(Config.ACMDLGraph, Config.ACMDLNode, Config.acmccsDataWorkSpace+"query100.txt", 100, 0, 40);
 //		run.generateQueryRandom(Config.ACMDLGraph, Config.ACMDLNode, Config.acmccsDataWorkSpace+"query2.txt", 100, 0, 40);
 //		run.generateQueryRandom(Config.ACMDLGraph, Config.ACMDLNode, Config.acmccsDataWorkSpace+"query3.txt", 100, 0, 40);

@@ -1,0 +1,31 @@
+package EXP;
+
+import java.util.*;
+
+public class accuracy {
+
+	public double precision(Set<Integer> QueryCommunity, Set<Integer> TrueCommunity){
+		Set<Integer> set = new HashSet<Integer>();
+		set.addAll(QueryCommunity);
+		set.retainAll(TrueCommunity);
+		double size1 = set.size();
+		double size2 = QueryCommunity.size();
+		return size1/size2;
+	}
+	
+	public double recall(Set<Integer> QueryCommunity, Set<Integer> TrueCommunity){
+		Set<Integer> set = new HashSet<Integer>();
+		set.addAll(QueryCommunity);
+		set.retainAll(TrueCommunity);
+		double size1 = set.size();
+		double size2 = TrueCommunity.size();
+		return size1/size2;
+	}
+	
+
+	public double F1(){
+		
+	}
+	
+	
+}

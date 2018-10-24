@@ -1,0 +1,82 @@
+package EXP;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.util.*;
+
+public class accuracy {
+
+	public double precision(Set<Integer> QueryCommunity, Set<Integer> TrueCommunity){
+		Set<Integer> set = new HashSet<Integer>();
+		set.addAll(QueryCommunity);
+		set.retainAll(TrueCommunity);
+		double size1 = set.size();
+		double size2 = QueryCommunity.size();
+		return size1/size2;
+	}
+	
+	public double recall(Set<Integer> QueryCommunity, Set<Integer> TrueCommunity){
+		Set<Integer> set = new HashSet<Integer>();
+		set.addAll(QueryCommunity);
+		set.retainAll(TrueCommunity);
+		double size1 = set.size();
+		double size2 = TrueCommunity.size();
+		return size1/size2;
+	}
+	
+
+	public double F1(double precision, double recall){
+		return 2*(precision*recall)/(precision+recall);
+	}
+	
+	
+	public Map<Integer, Set<Integer>> getGroundTrueCommunity(String file,int k){
+		Map<Integer, Set<Integer>> queryIdCommunity = new HashMap<Integer, Set<Integer>>();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line = new String();
+			while((line=reader.readLine())!=null){
+				String[] str = line.split("\t");
+				if(str.length >= k+1){
+					Random random = new Random();
+					int queryId = Integer.parseInt(str[random.nextInt(str.length-2) + 1]);
+					
+					if(!queryIdCommunity.containsKey(queryId)){
+						Set<Integer> commmunity = new HashSet<Integer>();
+						for(int i = 1; i <str.length; i++ ){
+							int vertex = Integer.parseInt(str[i]);
+							
+							commmunity.add(vertex);
+							System.out.println(commmunity.size());
+						}
+						queryIdCommunity.put(queryId, commmunity);
+					} 
+					
+				}
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return queryIdCommunity;
+	}
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args){
+		accuracy accuracy = new accuracy();
+		String file = "/Users/chenyankai/Downloads/facebook/0.circles";
+		Map<Integer, Set<Integer>> map = accuracy.getGroundTrueCommunity(file, 4);
+		for(Iterator<Integer> key = map.keySet().iterator(); key.hasNext();){
+			int queryId = key.next();
+			Set<Integer> community = new HashSet<Integer>();
+			System.out.println("queryId: "+queryId+"  community :"+community.toString());
+		}
+	}
+	
+}

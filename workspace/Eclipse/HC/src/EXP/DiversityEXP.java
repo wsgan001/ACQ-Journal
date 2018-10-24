@@ -4,16 +4,18 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
+import com.sun.corba.se.impl.orbutil.graph.Graph;
+
 import algorithm.CPTreeReader;
+import algorithm.PreviousWork.SIGKDD2010;
 import algorithm.ProfiledTree.PNode;
 import algorithm.kwIndex.KWTree;
 import algorithm.kwIndex.Query1_margin.Query1;
 import config.Config;
 import config.Log;
 
-public class DiversityEXP {
+public class diversityEXP {
 	
-
 
 	private List<Integer> readQueryFile(String queryFile){
 		List<Integer> queryList = new ArrayList<Integer>();
@@ -85,7 +87,6 @@ public class DiversityEXP {
 	}
 	
 	
-	
 	public Map<Integer, Map<Set<Integer>,Set<Integer>>> readResult(String inFile){
 	Map<Integer, Map<Set<Integer>,Set<Integer>>> map = new HashMap<Integer, Map<Set<Integer>,Set<Integer>>>();
     	try {
@@ -116,10 +117,6 @@ public class DiversityEXP {
     }
 
 
-
-
-
-	
 	private String countCommunity(Map<Integer, Map<Set<Integer>,Set<Integer>>>bigMap){
 		Iterator<Map<Set<Integer>,Set<Integer>>> iter1 = bigMap.values().iterator();
 		int totalCommunityNumber = 0;
@@ -143,6 +140,8 @@ public class DiversityEXP {
 	}
 	
 
+	
+	
 	//count the distinct keywords in each query vertex
 	private String distinctKeywords(Map<Integer, Map<Set<Integer>,Set<Integer>>> bigMap){
 		double totalACQWord = 0;
@@ -180,7 +179,6 @@ public class DiversityEXP {
 	return "ACQ average distinct words: "+totalACQWord+"  PCS average distinct words: "+totalPCSWord+ " rad: "+(double) totalPCSWord/totalACQWord ;
 	
 }
-
 
 
 
@@ -277,7 +275,7 @@ public class DiversityEXP {
 	public void exp(String graph,String node,String CPTree,String queryFile,String outFile){
 		KWTree kwtree = buildKWTree(graph, node, CPTree);
 		Map<Integer, Map<Set<Integer>,Set<Integer>>> verticesMaximalPtreeMap = queryK(kwtree, queryFile);
-//		String std = countCommunity(verticesMaximalPtreeMap);
+		String std = countCommunity(verticesMaximalPtreeMap);
 //		Log.log(graph+"\n"+std);
 		writeResult(verticesMaximalPtreeMap,outFile);
 	}
@@ -286,11 +284,11 @@ public class DiversityEXP {
 	
 	
 	public static void main(String[] args){
-		DiversityEXP diversityEXP = new DiversityEXP();
+		diversityEXP diversityEXP = new diversityEXP();
 //		diversityEXP.exp(Config.pubMedGraph, Config.pubMedNode, Config.pubmedCPtree,Config.pubMedDataWorkSpace+"query1000.txt",Config.pubMedDataWorkSpace+"122result");
 //		diversityEXP.exp(Config.FlickrGraph, Config.FlickrNode1,Config.FlickrCPTree,Config.FlickrDataWorkSpace+"query1000.txt",Config.FlickrDataWorkSpace+"122result");
 //		Map<Integer, Map<Set<Integer>,Set<Integer>>> map = diversityEXP.readResult(Config.pubMedDataWorkSpace+"122result");
-		diversityEXP.exp(Config.acmccsDataWorkSpace+"edges_jimGray.txt",Config.acmccsDataWorkSpace+"nodes_jimGray.txt",Config.ACMDLCPtree,Config.acmccsDataWorkSpace+"query1",Config.acmccsDataWorkSpace+"resultjimGray");
+//		diversityEXP.exp(Config.acmccsDataWorkSpace+"edges_jimGray.txt",Config.acmccsDataWorkSpace+"nodes_jimGray.txt",Config.ACMDLCPtree,Config.acmccsDataWorkSpace+"query1",Config.acmccsDataWorkSpace+"resultjimGray");
 		
 		for(int i=5;i<9;i++){
 			Config.k =i;

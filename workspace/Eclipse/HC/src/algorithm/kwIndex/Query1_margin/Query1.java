@@ -111,7 +111,8 @@ public class Query1 {
 			FindCKCore findCKCore = new FindCKCore();
 			DecomposeKCore decomposeKCore = new DecomposeKCore(graph);
 			clearPC=findCKCore.findCKC(graph, decomposeKCore.decompose(), query);
-			if(clearPC.isEmpty()) return;
+			
+			if(clearPC==null || clearPC.isEmpty()) return;
 			else {
 				Set<Integer> pattern = new HashSet<Integer>();
 				pattern.add(1);
@@ -124,6 +125,7 @@ public class Query1 {
 //		System.out.println("entering expandCut.");
 		
 		long time1 = System.nanoTime(); 
+		if(initCut.size()!=2) return;
 		iterativeExpandCut(initCut.get(0), initCut.get(1));
 //		System.out.println("expand cut time: "+(System.nanoTime()-time1)/1000);
 //		print();

@@ -25,9 +25,9 @@ import algorithm.simpleKWIndex.query1.query1;
 import config.Config;
 
 
-public class IndexBasedQueryEXP {
+public class indexBasedQueryEXP {
 
-	public IndexBasedQueryEXP(){
+	public indexBasedQueryEXP(){
 		
 	}
 	
@@ -88,7 +88,7 @@ public class IndexBasedQueryEXP {
 		for(int x:queryList){
 			System.out.println("now query: "+x);
 			long time11 = System.nanoTime();
-			query1.query(x);
+//			query1.query(x);
 			time1+=System.nanoTime()-time11;
 //			getNum(query1.getMaximalPattern(),std);
 //			int[] size= getleavesProportionofACQ(query1.getLeavesofMaximalPattern());
@@ -394,7 +394,7 @@ public class IndexBasedQueryEXP {
 	
 	
 	public static void main(String[] args){
-		IndexBasedQueryEXP exp = new IndexBasedQueryEXP();
+		indexBasedQueryEXP exp = new indexBasedQueryEXP();
 //		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10,Config.pubMedQueryFile4);
 //		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10,Config.pubMedQueryFile5);
 //		exp.exp(Config.pubMedGraph10,Config.pubMedNode10,Config.pubmedCPtree10,Config.pubMedQueryFile6);

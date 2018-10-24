@@ -10,7 +10,7 @@ import prep.*;
 import prep.PubMedPrep.BuildMeshTree;
 import prep.PubMedPrep.ConfigPubmed;
 
-public class IndexEXP {
+public class indexEXP {
 
 	
 
@@ -29,7 +29,7 @@ public class IndexEXP {
 	
 	
 	public static void main(String[]  args){
-		IndexEXP indexEXP = new IndexEXP();
+		indexEXP indexEXP = new indexEXP();
 		
 //		indexEXP.test(Config.pubMedGraphTest,Config.pubMedNodeTest);
 //		indexEXP.test(Config.pubMedGraph120,Config.pubMedNode120,Config.pubmedCPtree120);

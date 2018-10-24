@@ -17,6 +17,7 @@ public class Distance {
     }  
 	//edit distance : [0:1] 1 means the closest 
 	public double editDis(String str1,String str2){
+		System.out.println(str1+"   "+str2);
 		int d[][]; // matrix 
         int y = str1.length();  
         int x = str2.length();  

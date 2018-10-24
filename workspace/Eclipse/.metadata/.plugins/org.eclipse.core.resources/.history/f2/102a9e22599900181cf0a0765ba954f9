@@ -1,0 +1,82 @@
+package prep.Facebook;
+
+import java.io.*;
+import java.util.*;
+
+import jdk.internal.org.objectweb.asm.commons.StaticInitMerger;
+
+
+
+public class createPtrees {
+	Map<Integer, Set<Integer>> map = null;
+	
+	public createPtrees(){
+		map = new HashMap<Integer,Set<Integer>>();
+	}
+
+	
+	
+	private void singleCreateNodes(String nodeFile){
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(nodeFile));
+			String line = new String();
+			while((line=reader.readLine())!=null){
+				String[] str = line.split(" ");
+				Set<Integer> setHere = new HashSet<Integer>();
+				for(int i=1;i<str.length;i++){
+					if(Integer.parseInt(str[i])==1) setHere.add(i);
+				}
+				int vertex = Integer.parseInt(str[0]);
+				if(map.containsKey(vertex)){
+					map.get(vertex).addAll(setHere);
+				}
+				else{
+					map.put(vertex, setHere);
+				}
+			}		
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error!");
+		}
+	}
+	
+	private void writeNodes(String outFile){
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter(outFile));
+			int count = 0;
+			while(count!= 3662){
+				String line = new String();
+				if(map.containsKey(count)){
+					Set<Integer> set = map.get(count);
+					List<Integer> list = new ArrayList<Integer>();
+					list.addAll(set);
+					Collections.sort(list);
+				}
+				
+				count++;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
+
+	
+	private void createNodes(String folder,String outFile){
+		int[] fileList = {0, 107, 348, 414, 686, 698, 1684, 1912, 3437, 3980};
+		for(int x:fileList){
+			String fileName = "/Users/chenyankai/Downloads/facebook/" + x + ".feat";
+			singleCreateNodes(fileName);
+		}
+		writeNodes(outFile);
+	}
+	
+	public static void main(String[] args){
+		
+		
+	}
+	
+	
+	
+}

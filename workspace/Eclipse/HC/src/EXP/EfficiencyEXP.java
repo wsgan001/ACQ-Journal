@@ -13,7 +13,7 @@ import algorithm.kwIndex.Query2.Query2_Inc;
 import config.Config;
 import config.Log;
 
-public class EfficiencyEXP {
+public class efficiencyEXP {
 	
 	public List<Integer> readQueryFile(String queryFile){
 		List<Integer> queryList = new ArrayList<Integer>();
@@ -627,7 +627,7 @@ public class EfficiencyEXP {
 	
 	public static void main(String[] args){
 		
-		EfficiencyEXP exp = new EfficiencyEXP();
+		efficiencyEXP exp = new efficiencyEXP();
 		exp.expCPTreeQuery(Config.ACMDLGraph, Config.ACMDLNode, Config.ACMDLCPtree,Config.acmccsDataWorkSpace+"query100.txt",41);
 		exp.expCPTreeQuery(Config.dblpGraph, Config.dblpNode1, Config.DBLPCPTree,Config.DBLPDataWorkSpace+"query100.txt", 41);
 //		exp.expCPtree(Config.ACMDLGraph, Config.ACMDLNode, Config.ACMDLCPtree,10);
