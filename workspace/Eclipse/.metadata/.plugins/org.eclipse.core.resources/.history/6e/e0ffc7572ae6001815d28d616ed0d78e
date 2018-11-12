@@ -1,0 +1,26 @@
+package EXP;
+
+public class otherDefinition {
+	private int graph[][] = null;
+	private int node[][] = null;
+	private int queryId = -1;
+	
+	public otherDefinition(int [][] graph, int node[][]){
+		this.graph = graph;
+		this.node = node;
+	}
+	
+	
+
+	public void mostNodes( ){
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}
