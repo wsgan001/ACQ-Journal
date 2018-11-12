@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="jdk.jfr.events.FileWriteEvent"/>
-<fullyQualifiedTypeName name="java.io.FileWriter"/>
-<fullyQualifiedTypeName name="EXP.ModifyGraphFile"/>
-<fullyQualifiedTypeName name="java.io.Console"/>
-<fullyQualifiedTypeName name="org.apache.commons.net.ftp.parser.ConfigurableFTPFileEntryParserImpl"/>
-<fullyQualifiedTypeName name="algorithm.basic.DFS"/>
 <fullyQualifiedTypeName name="algorithm.CPTreeReader"/>
 <fullyQualifiedTypeName name="config.Log"/>
 <fullyQualifiedTypeName name="org.apache.commons.lang3.ObjectUtils.Null"/>
@@ -45,19 +39,25 @@
 <fullyQualifiedTypeName name="algorithm.simpleKWIndex.query1.query1"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="prep.Facebook.createEdges"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="EXP.indexBasedQueryEXP"/>
 <fullyQualifiedTypeName name="sun.launcher.resources.launcher"/>
 <fullyQualifiedTypeName name="algorithm.PreviousWork.SIGKDD2010"/>
 <fullyQualifiedTypeName name="algorithm.PreviousWork.SIGMOD2014"/>
 <fullyQualifiedTypeName name="javax.print.attribute.standard.RequestingUserName"/>
 <fullyQualifiedTypeName name="EXP.accuracy"/>
-<fullyQualifiedTypeName name="java.util.Set"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="EXP.otherDefinition"/>
+<fullyQualifiedTypeName name="com.sun.javafx.image.IntPixelAccessor"/>
+<fullyQualifiedTypeName name="EXP.checkRepeatition"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="EXP.indexBasedQueryEXP"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="EXP.otherDefinition.DefinitionExp"/>
+<fullyQualifiedTypeName name="EXP.otherDefinition.NumPaths"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="EXP.otherDefinition.TreeSimilarity"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
 </qualifiedTypeNameHistroy>

@@ -4,8 +4,6 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern;
-import com.sun.org.apache.xml.internal.resolver.helpers.PublicId;
 
 import algorithm.CPTreeReader;
 import algorithm.DataReader;
@@ -190,20 +188,20 @@ public class effectiveness {
 		int totalCommunityNumber = 0;
 		int acqCommunityNumber = 0;
 		while(iter1.hasNext()){
-		Map<Set<Integer>,Set<Integer>> map= iter1.next();
+			Map<Set<Integer>,Set<Integer>> map= iter1.next();
 		
 		
-		int ACQMax = 0;
-		for(Iterator<Set<Integer>> iter = map.keySet().iterator();iter.hasNext();){
-			Set<Integer> one = iter.next();
-			if(one.size() > ACQMax) ACQMax = one.size();
+			int ACQMax = 0;
+			for(Iterator<Set<Integer>> iter = map.keySet().iterator();iter.hasNext();){
+				Set<Integer> one = iter.next();
+				if(one.size() > ACQMax) ACQMax = one.size();
+			}
+			for(Iterator<Set<Integer>> iter = map.keySet().iterator();iter.hasNext();){
+				Set<Integer> one = iter.next();
+				totalCommunityNumber ++;		
+				if(one.size() == ACQMax) acqCommunityNumber++;
+				}
 		}
-		for(Iterator<Set<Integer>> iter = map.keySet().iterator();iter.hasNext();){
-			Set<Integer> one = iter.next();
-			totalCommunityNumber ++;		
-			if(one.size() == ACQMax) acqCommunityNumber++;
-		}
-	}
 		return  "PCS community size: "+totalCommunityNumber+" ACQ communities: "+acqCommunityNumber+"\n";	
 	}
 

@@ -207,8 +207,7 @@ public class Query1 {
 				subKWTree.get(child).father = fatherNode;	
 				fatherNode.childList.add(subKWTree.get(child));
 			}
-		}	
-		
+		}		
 		return true;
 	}
 	
