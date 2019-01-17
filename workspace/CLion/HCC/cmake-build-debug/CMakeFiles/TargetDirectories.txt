@@ -1,0 +1,3 @@
+/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles/HCC.dir
