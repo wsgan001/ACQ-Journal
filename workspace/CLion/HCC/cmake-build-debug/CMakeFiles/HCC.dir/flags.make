@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/chenyankai/gitRepository/workspace/CLion/HCC/Eigen -I/Users/chenyankai/gitRepository/CLionWorkspace/HCC/library 
+CXX_INCLUDES = -I/Users/chenyankai/gitRepository/workspace/CLion/HCC/Eigen -I/Users/chenyankai/gitRepository/workspace/CLion/HCC/library 
 

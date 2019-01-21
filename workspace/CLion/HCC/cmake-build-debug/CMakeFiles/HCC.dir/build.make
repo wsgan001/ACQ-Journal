@@ -105,19 +105,149 @@ CMakeFiles/HCC.dir/util/Extract.cpp.o.provides: CMakeFiles/HCC.dir/util/Extract.
 CMakeFiles/HCC.dir/util/Extract.cpp.o.provides.build: CMakeFiles/HCC.dir/util/Extract.cpp.o
 
 
+CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o: CMakeFiles/HCC.dir/flags.make
+CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o: ../util/DBLP/dataProcess.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o -c /Users/chenyankai/gitRepository/workspace/CLion/HCC/util/DBLP/dataProcess.cpp
+
+CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/chenyankai/gitRepository/workspace/CLion/HCC/util/DBLP/dataProcess.cpp > CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.i
+
+CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chenyankai/gitRepository/workspace/CLion/HCC/util/DBLP/dataProcess.cpp -o CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.s
+
+CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o.requires:
+
+.PHONY : CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o.requires
+
+CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o.provides: CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o.provides.build
+.PHONY : CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o.provides
+
+CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o.provides.build: CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o
+
+
+CMakeFiles/HCC.dir/util/Tool.cpp.o: CMakeFiles/HCC.dir/flags.make
+CMakeFiles/HCC.dir/util/Tool.cpp.o: ../util/Tool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HCC.dir/util/Tool.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HCC.dir/util/Tool.cpp.o -c /Users/chenyankai/gitRepository/workspace/CLion/HCC/util/Tool.cpp
+
+CMakeFiles/HCC.dir/util/Tool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HCC.dir/util/Tool.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/chenyankai/gitRepository/workspace/CLion/HCC/util/Tool.cpp > CMakeFiles/HCC.dir/util/Tool.cpp.i
+
+CMakeFiles/HCC.dir/util/Tool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HCC.dir/util/Tool.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chenyankai/gitRepository/workspace/CLion/HCC/util/Tool.cpp -o CMakeFiles/HCC.dir/util/Tool.cpp.s
+
+CMakeFiles/HCC.dir/util/Tool.cpp.o.requires:
+
+.PHONY : CMakeFiles/HCC.dir/util/Tool.cpp.o.requires
+
+CMakeFiles/HCC.dir/util/Tool.cpp.o.provides: CMakeFiles/HCC.dir/util/Tool.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/Tool.cpp.o.provides.build
+.PHONY : CMakeFiles/HCC.dir/util/Tool.cpp.o.provides
+
+CMakeFiles/HCC.dir/util/Tool.cpp.o.provides.build: CMakeFiles/HCC.dir/util/Tool.cpp.o
+
+
+CMakeFiles/HCC.dir/algo/QueryPath.cpp.o: CMakeFiles/HCC.dir/flags.make
+CMakeFiles/HCC.dir/algo/QueryPath.cpp.o: ../algo/QueryPath.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HCC.dir/algo/QueryPath.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HCC.dir/algo/QueryPath.cpp.o -c /Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/QueryPath.cpp
+
+CMakeFiles/HCC.dir/algo/QueryPath.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HCC.dir/algo/QueryPath.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/QueryPath.cpp > CMakeFiles/HCC.dir/algo/QueryPath.cpp.i
+
+CMakeFiles/HCC.dir/algo/QueryPath.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HCC.dir/algo/QueryPath.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/QueryPath.cpp -o CMakeFiles/HCC.dir/algo/QueryPath.cpp.s
+
+CMakeFiles/HCC.dir/algo/QueryPath.cpp.o.requires:
+
+.PHONY : CMakeFiles/HCC.dir/algo/QueryPath.cpp.o.requires
+
+CMakeFiles/HCC.dir/algo/QueryPath.cpp.o.provides: CMakeFiles/HCC.dir/algo/QueryPath.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/QueryPath.cpp.o.provides.build
+.PHONY : CMakeFiles/HCC.dir/algo/QueryPath.cpp.o.provides
+
+CMakeFiles/HCC.dir/algo/QueryPath.cpp.o.provides.build: CMakeFiles/HCC.dir/algo/QueryPath.cpp.o
+
+
+CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o: CMakeFiles/HCC.dir/flags.make
+CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o: ../algo/HIN_Graph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o -c /Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/HIN_Graph.cpp
+
+CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/HIN_Graph.cpp > CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.i
+
+CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/HIN_Graph.cpp -o CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.s
+
+CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o.requires:
+
+.PHONY : CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o.requires
+
+CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o.provides: CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o.provides.build
+.PHONY : CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o.provides
+
+CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o.provides.build: CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o
+
+
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o: CMakeFiles/HCC.dir/flags.make
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o: ../algo/SimCalculator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o -c /Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/SimCalculator.cpp
+
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HCC.dir/algo/SimCalculator.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/SimCalculator.cpp > CMakeFiles/HCC.dir/algo/SimCalculator.cpp.i
+
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HCC.dir/algo/SimCalculator.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/SimCalculator.cpp -o CMakeFiles/HCC.dir/algo/SimCalculator.cpp.s
+
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o.requires:
+
+.PHONY : CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o.requires
+
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o.provides: CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o.provides.build
+.PHONY : CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o.provides
+
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o.provides.build: CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o
+
+
 # Object files for target HCC
 HCC_OBJECTS = \
 "CMakeFiles/HCC.dir/main.cpp.o" \
-"CMakeFiles/HCC.dir/util/Extract.cpp.o"
+"CMakeFiles/HCC.dir/util/Extract.cpp.o" \
+"CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o" \
+"CMakeFiles/HCC.dir/util/Tool.cpp.o" \
+"CMakeFiles/HCC.dir/algo/QueryPath.cpp.o" \
+"CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o" \
+"CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o"
 
 # External object files for target HCC
 HCC_EXTERNAL_OBJECTS =
 
 HCC: CMakeFiles/HCC.dir/main.cpp.o
 HCC: CMakeFiles/HCC.dir/util/Extract.cpp.o
+HCC: CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o
+HCC: CMakeFiles/HCC.dir/util/Tool.cpp.o
+HCC: CMakeFiles/HCC.dir/algo/QueryPath.cpp.o
+HCC: CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o
+HCC: CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o
 HCC: CMakeFiles/HCC.dir/build.make
 HCC: CMakeFiles/HCC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable HCC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/chenyankai/gitRepository/workspace/CLion/HCC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable HCC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/HCC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -127,6 +257,11 @@ CMakeFiles/HCC.dir/build: HCC
 
 CMakeFiles/HCC.dir/requires: CMakeFiles/HCC.dir/main.cpp.o.requires
 CMakeFiles/HCC.dir/requires: CMakeFiles/HCC.dir/util/Extract.cpp.o.requires
+CMakeFiles/HCC.dir/requires: CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o.requires
+CMakeFiles/HCC.dir/requires: CMakeFiles/HCC.dir/util/Tool.cpp.o.requires
+CMakeFiles/HCC.dir/requires: CMakeFiles/HCC.dir/algo/QueryPath.cpp.o.requires
+CMakeFiles/HCC.dir/requires: CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o.requires
+CMakeFiles/HCC.dir/requires: CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o.requires
 
 .PHONY : CMakeFiles/HCC.dir/requires
 
