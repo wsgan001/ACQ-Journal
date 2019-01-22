@@ -150,59 +150,32 @@ algo/HIN_Graph.cpp.s:
 	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.s
 .PHONY : algo/HIN_Graph.cpp.s
 
-algo/QueryPath.o: algo/QueryPath.cpp.o
+dataReader/DataReader.o: dataReader/DataReader.cpp.o
 
-.PHONY : algo/QueryPath.o
-
-# target to build an object file
-algo/QueryPath.cpp.o:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/QueryPath.cpp.o
-.PHONY : algo/QueryPath.cpp.o
-
-algo/QueryPath.i: algo/QueryPath.cpp.i
-
-.PHONY : algo/QueryPath.i
-
-# target to preprocess a source file
-algo/QueryPath.cpp.i:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/QueryPath.cpp.i
-.PHONY : algo/QueryPath.cpp.i
-
-algo/QueryPath.s: algo/QueryPath.cpp.s
-
-.PHONY : algo/QueryPath.s
-
-# target to generate assembly for a file
-algo/QueryPath.cpp.s:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/QueryPath.cpp.s
-.PHONY : algo/QueryPath.cpp.s
-
-algo/SimCalculator.o: algo/SimCalculator.cpp.o
-
-.PHONY : algo/SimCalculator.o
+.PHONY : dataReader/DataReader.o
 
 # target to build an object file
-algo/SimCalculator.cpp.o:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o
-.PHONY : algo/SimCalculator.cpp.o
+dataReader/DataReader.cpp.o:
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/dataReader/DataReader.cpp.o
+.PHONY : dataReader/DataReader.cpp.o
 
-algo/SimCalculator.i: algo/SimCalculator.cpp.i
+dataReader/DataReader.i: dataReader/DataReader.cpp.i
 
-.PHONY : algo/SimCalculator.i
+.PHONY : dataReader/DataReader.i
 
 # target to preprocess a source file
-algo/SimCalculator.cpp.i:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/SimCalculator.cpp.i
-.PHONY : algo/SimCalculator.cpp.i
+dataReader/DataReader.cpp.i:
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/dataReader/DataReader.cpp.i
+.PHONY : dataReader/DataReader.cpp.i
 
-algo/SimCalculator.s: algo/SimCalculator.cpp.s
+dataReader/DataReader.s: dataReader/DataReader.cpp.s
 
-.PHONY : algo/SimCalculator.s
+.PHONY : dataReader/DataReader.s
 
 # target to generate assembly for a file
-algo/SimCalculator.cpp.s:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/SimCalculator.cpp.s
-.PHONY : algo/SimCalculator.cpp.s
+dataReader/DataReader.cpp.s:
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/dataReader/DataReader.cpp.s
+.PHONY : dataReader/DataReader.cpp.s
 
 main.o: main.cpp.o
 
@@ -231,87 +204,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-util/DBLP/dataProcess.o: util/DBLP/dataProcess.cpp.o
-
-.PHONY : util/DBLP/dataProcess.o
-
-# target to build an object file
-util/DBLP/dataProcess.cpp.o:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o
-.PHONY : util/DBLP/dataProcess.cpp.o
-
-util/DBLP/dataProcess.i: util/DBLP/dataProcess.cpp.i
-
-.PHONY : util/DBLP/dataProcess.i
-
-# target to preprocess a source file
-util/DBLP/dataProcess.cpp.i:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.i
-.PHONY : util/DBLP/dataProcess.cpp.i
-
-util/DBLP/dataProcess.s: util/DBLP/dataProcess.cpp.s
-
-.PHONY : util/DBLP/dataProcess.s
-
-# target to generate assembly for a file
-util/DBLP/dataProcess.cpp.s:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.s
-.PHONY : util/DBLP/dataProcess.cpp.s
-
-util/Extract.o: util/Extract.cpp.o
-
-.PHONY : util/Extract.o
-
-# target to build an object file
-util/Extract.cpp.o:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/Extract.cpp.o
-.PHONY : util/Extract.cpp.o
-
-util/Extract.i: util/Extract.cpp.i
-
-.PHONY : util/Extract.i
-
-# target to preprocess a source file
-util/Extract.cpp.i:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/Extract.cpp.i
-.PHONY : util/Extract.cpp.i
-
-util/Extract.s: util/Extract.cpp.s
-
-.PHONY : util/Extract.s
-
-# target to generate assembly for a file
-util/Extract.cpp.s:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/Extract.cpp.s
-.PHONY : util/Extract.cpp.s
-
-util/Tool.o: util/Tool.cpp.o
-
-.PHONY : util/Tool.o
-
-# target to build an object file
-util/Tool.cpp.o:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/Tool.cpp.o
-.PHONY : util/Tool.cpp.o
-
-util/Tool.i: util/Tool.cpp.i
-
-.PHONY : util/Tool.i
-
-# target to preprocess a source file
-util/Tool.cpp.i:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/Tool.cpp.i
-.PHONY : util/Tool.cpp.i
-
-util/Tool.s: util/Tool.cpp.s
-
-.PHONY : util/Tool.s
-
-# target to generate assembly for a file
-util/Tool.cpp.s:
-	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/util/Tool.cpp.s
-.PHONY : util/Tool.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -324,24 +216,12 @@ help:
 	@echo "... algo/HIN_Graph.o"
 	@echo "... algo/HIN_Graph.i"
 	@echo "... algo/HIN_Graph.s"
-	@echo "... algo/QueryPath.o"
-	@echo "... algo/QueryPath.i"
-	@echo "... algo/QueryPath.s"
-	@echo "... algo/SimCalculator.o"
-	@echo "... algo/SimCalculator.i"
-	@echo "... algo/SimCalculator.s"
+	@echo "... dataReader/DataReader.o"
+	@echo "... dataReader/DataReader.i"
+	@echo "... dataReader/DataReader.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... util/DBLP/dataProcess.o"
-	@echo "... util/DBLP/dataProcess.i"
-	@echo "... util/DBLP/dataProcess.s"
-	@echo "... util/Extract.o"
-	@echo "... util/Extract.i"
-	@echo "... util/Extract.s"
-	@echo "... util/Tool.o"
-	@echo "... util/Tool.i"
-	@echo "... util/Tool.s"
 .PHONY : help
 
 

@@ -3,17 +3,26 @@
 //
 
 #include <iostream>
-#include <Eigen/Dense>
+#include "dataReader/DataReader.h"
+
 using namespace std;
 
-using Eigen::MatrixXd;
+int main(){
+    map<int, vector<Edge>> adj;
+    map<int, vector<int> > nodeID_to_type;
+    map<int, string> edge_name;
+    string location = "/Users/chenyankai/Documents/HINDataset/DBLP/";
+    string dblpADJFile = location + "dblpAdj.txt";
+    string nodeID2TypeFile = location + "dblpTotalType.txt";
+    string edgeNameFile = location + "dblpType.txt";
 
-//int main()
-//{
-//    MatrixXd m(2,2);
-//    m(0,0) = 3;
-//    m(1,0) = 2.5;
-//    m(0,1) = -1;
-//    m(1,1) = m(1,0) + m(0,1);
-//    cout << m << endl;
-//}
+    dataReader::readADJ(dblpADJFile, adj);
+    dataReader::readNodeID2Type(nodeID2TypeFile, nodeID_to_type);
+    dataReader::readEdgeName(edgeNameFile, edge_name);
+
+//    dataReader::printADJ(adj);
+//    dataReader::printNodeID2Type(nodeID_to_type);
+//    dataReader::printEdgeName(edge_name);
+};
+
+

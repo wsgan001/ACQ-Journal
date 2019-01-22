@@ -11,37 +11,46 @@
 #include <map>
 using namespace std;
 
-
 class HIN_Node{
 public:
-    int node_id_;
-    int node_type_;
-    string attr_;//if necessary
+    int node_id;
+    int node_type;
+    string key;//if necessary
 
-    vector<int> linking_ids_;
+    vector<int> next_Nodes;
+    vector<int> next_edges;
+    HIN_Node();
+    HIN_Node(int& x, int& y);
+    HIN_Node(int& x, int& y, string& z);
+    bool connect(vector<int>& node_vec, vector<int>& edge_vec);
+
+    bool operator = (const HIN_Node& v);
 };
+
 
 class HIN_Edge{
 public:
-    int src_;
-    int dst_;
-    int edge_type_;
-    string attr_;
+    int src;
+    int dst;
+    int edge_type;
+    string key;
 
     HIN_Edge();
     HIN_Edge(int& src, int& dst, int& type);
+    HIN_Edge(int& src, int& dst, int& type, string& s);
     bool operator == (const HIN_Edge& e);
 };
 
+
 class HIN_Graph{
 public:
-    map<int, HIN_Node> graph_nodes_;
-    map<int, vector<HIN_Edge> > edge_src_;
-    map<int, vector<HIN_Edge> > edge_dst_;
+    map<int, HIN_Node> graph_nodes;
+    map<int, HIN_Edge> src_edges;//key:src_nodeID val: HIN_edge
+    map<int, HIN_Edge> dst_edges;
 
+    HIN_Graph();
 
-    map<int, int> edge_type_2_id_;
-
+    static bool buildGraph(map<int, vector<Edge> > adj, map<int,vector<int> > nodeID_to_type);
 
 };
 
