@@ -27,9 +27,8 @@ HIN_Node::HIN_Node(int &x, int &y, string &z):node_id(x), node_type(y), key(z) {
  * @param: vector<int>& *2: node_vec and edge_vec
  * @return: bool
  */
-bool HIN_Node::connect(vector<int>& node_vec, vector<int>& edge_vec){
+bool HIN_Node::connect(vector<int>& node_vec){
     this->next_Nodes = node_vec;
-    this->next_edges = edge_vec;
     return true;
 }
 
@@ -46,22 +45,10 @@ bool HIN_Node::connect(vector<int>& node_vec, vector<int>& edge_vec){
  */
 HIN_Edge::HIN_Edge() {}
 
-HIN_Edge::HIN_Edge(int &src, int &dst, int &type):src(src), dst(dst), edge_type(type){}
+HIN_Edge::HIN_Edge(int &src, int &dst, int &type):srcID(src), dstID(dst), edge_type(type){}
 
-HIN_Edge::HIN_Edge(int &src, int &dst, int &type, string& s):src(src), dst(dst),edge_type(type), key(s){}
+HIN_Edge::HIN_Edge(int &src, int &dst, int &type, string& s):srcID(src), dstID(dst),edge_type(type), key(s){}
 
-
-/**
- * @Description: operator == overloading funciton
- * @param: const HIN_Edge
- * @return: bool
- */
-bool HIN_Edge::operator==(const HIN_Edge &e) {
-    if(this->src != e.src) return false;
-    if(this->dst != e.dst) return false;
-    if(this->edge_type != e.edge_type) return false;
-    return true;
-}
 
 
 // -----------------------------------------------------
@@ -81,7 +68,31 @@ HIN_Graph::HIN_Graph() {}
  * @param:
  * @return:
  */
-bool HIN_Graph::buildGraph(map<int, vector<Edge> > adj, map<int,vector<int> > nodeID_to_type, map<int,string> edge_name){
+//bool HIN_Graph::buildGraph(map<int, vector<Edge> > adj, map<int,vector<int> > nodeID_to_type, map<int,string> edge_name){
+//}
 
 
+// ---------------------------------------------------------------
+//
+//          Query_Node
+//
+// ---------------------------------------------------------------
+/**
+ * @Description: construction function
+ * @param:
+ * @return:
+ */
+Query_Node::Query_Node():node_type(-1), id(-1), attr(" "){}
+
+query_Node:: Query_Node(int x, int y, str z):node_type(x), id(y), attr(z){}
+
+/**
+ * @Description: operator == for path checking
+ * @param: HIN_Node
+ * @return: bool
+ */
+bool Query_Node::operator == (HIN_Node& n){
+    if(this->node_type != n.node_type) return false;
+    if( id!= -1 ) return
 }
+

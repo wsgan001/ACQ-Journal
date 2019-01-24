@@ -11,10 +11,8 @@ add_executable(HCC main.cpp
 #        util/DBLP/dataProcess.h
 #        util/Tool.cpp
 #        util/Tool.h
-#        algo/SimCalculator.h
-#        algo/SimCalculator.cpp
-#        algo/QueryPath.h
-#        algo/QueryPath.cpp
+        algo/SimCalculator.h
+        algo/SimCalculator.cpp
         algo/HIN_Graph.h
         algo/HIN_Graph.cpp
         dataReader/DataReader.h

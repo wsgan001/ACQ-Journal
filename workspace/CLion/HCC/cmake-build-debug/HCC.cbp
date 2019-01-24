@@ -92,6 +92,12 @@
 		<Unit filename="/Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/HIN_Graph.h">
 			<Option target="HCC"/>
 		</Unit>
+		<Unit filename="/Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/SimCalculator.cpp">
+			<Option target="HCC"/>
+		</Unit>
+		<Unit filename="/Users/chenyankai/gitRepository/workspace/CLion/HCC/algo/SimCalculator.h">
+			<Option target="HCC"/>
+		</Unit>
 		<Unit filename="/Users/chenyankai/gitRepository/workspace/CLion/HCC/dataReader/DataReader.cpp">
 			<Option target="HCC"/>
 		</Unit>

@@ -150,6 +150,33 @@ algo/HIN_Graph.cpp.s:
 	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.s
 .PHONY : algo/HIN_Graph.cpp.s
 
+algo/SimCalculator.o: algo/SimCalculator.cpp.o
+
+.PHONY : algo/SimCalculator.o
+
+# target to build an object file
+algo/SimCalculator.cpp.o:
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o
+.PHONY : algo/SimCalculator.cpp.o
+
+algo/SimCalculator.i: algo/SimCalculator.cpp.i
+
+.PHONY : algo/SimCalculator.i
+
+# target to preprocess a source file
+algo/SimCalculator.cpp.i:
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/SimCalculator.cpp.i
+.PHONY : algo/SimCalculator.cpp.i
+
+algo/SimCalculator.s: algo/SimCalculator.cpp.s
+
+.PHONY : algo/SimCalculator.s
+
+# target to generate assembly for a file
+algo/SimCalculator.cpp.s:
+	$(MAKE) -f CMakeFiles/HCC.dir/build.make CMakeFiles/HCC.dir/algo/SimCalculator.cpp.s
+.PHONY : algo/SimCalculator.cpp.s
+
 dataReader/DataReader.o: dataReader/DataReader.cpp.o
 
 .PHONY : dataReader/DataReader.o
@@ -216,6 +243,9 @@ help:
 	@echo "... algo/HIN_Graph.o"
 	@echo "... algo/HIN_Graph.i"
 	@echo "... algo/HIN_Graph.s"
+	@echo "... algo/SimCalculator.o"
+	@echo "... algo/SimCalculator.i"
+	@echo "... algo/SimCalculator.s"
 	@echo "... dataReader/DataReader.o"
 	@echo "... dataReader/DataReader.i"
 	@echo "... dataReader/DataReader.s"

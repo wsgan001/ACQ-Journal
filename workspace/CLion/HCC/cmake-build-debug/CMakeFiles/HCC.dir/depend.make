@@ -4,6 +4,10 @@
 CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o: ../algo/HIN_Graph.cpp
 CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o: ../algo/HIN_Graph.h
 
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o: ../algo/HIN_Graph.h
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o: ../algo/SimCalculator.cpp
+CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o: ../algo/SimCalculator.h
+
 CMakeFiles/HCC.dir/dataReader/DataReader.cpp.o: ../dataReader/DataReader.cpp
 CMakeFiles/HCC.dir/dataReader/DataReader.cpp.o: ../dataReader/DataReader.h
 

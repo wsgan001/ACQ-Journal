@@ -5,13 +5,13 @@
 #ifndef HCC_SIMCALCULATOR_H
 #define HCC_SIMCALCULATOR_H
 
-#include "QueryPath.h"
+#include "HIN_Graph.h"
 
 using namespace std;
 
 class simCalculator{
 public:
-    static double pathCount();
+    static double pathCount(HIN_Graph& hin_graph, Query_Path& q_path);
     static double PathSim();
     static void PCRW();
 };

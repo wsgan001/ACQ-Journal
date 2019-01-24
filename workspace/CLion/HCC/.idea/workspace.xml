@@ -11,7 +11,115 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="603c6798-5773-4039-ae51-3f56306e11f7" name="Default" comment="" />
+    <list default="true" id="603c6798-5773-4039-ae51-3f56306e11f7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+      <change beforePath="$PROJECT_DIR$/algo/HIN_Graph.cpp" afterPath="$PROJECT_DIR$/algo/HIN_Graph.cpp" />
+      <change beforePath="$PROJECT_DIR$/algo/HIN_Graph.h" afterPath="$PROJECT_DIR$/algo/HIN_Graph.h" />
+      <change beforePath="$PROJECT_DIR$/algo/QueryPath.cpp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/algo/QueryPath.h" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/algo/SimCalculator.cpp" afterPath="$PROJECT_DIR$/algo/SimCalculator.cpp" />
+      <change beforePath="$PROJECT_DIR$/algo/SimCalculator.h" afterPath="$PROJECT_DIR$/algo/SimCalculator.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/DependInfo.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/algo/QueryPath.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/build.make" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/cmake_clean.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/cmake_clean.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/dataReader/DataReader.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/dataReader/DataReader.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/link.txt" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/main.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/main.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/progress.make" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/util/DBLP/dataProcess.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/util/Extract.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HCC.dir/util/tool.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/HCC" afterPath="$PROJECT_DIR$/cmake-build-debug/HCC" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/HCC.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/HCC.cbp" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
+      <change beforePath="$PROJECT_DIR$/dataReader/DataReader.cpp" afterPath="$PROJECT_DIR$/dataReader/DataReader.cpp" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.log" afterPath="$PROJECT_DIR$/../../Eclipse/.metadata/.log" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/1/700d92bd39e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/20/b0b6d1e43ee6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/26/a08eecde2ae6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/2d/e0f17fb739e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/2e/10121b7a40e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/31/1020509136e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/38/30e0286833e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/3b/00669b5a3ce6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/3b/5022e8e638e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/3e/201868ff34e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/40/f047a1e42ae6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/43/c05155e938e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/50/e016222a41e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/54/40ae50543ce6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/5d/20367f1837e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/5e/0019b7c02ae6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/5e/c039579039e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/64/c087bc8f36e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/67/7067391135e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/68/3080942335e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/69/f0e7b9af3de6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/6e/e0ffc7572ae6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/7/901a020938e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/7/e071060b3fe6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/70/d02c5dce38e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/75/9016d55639e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/7b/508fbe7f2ae6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/8/302a601e24e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/87/0016012133e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/87/c02d19e23be6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/89/00c5d25235e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/8e/a0b75e7b2ae6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/9/30ff6fba34e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/93/6069e00c3ce6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/93/c0a55c3c35e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/95/00b1ae1537e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/95/d042733037e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/9f/a0a8e0193ce6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/a/906a952335e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/a1/109273ee25e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/a7/3040738840e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/ac/003863e733e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/ac/109184ca39e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/af/80cad30141e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/b7/00a6b6c039e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/b8/103222a138e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/b8/d09256613ce6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/bb/7005fb713de6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/bc/50b057702ae6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/be/e003068c40e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/bf/b029bedb38e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/c0/80a7969837e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/cf/e064daa82ae6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/d0/30236df834e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/da/0056381135e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/da/b0688ec238e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/de/e09ebedb38e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/e0/c03d71d738e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/e1/20e8680937e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/ec/0032872c2be6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/ec/c0d092bd39e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/ee/d096849337e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/f/80776d083fe6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/f2/7042048a2ae6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/f2/a03d2acf34e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.history/f8/60082dc538e6001815d28d616ed0d78e" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.projects/HC/.indexes/e4/6f/3a/dc/history.index" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.projects/HC/.indexes/e4/fd/7d/history.index" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.projects/HC/.indexes/e4/fd/history.index" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.root/290.tree" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterPath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterPath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/server-config.json" afterPath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/server-config.json" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" afterPath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" afterPath="$PROJECT_DIR$/../../Eclipse/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" />
+      <change beforePath="$PROJECT_DIR$/../../Eclipse/.metadata/version.ini" afterPath="$PROJECT_DIR$/../../Eclipse/.metadata/version.ini" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,18 +134,38 @@
       <file leaf-file-name="DataReader.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataReader/DataReader.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="289">
               <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataReader.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataReader/DataReader.cpp">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+            <state relative-caret-position="238">
+              <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimCalculator.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/algo/SimCalculator.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimCalculator.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/algo/SimCalculator.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -46,8 +174,8 @@
       <file leaf-file-name="HIN_Graph.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="129">
+              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -56,8 +184,8 @@
       <file leaf-file-name="HIN_Graph.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="81" column="11" lean-forward="false" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
+            <state relative-caret-position="464">
+              <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -66,18 +194,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QueryPath.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/algo/QueryPath.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+            <state relative-caret-position="153">
+              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -89,6 +207,12 @@
     <findStrings>
       <find>string</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/algo/SimCalculator.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -102,14 +226,15 @@
         <option value="$PROJECT_DIR$/util/DBLP/dataProcess.cpp" />
         <option value="$PROJECT_DIR$/algo/QueryPath.h" />
         <option value="$PROJECT_DIR$/algo/QueryPath.cpp" />
-        <option value="$PROJECT_DIR$/algo/SimCalculator.h" />
-        <option value="$PROJECT_DIR$/algo/SimCalculator.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/dataReader/DataReader.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/dataReader/DataReader.cpp" />
-        <option value="$PROJECT_DIR$/algo/HIN_Graph.cpp" />
+        <option value="$APPLICATION_CONFIG_DIR$/clion.vmoptions" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/algo/SimCalculator.h" />
+        <option value="$PROJECT_DIR$/algo/SimCalculator.cpp" />
         <option value="$PROJECT_DIR$/algo/HIN_Graph.h" />
+        <option value="$PROJECT_DIR$/algo/HIN_Graph.cpp" />
       </list>
     </option>
   </component>
@@ -121,7 +246,7 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="25" />
+    <option name="x" value="116" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="969" />
@@ -133,20 +258,17 @@
           <State>
             <id />
           </State>
-          <State>
-            <id>C/C++</id>
-          </State>
-          <State>
-            <id>GeneralC/C++</id>
-          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>ClangTidyInspection</id>
+            <id>C/C++</id>
           </State>
         </selected-state>
       </profile-state>
     </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -187,9 +309,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -238,34 +360,49 @@
       <workItem from="1547879029456" duration="10667000" />
       <workItem from="1548047403464" duration="9793000" />
       <workItem from="1548128979810" duration="17048000" />
-      <workItem from="1548222889776" duration="384000" />
+      <workItem from="1548222889776" duration="1046000" />
+      <workItem from="1548229103543" duration="314000" />
+      <workItem from="1548229474309" duration="132000" />
+      <workItem from="1548229656151" duration="159000" />
+      <workItem from="1548229851145" duration="3482000" />
+      <workItem from="1548233989031" duration="329000" />
+      <workItem from="1548235800491" duration="940000" />
+      <workItem from="1548246270757" duration="404000" />
+      <workItem from="1548296657352" duration="102000" />
+      <workItem from="1548296821117" duration="381000" />
+      <workItem from="1548297245523" duration="402000" />
+      <workItem from="1548297714120" duration="445000" />
+      <workItem from="1548298255502" duration="220000" />
+      <workItem from="1548299875604" duration="6930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40125000" />
+    <option name="totallyTimeSpent" value="55027000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="25" y="23" width="1400" height="969" extended-state="0" />
+    <frame x="116" y="23" width="1400" height="969" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24945612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14793329" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16098708" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2573443" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24559341" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -276,159 +413,71 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="4" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/dataReader/DataReader.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataReader/DataReader.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+        <state relative-caret-position="221">
+          <caret line="13" column="66" lean-forward="false" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" column="11" lean-forward="true" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/QueryPath.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/QueryPath.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/SimCalculator.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/SimCalculator.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/QueryPath.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataReader/DataReader.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/DBLP/dataProcess.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/Tool.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/Tool.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/DBLP/dataProcess.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algo/SimCalculator.h">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algo/SimCalculator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="23" lean-forward="false" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="5" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/Extract.cpp">
+    <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="850">
+          <caret line="50" column="17" lean-forward="true" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -474,32 +523,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/QueryPath.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/algo/QueryPath.cpp" />
+    <entry file="file://$PROJECT_DIR$/algo/QueryPath.h" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/clion.vmoptions" />
     <entry file="file://$PROJECT_DIR$/dataReader/DataReader.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+        <state relative-caret-position="221">
+          <caret line="13" column="66" lean-forward="false" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/algo/SimCalculator.h">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+        <state relative-caret-position="238">
+          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -507,45 +546,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataReader/DataReader.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" column="11" lean-forward="false" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state relative-caret-position="153">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/algo/QueryPath.cpp">
+    <entry file="file://$PROJECT_DIR$/dataReader/DataReader.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+        <state relative-caret-position="289">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algo/SimCalculator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/algo/HIN_Graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="129">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>

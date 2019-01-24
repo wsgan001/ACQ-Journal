@@ -13,7 +13,6 @@ using namespace std;
 //
 // ---------------------------------------------------------------
 
-
 /**
  * @Description: To read adjacency edges from file
  * @param: string:filePath;      map<int, vector<Edge> >& :adjacency content

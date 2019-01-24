@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/HCC.dir/main.cpp.o"
+  "CMakeFiles/HCC.dir/algo/SimCalculator.cpp.o"
   "CMakeFiles/HCC.dir/algo/HIN_Graph.cpp.o"
   "CMakeFiles/HCC.dir/dataReader/DataReader.cpp.o"
   "HCC.pdb"

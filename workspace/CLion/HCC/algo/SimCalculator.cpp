@@ -4,7 +4,10 @@
 #include "SimCalculator.h"
 
 
-double simCalculator::pathCount() {
+double simCalculator::pathCount(HIN_Graph& hin_graph, Query_Path& q_path) {
+
+
+
 
 
 }

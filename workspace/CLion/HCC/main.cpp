@@ -20,7 +20,9 @@ int main(){
     dataReader::readNodeID2Type(nodeID2TypeFile, nodeID_to_type);
     dataReader::readEdgeName(edgeNameFile, edge_name);
 
-//    dataReader::printADJ(adj);
+    dataReader::printADJ(adj);
+
+
 //    dataReader::printNodeID2Type(nodeID_to_type);
 //    dataReader::printEdgeName(edge_name);
 };
